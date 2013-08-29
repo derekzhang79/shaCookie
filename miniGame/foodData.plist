@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>Name</key>
+		<string>牛肉</string>
+		<key>Type</key>
+		<string>肉類</string>
+		<key>Amount</key>
+		<integer>1</integer>
+		<key>Unit</key>
+		<string>斤</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>紅豆</string>
+		<key>Type</key>
+		<string>豆類</string>
+		<key>Amount</key>
+		<integer>2</integer>
+		<key>Unit</key>
+		<string>克</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>魚肉</string>
+		<key>Type</key>
+		<string>魚類</string>
+		<key>Amount</key>
+		<integer>3</integer>
+		<key>Unit</key>
+		<string>隻</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>雞蛋</string>
+		<key>Type</key>
+		<string>蛋類</string>
+		<key>Amount</key>
+		<integer>4</integer>
+		<key>Unit</key>
+		<string>顆</string>
+	</dict>
+	<dict>
+		<key>Name</key>
+		<string>菠菜</string>
+		<key>Type</key>
+		<string>菜類</string>
+		<key>Amount</key>
+		<integer>5</integer>
+		<key>Unit</key>
+		<string>把</string>
+	</dict>
+</array>
+</plist>
