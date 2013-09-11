@@ -44,7 +44,6 @@
 }
 
 -(void)buttonClicked:(id)sender{
-    NSLog(@"click");
      mainTabViewController *mainTabBar=[[mainTabViewController alloc] initWithNibName:@"mainTabViewController" bundle:nil];
     
     [self.navigationController pushViewController:mainTabBar animated:YES];
