@@ -260,6 +260,7 @@
 		02A9171B170207BC00F2E55F /* miniGame */ = {
 			isa = PBXGroup;
 			children = (
+				4984C50A17DF140400EDE6B1 /* images */,
 				02A91724170207BC00F2E55F /* AppDelegate.h */,
 				02A91725170207BC00F2E55F /* AppDelegate.m */,
 				4984C51C17DF17D300EDE6B1 /* logical */,
@@ -479,7 +480,6 @@
 				4984C50E17DF156800EDE6B1 /* WebJsonDataGetter */,
 				4984C50D17DF153B00EDE6B1 /* Person */,
 				4984C50C17DF14DE00EDE6B1 /* RecipeInfo */,
-				4984C50A17DF140400EDE6B1 /* images */,
 			);
 			name = logical;
 			sourceTree = "<group>";
