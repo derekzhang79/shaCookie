@@ -7,7 +7,6 @@
 //
 
 #import "WebJsonDataGetter.h"
-//import "JSON.h"
 #import "JSONKit.h"
 @implementation WebJsonDataGetter
 -(id)init{
