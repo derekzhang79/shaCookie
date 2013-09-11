@@ -7,8 +7,8 @@
 //
 
 #import "WebJsonDataGetter.h"
-#import "JSON.h"
-//#import "JSONKit.h"
+//import "JSON.h"
+#import "JSONKit.h"
 @implementation WebJsonDataGetter
 -(id)init{
     self=[super init];
@@ -29,11 +29,7 @@
 
 -(void)requestFinished:(ASIHTTPRequest *)request{
     NSString *jsonStr=[[NSString alloc]initWithData:request.responseData encoding:NSUTF8StringEncoding];
-    
-    SBJsonParser *jsonStrParser=[[SBJsonParser alloc]init];
-    //self.dictionary_nmlData=[jsonStrParser objectWithString:jsonStr error:nil];
-    //    NSLog(@"%@",[jsonStrParser objectWithString:jsonStr error:nil]);
-    self.webData=[jsonStrParser objectWithString:jsonStr error:nil];
+    self.webData=[jsonStr objectFromJSONString];
     [self.delegate  doThingAfterWebJsonIsOKFromDelegate];
 }
 
