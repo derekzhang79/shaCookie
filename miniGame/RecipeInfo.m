@@ -8,7 +8,7 @@
 
 #import "RecipeInfo.h"
 #import <CoreLocation/CoreLocation.h>
-#import "JSON.h"
+#import "JSONKit.h"
 @interface RecipeInfo ()
 
 @end
@@ -42,8 +42,7 @@
 -(void)requestFinished:(ASIHTTPRequest *)request{
     NSString *jsonStr=[[NSString alloc]initWithData:request.responseData encoding:NSUTF8StringEncoding];
     
-    SBJsonParser *jsonStrParser=[[SBJsonParser alloc]init];
-    self.dictionary_nmlData=[jsonStrParser objectWithString:jsonStr error:nil];
+    self.dictionary_nmlData=[jsonStr objectFromJSONString];
     [self.delegate doThingAfterRecipeInfoIsOkFromDelegate];
     
 }
