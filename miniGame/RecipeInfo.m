@@ -8,7 +8,6 @@
 #import "JSONKit.h"
 #import "RecipeInfo.h"
 #import <CoreLocation/CoreLocation.h>
-
 @interface RecipeInfo ()
 
 @end
