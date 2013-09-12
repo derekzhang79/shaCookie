@@ -7,7 +7,6 @@
 //
 
 #import "entryViewController.h"
-#import "mainTabViewController.h"
 
 @interface entryViewController ()
 
@@ -44,10 +43,10 @@
 }
 
 -(void)buttonClicked:(id)sender{
-    NSLog(@"click");
-     mainTabViewController *mainTabBar=[[mainTabViewController alloc] initWithNibName:@"mainTabViewController" bundle:nil];
-    
-    [self.navigationController pushViewController:mainTabBar animated:YES];
+//    NSLog(@"click");
+//     mainTabViewController *mainTabBar=[[mainTabViewController alloc] initWithNibName:@"mainTabViewController" bundle:nil];
+//    
+//    [self.navigationController pushViewController:mainTabBar animated:YES];
 }
 
 - (void)didReceiveMemoryWarning

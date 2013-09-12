@@ -5,25 +5,62 @@
 //  Created by 趴特萬 on 13/3/27.
 //
 //
-
+#import "MFSideMenu.h"
 #import "AppDelegate.h"
-
-#import "mainTabViewController.h"
-#import "entryViewController.h"
-
+#import "SideMenuViewController.h"
+#import "refViewController.h"
+#import "menuViewController.h"
+#import "ViewController.h"
 @implementation AppDelegate
+-(UINavigationController *)friendsView{
+    ViewController *newAdd=[[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
+    UINavigationController *newAddView=[[UINavigationController alloc]initWithRootViewController:newAdd];
+    [newAdd setTitle:@"addFriend" ];
+    return newAddView;
+}
+
+-(UINavigationController *)recipesView{
+    refViewController *refrigerator=[[refViewController alloc]initWithNibName:@"refViewController" bundle:nil];
+    UINavigationController *refrigeratorView=[[UINavigationController alloc]initWithRootViewController:refrigerator];
+    [refrigerator setTitle:@"Recipes" ];
+    return refrigeratorView;
+}
+
+-(UINavigationController *)refrigeratorView{
+    menuViewController *main=[[menuViewController alloc]initWithNibName:@"menuViewController" bundle:nil];
+    UINavigationController *mainView=[[UINavigationController alloc]initWithRootViewController:main];
+    [main setTitle:@"refrigerator" ];
+    return mainView;
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-//    mainTabViewController *mainTabBar=[[mainTabViewController alloc] initWithNibName:@"mainTabViewController" bundle:nil];
-    entryViewController *entry=[[entryViewController alloc]initWithNibName:@"entryViewController"bundle:nil];
-     UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:entry];
-//    UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:mainTabBar];
-    self.window.rootViewController = nav;
+    
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    [tabBarController setViewControllers:[NSArray arrayWithObjects:[self recipesView],[self refrigeratorView],[self friendsView],nil]];
+    
+    SideMenuViewController *leftSideMenuController = [[SideMenuViewController alloc] init];
+    SideMenuViewController *rightSideMenuController = [[SideMenuViewController alloc] init];
+    MFSideMenuContainerViewController *container = [MFSideMenuContainerViewController
+                                                    containerWithCenterViewController:tabBarController
+                                                    leftMenuViewController:leftSideMenuController
+                                                    rightMenuViewController:rightSideMenuController];
+    
+    self.window.rootViewController = container;
     [self.window makeKeyAndVisible];
+    
     return YES;
+    
+
+    
+//一評版
+//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+//    entryViewController *entry=[[entryViewController alloc]initWithNibName:@"entryViewController"bundle:nil];
+//     UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:entry];
+//    self.window.rootViewController = nav;
+//    [self.window makeKeyAndVisible];
+//    return YES;
     
 
 }
