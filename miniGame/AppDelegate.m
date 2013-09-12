@@ -7,7 +7,6 @@
 //
 
 #import "AppDelegate.h"
-
 #import "mainTabViewController.h"
 #import "entryViewController.h"
 
