@@ -38,7 +38,7 @@
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    [tabBarController setViewControllers:[NSArray arrayWithObjects:[self recipesView],[self refrigeratorView],[self friendsView],nil]];
+    [tabBarController setViewControllers:[NSArray arrayWithObjects:[self refrigeratorView],[self recipesView],[self friendsView],nil]];
     
     SideMenuViewController *leftSideMenuController = [[SideMenuViewController alloc] init];
     SideMenuViewController *rightSideMenuController = [[SideMenuViewController alloc] init];

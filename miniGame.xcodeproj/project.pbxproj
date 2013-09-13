@@ -66,6 +66,10 @@
 		491AE842175FAF3D00E4121C /* entryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491AE840175FAF3D00E4121C /* entryViewController.xib */; };
 		491AE849175FB7FB00E4121C /* materialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 491AE847175FB7F900E4121C /* materialViewController.m */; };
 		491AE84A175FB7FB00E4121C /* materialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491AE848175FB7FA00E4121C /* materialViewController.xib */; };
+		4927D89A17E33FEE000DDEBF /* matchMaterialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4927D89817E33FEE000DDEBF /* matchMaterialViewController.m */; };
+		4927D89B17E33FEE000DDEBF /* matchMaterialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4927D89917E33FEE000DDEBF /* matchMaterialViewController.xib */; };
+		4927D8A017E34AC0000DDEBF /* moveFinishViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4927D89D17E34AC0000DDEBF /* moveFinishViewController.m */; };
+		4927D8A117E34AC0000DDEBF /* moveFinishViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4927D89F17E34AC0000DDEBF /* moveFinishViewController.xib */; };
 		49A090D617E22E5E00B19E8C /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49A090D517E22E5E00B19E8C /* SideMenuViewController.m */; };
 		49A090DC17E22F7900B19E8C /* back-arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A090D817E22F7900B19E8C /* back-arrow.png */; };
 		49A090DD17E22F7900B19E8C /* back-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A090D917E22F7900B19E8C /* back-arrow@2x.png */; };
@@ -161,6 +165,13 @@
 		491AE846175FB7F900E4121C /* materialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = materialViewController.h; sourceTree = "<group>"; };
 		491AE847175FB7F900E4121C /* materialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = materialViewController.m; sourceTree = "<group>"; };
 		491AE848175FB7FA00E4121C /* materialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = materialViewController.xib; sourceTree = "<group>"; };
+		4927D89717E33FEE000DDEBF /* matchMaterialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = matchMaterialViewController.h; sourceTree = "<group>"; };
+		4927D89817E33FEE000DDEBF /* matchMaterialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = matchMaterialViewController.m; sourceTree = "<group>"; };
+		4927D89917E33FEE000DDEBF /* matchMaterialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = matchMaterialViewController.xib; sourceTree = "<group>"; };
+		4927D89D17E34AC0000DDEBF /* moveFinishViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = moveFinishViewController.m; sourceTree = "<group>"; };
+		4927D89E17E34AC0000DDEBF /* moveFinishViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = moveFinishViewController.h; sourceTree = "<group>"; };
+		4927D89F17E34AC0000DDEBF /* moveFinishViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = moveFinishViewController.xib; sourceTree = "<group>"; };
+		4940D55B17E33EDC00939995 /* GetJsonURLString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetJsonURLString.h; sourceTree = "<group>"; };
 		49A090D417E22E5E00B19E8C /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
 		49A090D517E22E5E00B19E8C /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
 		49A090D817E22F7900B19E8C /* back-arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow.png"; sourceTree = "<group>"; };
@@ -292,6 +303,26 @@
 				02A9172B170207BC00F2E55F /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4927D89617E33FCF000DDEBF /* matchMaterialView */ = {
+			isa = PBXGroup;
+			children = (
+				4927D89717E33FEE000DDEBF /* matchMaterialViewController.h */,
+				4927D89817E33FEE000DDEBF /* matchMaterialViewController.m */,
+				4927D89917E33FEE000DDEBF /* matchMaterialViewController.xib */,
+			);
+			name = matchMaterialView;
+			sourceTree = "<group>";
+		};
+		4927D89C17E34AAB000DDEBF /* moveFinishView */ = {
+			isa = PBXGroup;
+			children = (
+				4927D89D17E34AC0000DDEBF /* moveFinishViewController.m */,
+				4927D89E17E34AC0000DDEBF /* moveFinishViewController.h */,
+				4927D89F17E34AC0000DDEBF /* moveFinishViewController.xib */,
+			);
+			name = moveFinishView;
 			sourceTree = "<group>";
 		};
 		4934431F17E0D95300237BAF /* FriendView */ = {
@@ -460,6 +491,8 @@
 		4984C51B17DF177400EDE6B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4927D89C17E34AAB000DDEBF /* moveFinishView */,
+				4927D89617E33FCF000DDEBF /* matchMaterialView */,
 				49A090D717E22E6800B19E8C /* SideMenuView */,
 				4934431F17E0D95300237BAF /* FriendView */,
 				4984C51A17DF175400EDE6B1 /* entryView */,
@@ -475,6 +508,7 @@
 		4984C51C17DF17D300EDE6B1 /* logical */ = {
 			isa = PBXGroup;
 			children = (
+				4940D55B17E33EDC00939995 /* GetJsonURLString.h */,
 				02A68B3117035F5F00B34828 /* WebList.h */,
 				4984C51917DF174300EDE6B1 /* UploadRecipe */,
 				4984C51517DF16D500EDE6B1 /* PlsitRead */,
@@ -586,6 +620,8 @@
 				49A090DD17E22F7900B19E8C /* back-arrow@2x.png in Resources */,
 				49A090DE17E22F7900B19E8C /* menu-icon.png in Resources */,
 				49A090DF17E22F7900B19E8C /* menu-icon@2x.png in Resources */,
+				4927D89B17E33FEE000DDEBF /* matchMaterialViewController.xib in Resources */,
+				4927D8A117E34AC0000DDEBF /* moveFinishViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -644,6 +680,8 @@
 				491AE841175FAF3D00E4121C /* entryViewController.m in Sources */,
 				491AE849175FB7FB00E4121C /* materialViewController.m in Sources */,
 				49A090D617E22E5E00B19E8C /* SideMenuViewController.m in Sources */,
+				4927D89A17E33FEE000DDEBF /* matchMaterialViewController.m in Sources */,
+				4927D8A017E34AC0000DDEBF /* moveFinishViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

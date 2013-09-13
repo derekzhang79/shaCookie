@@ -8,8 +8,10 @@
 #import "MFSideMenu.h"
 #import "refViewController.h"
 #import "CVCell.h"
-#import "PlsitRead.h"
+#import "ASIHTTPRequest.h"
+#import "RecipeInfo.h"
 #import "materialViewController.h"
+#import "GetJsonURLString.h"
 @interface refViewController ()
 
 @end
@@ -27,14 +29,12 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    PlsitRead *readPlist=[[PlsitRead alloc] initWithFileName:@"Property List.plist"];
-    array_Refrigerator=[readPlist readFromFile];
-    origin_Refrigerator = array_Refrigerator;
+    myRecipe=[[RecipeInfo alloc]initWithURLString:GetJsonURLString_Recipe];
+    [myRecipe setDelegate:self];
     
     // Create data for collection views
-    self.dataArray = [[NSArray alloc] initWithArray:origin_Refrigerator];
-    NSLog(@"count %d",[self.dataArray count]);
+    self.dataArray = [[NSArray alloc] initWithArray:myRecipe.dictionary_nmlData];
+    // NSLog(@"count %d",[self.dataArray count]);
     /* uncomment this block to use subclassed cells*/
     [self.collectionView registerClass:[CVCell class] forCellWithReuseIdentifier:@"cvCell"];
     /* end of subclass-based cells block */
@@ -61,6 +61,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)doThingAfterRecipeInfoIsOkFromDelegate{
+    self.dataArray = [[NSArray alloc] initWithArray:myRecipe.dictionary_nmlData];
+    NSLog(@"%@",self.dataArray);
+    [self.collectionView reloadData];
+}
+
 #pragma mark -
 #pragma mark - setup CollectionView
 -(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -80,11 +86,13 @@
     static NSString *cellIdentifier = @"cvCell";
     //抓陣列的值
     CVCell *cell = (CVCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.image_recipe.image=[UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[[array_Refrigerator objectAtIndex:indexPath.section] objectForKey:@"菜名"]]];
+    cell.image_recipe.image=[UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[[myRecipe.dictionary_nmlData objectAtIndex:indexPath.section]objectForKey:@"name"]]];
+    //cell.image_recipe.image=[UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[[array_Refrigerator objectAtIndex:indexPath.section] objectForKey:@"菜名"]]];
     if (!cell.image_recipe.image) {
         cell.image_recipe.image=[UIImage imageNamed:@"Cell 0.jpg"];
     }
-    cell.titleLabel.text=[[array_Refrigerator objectAtIndex:indexPath.section] objectForKey:@"菜名"];
+    cell.titleLabel.text=[[myRecipe.dictionary_nmlData objectAtIndex:indexPath.section]objectForKey:@"name"];
+    //cell.titleLabel.text=[[array_Refrigerator objectAtIndex:indexPath.section] objectForKey:@"菜名"];
     return cell;
     
 }

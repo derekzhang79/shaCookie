@@ -5,10 +5,11 @@
 //  Created by 趴特萬 on 13/5/22.
 //
 //
-
 #import "materialViewController.h"
 #import "Recipes.h"
-
+#import "RecipeInfo.h"
+#import "ASIHTTPRequest.h"
+#import "GetJsonURLString.h"
 @interface materialViewController ()
 
 @end
@@ -28,10 +29,14 @@ BOOL isRunning = NO;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    //TODO: 討論資料形態
+    myRecipe=[[RecipeInfo alloc]initWithURLString:GetJsonURLString_Recipe];
+    [myRecipe setDelegate:self];
+    
     _lastTime = CountDownTime;
     //寫死的Recipes *re=[[Recipes alloc] initWithIndex:0];
     //Recipes *re1=[[Recipes alloc] initWithIndex:1];
-    self.label_Name.text=self.rec.name;
+    self.label_Name.text=[self.dic_Cook objectForKey:@"name"];
     //self.name.text=re.name;
     //NSLog(@"%@",self.dic_Cook);
     //NSLog(@"%@",re.name);
@@ -62,14 +67,21 @@ BOOL isRunning = NO;
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return 1;
 }
+
+
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
     if(tableView.tag==0){
-        return [self.rec.material count];//count是代表數量的判斷像是材料有多項跟做法的多個步驟
+        return 1;//count是代表數量的判斷像是材料有多項跟做法的多個步驟
     }else if(tableView.tag==1){
-        return [self.rec.practice count];
+        return 1;
     }else
+        
         return 0;
-}//使用tag辨別tableView的材料與做法
+}
+
+
+//使用tag辨別tableView的材料與做法
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     static NSString *CellIdentifier = @"Cell";
     
@@ -77,39 +89,43 @@ BOOL isRunning = NO;
     cell=(cell==nil)?[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier]:cell;
     if (tableView.tag==0) {
         
-        cell.textLabel.text=[[self.rec.material objectAtIndex:indexPath.row]objectForKey:@"食材" ];
-        cell.detailTextLabel.text=[[self.rec.material objectAtIndex:indexPath.row]objectForKey:@"用量"];
+        cell.textLabel.text=[self.dic_Cook objectForKey:@"Food"];
     }else if(tableView.tag==1){
-        cell.textLabel.text=[self.rec.practice objectAtIndex:indexPath.row];
-        // NSLog(@"%@",self.rec.practice);
+        cell.textLabel.text=[self.dic_Cook objectForKey:@"Step"];
+        NSLog(@"%@",[self.dic_Cook objectForKey:@"Step"]);
     }//tag0代表的是用料但是用料裡面還是dic格式所以需要objectForKey來辨別食材跟用量而tag1的表單代表的是做法為string格式所以不需要辨識
     return cell;
 }
+
+-(void)doThingAfterRecipeInfoIsOkFromDelegate{
+    
+}
+
 - (IBAction)time_out:(UIButton *)sender {
     
     
-        if (isRunning == NO) {
-            
-            isRunning = YES;
-            
-            [self init_timer];
-            
-            //[timestart setTitle:@"暫停" forState:UIControlStateNormal];
-            
-        }
-        else {
-            
-            isRunning = NO;
-            
-            _lastTime = _nowTime;
-            
-            [_timer invalidate];
-            
-            _timer = nil;
-            
-        }
+    if (isRunning == NO) {
+        
+        isRunning = YES;
+        
+        [self init_timer];
+        
+        //[timestart setTitle:@"暫停" forState:UIControlStateNormal];
+        
+    }
+    else {
+        
+        isRunning = NO;
+        
+        _lastTime = _nowTime;
+        
+        [_timer invalidate];
+        
+        _timer = nil;
+        
+    }
     
-
+    
     
     
 }
@@ -157,4 +173,5 @@ BOOL isRunning = NO;
     
 }
 @end
+
 
