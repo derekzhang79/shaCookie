@@ -294,14 +294,14 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		4934431F17E0D95300237BAF /* addFriendView */ = {
+		4934431F17E0D95300237BAF /* FriendView */ = {
 			isa = PBXGroup;
 			children = (
 				02A9172D170207BC00F2E55F /* ViewController.h */,
 				02A9172E170207BC00F2E55F /* ViewController.m */,
 				02A91730170207BC00F2E55F /* ViewController.xib */,
 			);
-			name = addFriendView;
+			name = FriendView;
 			sourceTree = "<group>";
 		};
 		4984C50A17DF140400EDE6B1 /* images */ = {
@@ -461,7 +461,7 @@
 			isa = PBXGroup;
 			children = (
 				49A090D717E22E6800B19E8C /* SideMenuView */,
-				4934431F17E0D95300237BAF /* addFriendView */,
+				4934431F17E0D95300237BAF /* FriendView */,
 				4984C51A17DF175400EDE6B1 /* entryView */,
 				4984C51817DF173000EDE6B1 /* foodDetailView */,
 				4984C51717DF16FF00EDE6B1 /* menuView */,
