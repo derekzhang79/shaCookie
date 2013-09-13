@@ -87,10 +87,7 @@
 						<int key="NSvFlags">292</int>
 						<string key="NSFrame">{{286, 433}, {29, 31}}</string>
 						<reference key="NSSuperview" ref="774585933"/>
-<<<<<<< HEAD
 						<reference key="NSWindow"/>
-=======
->>>>>>> feature/bird1204
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
 						<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
