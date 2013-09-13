@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface menuViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UITabBarControllerDelegate>{
     NSArray *array_Food;
     NSArray *origin_Food;
+    NSMutableDictionary *mutableDictionary_SelectedFood;
 }
 
 @property (strong, nonatomic) IBOutlet UITableView *tableView_Food;
