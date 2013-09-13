@@ -10,13 +10,8 @@
 
 @class menuViewController;
 
-
-
-
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
-
 @property (strong, nonatomic) UIWindow *window;
-
 @property (strong, nonatomic) menuViewController *viewController;
 
 @end
