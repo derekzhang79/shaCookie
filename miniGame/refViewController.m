@@ -102,12 +102,12 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     materialViewController*Cookview=[[materialViewController alloc]initWithNibName:@"materialViewController" bundle:nil ];
-    Cookview.rec=[[Recipes alloc] initWithIndex:indexPath.row];
-    Cookview.dic_Cook=[array_Refrigerator objectAtIndex:indexPath.row];
+    //Cookview.rec=[[Recipes alloc] initWithIndex:indexPath.section];
+    Cookview.dic_Cook=[myRecipe.dictionary_nmlData objectAtIndex:indexPath.section];
     [Cookview setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     
     [self.navigationController pushViewController:Cookview animated:YES];//navigation連結頁面
-    
+
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
