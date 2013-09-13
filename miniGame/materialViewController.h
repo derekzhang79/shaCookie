@@ -7,13 +7,8 @@
 //
 #import <UIKit/UIKit.h>
 #import "Recipes.h"
-#import "RecipeInfo.h"
-#import "ASIHTTPRequest.h"
 
-@interface materialViewController : UIViewController<RecipeInFoDelegate>{
-    RecipeInfo *myRecipe;
-    ASIHTTPRequest *asiRequest;
-}
+@interface materialViewController : UIViewController
 @property (strong, nonatomic) IBOutlet UILabel *label_Name;
 - (IBAction)time_out:(UIButton *)sender;
 @property (strong, nonatomic) IBOutlet UILabel *time;
