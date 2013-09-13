@@ -27,6 +27,13 @@
     UIBarButtonItem *btn_needSearch=[[UIBarButtonItem alloc] initWithTitle:@"search" style:UIBarButtonItemStylePlain target:self action:@selector(searchBarAppear:)];
     [self.navigationItem setRightBarButtonItem:btn_needSearch];
 	// Do any additional setup after loading the view, typically from a nib.
+    motionManager = [[CMMotionManager alloc] init];
+    
+    UIDevice *device=[UIDevice currentDevice];
+    [device beginGeneratingDeviceOrientationNotifications];
+    UIDeviceOrientation orientation=device.orientation;
+    NSLog(@"%d",orientation);
+    [device endGeneratingDeviceOrientationNotifications];
 }
 
 - (void)didReceiveMemoryWarning
@@ -113,7 +120,6 @@
     UIBarButtonItem *btn=[[UIBarButtonItem alloc] initWithTitle:@"done" style:UIBarButtonItemStylePlain target:self action:@selector(dismissKeyBord:)];
     [self.navigationItem setRightBarButtonItem:btn];
 }
-
 -(void)dismissKeyBord:(id)sender{
     //把畫面重置
     self.searchBar_back.alpha=0.0;
@@ -129,4 +135,42 @@
     [self.navigationItem setRightBarButtonItem:btn_needSearch];
     self.tableView_Food.frame=CGRectMake(0, 0, 320, 416);
 }
+- (IBAction)button_StartMotion:(id)sender {
+    
+    
+        if (motionManager.gyroAvailable) {
+            motionManager.gyroUpdateInterval = 1.0f/3.0f;
+            [motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMGyroData* gyroData, NSError *error){
+                
+                               
+                if ((gyroData.rotationRate.x>=10 || gyroData.rotationRate.x<=-10))
+                {
+                    
+                    NSLog(@"煮菜動作成功");
+                }
+                
+                if ((gyroData.rotationRate.z>=8 || gyroData.rotationRate.z<=-8))
+                {
+                    NSLog(@"煎菜動作成功");
+                }
+                
+                
+                if ((gyroData.rotationRate.y>=8 || gyroData.rotationRate.y<=-8))
+                {
+                    NSLog(@"炒菜動作成功");
+                }
+                if ((gyroData.rotationRate.x>=3 || gyroData.rotationRate.x<=-3) && (gyroData.rotationRate.z>=3 || gyroData.rotationRate.z<=-3) &&(gyroData.rotationRate.y>=3 || gyroData.rotationRate.y<=-3) )
+                {
+                    NSLog(@"炸動作成功");
+                }
+               
+            }];
+            
+        } else {
+            NSLog(@"陀螺儀未感測");
+        }
+    
+    
+}
+
 @end
