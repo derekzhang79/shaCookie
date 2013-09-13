@@ -7,14 +7,14 @@
 //
 
 @protocol RecipeInFoDelegate <NSObject>
-@required
+@optional
 -(void)doThingAfterRecipeInfoIsOkFromDelegate;
 
 @end
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import "ASIHTTPRequest.h"
 #import <CoreLocation/CoreLocation.h>
+#import "ASIHTTPRequest.h"
 
 @interface RecipeInfo : NSObject<ASIHTTPRequestDelegate>{
     ASIHTTPRequest *asiRequest_Rec;
@@ -23,8 +23,6 @@
     
 }
 
-@property(nonatomic,strong)NSArray *dictionary_nmlData;
+@property(nonatomic,strong)NSDictionary *dictionary_nmlData;
 @property(nonatomic,weak)id<RecipeInFoDelegate>delegate;
-
--(id)initWithURLString:(NSString*)str_url;
 @end
