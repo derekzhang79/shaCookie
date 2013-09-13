@@ -9,6 +9,4 @@
 #ifndef getLocation_WebList_h
 #define getLocation_WebList_h
 #define WebList_String_GetPersonCoordinate @"http://54.244.225.229/shacookie/jsondevicelocation.php"
-
-
 #endif

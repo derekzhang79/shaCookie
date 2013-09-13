@@ -134,7 +134,6 @@
 	
     // Regisete for HUD callbacks so we can remove it from the window at the right time
     HUD.delegate = self;
-	
     HUD.labelText = @"Loading";
 	
     // Show the HUD while the provided method executes in a new thread

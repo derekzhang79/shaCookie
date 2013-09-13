@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import <CoreMotion/CoreMotion.h>
 @interface menuViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UITabBarControllerDelegate>{
+    CMMotionManager *motionManager; 
     NSArray *array_Food;
     NSArray *origin_Food;
+    NSMutableDictionary *mutableDictionary_SelectedFood;
 }
-
+- (IBAction)button_StartMotion:(id)sender;
 @property (strong, nonatomic) IBOutlet UITableView *tableView_Food;
 
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar_back;

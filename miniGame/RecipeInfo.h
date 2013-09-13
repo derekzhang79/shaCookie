@@ -7,7 +7,7 @@
 //
 
 @protocol RecipeInFoDelegate <NSObject>
-@optional
+@required
 -(void)doThingAfterRecipeInfoIsOkFromDelegate;
 
 @end
@@ -23,6 +23,8 @@
     
 }
 
-@property(nonatomic,strong)NSDictionary *dictionary_nmlData;
+@property(nonatomic,strong)NSArray *dictionary_nmlData;
 @property(nonatomic,weak)id<RecipeInFoDelegate>delegate;
+
+-(id)initWithURLString:(NSString*)str_url;
 @end
