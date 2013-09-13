@@ -79,12 +79,13 @@
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     UITableViewCell *cell=[tableView cellForRowAtIndexPath:indexPath];
-    NSLog(@"accessory Type=%d",TRUE);
+    
     if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
         cell.accessoryType = UITableViewCellAccessoryNone;
-        
+        [mutableDictionary_SelectedFood removeObjectForKey:indexPath];
     } else {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [mutableDictionary_SelectedFood setObject:[array_Food objectAtIndex:indexPath.row] forKey:indexPath];
     }
     
     NSLog(@"%d %d",indexPath.section,indexPath.row);
@@ -92,15 +93,14 @@
     
     //如果無資料 則不需跳下一頁
     /*if (![[[array_Food objectAtIndex:0] objectForKey:@"Name" ] isEqualToString:@"NO DATA"]) {
-        
-        foodDetailViewController *foodView=[[foodDetailViewController alloc] initWithNibName:@"foodDetailViewController" bundle:nil];
-        foodView.dict=[array_Food objectAtIndex:indexPath.row];
-        //[foodView setModalTransitionStyle:UIModalTransitionStylePartialCurl];
-        //[self presentViewController:foodView animated:YES completion:nil];
-        [self.navigationController pushViewController:foodView animated:YES];
-    }
+     
+     foodDetailViewController *foodView=[[foodDetailViewController alloc] initWithNibName:@"foodDetailViewController" bundle:nil];
+     foodView.dict=[array_Food objectAtIndex:indexPath.row];
+     //[foodView setModalTransitionStyle:UIModalTransitionStylePartialCurl];
+     //[self presentViewController:foodView animated:YES completion:nil];
+     [self.navigationController pushViewController:foodView animated:YES];
+     }
      */
-
     
 }
 #pragma mark -

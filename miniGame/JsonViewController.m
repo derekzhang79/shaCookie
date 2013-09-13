@@ -65,6 +65,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)doThingAfterRecipeInfoIsOkFromDelegate{
+    NSLog(@"doThingAfterRecipeInfoIsOkFromDelegate");
+}
 
 #pragma mark - uitableDelegaterrDataSource
 -(NSInteger)numberOfSectionInTableView:(UITableView *)tableView{
