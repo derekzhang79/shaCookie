@@ -13,8 +13,11 @@
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBNSLayoutConstraint</string>
 			<string>IBProxyObject</string>
+<<<<<<< HEAD
 			<string>IBUIButton</string>
 			<string>IBUISearchBar</string>
+=======
+>>>>>>> feature/keeliker
 			<string>IBUISearchDisplayController</string>
 			<string>IBUITableView</string>
 			<string>IBUIView</string>
@@ -44,7 +47,11 @@
 						<int key="NSvFlags">274</int>
 						<string key="NSFrameSize">{320, 398}</string>
 						<reference key="NSSuperview" ref="191373211"/>
+<<<<<<< HEAD
 						<reference key="NSNextKeyView" ref="328944845"/>
+=======
+						<reference key="NSNextKeyView"/>
+>>>>>>> feature/keeliker
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<object class="NSColor" key="IBUIBackgroundColor" id="280576268">
 							<int key="NSColorSpace">3</int>
@@ -60,6 +67,7 @@
 						<float key="IBUISectionHeaderHeight">22</float>
 						<float key="IBUISectionFooterHeight">22</float>
 					</object>
+<<<<<<< HEAD
 					<object class="IBUISearchBar" id="328944845">
 						<reference key="NSNextResponder" ref="191373211"/>
 						<int key="NSvFlags">290</int>
@@ -103,6 +111,8 @@
 							<int key="NSfFlags">16</int>
 						</object>
 					</object>
+=======
+>>>>>>> feature/keeliker
 				</array>
 				<string key="NSFrame">{{0, 20}, {320, 460}}</string>
 				<reference key="NSSuperview"/>
@@ -158,14 +168,6 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">searchBar_back</string>
-						<reference key="source" ref="372490531"/>
-						<reference key="destination" ref="328944845"/>
-					</object>
-					<int key="connectionID">44</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
 						<string key="label">tableView_Food</string>
 						<reference key="source" ref="372490531"/>
 						<reference key="destination" ref="64328435"/>
@@ -187,14 +189,6 @@
 						<reference key="destination" ref="372490531"/>
 					</object>
 					<int key="connectionID">14</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBCocoaTouchOutletConnection" key="connection">
-						<string key="label">delegate</string>
-						<reference key="source" ref="328944845"/>
-						<reference key="destination" ref="372490531"/>
-					</object>
-					<int key="connectionID">43</int>
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBCocoaTouchOutletConnection" key="connection">
@@ -250,6 +244,7 @@
 						<int key="objectID">1</int>
 						<reference key="object" ref="191373211"/>
 						<array class="NSMutableArray" key="children">
+<<<<<<< HEAD
 							<object class="IBNSLayoutConstraint" id="870650878">
 								<reference key="firstItem" ref="65605793"/>
 								<int key="firstAttribute">4</int>
@@ -316,6 +311,10 @@
 							</object>
 							<object class="IBNSLayoutConstraint" id="648614850">
 								<reference key="firstItem" ref="328944845"/>
+=======
+							<object class="IBNSLayoutConstraint" id="154548310">
+								<reference key="firstItem" ref="64328435"/>
+>>>>>>> feature/keeliker
 								<int key="firstAttribute">5</int>
 								<int key="relation">0</int>
 								<reference key="secondItem" ref="191373211"/>
@@ -395,8 +394,11 @@
 								<int key="contentType">3</int>
 							</object>
 							<reference ref="64328435"/>
+<<<<<<< HEAD
 							<reference ref="328944845"/>
 							<reference ref="65605793"/>
+=======
+>>>>>>> feature/keeliker
 						</array>
 						<reference key="parent" ref="0"/>
 					</object>
@@ -450,16 +452,11 @@
 						<reference key="parent" ref="191373211"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">26</int>
-						<reference key="object" ref="328944845"/>
-						<array class="NSMutableArray" key="children"/>
-						<reference key="parent" ref="191373211"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">27</int>
 						<reference key="object" ref="57969796"/>
 						<reference key="parent" ref="0"/>
 					</object>
+<<<<<<< HEAD
 					<object class="IBObjectRecord">
 						<int key="objectID">40</int>
 						<reference key="object" ref="38441328"/>
@@ -501,6 +498,8 @@
 						<reference key="object" ref="870650878"/>
 						<reference key="parent" ref="191373211"/>
 					</object>
+=======
+>>>>>>> feature/keeliker
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
@@ -513,23 +512,25 @@
 					<reference ref="785085095"/>
 					<reference ref="34924506"/>
 					<reference ref="154548310"/>
+<<<<<<< HEAD
 					<reference ref="38441328"/>
 					<reference ref="648614850"/>
 					<reference ref="402389408"/>
 					<reference ref="626873782"/>
 					<reference ref="742530036"/>
 					<reference ref="870650878"/>
+=======
+>>>>>>> feature/keeliker
 				</array>
 				<string key="10.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="12.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<string key="26.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
-				<boolean value="NO" key="26.IBViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
 				<string key="27.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<array key="4.IBViewMetadataConstraints">
 					<reference ref="887585645"/>
 				</array>
 				<boolean value="NO" key="4.IBViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
+<<<<<<< HEAD
 				<string key="40.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="41.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="42.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -539,13 +540,19 @@
 				<string key="57.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="58.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="60.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+=======
+>>>>>>> feature/keeliker
 				<string key="9.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
+<<<<<<< HEAD
 			<int key="maxID">61</int>
+=======
+			<int key="maxID">45</int>
+>>>>>>> feature/keeliker
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
