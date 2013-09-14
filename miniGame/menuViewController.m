@@ -29,7 +29,6 @@
     
     
     UIBarButtonItem *btn_sent=[[UIBarButtonItem alloc] initWithTitle:@"sent" style:UIBarButtonItemStylePlain target:self action:@selector(sentTheData:)];
-    
     [self.navigationItem setRightBarButtonItem:btn_sent];
 // 搜尋以後用
 //    UIBarButtonItem *btn_needSearch=[[UIBarButtonItem alloc] initWithTitle:@"search" style:UIBarButtonItemStylePlain target:self action:@selector(searchBarAppear:)];
@@ -67,12 +66,10 @@
     
     if (cell==nil) {
         cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIndentifier];
-        NSLog(@"%@ is nil",indexPath);
     }
     cell.textLabel.text=[[array_Food objectAtIndex:indexPath.row] objectForKey:@"Name"];
     cell.detailTextLabel.text= [[array_Food objectAtIndex:indexPath.row] objectForKey:@"Type"];
     //cell.imageView.image
-    NSLog(@"%@",[[array_Food objectAtIndex:indexPath.row] objectForKey:@"Name"]);
     return cell;
 }
 
@@ -87,9 +84,6 @@
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
         [mutableDictionary_SelectedFood setObject:[array_Food objectAtIndex:indexPath.row] forKey:indexPath];
     }
-    
-    NSLog(@"%d %d",indexPath.section,indexPath.row);
-    NSLog(@"%@",[array_Food objectAtIndex:indexPath.row]);
     
     //如果無資料 則不需跳下一頁
     /*if (![[[array_Food objectAtIndex:0] objectForKey:@"Name" ] isEqualToString:@"NO DATA"]) {

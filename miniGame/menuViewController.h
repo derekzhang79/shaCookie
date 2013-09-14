@@ -17,6 +17,5 @@
 }
 - (IBAction)button_StartMotion:(id)sender;
 @property (strong, nonatomic) IBOutlet UITableView *tableView_Food;
-
 @property (strong, nonatomic) IBOutlet UISearchBar *searchBar_back;
 @end
