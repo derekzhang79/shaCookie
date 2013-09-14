@@ -63,7 +63,6 @@
 
 -(void)doThingAfterRecipeInfoIsOkFromDelegate{
     self.dataArray = [[NSArray alloc] initWithArray:myRecipe.dictionary_nmlData];
-    NSLog(@"%@",self.dataArray);
     [self.collectionView reloadData];
 }
 
