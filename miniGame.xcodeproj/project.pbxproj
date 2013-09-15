@@ -79,7 +79,6 @@
 		4927D8AB17E3959C000DDEBF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4927D8AA17E3959C000DDEBF /* Security.framework */; };
 		499C632917E43EFB00513989 /* loginWithFBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499C632717E43EFB00513989 /* loginWithFBViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		499C632A17E43EFB00513989 /* loginWithFBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499C632817E43EFB00513989 /* loginWithFBViewController.xib */; };
-		499C633117E443A100513989 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 499C633017E443A100513989 /* FacebookSDK.framework */; };
 		499C634417E449EC00513989 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 499C633D17E449EB00513989 /* 37x-Checkmark.png */; };
 		499C634517E449EC00513989 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 499C633E17E449EB00513989 /* icon.png */; };
 		499C634617E449EC00513989 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 499C633F17E449EC00513989 /* icon@2x.png */; };
@@ -96,6 +95,7 @@
 		49CFC51617E22B4A0001E0D6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CFC51517E22B4A0001E0D6 /* Default-568h@2x.png */; };
 		49F546D617E5DCD100166D62 /* recipesSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F546D417E5DCD100166D62 /* recipesSideViewController.m */; };
 		49F546D717E5DCD100166D62 /* recipesSideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F546D517E5DCD100166D62 /* recipesSideViewController.xib */; };
+		BB90B6F817E6063300A52685 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB90B6F717E6063300A52685 /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -196,7 +196,7 @@
 		4927D8A617E3958D000DDEBF /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
 		4927D8A817E39596000DDEBF /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		4927D8AA17E3959C000DDEBF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		4927D8AE17E398D7000DDEBF /* facebook-ios-sdk-3.7.1.pkg */ = {isa = PBXFileReference; lastKnownFileType = file; name = "facebook-ios-sdk-3.7.1.pkg"; path = "../../Documents/ios_framework/facebook-ios-sdk-3.7.1.pkg"; sourceTree = "<group>"; };
+		4927D8AE17E398D7000DDEBF /* facebook-ios-sdk-3.7.1.pkg */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.installer-pkg"; name = "facebook-ios-sdk-3.7.1.pkg"; path = "../../Documents/ios_framework/facebook-ios-sdk-3.7.1.pkg"; sourceTree = "<group>"; };
 		4940D55B17E33EDC00939995 /* GetJsonURLString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetJsonURLString.h; sourceTree = "<group>"; };
 		499C632617E43EFB00513989 /* loginWithFBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginWithFBViewController.h; sourceTree = "<group>"; };
 		499C632717E43EFB00513989 /* loginWithFBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginWithFBViewController.m; sourceTree = "<group>"; };
@@ -220,6 +220,7 @@
 		49F546D317E5DCD100166D62 /* recipesSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recipesSideViewController.h; sourceTree = "<group>"; };
 		49F546D417E5DCD100166D62 /* recipesSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = recipesSideViewController.m; sourceTree = "<group>"; };
 		49F546D517E5DCD100166D62 /* recipesSideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = recipesSideViewController.xib; sourceTree = "<group>"; };
+		BB90B6F717E6063300A52685 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../Documents/ios_framework/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -227,7 +228,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				499C633117E443A100513989 /* FacebookSDK.framework in Frameworks */,
+				BB90B6F817E6063300A52685 /* FacebookSDK.framework in Frameworks */,
 				4927D8AB17E3959C000DDEBF /* Security.framework in Frameworks */,
 				4927D8A917E39596000DDEBF /* Social.framework in Frameworks */,
 				4927D8A717E3958D000DDEBF /* libsqlite3.dylib in Frameworks */,
@@ -285,6 +286,7 @@
 		02A91709170207BC00F2E55F = {
 			isa = PBXGroup;
 			children = (
+				BB90B6F717E6063300A52685 /* FacebookSDK.framework */,
 				023F8A051708971B00283A71 /* Resources */,
 				02A9171B170207BC00F2E55F /* miniGame */,
 				02A91714170207BC00F2E55F /* Frameworks */,
@@ -878,6 +880,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Documents/ios_framework/FacebookSDK\"",
+					"\"$(SRCROOT)/../Documents/ios_framework/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "miniGame/miniGame-Prefix.pch";
@@ -896,6 +899,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../../Documents/ios_framework/FacebookSDK\"",
+					"\"$(SRCROOT)/../Documents/ios_framework/FacebookSDK\"",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "miniGame/miniGame-Prefix.pch";

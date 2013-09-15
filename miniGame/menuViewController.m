@@ -10,8 +10,8 @@
 #import "foodDetailViewController.h"
 #import "PlsitRead.h"
 #import "matchMaterialViewController.h"
-
-
+#import "refViewController.h"
+#import "moveFinishViewController.h"
 @interface menuViewController ()
 
 @end
@@ -109,24 +109,24 @@
 #pragma mark -
 #pragma mark - 炒菜按鈕
 - (IBAction)button_StartMotion:(id)sender {
-    
-    
-    if (motionManager.gyroAvailable) {
-        motionManager.gyroUpdateInterval = 1.0f/3.0f;
-        [motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMGyroData* gyroData, NSError *error){
-            
-            
+
+        
+    refViewController *rv=[[refViewController alloc] init];
+    moveFinishViewController *mv=[[moveFinishViewController alloc] init];
+        if (motionManager.gyroAvailable) {
+            motionManager.gyroUpdateInterval = 1.0f/3.0f;
+            [motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMGyroData* gyroData, NSError *error){
+                
+                               
             if ((gyroData.rotationRate.x>=10 || gyroData.rotationRate.x<=-10))
             {
-                
-                NSLog(@"煮菜動作成功");
+                [self presentViewController:mv animated:YES completion:nil];
             }
-            
+                
             if ((gyroData.rotationRate.z>=8 || gyroData.rotationRate.z<=-8))
             {
-                NSLog(@"煎菜動作成功");
+                [self presentViewController:rv animated:YES completion:Nil];
             }
-            
             
             if ((gyroData.rotationRate.y>=8 || gyroData.rotationRate.y<=-8))
             {
