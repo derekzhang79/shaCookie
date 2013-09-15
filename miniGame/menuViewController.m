@@ -9,7 +9,8 @@
 #import "menuViewController.h"
 #import "foodDetailViewController.h"
 #import "PlsitRead.h"
-
+#import "refViewController.h"
+#import "moveFinishViewController.h"
 @interface menuViewController ()
 
 @end
@@ -136,8 +137,9 @@
     self.tableView_Food.frame=CGRectMake(0, 0, 320, 416);
 }
 - (IBAction)button_StartMotion:(id)sender {
-    
-    
+        
+    refViewController *rv=[[refViewController alloc] init];
+    moveFinishViewController *mv=[[moveFinishViewController alloc] init];
         if (motionManager.gyroAvailable) {
             motionManager.gyroUpdateInterval = 1.0f/3.0f;
             [motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMGyroData* gyroData, NSError *error){
@@ -146,12 +148,12 @@
                 if ((gyroData.rotationRate.x>=10 || gyroData.rotationRate.x<=-10))
                 {
                     
-                    NSLog(@"煮菜動作成功");
+                    [self presentViewController:mv animated:YES completion:nil];
                 }
                 
                 if ((gyroData.rotationRate.z>=8 || gyroData.rotationRate.z<=-8))
                 {
-                    NSLog(@"煎菜動作成功");
+                    [self presentViewController:rv animated:YES completion:Nil];
                 }
                 
                 

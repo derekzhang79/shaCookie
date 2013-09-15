@@ -6,8 +6,16 @@
 //
 //
 
+
 #import <UIKit/UIKit.h>
 
-@interface moveFinishViewController : UIViewController
+@interface moveFinishViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>{
+    NSArray *array_Refrigerator;
+    NSArray *origin_Refrigerator;
+}
+@property (nonatomic, strong) IBOutlet UICollectionView *collectionView;
+@property (nonatomic, strong) NSArray *dataArray;
+
+
 
 @end
