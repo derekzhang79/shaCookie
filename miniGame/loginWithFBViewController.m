@@ -8,10 +8,8 @@
 
 #import "loginWithFBViewController.h"
 #import <FacebookSDK/FacebookSDK.h>
-#import "profileViewController.h"
 #import "AppDelegate.h"
-#import "JSONKit.h"
-
+#import "JsonViewController.h"
 
 @interface loginWithFBViewController ()
 
@@ -33,19 +31,6 @@
     [super viewDidLoad];
     [self updateView];
     
-//    // Initialize a session object
-//    FBSession *session = [[FBSession alloc] init];
-//    // Set the active session
-//    [FBSession setActiveSession:session];
-//    // Open the session
-//    [session openWithBehavior:FBSessionLoginBehaviorWithNoFallbackToWebView
-//            completionHandler:^(FBSession *session,
-//                                FBSessionState status,
-//                                NSError *error) {
-//                // Respond to session state changes,
-//                // ex: updating the view
-//            }];
-    
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     if (!appDelegate.session.isOpen) {
         // create a fresh session object
@@ -56,7 +41,7 @@
         // we check here to make sure we have a token before calling open
         if (appDelegate.session.state == FBSessionStateCreatedTokenLoaded) {
             // even though we had a cached token, we need to login to make the session usable
-            [FBSession openActiveSessionWithReadPermissions:@[@"basic_info", @"email",@"user_about_me",@"user_birthday",@"user_likes",@"user_friends"]
+            [FBSession openActiveSessionWithReadPermissions:@[@"basic_info", @"email",@"user_about_me",@"user_birthday",@"user_likes",@"user_friends",@"publish_actions"]
                                                allowLoginUI:YES
                                           completionHandler:^(FBSession *session,
                                                               FBSessionState status,
@@ -71,8 +56,93 @@
 - (void)viewDidAppear:(BOOL)animated {
 }
 
+- (void)publishStory
+{
+    //SEE:
+    // https://developers.facebook.com/docs/reference/api/publishing/
+    NSURL *url = [NSURL URLWithString:@"http://https://www.facebook.com/shaCookie"];
+    NSString *description=@"cook hard, cook fun";
+    NSString *postWords = @"it's a great App that really upgrade my cooking skill !!!";
+    NSString *httpMethod = @"POST";
+    NSString *endPoint = @"me/feed";
+    
+    
+    //message, picture, link, name, caption, description, source, place, tags
+    NSMutableDictionary *arguments = [[NSMutableDictionary alloc] init];
+    [arguments setValue:postWords forKey:@"message"];
+    //[arguments setValue:url forKey:@"link"];
+    //[arguments setValue:description forKey:@"description"];
+
+    [FBRequestConnection startWithGraphPath:endPoint
+                                 parameters:arguments
+                                 HTTPMethod:httpMethod
+                          completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
+                              
+                              if (error) {
+                                  NSLog(@"Share Error : %@", error);
+                                  
+                              } else {
+                                  NSLog(@"Result : %@", result);
+                                  NSLog(@"Token : %@", FBSession.activeSession.accessTokenData);
+                              }
+                          }];
+}
+
 // FBSample logic
 // main helper method to update the UI to reflect the current state of the session.
+- (IBAction)button_ShareShaCookie:(id)sender {        
+//        NSMutableDictionary *arguments = [[NSMutableDictionary alloc] init];
+//        [arguments setObject:@"it's a great App that really upgrade my cooking skill !!!" forKey:@"message"];
+//    NSArray *permissions=[[NSArray alloc]initWithArray:@[@"basic_info", @"email",@"user_about_me",@"user_birthday",@"user_likes",@"user_friends",@"publish_actions"]];
+    // id: 1418269671727198
+        
+//    FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
+//    params.link = [NSURL URLWithString:@"http://https://www.facebook.com/shaCookie"];
+//    //params.picture = [NSURL URLWithString:@"https://raw.github.com/fbsamples/ios-3.x-howtos/master/Images/iossdk_logo.png"];
+//    params.name = @"shaCookie";
+//    params.description=@"cook hard, cook fun";
+//    params.caption = @"Build great apps";
+//    if ([FBDialogs canPresentShareDialogWithParams:params]) {
+//        NSLog(@"here");
+//        [FBDialogs presentShareDialogWithParams:params clientState:nil handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
+//            if(error) {
+//                NSLog(@"Error: %@", error.description);
+//            } else {
+//                NSLog(@"Success!");
+//            }
+//        }];
+//    }
+//TODO:
+//改成 open graph
+    
+    NSArray *publishPermissions = @[@"publish_actions"];
+    //  Check if this session have publish permission.
+    if ([FBSession.activeSession.permissions indexOfObject:@"publish_actions"] == NSNotFound || !FBSession.activeSession.accessTokenData) {
+        
+        [FBSession openActiveSessionWithPublishPermissions:publishPermissions
+                                           defaultAudience:FBSessionDefaultAudienceEveryone
+                                              allowLoginUI:YES
+                                         completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
+                                             
+                                             if (session.isOpen && !error) {
+                                                 [self publishStory];
+                                                 
+                                             }else {
+                                                 NSLog(@"open publish permission error : %@", error);
+                                             }
+                                         }];
+        
+    } else {
+        [self publishStory];
+    }
+}
+
+- (IBAction)button_FindFriends:(id)sender {
+    JsonViewController *nearUsersView=[[JsonViewController alloc]initWithNibName:@"JsonViewController" bundle:nil];
+    [self.navigationController pushViewController:nearUsersView animated:YES];
+
+}
+
 - (void)updateView {
     // get the app delegate, so that we can reference the session property
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
@@ -84,21 +154,14 @@
             [self.label_UserName setText:[result objectForKey:@"name"]];
             [self.label_UserMail setText:[result objectForKey:@"email"]];
             [self.label_UserGender setText:[result objectForKey:@"gender"]];
-            [self.label_WelcomeMessage setText:@"WELCOME!!!"];
+            [self.label_WelcomeMessage setText:@"you are sign in with FaceBook"];
             NSString *profileImageURL = [[[result objectForKey:@"picture"]objectForKey:@"data"]objectForKey:@"url"];
             NSData *profileImageData = [NSData dataWithContentsOfURL:[NSURL URLWithString:profileImageURL]];
             [self.imageView_UserImage setImage:[UIImage imageWithData:profileImageData]];
-            
-            
-
-            
-            //self.textNoteOrLink.text = [NSString stringWithFormat:@"%@", result];
         }];
     } else {
         // login-needed account UI is shown whenever the session is closed
         [self.buttonLoginLogout setTitle:@"Log in" forState:UIControlStateNormal];
-        
-        //[self.textNoteOrLink setText:@"Login to create a link to fetch account data"];
     }
 }
 
@@ -122,7 +185,6 @@
                 // Create a new, logged out session.
                 appDelegate.session = [[FBSession alloc] init];
             }
-            
             // if the session isn't open, let's open it now and present the login UX to the user
             [appDelegate.session openWithCompletionHandler:^(FBSession *session,
                                                              FBSessionState status,

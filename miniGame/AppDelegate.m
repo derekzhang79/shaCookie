@@ -15,27 +15,38 @@
 @implementation AppDelegate
 @synthesize session = _session;
 
--(UINavigationController *)friendsView{
+-(MFSideMenuContainerViewController *)friendsView{
     //ViewController *newAdd=[[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
     loginWithFBViewController *profile=[[loginWithFBViewController alloc]initWithNibName:@"loginWithFBViewController" bundle:nil];
 
     UINavigationController *profileView=[[UINavigationController alloc]initWithRootViewController:profile];
+    
+    SideMenuViewController *leftSideView= [[SideMenuViewController alloc ]init];
+    MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:profileView leftMenuViewController:leftSideView rightMenuViewController:nil];
     [profile setTitle:@"profile" ];
-    return profileView;
+    [container setTitle:@"profile"];
+    return container;
 }
 
--(UINavigationController *)recipesView{
+-(MFSideMenuContainerViewController *)recipesView{
     refViewController *refrigerator=[[refViewController alloc]initWithNibName:@"refViewController" bundle:nil];
     UINavigationController *refrigeratorView=[[UINavigationController alloc]initWithRootViewController:refrigerator];
-    [refrigerator setTitle:@"Recipes" ];
-    return refrigeratorView;
+    //[refrigerator setTitle:@"Recipes" ];
+    SideMenuViewController *leftSideView= [[SideMenuViewController alloc ]init];
+    MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:refrigeratorView leftMenuViewController:leftSideView rightMenuViewController:nil];
+    [refrigerator setTitle:@"Recipes"];
+    [container setTitle:@"Recipes"];
+    return container;
 }
 
--(UINavigationController *)refrigeratorView{
+-(MFSideMenuContainerViewController *)refrigeratorView{
     menuViewController *main=[[menuViewController alloc]initWithNibName:@"menuViewController" bundle:nil];
     UINavigationController *mainView=[[UINavigationController alloc]initWithRootViewController:main];
-    [main setTitle:@"refrigerator" ];
-    return mainView;
+    SideMenuViewController *leftSideView= [[SideMenuViewController alloc ]init];
+    MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:mainView leftMenuViewController:leftSideView rightMenuViewController:nil];
+    [main setTitle:@"refrigerator"];
+    [container setTitle:@"refrigerator"];
+    return container;
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -45,27 +56,17 @@
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     [tabBarController setViewControllers:[NSArray arrayWithObjects:[self refrigeratorView],[self recipesView],[self friendsView],nil]];
     
-    SideMenuViewController *leftSideMenuController = [[SideMenuViewController alloc] init];
-    SideMenuViewController *rightSideMenuController = [[SideMenuViewController alloc] init];
-    MFSideMenuContainerViewController *container = [MFSideMenuContainerViewController
-                                                    containerWithCenterViewController:tabBarController
-                                                    leftMenuViewController:leftSideMenuController
-                                                    rightMenuViewController:rightSideMenuController];
+//    SideMenuViewController *leftSideMenuController = [[SideMenuViewController alloc] init];
+//    SideMenuViewController *rightSideMenuController = [[SideMenuViewController alloc] init];
+//    MFSideMenuContainerViewController *container = [MFSideMenuContainerViewController
+//                                                    containerWithCenterViewController:tabBarController
+//                                                    leftMenuViewController:leftSideMenuController
+//                                                    rightMenuViewController:rightSideMenuController];
     
-    self.window.rootViewController = container;
+    self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
     
     return YES;
-    
-
-    
-//一評版
-//    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-//    entryViewController *entry=[[entryViewController alloc]initWithNibName:@"entryViewController"bundle:nil];
-//     UINavigationController *nav=[[UINavigationController alloc] initWithRootViewController:entry];
-//    self.window.rootViewController = nav;
-//    [self.window makeKeyAndVisible];
-//    return YES;
     
 
 }
