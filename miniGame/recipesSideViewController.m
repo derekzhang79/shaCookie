@@ -1,18 +1,18 @@
 //
-//  profileViewController.m
+//  recipesSideViewController.m
 //  miniGame
 //
-//  Created by BirdChiu on 13/9/14.
+//  Created by BirdChiu on 13/9/15.
 //
 //
 
-#import "profileViewController.h"
+#import "recipesSideViewController.h"
 
-@interface profileViewController ()
+@interface recipesSideViewController ()
 
 @end
 
-@implementation profileViewController
+@implementation recipesSideViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

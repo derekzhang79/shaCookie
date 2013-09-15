@@ -12,6 +12,7 @@
 #import "RecipeInfo.h"
 #import "materialViewController.h"
 #import "GetJsonURLString.h"
+#import "SideMenuViewController.h"
 @interface refViewController ()
 
 @end
@@ -29,6 +30,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+ 
+    
     myRecipe=[[RecipeInfo alloc]initWithURLString:GetJsonURLString_Recipe];
     [myRecipe setDelegate:self];
     
@@ -132,7 +135,7 @@
 #pragma mark - UIBarButtonItems
 
 - (void)setupMenuBarButtonItems {
-    self.navigationItem.rightBarButtonItem = [self rightMenuBarButtonItem];
+    //self.navigationItem.rightBarButtonItem = [self rightMenuBarButtonItem];
     
     if(self.menuContainerViewController.menuState == MFSideMenuStateClosed &&
        ![[self.navigationController.viewControllers objectAtIndex:0] isEqual:self]) {
