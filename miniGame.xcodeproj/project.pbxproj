@@ -60,6 +60,8 @@
 		02AE7873174F211500DDCBDA /* 蒜香烤土司.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02AE7871174F211500DDCBDA /* 蒜香烤土司.jpg */; };
 		02AE7874174F211500DDCBDA /* 銀杏百合蝦球.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02AE7872174F211500DDCBDA /* 銀杏百合蝦球.jpg */; };
 		2BEDE413FCB64F2EB044019A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A691AA26FB84D70BFC64D3E /* libPods.a */; };
+		490322C817E5BBBB0008F1F4 /* recipesWithICarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490322C617E5BBBB0008F1F4 /* recipesWithICarouselViewController.m */; };
+		490322C917E5BBBB0008F1F4 /* recipesWithICarouselViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 490322C717E5BBBB0008F1F4 /* recipesWithICarouselViewController.xib */; };
 		491AE83C175FAD4800E4121C /* homepage1.png in Resources */ = {isa = PBXBuildFile; fileRef = 491AE83A175FAD4800E4121C /* homepage1.png */; };
 		491AE83D175FAD4800E4121C /* homepage2-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 491AE83B175FAD4800E4121C /* homepage2-1.png */; };
 		491AE841175FAF3D00E4121C /* entryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 491AE83F175FAF3C00E4121C /* entryViewController.m */; };
@@ -92,6 +94,8 @@
 		49CFC51217E22B310001E0D6 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CFC51117E22B310001E0D6 /* icon@2x.png */; };
 		49CFC51417E22B3F0001E0D6 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CFC51317E22B3F0001E0D6 /* Default@2x.png */; };
 		49CFC51617E22B4A0001E0D6 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49CFC51517E22B4A0001E0D6 /* Default-568h@2x.png */; };
+		49F546D617E5DCD100166D62 /* recipesSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49F546D417E5DCD100166D62 /* recipesSideViewController.m */; };
+		49F546D717E5DCD100166D62 /* recipesSideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49F546D517E5DCD100166D62 /* recipesSideViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -170,6 +174,9 @@
 		02AE7872174F211500DDCBDA /* 銀杏百合蝦球.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "銀杏百合蝦球.jpg"; sourceTree = "<group>"; };
 		15404D105D6D4CF9B5351AEF /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		2A691AA26FB84D70BFC64D3E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		490322C517E5BBBA0008F1F4 /* recipesWithICarouselViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recipesWithICarouselViewController.h; sourceTree = "<group>"; };
+		490322C617E5BBBB0008F1F4 /* recipesWithICarouselViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = recipesWithICarouselViewController.m; sourceTree = "<group>"; };
+		490322C717E5BBBB0008F1F4 /* recipesWithICarouselViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = recipesWithICarouselViewController.xib; sourceTree = "<group>"; };
 		491AE83A175FAD4800E4121C /* homepage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homepage1.png; sourceTree = "<group>"; };
 		491AE83B175FAD4800E4121C /* homepage2-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage2-1.png"; sourceTree = "<group>"; };
 		491AE83E175FAF3C00E4121C /* entryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = entryViewController.h; sourceTree = "<group>"; };
@@ -210,6 +217,9 @@
 		49CFC51117E22B310001E0D6 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		49CFC51317E22B3F0001E0D6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		49CFC51517E22B4A0001E0D6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		49F546D317E5DCD100166D62 /* recipesSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recipesSideViewController.h; sourceTree = "<group>"; };
+		49F546D417E5DCD100166D62 /* recipesSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = recipesSideViewController.m; sourceTree = "<group>"; };
+		49F546D517E5DCD100166D62 /* recipesSideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = recipesSideViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -546,6 +556,8 @@
 		4984C51B17DF177400EDE6B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				49F546D217E5DCAE00166D62 /* recipesSideView */,
+				49F546D117E5DCA200166D62 /* recipesWithICarouselView */,
 				490322B817E476050008F1F4 /* loginwithFBView */,
 				4927D89C17E34AAB000DDEBF /* moveFinishView */,
 				4927D89617E33FCF000DDEBF /* matchMaterialView */,
@@ -593,6 +605,26 @@
 				49A090D517E22E5E00B19E8C /* SideMenuViewController.m */,
 			);
 			name = SideMenuView;
+			sourceTree = "<group>";
+		};
+		49F546D117E5DCA200166D62 /* recipesWithICarouselView */ = {
+			isa = PBXGroup;
+			children = (
+				490322C517E5BBBA0008F1F4 /* recipesWithICarouselViewController.h */,
+				490322C617E5BBBB0008F1F4 /* recipesWithICarouselViewController.m */,
+				490322C717E5BBBB0008F1F4 /* recipesWithICarouselViewController.xib */,
+			);
+			name = recipesWithICarouselView;
+			sourceTree = "<group>";
+		};
+		49F546D217E5DCAE00166D62 /* recipesSideView */ = {
+			isa = PBXGroup;
+			children = (
+				49F546D317E5DCD100166D62 /* recipesSideViewController.h */,
+				49F546D417E5DCD100166D62 /* recipesSideViewController.m */,
+				49F546D517E5DCD100166D62 /* recipesSideViewController.xib */,
+			);
+			name = recipesSideView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -693,6 +725,8 @@
 				499C634617E449EC00513989 /* icon@2x.png in Resources */,
 				499C634717E449EC00513989 /* Icon-72.png in Resources */,
 				499C634817E449EC00513989 /* Icon-72@2x.png in Resources */,
+				490322C917E5BBBB0008F1F4 /* recipesWithICarouselViewController.xib in Resources */,
+				49F546D717E5DCD100166D62 /* recipesSideViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -754,6 +788,8 @@
 				4927D89A17E33FEE000DDEBF /* matchMaterialViewController.m in Sources */,
 				4927D8A017E34AC0000DDEBF /* moveFinishViewController.m in Sources */,
 				499C632917E43EFB00513989 /* loginWithFBViewController.m in Sources */,
+				490322C817E5BBBB0008F1F4 /* recipesWithICarouselViewController.m in Sources */,
+				49F546D617E5DCD100166D62 /* recipesSideViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

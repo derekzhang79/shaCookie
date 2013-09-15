@@ -41,7 +41,7 @@
         // we check here to make sure we have a token before calling open
         if (appDelegate.session.state == FBSessionStateCreatedTokenLoaded) {
             // even though we had a cached token, we need to login to make the session usable
-            [FBSession openActiveSessionWithReadPermissions:@[@"basic_info", @"email",@"user_about_me",@"user_birthday",@"user_likes",@"user_friends",@"publish_actions"]
+            [FBSession openActiveSessionWithReadPermissions:@[@"basic_info", @"email",@"user_about_me",@"user_birthday",@"user_likes",@"user_friends"]
                                                allowLoginUI:YES
                                           completionHandler:^(FBSession *session,
                                                               FBSessionState status,
@@ -60,24 +60,17 @@
 {
     //SEE:
     // https://developers.facebook.com/docs/reference/api/publishing/
-    NSURL *url = [NSURL URLWithString:@"http://https://www.facebook.com/shaCookie"];
-    NSString *description=@"cook hard, cook fun";
-    NSString *postWords = @"it's a great App that really upgrade my cooking skill !!!";
-    NSString *httpMethod = @"POST";
-    NSString *endPoint = @"me/feed";
+    NSMutableDictionary *arguments = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
+                                      @"it's a great App that really upgrade my cooking skill !!!", @"message",
+                                      @"https://www.facebook.com/shaCookie", @"link",
+                                      @"https://developers.facebook.com/attachment/iossdk_logo.png", @"picture",
+                                      @"shaCookie", @"name",
+                                      @"Build great cooking apps and get more recipes.", @"caption",
+                                      @"cook hard, cook fun", @"description",
+                                      nil];
     
-    
-    //message, picture, link, name, caption, description, source, place, tags
-    NSMutableDictionary *arguments = [[NSMutableDictionary alloc] init];
-    [arguments setValue:postWords forKey:@"message"];
-    //[arguments setValue:url forKey:@"link"];
-    //[arguments setValue:description forKey:@"description"];
-
-    [FBRequestConnection startWithGraphPath:endPoint
-                                 parameters:arguments
-                                 HTTPMethod:httpMethod
+    [FBRequestConnection startWithGraphPath:@"me/feed" parameters:arguments HTTPMethod:@"POST"
                           completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                              
                               if (error) {
                                   NSLog(@"Share Error : %@", error);
                                   
@@ -91,30 +84,8 @@
 // FBSample logic
 // main helper method to update the UI to reflect the current state of the session.
 - (IBAction)button_ShareShaCookie:(id)sender {        
-//        NSMutableDictionary *arguments = [[NSMutableDictionary alloc] init];
-//        [arguments setObject:@"it's a great App that really upgrade my cooking skill !!!" forKey:@"message"];
-//    NSArray *permissions=[[NSArray alloc]initWithArray:@[@"basic_info", @"email",@"user_about_me",@"user_birthday",@"user_likes",@"user_friends",@"publish_actions"]];
-    // id: 1418269671727198
-        
-//    FBShareDialogParams *params = [[FBShareDialogParams alloc] init];
-//    params.link = [NSURL URLWithString:@"http://https://www.facebook.com/shaCookie"];
-//    //params.picture = [NSURL URLWithString:@"https://raw.github.com/fbsamples/ios-3.x-howtos/master/Images/iossdk_logo.png"];
-//    params.name = @"shaCookie";
-//    params.description=@"cook hard, cook fun";
-//    params.caption = @"Build great apps";
-//    if ([FBDialogs canPresentShareDialogWithParams:params]) {
-//        NSLog(@"here");
-//        [FBDialogs presentShareDialogWithParams:params clientState:nil handler:^(FBAppCall *call, NSDictionary *results, NSError *error) {
-//            if(error) {
-//                NSLog(@"Error: %@", error.description);
-//            } else {
-//                NSLog(@"Success!");
-//            }
-//        }];
-//    }
-//TODO:
-//改成 open graph
-    
+    //TODO:
+    //改成 open graph
     NSArray *publishPermissions = @[@"publish_actions"];
     //  Check if this session have publish permission.
     if ([FBSession.activeSession.permissions indexOfObject:@"publish_actions"] == NSNotFound || !FBSession.activeSession.accessTokenData) {
@@ -151,6 +122,7 @@
         // valid account UI is shown whenever the session is open
         [self.buttonLoginLogout setTitle:@"Log out" forState:UIControlStateNormal];
         [FBRequestConnection startWithGraphPath:@"me" parameters:@{@"fields":@"email,name,gender,picture"} HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection,id result,NSError *error) {
+            NSLog(@"%@",result);
             [self.label_UserName setText:[result objectForKey:@"name"]];
             [self.label_UserMail setText:[result objectForKey:@"email"]];
             [self.label_UserGender setText:[result objectForKey:@"gender"]];

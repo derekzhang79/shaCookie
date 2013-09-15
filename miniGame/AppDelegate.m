@@ -12,6 +12,7 @@
 #import "menuViewController.h"
 #import "ViewController.h"
 #import "loginWithFBViewController.h"
+#import "recipesWithICarouselViewController.h"
 @implementation AppDelegate
 @synthesize session = _session;
 
@@ -29,9 +30,12 @@
 }
 
 -(MFSideMenuContainerViewController *)recipesView{
-    refViewController *refrigerator=[[refViewController alloc]initWithNibName:@"refViewController" bundle:nil];
+    //refViewController *refrigerator=[[refViewController alloc]initWithNibName:@"refViewController" bundle:nil];
+    recipesWithICarouselViewController *refrigerator= [[recipesWithICarouselViewController alloc ]initWithNibName:@"recipesWithICarouselViewController" bundle:nil];
     UINavigationController *refrigeratorView=[[UINavigationController alloc]initWithRootViewController:refrigerator];
-    //[refrigerator setTitle:@"Recipes" ];
+    //loaded the "recipesWithICarouselViewController" nib but the view outlet was not set.
+    //SEE:
+    // http://ios-imaxlive.blogspot.tw/2013/08/xcode-addsubview-exception-loaded-xxx.html
     SideMenuViewController *leftSideView= [[SideMenuViewController alloc ]init];
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:refrigeratorView leftMenuViewController:leftSideView rightMenuViewController:nil];
     [refrigerator setTitle:@"Recipes"];
@@ -55,13 +59,6 @@
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     [tabBarController setViewControllers:[NSArray arrayWithObjects:[self refrigeratorView],[self recipesView],[self friendsView],nil]];
-    
-//    SideMenuViewController *leftSideMenuController = [[SideMenuViewController alloc] init];
-//    SideMenuViewController *rightSideMenuController = [[SideMenuViewController alloc] init];
-//    MFSideMenuContainerViewController *container = [MFSideMenuContainerViewController
-//                                                    containerWithCenterViewController:tabBarController
-//                                                    leftMenuViewController:leftSideMenuController
-//                                                    rightMenuViewController:rightSideMenuController];
     
     self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
