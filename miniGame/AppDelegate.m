@@ -13,6 +13,8 @@
 #import "ViewController.h"
 #import "loginWithFBViewController.h"
 #import "recipesWithICarouselViewController.h"
+#import "materialSideViewController.h"
+//#import "recipesSideViewController.h"
 @implementation AppDelegate
 @synthesize session = _session;
 
@@ -46,7 +48,7 @@
 -(MFSideMenuContainerViewController *)refrigeratorView{
     menuViewController *main=[[menuViewController alloc]initWithNibName:@"menuViewController" bundle:nil];
     UINavigationController *mainView=[[UINavigationController alloc]initWithRootViewController:main];
-    SideMenuViewController *leftSideView= [[SideMenuViewController alloc ]init];
+    materialSideViewController *leftSideView= [[materialSideViewController alloc ]init];
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:mainView leftMenuViewController:leftSideView rightMenuViewController:nil];
     [main setTitle:@"refrigerator"];
     [container setTitle:@"refrigerator"];

@@ -8,6 +8,7 @@
 #import "RecipeInfo.h"
 #import <CoreLocation/CoreLocation.h>
 #import "JSONKit.h"
+#import "GetJsonURLString.h"
 @interface RecipeInfo ()
 
 @end
@@ -17,7 +18,7 @@
     self=[super init];
     if (self) {
         
-        NSString *url_String_Loc=[NSString stringWithFormat:@"http://54.244.225.229/shacookie/jsondevicelocation.php"];
+        NSString *url_String_Loc=[NSString stringWithFormat:GetJsonURLString_Device];
         NSURL *url_Loc=[NSURL URLWithString:url_String_Loc];
         asiRequest_Loc=[ASIHTTPRequest requestWithURL:url_Loc];
         [asiRequest_Loc setDelegate:self];
