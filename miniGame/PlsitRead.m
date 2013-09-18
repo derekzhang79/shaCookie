@@ -15,7 +15,6 @@
     if(self){
         fileName=filename;
     }
-    
     return self;
 }
 
@@ -25,11 +24,7 @@
     NSString *path = [[NSBundle mainBundle] pathForResource:[fArr objectAtIndex:0] ofType:[fArr objectAtIndex:1]];
     NSData *plistData = [NSData dataWithContentsOfFile:path];
     NSString *error; NSPropertyListFormat format;
-    
-    return [NSPropertyListSerialization propertyListFromData:plistData
-                                            mutabilityOption:kCFPropertyListMutableContainersAndLeaves
-                                                      format:&format
-                                            errorDescription:&error];
+    return [NSPropertyListSerialization propertyListFromData:plistData mutabilityOption:NSPropertyListMutableContainersAndLeaves format:&format errorDescription:&error];
 }
 
 @end

@@ -25,6 +25,5 @@
 
 @property(nonatomic,strong)NSArray *dictionary_nmlData;
 @property(nonatomic,weak)id<RecipeInFoDelegate>delegate;
-
 -(id)initWithURLString:(NSString*)str_url;
 @end

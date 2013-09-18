@@ -14,7 +14,6 @@
 
 @end
 #define CountDownTime  1000
-
 #define TimeUnin  0.01   // 0.01 sec
 @implementation materialViewController
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -102,75 +101,46 @@ BOOL isRunning = NO;
 }
 
 - (IBAction)time_out:(UIButton *)sender {
-    
-    
     if (isRunning == NO) {
-        
         isRunning = YES;
-        
         [self init_timer];
-        
         //[timestart setTitle:@"暫停" forState:UIControlStateNormal];
-        
-    }
-    else {
-        
+    }else{
         isRunning = NO;
-        
         _lastTime = _nowTime;
-        
         [_timer invalidate];
-        
         _timer = nil;
-        
     }
-    
-    
-    
-    
 }
 
 - (void) showNowTime
 {
     _min = _nowTime  / 6000;
     _sec = (_nowTime % 6000) /100 ;
-    
     _minSec = _nowTime %100;
-    
     _time.text =   [NSString stringWithFormat:@"%02d:%02d:%02d", _min, _sec, _minSec];
-    
 }
 
 - (void)GameTimer_Count {
-    
-    if (_nowTime > 0)
-    {
+    if (_nowTime > 0){
         _nowTime-- ;
-        
         [self showNowTime];
-        
-    }
-    else if(_nowTime == 0){
+    }else if(_nowTime == 0){
         _nowTime = 0;
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"時間到了"
-                              //上面是標題的設定
                                                         message:@"請關火"  //警告訊息內文的設定
                                                        delegate:self // 叫出AlertView之後，要給該ViewController去處理
                               
                                               cancelButtonTitle:@"OK"  //cancel按鈕文字的設定
                                               otherButtonTitles: nil]; // 其他按鈕的設定
-        
         [alert show];
         _nowTime=-1;
     }
 }
 - (void) init_timer
 {
-    
     _nowTime = _lastTime;
-    
     _timer = [NSTimer scheduledTimerWithTimeInterval:TimeUnin target:self selector:@selector(GameTimer_Count) userInfo:nil repeats:YES];
-    
 }
 @end
 

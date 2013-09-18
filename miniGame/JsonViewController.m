@@ -19,9 +19,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
-        //myRecipe=[[RecipeInfo alloc]init];
-        //[myRecipe setDelegate:self];
         
         aPerson=[[Person alloc] init];
         [aPerson setDelegate:self];
@@ -65,6 +62,9 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)doThingAfterRecipeInfoIsOkFromDelegate{
+    NSLog(@"doThingAfterRecipeInfoIsOkFromDelegate");
+}
 
 #pragma mark - uitableDelegaterrDataSource
 -(NSInteger)numberOfSectionInTableView:(UITableView *)tableView{
@@ -90,8 +90,6 @@
     CLLocation *loc=[Array_locaions lastObject];
     CLLocation *default_Location=[[CLLocation alloc]initWithLatitude:[[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"latitude"] doubleValue] longitude:[[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"longtitude"] doubleValue]];
     CLLocationDistance meters =[loc distanceFromLocation:default_Location];
-    
-//    cell.detailTextLabel.text=[NSString stringWithFormat:@"%f,%f,DISTANCE:%fKM",[[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"latitude"] doubleValue],[[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"longtitude"] doubleValue],(CGFloat)meters/1000];
     cell.detailTextLabel.text=[NSString stringWithFormat:@"DISTANCE:%fKM",(CGFloat)meters/1000];
     return cell;
 }
