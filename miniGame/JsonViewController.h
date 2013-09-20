@@ -12,9 +12,6 @@
 #import "RecipeInfo.h"
 #import "ASIHTTPRequest.h"
 #import "Person.h"
-#import "WebJsonDataGetter.h"
-#import "ViewController.h"
-#import "MBProgressHUD.h"
 @interface JsonViewController : UIViewController<RecipeInFoDelegate,UITableViewDataSource,UITableViewDataSource,WebPersonLoadLocationFinishDelegater,WebJsonDataGetFinishDelegater,CLLocationManagerDelegate>{
     CLLocation *location;
     CLLocationManager*      locationManager;

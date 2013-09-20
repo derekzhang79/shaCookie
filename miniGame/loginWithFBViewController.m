@@ -10,12 +10,15 @@
 #import <FacebookSDK/FacebookSDK.h>
 #import "AppDelegate.h"
 #import "JsonViewController.h"
+#import "GetJsonURLString.h"
 
 @interface loginWithFBViewController ()
 
 @end
 
 @implementation loginWithFBViewController
+#pragma mark -
+#pragma mark -Template generated code
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -29,32 +32,80 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self initLocationManager];
     [self updateView];
+    [self openActiveSessionWithReadPermissionsOfFaceBook];
     
-    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-    if (!appDelegate.session.isOpen) {
-        // create a fresh session object
-        appDelegate.session = [[FBSession alloc] init];
         
-        // if we don't have a cached token, a call to open here would cause UX for login to
-        // occur; we don't want that to happen unless the user clicks the login button, and so
-        // we check here to make sure we have a token before calling open
-        if (appDelegate.session.state == FBSessionStateCreatedTokenLoaded) {
-            // even though we had a cached token, we need to login to make the session usable
-            [FBSession openActiveSessionWithReadPermissions:@[@"basic_info", @"email",@"user_about_me",@"user_birthday",@"user_likes",@"user_friends"]
-                                               allowLoginUI:YES
-                                          completionHandler:^(FBSession *session,
-                                                              FBSessionState status,
-                                                              NSError *error) {
-                                              [self updateView];
-                                          }];
-        }
-    }
-    
 }
 
 - (void)viewDidAppear:(BOOL)animated {
 }
+
+-(void)didReceiveMemoryWarning{
+    [super didReceiveMemoryWarning];
+    self.buttonLoginLogout = nil;
+    self.label_UserGender =nil;
+    self.label_UserMail = nil;
+    self.label_UserName = nil;
+    self.imageView_UserImage = nil;
+    [self.label_WelcomeMessage setText:@"Login with FaceBook now!!!"];
+}
+- (void)viewDidUnload
+{
+    [super viewDidUnload];
+}
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    // Return YES for supported orientations
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    } else {
+        return YES;
+    }
+}
+
+- (IBAction)button_ShareShaCookie:(id)sender {
+    //TODO:
+    //改成 open graph
+    NSArray *publishPermissions = @[@"publish_actions"];
+    [self openActiveSessionWithPublishPermissionsOfFaceBook:publishPermissions];
+}
+
+
+
+
+- (IBAction)button_FindFriends:(id)sender {
+    JsonViewController *nearUsersView=[[JsonViewController alloc]initWithNibName:@"JsonViewController" bundle:nil];
+    [self.navigationController pushViewController:nearUsersView animated:YES];
+    
+}
+
+#pragma mark -
+#pragma mark - locationManager
+-(void)initLocationManager{
+    locationManager = [[CLLocationManager alloc] init];
+    locationManager.delegate = self;
+    locationManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+    locationManager.distanceFilter=kCLDistanceFilterNone;
+    [locationManager startUpdatingLocation];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    CLLocation *loc=(CLLocation*)[locations lastObject];
+    NSString *deviceId = [[[UIDevice currentDevice] identifierForVendor]UUIDString];
+    CGFloat latitude=loc.coordinate.latitude;
+    CGFloat longtitude=loc.coordinate.longitude;
+    NSString *urlString = [NSString stringWithFormat:SetJsonURLString_Device,deviceId,latitude,longtitude];
+    NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
+    NSURLConnection *conn=[[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:YES];
+    NSLog(@"updateed::::::::::::::: %@",conn);
+    [locationManager stopUpdatingLocation];
+}
+
+#pragma mark -
+#pragma mark - FBlogin
 
 - (void)publishStory
 {
@@ -81,12 +132,7 @@
                           }];
 }
 
-// FBSample logic
-// main helper method to update the UI to reflect the current state of the session.
-- (IBAction)button_ShareShaCookie:(id)sender {        
-    //TODO:
-    //改成 open graph
-    NSArray *publishPermissions = @[@"publish_actions"];
+-(void)openActiveSessionWithPublishPermissionsOfFaceBook:(NSArray *)publishPermissions{
     //  Check if this session have publish permission.
     if ([FBSession.activeSession.permissions indexOfObject:@"publish_actions"] == NSNotFound || !FBSession.activeSession.accessTokenData) {
         
@@ -108,16 +154,33 @@
     }
 }
 
-- (IBAction)button_FindFriends:(id)sender {
-    JsonViewController *nearUsersView=[[JsonViewController alloc]initWithNibName:@"JsonViewController" bundle:nil];
-    [self.navigationController pushViewController:nearUsersView animated:YES];
+-(void)openActiveSessionWithReadPermissionsOfFaceBook{
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
+    if (!appDelegate.session.isOpen) {
+        // create a fresh session object
+        appDelegate.session = [[FBSession alloc] init];
+        
+        // if we don't have a cached token, a call to open here would cause UX for login to
+        // occur; we don't want that to happen unless the user clicks the login button, and so
+        // we check here to make sure we have a token before calling open
+        if (appDelegate.session.state == FBSessionStateCreatedTokenLoaded) {
+            // even though we had a cached token, we need to login to make the session usable
+            [FBSession openActiveSessionWithReadPermissions:@[@"basic_info", @"email",@"user_about_me",@"user_birthday",@"user_likes",@"user_friends"]
+                                               allowLoginUI:YES
+                                          completionHandler:^(FBSession *session,
+                                                              FBSessionState status,
+                                                              NSError *error) {
+                                              [self updateView];
+                                          }];
+        }
+    }
 
 }
 
 - (void)updateView {
     // get the app delegate, so that we can reference the session property
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-
+    
     if (appDelegate.session.isOpen) {
         // valid account UI is shown whenever the session is open
         [self.buttonLoginLogout setTitle:@"Log out" forState:UIControlStateNormal];
@@ -142,55 +205,29 @@
 // handler for button click, logs sessions in or out
 - (IBAction)button_SignUp:(id)sender {
     // get the app delegate so that we can access the session property
-        AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
-        
-        // this button's job is to flip-flop the session from open to closed
-        if (appDelegate.session.isOpen) {
-            // if a user logs out explicitly, we delete any cached token information, and next
-            // time they run the applicaiton they will be presented with log in UX again; most
-            // users will simply close the app or switch away, without logging out; this will
-            // cause the implicit cached-token login to occur on next launch of the application
-            [appDelegate.session closeAndClearTokenInformation];
-            
-        } else {
-            if (appDelegate.session.state != FBSessionStateCreated) {
-                // Create a new, logged out session.
-                appDelegate.session = [[FBSession alloc] init];
-            }
-            // if the session isn't open, let's open it now and present the login UX to the user
-            [appDelegate.session openWithCompletionHandler:^(FBSession *session,
-                                                             FBSessionState status,
-                                                             NSError *error) {
-                // and here we make sure to update our UX according to the new session state
-                [self updateView];
-            }];
-        }
-}
-
-#pragma mark Template generated code
-
-- (void)viewDidUnload
-{
-    self.buttonLoginLogout = nil;
-    self.label_UserGender =nil;
-    self.label_UserMail = nil;
-    self.label_UserName = nil;
-    self.imageView_UserImage = nil;
-    [self.label_WelcomeMessage setText:@"Login with FaceBook now!!!"];
+    AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];
     
-    [super viewDidUnload];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    // Return YES for supported orientations
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+    // this button's job is to flip-flop the session from open to closed
+    if (appDelegate.session.isOpen) {
+        // if a user logs out explicitly, we delete any cached token information, and next
+        // time they run the applicaiton they will be presented with log in UX again; most
+        // users will simply close the app or switch away, without logging out; this will
+        // cause the implicit cached-token login to occur on next launch of the application
+        [appDelegate.session closeAndClearTokenInformation];
+        
     } else {
-        return YES;
+        if (appDelegate.session.state != FBSessionStateCreated) {
+            // Create a new, logged out session.
+            appDelegate.session = [[FBSession alloc] init];
+        }
+        // if the session isn't open, let's open it now and present the login UX to the user
+        [appDelegate.session openWithCompletionHandler:^(FBSession *session,
+                                                         FBSessionState status,
+                                                         NSError *error) {
+            // and here we make sure to update our UX according to the new session state
+            [self updateView];
+        }];
     }
 }
-
-#pragma mark -
 
 @end

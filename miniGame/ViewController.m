@@ -60,6 +60,8 @@
     [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
 //    [navBar setBackgroundImage:image];
 }
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];

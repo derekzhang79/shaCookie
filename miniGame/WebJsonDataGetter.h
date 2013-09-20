@@ -18,4 +18,5 @@
 @property(nonatomic,strong)id webData;
 @property(nonatomic,weak)id<WebJsonDataGetFinishDelegater>delegate;
 -(id)initWithURLString:(NSString*)url;
+-(void)requestWithURLString:(NSString *)url;
 @end
