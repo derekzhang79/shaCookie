@@ -17,12 +17,7 @@
 -(id)init{
     self=[super init];
     if (self) {
-        
-        NSString *url_String_Loc=[NSString stringWithFormat:GetJsonURLString_Device];
-        NSURL *url_Loc=[NSURL URLWithString:url_String_Loc];
-        asiRequest_Loc=[ASIHTTPRequest requestWithURL:url_Loc];
-        [asiRequest_Loc setDelegate:self];
-        [asiRequest_Loc startAsynchronous];
+
     }
     return self;
 }

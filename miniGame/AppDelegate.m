@@ -14,6 +14,7 @@
 #import "loginWithFBViewController.h"
 #import "recipesWithICarouselViewController.h"
 #import "materialSideViewController.h"
+#import "recipesSideViewController.h"
 
 @implementation AppDelegate
 
@@ -113,7 +114,7 @@
     //loaded the "recipesWithICarouselViewController" nib but the view outlet was not set.
     //SEE:
     // http://ios-imaxlive.blogspot.tw/2013/08/xcode-addsubview-exception-loaded-xxx.html
-    SideMenuViewController *leftSideView= [[SideMenuViewController alloc ]init];
+    recipesSideViewController *leftSideView= [[recipesSideViewController alloc ]init];
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:refrigeratorView leftMenuViewController:leftSideView rightMenuViewController:nil];
     [refrigerator setTitle:@"Recipes"];
     [container setTitle:@"Recipes"];

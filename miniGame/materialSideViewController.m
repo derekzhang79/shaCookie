@@ -8,8 +8,6 @@
 
 #import "materialSideViewController.h"
 #import "GetJsonURLString.h"
-#import "RecipeInfo.h"
-#import "ASIHTTPRequest.h"
 #import "MFSideMenu.h"
 
 
@@ -22,17 +20,13 @@
 
  -(void)viewDidLoad{
     [super viewDidLoad];
-    myRecipe=[[RecipeInfo alloc]initWithURLString:GetJsonURLString_Vegetables];
-    [myRecipe setDelegate:self];
-     
-    
+    materials=[[RecipeInfo alloc]initWithURLString:GetJsonURLString_Vegetables];
+    [materials setDelegate:self];
 }
  
 
 -(void)doThingAfterRecipeInfoIsOkFromDelegate{
-    self.array_MaterialMenu=[[NSArray alloc]initWithArray:myRecipe.dictionary_nmlData];
-    //NSLog(@"%@",self.array_MaterialMenu);
-    
+    self.array_MaterialMenu=[[NSArray alloc]initWithArray:materials.dictionary_nmlData];
     [self.tableView reloadData];
 }
 
@@ -47,7 +41,6 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [self.array_MaterialMenu count];
-    //return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -58,8 +51,7 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [[myRecipe.dictionary_nmlData objectAtIndex:indexPath.row]objectForKey:@"vegName"];
-    //cell.textLabel.text = [NSString stringWithFormat:@"Item %d", indexPath.row];
+    cell.textLabel.text = [[self.array_MaterialMenu objectAtIndex:indexPath.row]objectForKey:@"vegName"];
     return cell;
 }
 
