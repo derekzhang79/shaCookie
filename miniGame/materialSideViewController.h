@@ -12,10 +12,8 @@
 #import "ASIHTTPRequest.h"
 
 @interface materialSideViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource,RecipeInFoDelegate>{
-    
-    RecipeInfo *myRecipe;
+    RecipeInfo *materials;
     ASIHTTPRequest *asiRequest;
-    
 }
 
 @property (strong,nonatomic)NSDictionary *dictionary_MaterialMenu;

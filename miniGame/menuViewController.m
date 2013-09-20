@@ -75,8 +75,6 @@
 #pragma mark - tableView
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return [self.array_Material count];
-  
-  
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -87,7 +85,7 @@
     if (cell==nil) {
         cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIndentifier];
     }
-    cell.textLabel.text=[[myRecipe.dictionary_nmlData objectAtIndex:indexPath.row] objectForKey:@"vegName"];
+    cell.textLabel.text=[[self.array_Material objectAtIndex:indexPath.row] objectForKey:@"vegName"];
     //NSLog(@"%@",[[self.array_Material objectAtIndex:indexPath.section] objectForKey:@"vegName"]);
     //cell.detailTextLabel.text= [[array_Food objectAtIndex:indexPath.row] objectForKey:@"Type"];
     //cell.imageView.image
