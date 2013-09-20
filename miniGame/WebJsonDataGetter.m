@@ -16,12 +16,16 @@
     }
     return self;
 }
+-(void)requestWithURLString:(NSString *)url{
+    webRequest=[ASIHTTPRequest requestWithURL:[NSURL URLWithString:url]];
+    [webRequest setDelegate:self];
+    [webRequest startAsynchronous];
+}
+
 -(id)initWithURLString:(NSString*)url{
     self=[super init];
     if (self) {
-        webRequest=[ASIHTTPRequest requestWithURL:[NSURL URLWithString:url]];
-        [webRequest setDelegate:self];
-        [webRequest startAsynchronous];
+        [self requestWithURLString:url];
     }
     return self;
 }

@@ -7,12 +7,12 @@
 //
 
 #import "Person.h"
-#import "WebList.h"
+#import "GetJsonURLString.h"
 @implementation Person
 -(id)init{
     self=[super init];
     if (self) {
-        dataGetter=[[WebJsonDataGetter alloc] initWithURLString:WebList_String_GetPersonCoordinate];
+        dataGetter=[[WebJsonDataGetter alloc] initWithURLString:GetJsonURLString_Device];
         [dataGetter setDelegate:self];
     }
     return self;

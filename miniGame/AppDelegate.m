@@ -13,45 +13,8 @@
 #import "ViewController.h"
 #import "loginWithFBViewController.h"
 #import "recipesWithICarouselViewController.h"
+
 @implementation AppDelegate
-@synthesize session = _session;
-
--(MFSideMenuContainerViewController *)friendsView{
-    //ViewController *newAdd=[[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
-    loginWithFBViewController *profile=[[loginWithFBViewController alloc]initWithNibName:@"loginWithFBViewController" bundle:nil];
-
-    UINavigationController *profileView=[[UINavigationController alloc]initWithRootViewController:profile];
-    
-    SideMenuViewController *leftSideView= [[SideMenuViewController alloc ]init];
-    MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:profileView leftMenuViewController:leftSideView rightMenuViewController:nil];
-    [profile setTitle:@"profile" ];
-    [container setTitle:@"profile"];
-    return container;
-}
-
--(MFSideMenuContainerViewController *)recipesView{
-    //refViewController *refrigerator=[[refViewController alloc]initWithNibName:@"refViewController" bundle:nil];
-    recipesWithICarouselViewController *refrigerator= [[recipesWithICarouselViewController alloc ]initWithNibName:@"recipesWithICarouselViewController" bundle:nil];
-    UINavigationController *refrigeratorView=[[UINavigationController alloc]initWithRootViewController:refrigerator];
-    //loaded the "recipesWithICarouselViewController" nib but the view outlet was not set.
-    //SEE:
-    // http://ios-imaxlive.blogspot.tw/2013/08/xcode-addsubview-exception-loaded-xxx.html
-    SideMenuViewController *leftSideView= [[SideMenuViewController alloc ]init];
-    MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:refrigeratorView leftMenuViewController:leftSideView rightMenuViewController:nil];
-    [refrigerator setTitle:@"Recipes"];
-    [container setTitle:@"Recipes"];
-    return container;
-}
-
--(MFSideMenuContainerViewController *)refrigeratorView{
-    menuViewController *main=[[menuViewController alloc]initWithNibName:@"menuViewController" bundle:nil];
-    UINavigationController *mainView=[[UINavigationController alloc]initWithRootViewController:main];
-    SideMenuViewController *leftSideView= [[SideMenuViewController alloc ]init];
-    MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:mainView leftMenuViewController:leftSideView rightMenuViewController:nil];
-    [main setTitle:@"refrigerator"];
-    [container setTitle:@"refrigerator"];
-    return container;
-}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -59,13 +22,9 @@
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     [tabBarController setViewControllers:[NSArray arrayWithObjects:[self refrigeratorView],[self recipesView],[self friendsView],nil]];
-    
     self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
-    
     return YES;
-    
-
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application
@@ -83,10 +42,12 @@
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application
 {
+    
     [FBAppEvents activateApp];
     
     /*
@@ -124,5 +85,47 @@
     return [FBAppCall handleOpenURL:url
                   sourceApplication:sourceApplication
                         withSession:self.session];
+}
+
+
+
+#pragma mark -
+#pragma mark - sideView
+
+-(MFSideMenuContainerViewController *)friendsView{
+    //ViewController *newAdd=[[ViewController alloc]initWithNibName:@"ViewController" bundle:nil];
+    loginWithFBViewController *profile=[[loginWithFBViewController alloc]initWithNibName:@"loginWithFBViewController" bundle:nil];
+    
+    UINavigationController *profileView=[[UINavigationController alloc]initWithRootViewController:profile];
+    
+    SideMenuViewController *leftSideView= [[SideMenuViewController alloc ]init];
+    MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:profileView leftMenuViewController:leftSideView rightMenuViewController:nil];
+    [profile setTitle:@"profile" ];
+    [container setTitle:@"profile"];
+    return container;
+}
+
+-(MFSideMenuContainerViewController *)recipesView{
+    //refViewController *refrigerator=[[refViewController alloc]initWithNibName:@"refViewController" bundle:nil];
+    recipesWithICarouselViewController *refrigerator= [[recipesWithICarouselViewController alloc ]initWithNibName:@"recipesWithICarouselViewController" bundle:nil];
+    UINavigationController *refrigeratorView=[[UINavigationController alloc]initWithRootViewController:refrigerator];
+    //loaded the "recipesWithICarouselViewController" nib but the view outlet was not set.
+    //SEE:
+    // http://ios-imaxlive.blogspot.tw/2013/08/xcode-addsubview-exception-loaded-xxx.html
+    SideMenuViewController *leftSideView= [[SideMenuViewController alloc ]init];
+    MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:refrigeratorView leftMenuViewController:leftSideView rightMenuViewController:nil];
+    [refrigerator setTitle:@"Recipes"];
+    [container setTitle:@"Recipes"];
+    return container;
+}
+
+-(MFSideMenuContainerViewController *)refrigeratorView{
+    menuViewController *main=[[menuViewController alloc]initWithNibName:@"menuViewController" bundle:nil];
+    UINavigationController *mainView=[[UINavigationController alloc]initWithRootViewController:main];
+    SideMenuViewController *leftSideView= [[SideMenuViewController alloc ]init];
+    MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:mainView leftMenuViewController:leftSideView rightMenuViewController:nil];
+    [main setTitle:@"refrigerator"];
+    [container setTitle:@"refrigerator"];
+    return container;
 }
 @end

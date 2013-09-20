@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
-@interface loginWithFBViewController : UIViewController
+
+@interface loginWithFBViewController : UIViewController<CLLocationManagerDelegate>{
+    CLLocationManager *locationManager;
+}
 @property (strong, nonatomic) IBOutlet UILabel *label_WelcomeMessage;
 @property (strong, nonatomic) IBOutlet UIButton *buttonLoginLogout;
 @property (strong, nonatomic) IBOutlet UILabel *label_UserName;
@@ -17,6 +21,9 @@
 @property (strong, nonatomic) IBOutlet UIImageView *imageView_UserImage;
 
 - (void)updateView;
+-(void)initLocationManager;
+-(void)openActiveSessionWithReadPermissionsOfFaceBook;
+
 - (IBAction)button_ShareShaCookie:(id)sender;
 - (IBAction)button_FindFriends:(id)sender;
 - (IBAction)button_SignUp:(id)sender;
