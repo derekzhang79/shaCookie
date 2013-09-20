@@ -130,7 +130,7 @@
     NSLog(@"Tapped view number: %@", item);
     materialViewController*Cookview=[[materialViewController alloc]initWithNibName:@"materialViewController" bundle:nil ];
     //Cookview.rec=[[Recipes alloc] initWithIndex:indexPath.section];
-    Cookview.dic_Cook=[myRecipe.dictionary_nmlData objectAtIndex:index];
+    Cookview.dictionary_Cook=[myRecipe.dictionary_nmlData objectAtIndex:index];
     [Cookview setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     [self.navigationController pushViewController:Cookview animated:YES];//navigation連結頁面
 }

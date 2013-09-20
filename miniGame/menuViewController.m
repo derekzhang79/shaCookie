@@ -8,10 +8,12 @@
 
 #import "menuViewController.h"
 #import "foodDetailViewController.h"
-#import "PlsitRead.h"
 #import "matchMaterialViewController.h"
 #import "refViewController.h"
 #import "moveFinishViewController.h"
+#import "GetJsonURLString.h"
+#import "ASIHTTPRequest.h"
+#import "RecipeInfo.h"
 @interface menuViewController ()
 
 @end
@@ -22,10 +24,17 @@
 {
     [super viewDidLoad];
     self.searchBar_back.alpha=0.0;
-    PlsitRead *readPlist=[[PlsitRead alloc] initWithFileName:@"foodData.plist"];
-    array_Food=[readPlist readFromFile];
-    origin_Food = array_Food;
-    mutableDictionary_SelectedFood=[[NSMutableDictionary alloc] init];
+    
+    myRecipe=[[RecipeInfo alloc]initWithURLString:GetJsonURLString_Vegetables];
+    [myRecipe setDelegate:self];
+    
+    self.array_Material=[[NSArray alloc]initWithArray:myRecipe.dictionary_nmlData];
+    
+    
+    //PlsitRead *readPlist=[[PlsitRead alloc] initWithFileName:@"foodData.plist"];
+    //array_Food=[readPlist readFromFile];
+    //origin_Food = array_Food; 這行意義不明
+    
     
     
     UIBarButtonItem *btn_sent=[[UIBarButtonItem alloc] initWithTitle:@"sent" style:UIBarButtonItemStylePlain target:self action:@selector(sentTheData:)];
@@ -47,16 +56,27 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
+    self.array_Material=nil;
     // Dispose of any resources that can be recreated.
 }
 
 -(NSInteger)numberOfSectionInTableView:(UITableView *)tableView{
     return 1;
 }
+-(void)doThingAfterRecipeInfoIsOkFromDelegate{
+    self.array_Material=[[NSArray alloc]initWithArray:myRecipe.dictionary_nmlData];
+    [self.tableView_Food reloadData];
+    
+    //mutableDictionary_SelectedFood=[[NSMutableDictionary alloc] init];
+   
+    
+}
 #pragma mark -
 #pragma mark - tableView
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [array_Food count];
+    return [self.array_Material count];
+  
+  
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -67,8 +87,9 @@
     if (cell==nil) {
         cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIndentifier];
     }
-    cell.textLabel.text=[[array_Food objectAtIndex:indexPath.row] objectForKey:@"Name"];
-    cell.detailTextLabel.text= [[array_Food objectAtIndex:indexPath.row] objectForKey:@"Type"];
+    cell.textLabel.text=[[myRecipe.dictionary_nmlData objectAtIndex:indexPath.row] objectForKey:@"vegName"];
+    //NSLog(@"%@",[[self.array_Material objectAtIndex:indexPath.section] objectForKey:@"vegName"]);
+    //cell.detailTextLabel.text= [[array_Food objectAtIndex:indexPath.row] objectForKey:@"Type"];
     //cell.imageView.image
     return cell;
 }
@@ -82,7 +103,7 @@
         [mutableDictionary_SelectedFood removeObjectForKey:indexPath];
     } else {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [mutableDictionary_SelectedFood setObject:[array_Food objectAtIndex:indexPath.row] forKey:indexPath];
+        [mutableDictionary_SelectedFood setObject:[ myRecipe.dictionary_nmlData objectAtIndex:indexPath.row] forKey:indexPath];
     }
     
     //如果無資料 則不需跳下一頁
@@ -145,6 +166,7 @@
     
     
 }
+
 
 
 // 搜尋以後用
