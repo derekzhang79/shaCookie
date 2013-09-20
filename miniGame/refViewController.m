@@ -12,7 +12,7 @@
 #import "RecipeInfo.h"
 #import "materialViewController.h"
 #import "GetJsonURLString.h"
-#import "SideMenuViewController.h"
+
 @interface refViewController ()
 
 @end

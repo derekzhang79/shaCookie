@@ -92,7 +92,7 @@
 		49A090DF17E22F7900B19E8C /* menu-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A090DB17E22F7900B19E8C /* menu-icon@2x.png */; };
 		49FD44AC17EC3A6E00F472B5 /* recipesSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FD44AA17EC3A6E00F472B5 /* recipesSideViewController.m */; };
 		49FD44AD17EC3A6E00F472B5 /* recipesSideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49FD44AB17EC3A6E00F472B5 /* recipesSideViewController.xib */; };
-		49FD44B017EC3E1600F472B5 /* SideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FD44AE17EC3E1600F472B5 /* SideMenuViewController.m */; };
+		49FD44B017EC3E1600F472B5 /* profileSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FD44AE17EC3E1600F472B5 /* profileSideMenuViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -215,8 +215,8 @@
 		49FD44A917EC3A6E00F472B5 /* recipesSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recipesSideViewController.h; sourceTree = "<group>"; };
 		49FD44AA17EC3A6E00F472B5 /* recipesSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = recipesSideViewController.m; sourceTree = "<group>"; };
 		49FD44AB17EC3A6E00F472B5 /* recipesSideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = recipesSideViewController.xib; sourceTree = "<group>"; };
-		49FD44AE17EC3E1600F472B5 /* SideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SideMenuViewController.m; sourceTree = "<group>"; };
-		49FD44AF17EC3E1600F472B5 /* SideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SideMenuViewController.h; sourceTree = "<group>"; };
+		49FD44AE17EC3E1600F472B5 /* profileSideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = profileSideMenuViewController.m; sourceTree = "<group>"; };
+		49FD44AF17EC3E1600F472B5 /* profileSideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = profileSideMenuViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -577,7 +577,7 @@
 				490322B817E476050008F1F4 /* loginwithFBView */,
 				4927D89C17E34AAB000DDEBF /* moveFinishView */,
 				4927D89617E33FCF000DDEBF /* matchMaterialView */,
-				49A090D717E22E6800B19E8C /* SideMenuView */,
+				49A090D717E22E6800B19E8C /* profileSideMenuView */,
 				4934431F17E0D95300237BAF /* FriendView */,
 				4984C51A17DF175400EDE6B1 /* entryView */,
 				4984C51817DF173000EDE6B1 /* foodDetailView */,
@@ -613,13 +613,13 @@
 			name = Delegate;
 			sourceTree = "<group>";
 		};
-		49A090D717E22E6800B19E8C /* SideMenuView */ = {
+		49A090D717E22E6800B19E8C /* profileSideMenuView */ = {
 			isa = PBXGroup;
 			children = (
-				49FD44AE17EC3E1600F472B5 /* SideMenuViewController.m */,
-				49FD44AF17EC3E1600F472B5 /* SideMenuViewController.h */,
+				49FD44AE17EC3E1600F472B5 /* profileSideMenuViewController.m */,
+				49FD44AF17EC3E1600F472B5 /* profileSideMenuViewController.h */,
 			);
-			name = SideMenuView;
+			name = profileSideMenuView;
 			sourceTree = "<group>";
 		};
 		49F546D117E5DCA200166D62 /* recipesWithICarouselView */ = {
@@ -791,7 +791,7 @@
 				490322C817E5BBBB0008F1F4 /* recipesWithICarouselViewController.m in Sources */,
 				02C8795217EA1BDD00E1F738 /* materialSideViewController.m in Sources */,
 				49FD44AC17EC3A6E00F472B5 /* recipesSideViewController.m in Sources */,
-				49FD44B017EC3E1600F472B5 /* SideMenuViewController.m in Sources */,
+				49FD44B017EC3E1600F472B5 /* profileSideMenuViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
