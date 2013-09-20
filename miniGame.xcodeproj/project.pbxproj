@@ -290,7 +290,6 @@
 		02A91709170207BC00F2E55F = {
 			isa = PBXGroup;
 			children = (
-				49FD44B817EC5E4800F472B5 /* MessageUI.framework */,
 				023F8A051708971B00283A71 /* Resources */,
 				02A9171B170207BC00F2E55F /* miniGame */,
 				02A91714170207BC00F2E55F /* Frameworks */,
@@ -310,6 +309,7 @@
 		02A91714170207BC00F2E55F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49FD44B817EC5E4800F472B5 /* MessageUI.framework */,
 				4948AA9517EA1C9800C28270 /* FacebookSDK.framework */,
 				4927D8AA17E3959C000DDEBF /* Security.framework */,
 				4927D8A817E39596000DDEBF /* Social.framework */,

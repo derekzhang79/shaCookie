@@ -66,22 +66,6 @@
     }
 }
 
-- (IBAction)button_ShareShaCookie:(id)sender {
-    //TODO:
-    //改成 open graph
-    //NSArray *publishPermissions = @[@"publish_actions"];
-    //[self openActiveSessionWithPublishPermissionsOfFaceBook:publishPermissions];
-}
-
-
-
-
-- (IBAction)button_FindFriends:(id)sender {
-    JsonViewController *nearUsersView=[[JsonViewController alloc]initWithNibName:@"JsonViewController" bundle:nil];
-    [self.navigationController pushViewController:nearUsersView animated:YES];
-    
-}
-
 #pragma mark -
 #pragma mark - locationManager
 -(void)initLocationManager{
