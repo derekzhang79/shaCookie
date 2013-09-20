@@ -105,7 +105,7 @@
 {
     materialViewController*Cookview=[[materialViewController alloc]initWithNibName:@"materialViewController" bundle:nil ];
     //Cookview.rec=[[Recipes alloc] initWithIndex:indexPath.section];
-    Cookview.dic_Cook=[myRecipe.dictionary_nmlData objectAtIndex:indexPath.section];
+    Cookview.dictionary_Cook=[myRecipe.dictionary_nmlData objectAtIndex:indexPath.section];
     [Cookview setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     
     [self.navigationController pushViewController:Cookview animated:YES];//navigation連結頁面

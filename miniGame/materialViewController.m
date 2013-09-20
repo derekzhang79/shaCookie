@@ -35,7 +35,7 @@ BOOL isRunning = NO;
     _lastTime = CountDownTime;
     //寫死的Recipes *re=[[Recipes alloc] initWithIndex:0];
     //Recipes *re1=[[Recipes alloc] initWithIndex:1];
-    self.label_Name.text=[self.dic_Cook objectForKey:@"name"];
+    self.label_Name.text=[self.dictionary_Cook objectForKey:@"name"];
     //self.name.text=re.name;
     //NSLog(@"%@",self.dic_Cook);
     //NSLog(@"%@",re.name);
@@ -88,10 +88,10 @@ BOOL isRunning = NO;
     cell=(cell==nil)?[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier]:cell;
     if (tableView.tag==0) {
         
-        cell.textLabel.text=[self.dic_Cook objectForKey:@"Food"];
+        cell.textLabel.text=[self.dictionary_Cook objectForKey:@"Food"];
     }else if(tableView.tag==1){
-        cell.textLabel.text=[self.dic_Cook objectForKey:@"Step"];
-        NSLog(@"%@",[self.dic_Cook objectForKey:@"Step"]);
+        cell.textLabel.text=[self.dictionary_Cook objectForKey:@"Step"];
+        NSLog(@"%@",[self.dictionary_Cook objectForKey:@"Step"]);
     }//tag0代表的是用料但是用料裡面還是dic格式所以需要objectForKey來辨別食材跟用量而tag1的表單代表的是做法為string格式所以不需要辨識
     return cell;
 }
