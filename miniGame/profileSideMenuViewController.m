@@ -8,13 +8,14 @@
 #import "JsonViewController.h"
 #import "loginWithFBViewController.h"
 #import "MFSideMenu.h"
+#import "aboutUsViewController.h"
 
 
 
 @implementation profileSideMenuViewController
 
 -(void)viewDidLoad{
-    self.array_PofileCategory=[[NSArray alloc]initWithObjects:@"profile",@"news",@"find friends",@"setting",@"promote us",@"contact us", nil];
+    self.array_PofileCategory=[[NSArray alloc]initWithObjects:@"profile",@"news",@"find friends",@"setting",@"about us", nil];
 }
 
 #pragma mark -
@@ -53,7 +54,7 @@
         navigationController.viewControllers = controllers;
         [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
     }else{
-        NSLog(@"NOT YET");
+        NSLog(@"NOT YET, %d",indexPath.row);
     }
 }
 
@@ -65,6 +66,9 @@
             break;
         case 2:
             controller=(UIViewController *)[[JsonViewController alloc]initWithNibName:@"JsonViewController" bundle:nil];
+            break;
+        case 4:
+            controller=(UIViewController *)[[aboutUsViewController alloc]initWithNibName:@"aboutUsViewController" bundle:nil];
             break;
         default:
             break;
