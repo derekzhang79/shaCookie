@@ -7,7 +7,7 @@
 //
 #import "MFSideMenu.h"
 #import "AppDelegate.h"
-#import "SideMenuViewController.h"
+#import "profileSideMenuViewController.h"
 #import "refViewController.h"
 #import "menuViewController.h"
 #import "ViewController.h"
@@ -100,7 +100,7 @@
     
     UINavigationController *profileView=[[UINavigationController alloc]initWithRootViewController:profile];
     
-    SideMenuViewController *leftSideView= [[SideMenuViewController alloc ]init];
+    profileSideMenuViewController *leftSideView= [[profileSideMenuViewController alloc ]init];
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:profileView leftMenuViewController:leftSideView rightMenuViewController:nil];
     [profile setTitle:@"profile" ];
     [container setTitle:@"profile"];
