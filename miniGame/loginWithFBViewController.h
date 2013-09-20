@@ -24,7 +24,5 @@
 -(void)initLocationManager;
 -(void)openActiveSessionWithReadPermissionsOfFaceBook;
 
-- (IBAction)button_ShareShaCookie:(id)sender;
-- (IBAction)button_FindFriends:(id)sender;
 - (IBAction)button_SignUp:(id)sender;
 @end

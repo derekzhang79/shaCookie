@@ -66,22 +66,6 @@
     }
 }
 
-- (IBAction)button_ShareShaCookie:(id)sender {
-    //TODO:
-    //改成 open graph
-    NSArray *publishPermissions = @[@"publish_actions"];
-    [self openActiveSessionWithPublishPermissionsOfFaceBook:publishPermissions];
-}
-
-
-
-
-- (IBAction)button_FindFriends:(id)sender {
-    JsonViewController *nearUsersView=[[JsonViewController alloc]initWithNibName:@"JsonViewController" bundle:nil];
-    [self.navigationController pushViewController:nearUsersView animated:YES];
-    
-}
-
 #pragma mark -
 #pragma mark - locationManager
 -(void)initLocationManager{
@@ -107,52 +91,6 @@
 #pragma mark -
 #pragma mark - FBlogin
 
-- (void)publishStory
-{
-    //SEE:
-    // https://developers.facebook.com/docs/reference/api/publishing/
-    NSMutableDictionary *arguments = [[NSMutableDictionary alloc] initWithObjectsAndKeys:
-                                      @"it's a great App that really upgrade my cooking skill !!!", @"message",
-                                      @"https://www.facebook.com/shaCookie", @"link",
-                                      @"https://developers.facebook.com/attachment/iossdk_logo.png", @"picture",
-                                      @"shaCookie", @"name",
-                                      @"Build great cooking apps and get more recipes.", @"caption",
-                                      @"cook hard, cook fun", @"description",
-                                      nil];
-    
-    [FBRequestConnection startWithGraphPath:@"me/feed" parameters:arguments HTTPMethod:@"POST"
-                          completionHandler:^(FBRequestConnection *connection, id result, NSError *error) {
-                              if (error) {
-                                  NSLog(@"Share Error : %@", error);
-                                  
-                              } else {
-                                  NSLog(@"Result : %@", result);
-                                  NSLog(@"Token : %@", FBSession.activeSession.accessTokenData);
-                              }
-                          }];
-}
-
--(void)openActiveSessionWithPublishPermissionsOfFaceBook:(NSArray *)publishPermissions{
-    //  Check if this session have publish permission.
-    if ([FBSession.activeSession.permissions indexOfObject:@"publish_actions"] == NSNotFound || !FBSession.activeSession.accessTokenData) {
-        
-        [FBSession openActiveSessionWithPublishPermissions:publishPermissions
-                                           defaultAudience:FBSessionDefaultAudienceEveryone
-                                              allowLoginUI:YES
-                                         completionHandler:^(FBSession *session, FBSessionState status, NSError *error) {
-                                             
-                                             if (session.isOpen && !error) {
-                                                 [self publishStory];
-                                                 
-                                             }else {
-                                                 NSLog(@"open publish permission error : %@", error);
-                                             }
-                                         }];
-        
-    } else {
-        [self publishStory];
-    }
-}
 
 -(void)openActiveSessionWithReadPermissionsOfFaceBook{
     AppDelegate *appDelegate = [[UIApplication sharedApplication]delegate];

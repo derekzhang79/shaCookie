@@ -93,6 +93,9 @@
 		49FD44AC17EC3A6E00F472B5 /* recipesSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FD44AA17EC3A6E00F472B5 /* recipesSideViewController.m */; };
 		49FD44AD17EC3A6E00F472B5 /* recipesSideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49FD44AB17EC3A6E00F472B5 /* recipesSideViewController.xib */; };
 		49FD44B017EC3E1600F472B5 /* profileSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FD44AE17EC3E1600F472B5 /* profileSideMenuViewController.m */; };
+		49FD44B617EC57F900F472B5 /* aboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FD44B417EC57F900F472B5 /* aboutUsViewController.m */; };
+		49FD44B717EC57F900F472B5 /* aboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49FD44B517EC57F900F472B5 /* aboutUsViewController.xib */; };
+		49FD44B917EC5E4800F472B5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FD44B817EC5E4800F472B5 /* MessageUI.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -217,6 +220,10 @@
 		49FD44AB17EC3A6E00F472B5 /* recipesSideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = recipesSideViewController.xib; sourceTree = "<group>"; };
 		49FD44AE17EC3E1600F472B5 /* profileSideMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = profileSideMenuViewController.m; sourceTree = "<group>"; };
 		49FD44AF17EC3E1600F472B5 /* profileSideMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = profileSideMenuViewController.h; sourceTree = "<group>"; };
+		49FD44B317EC57F900F472B5 /* aboutUsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = aboutUsViewController.h; sourceTree = "<group>"; };
+		49FD44B417EC57F900F472B5 /* aboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aboutUsViewController.m; sourceTree = "<group>"; };
+		49FD44B517EC57F900F472B5 /* aboutUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = aboutUsViewController.xib; sourceTree = "<group>"; };
+		49FD44B817EC5E4800F472B5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -224,6 +231,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49FD44B917EC5E4800F472B5 /* MessageUI.framework in Frameworks */,
 				4948AA9617EA1C9800C28270 /* FacebookSDK.framework in Frameworks */,
 				4927D8AB17E3959C000DDEBF /* Security.framework in Frameworks */,
 				4927D8A917E39596000DDEBF /* Social.framework in Frameworks */,
@@ -301,6 +309,7 @@
 		02A91714170207BC00F2E55F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49FD44B817EC5E4800F472B5 /* MessageUI.framework */,
 				4948AA9517EA1C9800C28270 /* FacebookSDK.framework */,
 				4927D8AA17E3959C000DDEBF /* Security.framework */,
 				4927D8A817E39596000DDEBF /* Social.framework */,
@@ -571,6 +580,7 @@
 		4984C51B17DF177400EDE6B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				49FD44B117EC57D100F472B5 /* aboutUsView */,
 				02C8795417EA3B9300E1F738 /* recipesSideView */,
 				02C8794F17EA1B8300E1F738 /* materialSideView */,
 				49F546D117E5DCA200166D62 /* recipesWithICarouselView */,
@@ -630,6 +640,16 @@
 				490322C717E5BBBB0008F1F4 /* recipesWithICarouselViewController.xib */,
 			);
 			name = recipesWithICarouselView;
+			sourceTree = "<group>";
+		};
+		49FD44B117EC57D100F472B5 /* aboutUsView */ = {
+			isa = PBXGroup;
+			children = (
+				49FD44B317EC57F900F472B5 /* aboutUsViewController.h */,
+				49FD44B417EC57F900F472B5 /* aboutUsViewController.m */,
+				49FD44B517EC57F900F472B5 /* aboutUsViewController.xib */,
+			);
+			name = aboutUsView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -728,6 +748,7 @@
 				499C634817E449EC00513989 /* Icon-72@2x.png in Resources */,
 				490322C917E5BBBB0008F1F4 /* recipesWithICarouselViewController.xib in Resources */,
 				49FD44AD17EC3A6E00F472B5 /* recipesSideViewController.xib in Resources */,
+				49FD44B717EC57F900F472B5 /* aboutUsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -792,6 +813,7 @@
 				02C8795217EA1BDD00E1F738 /* materialSideViewController.m in Sources */,
 				49FD44AC17EC3A6E00F472B5 /* recipesSideViewController.m in Sources */,
 				49FD44B017EC3E1600F472B5 /* profileSideMenuViewController.m in Sources */,
+				49FD44B617EC57F900F472B5 /* aboutUsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
