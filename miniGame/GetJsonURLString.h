@@ -25,6 +25,5 @@
 
 #define GetJsonURLString_Vegetables @"http://54.244.225.229/shacookie/jsonVegetables.php"
 
-
-#define SetJsonURLString_Device @"http://54.244.225.229/shacookie/useThis/setCurrentLocation.php?deviceId=%@&latitude=%f&longtitude=%f&userId=%d&type=%d"
+#define SetJsonURLString_Device @"http://54.244.225.229/shacookie/useThis/setCurrentLocation.php?userId=%d&type=%d&deviceId=%@&latitude=%f&longtitude=%f"
 #endif
