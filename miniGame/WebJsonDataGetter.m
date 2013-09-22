@@ -38,7 +38,7 @@
 }
 
 -(void)requestFailed:(ASIHTTPRequest *)request{
-    NSLog(@"Faile");
+    NSLog(@"Failure");
     //要教他們
     UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Error" message:@"BeSure" delegate:nil cancelButtonTitle:@"canel" otherButtonTitles:@"one",@"two", nil];
     [alert setDelegate:self];

@@ -99,7 +99,7 @@
     loginWithFBViewController *profile=[[loginWithFBViewController alloc]initWithNibName:@"loginWithFBViewController" bundle:nil];
     
     UINavigationController *profileView=[[UINavigationController alloc]initWithRootViewController:profile];
-    
+    [profileView setNavigationBarHidden:TRUE animated:TRUE];
     profileSideMenuViewController *leftSideView= [[profileSideMenuViewController alloc ]init];
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:profileView leftMenuViewController:leftSideView rightMenuViewController:nil];
     [profile setTitle:@"profile" ];
@@ -113,6 +113,8 @@
     [refrigerator recipesSearch:@"2"];
 
     UINavigationController *refrigeratorView=[[UINavigationController alloc]initWithRootViewController:refrigerator];
+    [refrigeratorView setNavigationBarHidden:TRUE animated:TRUE];
+
     //loaded the "recipesWithICarouselViewController" nib but the view outlet was not set.
     //SEE:
     // http://ios-imaxlive.blogspot.tw/2013/08/xcode-addsubview-exception-loaded-xxx.html
@@ -126,6 +128,7 @@
 -(MFSideMenuContainerViewController *)refrigeratorView{
     menuViewController *main=[[menuViewController alloc]initWithNibName:@"menuViewController" bundle:nil];
     UINavigationController *mainView=[[UINavigationController alloc]initWithRootViewController:main];
+    [mainView setNavigationBarHidden:TRUE animated:TRUE];
     materialSideViewController *leftSideView= [[materialSideViewController alloc ]init];
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:mainView leftMenuViewController:leftSideView rightMenuViewController:nil];
     [main setTitle:@"refrigerator"];

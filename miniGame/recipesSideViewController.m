@@ -117,6 +117,8 @@
     recipeView.title=[self getRecipeTitle:type];
 
     UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
+    [navigationController setNavigationBarHidden:TRUE animated:TRUE];
+
     NSArray *controllers = [NSArray arrayWithObject:recipeView];
     navigationController.viewControllers = controllers;
     [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];

@@ -121,7 +121,7 @@
         
     }
     
-    cell.textLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"deviceId"];
+    cell.textLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"display_name"];
     
     CLLocation *loc=[Array_locaions lastObject];
     CLLocation *default_Location=[[CLLocation alloc]initWithLatitude:[[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"latitude"] doubleValue] longitude:[[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"longtitude"] doubleValue]];
