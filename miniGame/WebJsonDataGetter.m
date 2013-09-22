@@ -34,6 +34,7 @@
     NSString *jsonStr=[[NSString alloc]initWithData:request.responseData encoding:NSUTF8StringEncoding];
     self.webData=[jsonStr objectFromJSONString];
     [self.delegate  doThingAfterWebJsonIsOKFromDelegate];
+
 }
 
 -(void)requestFailed:(ASIHTTPRequest *)request{

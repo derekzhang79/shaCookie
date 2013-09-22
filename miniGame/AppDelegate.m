@@ -110,6 +110,8 @@
 -(MFSideMenuContainerViewController *)recipesView{
     //refViewController *refrigerator=[[refViewController alloc]initWithNibName:@"refViewController" bundle:nil];
     recipesWithICarouselViewController *refrigerator= [[recipesWithICarouselViewController alloc ]initWithNibName:@"recipesWithICarouselViewController" bundle:nil];
+    [refrigerator recipesSearch:@"2"];
+
     UINavigationController *refrigeratorView=[[UINavigationController alloc]initWithRootViewController:refrigerator];
     //loaded the "recipesWithICarouselViewController" nib but the view outlet was not set.
     //SEE:

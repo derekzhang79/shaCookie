@@ -7,12 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "RecipeInfo.h"
 #import "ASIHTTPRequest.h"
+#import "WebJsonDataGetter.h"
 
-@interface recipesSideViewController : UITableViewController<RecipeInFoDelegate>{
-    RecipeInfo *recipes;
-    ASIHTTPRequest *asiRequest;
+@interface recipesSideViewController : UITableViewController<WebJsonDataGetFinishDelegater>{
+    WebJsonDataGetter *webGetter;
 }
 
 @property (strong,nonatomic)NSDictionary *dictionary_RecipesMenu;

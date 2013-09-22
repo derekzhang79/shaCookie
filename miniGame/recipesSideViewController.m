@@ -9,6 +9,7 @@
 #import "recipesSideViewController.h"
 #import "GetJsonURLString.h"
 #import "MFSideMenu.h"
+#import "recipesWithICarouselViewController.h"
 
 
 @interface recipesSideViewController ()
@@ -20,18 +21,14 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    webGetter =[[WebJsonDataGetter alloc]init];
+    [webGetter requestWithURLString:GetJsonURLString_RecipeType];
+    [webGetter setDelegate:self];
     
-    recipes = [[RecipeInfo alloc]initWithURLString:GetJsonURLString_Recipe];
-    [recipes setDelegate:self];
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
 }
 
--(void)doThingAfterRecipeInfoIsOkFromDelegate{
-    self.array_RecipesMenu=[[NSArray alloc]initWithArray:recipes.dictionary_nmlData];
+-(void)doThingAfterWebJsonIsOKFromDelegate{
+    self.array_RecipesMenu=[[NSArray alloc]initWithArray: webGetter.webData];
     [self.tableView reloadData];
 }
 
@@ -66,7 +63,8 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [[self.array_RecipesMenu objectAtIndex:indexPath.row]objectForKey:@"name"];
+    NSString *recipesType=[[self.array_RecipesMenu objectAtIndex:indexPath.row]objectForKey:@"type"];
+    cell.textLabel.text=[self getRecipeTitle:recipesType];
     return cell;
 }
 
@@ -113,13 +111,33 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     */
+    NSString *type=[[self.array_RecipesMenu objectAtIndex:indexPath.row]objectForKey:@"type"];
+    recipesWithICarouselViewController *recipeView=[[recipesWithICarouselViewController alloc]initWithNibName:@"recipesWithICarouselViewController" bundle:nil ];
+    [recipeView recipesSearch:type];
+    recipeView.title=[self getRecipeTitle:type];
+
+    UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
+    NSArray *controllers = [NSArray arrayWithObject:recipeView];
+    navigationController.viewControllers = controllers;
+    [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+}
+
+-(NSString *)getRecipeTitle:(NSString*)recipesType{
+    NSString *type=nil;
+    switch ([recipesType intValue]) {
+        case 1:
+            type= @"種類一";
+            break;
+        case 2:
+            type= @"種類二";
+            break;
+        case 3:
+            type= @"種類三";
+            break;
+        default:
+            break;
+    }
+    return type;
 }
 
 @end

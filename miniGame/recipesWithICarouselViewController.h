@@ -8,14 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "iCarousel.h"
-#import "RecipeInfo.h"
+#import "WebJsonDataGetter.h"
 
-@interface recipesWithICarouselViewController : UIViewController<RecipeInFoDelegate,iCarouselDataSource, iCarouselDelegate>{
-    RecipeInfo *myRecipe;
+@interface recipesWithICarouselViewController : UIViewController<WebJsonDataGetFinishDelegater,iCarouselDataSource, iCarouselDelegate>{
+    WebJsonDataGetter *webGetter;
 }
-
+-(void)recipesSearch:(NSString*)recipeType;
 @property (nonatomic, strong) IBOutlet iCarousel *carousel;
-@property (nonatomic, strong) NSArray *items;
-
+@property (nonatomic, strong) NSArray *array_Items;
 
 @end

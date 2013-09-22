@@ -30,8 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
- 
-    
     myRecipe=[[RecipeInfo alloc]initWithURLString:GetJsonURLString_Recipe];
     [myRecipe setDelegate:self];
     
