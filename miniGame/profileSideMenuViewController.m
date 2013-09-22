@@ -50,6 +50,7 @@
     if (categoryView) {
         categoryView.title=[self.array_PofileCategory objectAtIndex:indexPath.row];
         UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
+        [navigationController setNavigationBarHidden:TRUE animated:TRUE];
         NSArray *controllers = [NSArray arrayWithObject:categoryView];
         navigationController.viewControllers = controllers;
         [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];

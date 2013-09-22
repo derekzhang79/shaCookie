@@ -78,13 +78,21 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
     CLLocation *loc=(CLLocation*)[locations lastObject];
+    NSInteger userId=nil;
+    
+    NSInteger type=1;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+	    type=2;
+	}
+
     NSString *deviceId = [[[UIDevice currentDevice] identifierForVendor]UUIDString];
     CGFloat latitude=loc.coordinate.latitude;
     CGFloat longtitude=loc.coordinate.longitude;
-    NSString *urlString = [NSString stringWithFormat:SetJsonURLString_Device,deviceId,latitude,longtitude];
+    //userId,type,deviceId,latitude,longtitude
+    NSString *urlString = [NSString stringWithFormat:SetJsonURLString_Device,userId,type,deviceId,latitude,longtitude];
+    
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     NSURLConnection *conn=[[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:YES];
-    NSLog(@"updateed::::::::::::::: %@",conn);
     [locationManager stopUpdatingLocation];
 }
 

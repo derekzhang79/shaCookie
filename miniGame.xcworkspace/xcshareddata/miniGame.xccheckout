@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F546BF8C-05AB-4DC3-8043-483D03FD9A64</string>
+	<key>IDESourceControlProjectName</key>
+	<string>miniGame</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DFE66C1A-1257-4874-BF05-0E0696CA86F8</key>
+		<string>https://github.com/bird1204/shaCookie.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>miniGame.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DFE66C1A-1257-4874-BF05-0E0696CA86F8</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/bird1204/shaCookie.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DFE66C1A-1257-4874-BF05-0E0696CA86F8</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DFE66C1A-1257-4874-BF05-0E0696CA86F8</string>
+			<key>IDESourceControlWCCName</key>
+			<string>shaCookie</string>
+		</dict>
+	</array>
+</dict>
+</plist>

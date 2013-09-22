@@ -45,6 +45,7 @@
     
 }
 -(void)doThingAfterWebJsonIsOKFromDelegate{
+    self.array_nearUsers=webGetter.webData;
     [self.tableView_Json reloadData];
 }
 
@@ -88,13 +89,10 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)doThingAfterRecipeInfoIsOkFromDelegate{
-    NSLog(@"doThingAfterRecipeInfoIsOkFromDelegate");
-}
-
 - (void)refreshTable
-{    
-    [webGetter requestWithURLString:GetJsonURLString_Device];
+{
+    NSString *deviceId = [[[UIDevice currentDevice] identifierForVendor]UUIDString];
+    [webGetter requestWithURLString:[NSString stringWithFormat:GetJsonURLString_Device,deviceId]];
     [webGetter setDelegate:self];
 
     [self.tableView_Json performSelector:@selector(reloadData) withObject:nil afterDelay:2];
@@ -107,11 +105,12 @@
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return [webGetter.webData count];
+    return [self.array_nearUsers count];
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     //抓陣列的值
+    
     static NSString *CellIndentifier=@"MyCell01";
     UITableViewCell *cell=[tableView dequeueReusableCellWithIdentifier:CellIndentifier];
     
@@ -119,13 +118,19 @@
         cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIndentifier];
         
     }
-    
-    cell.textLabel.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"deviceId"];
+    //NSLog(@"%@",self.array_nearUsers);
+    NSLog(@"%@",[self.array_nearUsers objectAtIndex:indexPath.row]);
+    NSLog(@"%@",[[self.array_nearUsers objectAtIndex:indexPath.row]objectForKey:@"display_name"]);
+    NSString *main_text=[NSString stringWithFormat:@"%@ --> %@",[[self.array_nearUsers objectAtIndex:indexPath.row]objectForKey:@"display_name"],[[self.array_nearUsers objectAtIndex:indexPath.row]objectForKey:@"latest_online"]];
+    cell.textLabel.text=main_text;
     
     CLLocation *loc=[Array_locaions lastObject];
-    CLLocation *default_Location=[[CLLocation alloc]initWithLatitude:[[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"latitude"] doubleValue] longitude:[[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"longtitude"] doubleValue]];
+    CLLocation *default_Location=[[CLLocation alloc]initWithLatitude:[[[self.array_nearUsers objectAtIndex:indexPath.row]objectForKey:@"latitude"] doubleValue] longitude:[[[self.array_nearUsers objectAtIndex:indexPath.row]objectForKey:@"longtitude"] doubleValue]];
     CLLocationDistance meters =[loc distanceFromLocation:default_Location];
-    cell.detailTextLabel.text=[NSString stringWithFormat:@"DISTANCE:%fKM",(CGFloat)meters/1000];
+    
+    NSString *detail_text=[NSString stringWithFormat:@"%@ --> type:%@",[NSString stringWithFormat:@"DISTANCE:%fKM",(CGFloat)meters/1000],[[self.array_nearUsers objectAtIndex:indexPath.row]objectForKey:@"type"]];
+    cell.detailTextLabel.text=detail_text;
+    
     return cell;
 }
 

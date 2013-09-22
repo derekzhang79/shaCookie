@@ -20,9 +20,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *label_UserGender;
 @property (strong, nonatomic) IBOutlet UIImageView *imageView_UserImage;
 
+
 - (void)updateView;
 -(void)initLocationManager;
 -(void)openActiveSessionWithReadPermissionsOfFaceBook;
-
 - (IBAction)button_SignUp:(id)sender;
 @end
