@@ -8,17 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreMotion/CoreMotion.h>
-#import "RecipeInfo.h"
 #import "ASIHTTPRequest.h"
-@interface menuViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UITabBarControllerDelegate,RecipeInFoDelegate>{
+#import "WebJsonDataGetter.h"
+@interface menuViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UISearchBarDelegate,UITabBarControllerDelegate,WebJsonDataGetFinishDelegater>{
     CMMotionManager *motionManager;
     NSArray *array_Food;
     NSArray *origin_Food;
     NSMutableDictionary *mutableDictionary_SelectedFood;
-    RecipeInfo *myRecipe;
+    WebJsonDataGetter *webGetter;
     ASIHTTPRequest *asiRequest;
 
 }
+-(void)materialSearch:(NSString*)recipeType;
 - (IBAction)button_StartMotion:(id)sender;
 @property (strong,nonatomic)NSDictionary *dictionary_Material;
 @property(strong,nonatomic)NSArray *array_Material;

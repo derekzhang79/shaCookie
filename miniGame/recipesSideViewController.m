@@ -114,6 +114,7 @@
     NSString *type=[[self.array_RecipesMenu objectAtIndex:indexPath.row]objectForKey:@"type"];
     recipesWithICarouselViewController *recipeView=[[recipesWithICarouselViewController alloc]initWithNibName:@"recipesWithICarouselViewController" bundle:nil ];
     [recipeView recipesSearch:type];
+    
     recipeView.title=[self getRecipeTitle:type];
 
     UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
