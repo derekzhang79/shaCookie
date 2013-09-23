@@ -9,6 +9,7 @@
 #import "recipesWithICarouselViewController.h"
 #import "GetJsonURLString.h"
 #import "CVCell.h"
+#import "procedureWithLeavesView.h"
 
 @interface recipesWithICarouselViewController ()
 
@@ -112,10 +113,10 @@
 {
     NSNumber *item = (self.array_Items)[index];
     NSLog(@"Tapped view number: %@", item);
-    materialViewController*Cookview=[[materialViewController alloc]initWithNibName:@"materialViewController" bundle:nil ];
+    //materialViewController*Cookview=[[materialViewController alloc]initWithNibName:@"materialViewController" bundle:nil ];
     //Cookview.rec=[[Recipes alloc] initWithIndex:indexPath.section];
-    Cookview.dictionary_Cook=[webGetter.webData objectAtIndex:index];
-    [Cookview setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-    [self.navigationController pushViewController:Cookview animated:YES];//navigation連結頁面
+    //Cookview.dictionary_Cook=[webGetter.webData objectAtIndex:index];
+    procedureWithLeavesView *procedure = [[procedureWithLeavesView alloc]init];
+    [self.navigationController pushViewController:procedure animated:YES];//navigation連結頁面
 }
 @end
