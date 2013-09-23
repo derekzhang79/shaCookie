@@ -108,7 +108,6 @@
 }
 
 -(MFSideMenuContainerViewController *)recipesView{
-    //refViewController *refrigerator=[[refViewController alloc]initWithNibName:@"refViewController" bundle:nil];
     recipesWithICarouselViewController *refrigerator= [[recipesWithICarouselViewController alloc ]initWithNibName:@"recipesWithICarouselViewController" bundle:nil];
     [refrigerator recipesSearch:@"2"];
 

@@ -79,6 +79,11 @@
 		4927D8A917E39596000DDEBF /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4927D8A817E39596000DDEBF /* Social.framework */; };
 		4927D8AB17E3959C000DDEBF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4927D8AA17E3959C000DDEBF /* Security.framework */; };
 		4948AA9617EA1C9800C28270 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4948AA9517EA1C9800C28270 /* FacebookSDK.framework */; };
+		495BFAD717F073FD001B99B5 /* procedureWithLeavesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 495BFAD617F073FD001B99B5 /* procedureWithLeavesView.m */; };
+		495BFAED17F08537001B99B5 /* LeavesCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 495BFAE817F08537001B99B5 /* LeavesCache.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		495BFAEE17F08537001B99B5 /* LeavesView.m in Sources */ = {isa = PBXBuildFile; fileRef = 495BFAEA17F08537001B99B5 /* LeavesView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		495BFAEF17F08537001B99B5 /* LeavesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 495BFAEC17F08537001B99B5 /* LeavesViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		4971E17D17F08D1B00CD4E1C /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 4971E17C17F08D1B00CD4E1C /* Utilities.m */; };
 		499C632917E43EFB00513989 /* loginWithFBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499C632717E43EFB00513989 /* loginWithFBViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		499C632A17E43EFB00513989 /* loginWithFBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499C632817E43EFB00513989 /* loginWithFBViewController.xib */; };
 		499C634417E449EC00513989 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 499C633D17E449EB00513989 /* 37x-Checkmark.png */; };
@@ -199,6 +204,16 @@
 		4927D8AA17E3959C000DDEBF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4940D55B17E33EDC00939995 /* GetJsonURLString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetJsonURLString.h; sourceTree = "<group>"; };
 		4948AA9517EA1C9800C28270 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/ios_framework/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		495BFAD517F073FD001B99B5 /* procedureWithLeavesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = procedureWithLeavesView.h; sourceTree = "<group>"; };
+		495BFAD617F073FD001B99B5 /* procedureWithLeavesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = procedureWithLeavesView.m; sourceTree = "<group>"; };
+		495BFAE717F08537001B99B5 /* LeavesCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeavesCache.h; sourceTree = "<group>"; };
+		495BFAE817F08537001B99B5 /* LeavesCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeavesCache.m; sourceTree = "<group>"; };
+		495BFAE917F08537001B99B5 /* LeavesView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeavesView.h; sourceTree = "<group>"; };
+		495BFAEA17F08537001B99B5 /* LeavesView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeavesView.m; sourceTree = "<group>"; };
+		495BFAEB17F08537001B99B5 /* LeavesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LeavesViewController.h; sourceTree = "<group>"; };
+		495BFAEC17F08537001B99B5 /* LeavesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LeavesViewController.m; sourceTree = "<group>"; };
+		4971E17B17F08D1B00CD4E1C /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
+		4971E17C17F08D1B00CD4E1C /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
 		499C632617E43EFB00513989 /* loginWithFBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginWithFBViewController.h; sourceTree = "<group>"; };
 		499C632717E43EFB00513989 /* loginWithFBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginWithFBViewController.m; sourceTree = "<group>"; };
 		499C632817E43EFB00513989 /* loginWithFBViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginWithFBViewController.xib; sourceTree = "<group>"; };
@@ -419,6 +434,37 @@
 			name = FriendView;
 			sourceTree = "<group>";
 		};
+		495BFACA17F072F0001B99B5 /* procedureWithLeavesView */ = {
+			isa = PBXGroup;
+			children = (
+				495BFAD517F073FD001B99B5 /* procedureWithLeavesView.h */,
+				495BFAD617F073FD001B99B5 /* procedureWithLeavesView.m */,
+			);
+			name = procedureWithLeavesView;
+			sourceTree = "<group>";
+		};
+		495BFAE617F08537001B99B5 /* Leaves */ = {
+			isa = PBXGroup;
+			children = (
+				495BFAE717F08537001B99B5 /* LeavesCache.h */,
+				495BFAE817F08537001B99B5 /* LeavesCache.m */,
+				495BFAE917F08537001B99B5 /* LeavesView.h */,
+				495BFAEA17F08537001B99B5 /* LeavesView.m */,
+				495BFAEB17F08537001B99B5 /* LeavesViewController.h */,
+				495BFAEC17F08537001B99B5 /* LeavesViewController.m */,
+			);
+			path = Leaves;
+			sourceTree = "<group>";
+		};
+		4971E17E17F08DB000CD4E1C /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				4971E17B17F08D1B00CD4E1C /* Utilities.h */,
+				4971E17C17F08D1B00CD4E1C /* Utilities.m */,
+			);
+			name = Utilities;
+			sourceTree = "<group>";
+		};
 		4984C50A17DF140400EDE6B1 /* images */ = {
 			isa = PBXGroup;
 			children = (
@@ -580,6 +626,7 @@
 		4984C51B17DF177400EDE6B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				495BFACA17F072F0001B99B5 /* procedureWithLeavesView */,
 				49FD44B117EC57D100F472B5 /* aboutUsView */,
 				02C8795417EA3B9300E1F738 /* recipesSideView */,
 				02C8794F17EA1B8300E1F738 /* materialSideView */,
@@ -602,6 +649,8 @@
 		4984C51C17DF17D300EDE6B1 /* logical */ = {
 			isa = PBXGroup;
 			children = (
+				4971E17E17F08DB000CD4E1C /* Utilities */,
+				495BFAE617F08537001B99B5 /* Leaves */,
 				4940D55B17E33EDC00939995 /* GetJsonURLString.h */,
 				4984C51917DF174300EDE6B1 /* UploadRecipe */,
 				4984C51517DF16D500EDE6B1 /* PlsitRead */,
@@ -790,10 +839,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4971E17D17F08D1B00CD4E1C /* Utilities.m in Sources */,
 				02A91722170207BC00F2E55F /* main.m in Sources */,
 				02A91726170207BC00F2E55F /* AppDelegate.m in Sources */,
 				02A9172F170207BC00F2E55F /* ViewController.m in Sources */,
 				02A68AFB17034A8300B34828 /* JsonViewController.m in Sources */,
+				495BFAEF17F08537001B99B5 /* LeavesViewController.m in Sources */,
 				02A68AFF17034C5600B34828 /* RecipeInfo.m in Sources */,
 				02A68B3017035EDF00B34828 /* Person.m in Sources */,
 				02A68B3417035F9F00B34828 /* WebJsonDataGetter.m in Sources */,
@@ -801,8 +852,10 @@
 				02A67C85174BDECA00BCD095 /* Recipes.m in Sources */,
 				02A67C88174BDF0500BCD095 /* PlsitRead.m in Sources */,
 				02A67C8C174BE06000BCD095 /* refViewController.m in Sources */,
+				495BFAD717F073FD001B99B5 /* procedureWithLeavesView.m in Sources */,
 				02A67C96174BE21100BCD095 /* menuViewController.m in Sources */,
 				02A67C9B174BE29600BCD095 /* foodDetailViewController.m in Sources */,
+				495BFAED17F08537001B99B5 /* LeavesCache.m in Sources */,
 				023842BF17588CC800831605 /* UploadRecipe.m in Sources */,
 				491AE841175FAF3D00E4121C /* entryViewController.m in Sources */,
 				491AE849175FB7FB00E4121C /* materialViewController.m in Sources */,
@@ -811,6 +864,7 @@
 				499C632917E43EFB00513989 /* loginWithFBViewController.m in Sources */,
 				490322C817E5BBBB0008F1F4 /* recipesWithICarouselViewController.m in Sources */,
 				02C8795217EA1BDD00E1F738 /* materialSideViewController.m in Sources */,
+				495BFAEE17F08537001B99B5 /* LeavesView.m in Sources */,
 				49FD44AC17EC3A6E00F472B5 /* recipesSideViewController.m in Sources */,
 				49FD44B017EC3E1600F472B5 /* profileSideMenuViewController.m in Sources */,
 				49FD44B617EC57F900F472B5 /* aboutUsViewController.m in Sources */,
