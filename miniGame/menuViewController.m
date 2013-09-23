@@ -13,22 +13,25 @@
 #import "moveFinishViewController.h"
 #import "GetJsonURLString.h"
 #import "ASIHTTPRequest.h"
-#import "RecipeInfo.h"
+#import "WebJsonDataGetter.h"
 @interface menuViewController ()
 
 @end
 
 @implementation menuViewController
 
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+    }
+    return self;
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     self.searchBar_back.alpha=0.0;
-    
-    myRecipe=[[RecipeInfo alloc]initWithURLString:GetJsonURLString_Vegetables];
-    [myRecipe setDelegate:self];
-    
-    self.array_Material=[[NSArray alloc]initWithArray:myRecipe.dictionary_nmlData];
     
     
     //PlsitRead *readPlist=[[PlsitRead alloc] initWithFileName:@"foodData.plist"];
@@ -53,6 +56,19 @@
     [device endGeneratingDeviceOrientationNotifications];
 }
 
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+{
+    return YES;
+}
+
+
+-(void)materialSearch:(NSString*)materialTypeCase{
+    webGetter = [[WebJsonDataGetter alloc]init];
+    NSString *str=[NSString stringWithFormat:GetJsonURLString_Material,materialTypeCase];
+    [webGetter requestWithURLString:[NSString stringWithUTF8String:[str UTF8String]]];
+    [webGetter setDelegate:self];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -63,8 +79,8 @@
 -(NSInteger)numberOfSectionInTableView:(UITableView *)tableView{
     return 1;
 }
--(void)doThingAfterRecipeInfoIsOkFromDelegate{
-    self.array_Material=[[NSArray alloc]initWithArray:myRecipe.dictionary_nmlData];
+-(void)doThingAfterWebJsonIsOKFromDelegate{
+    self.array_Material=[[NSArray alloc]initWithArray:webGetter.webData];
     [self.tableView_Food reloadData];
     
     //mutableDictionary_SelectedFood=[[NSMutableDictionary alloc] init];
@@ -85,10 +101,8 @@
     if (cell==nil) {
         cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIndentifier];
     }
-    cell.textLabel.text=[[self.array_Material objectAtIndex:indexPath.row] objectForKey:@"vegName"];
-    //NSLog(@"%@",[[self.array_Material objectAtIndex:indexPath.section] objectForKey:@"vegName"]);
-    //cell.detailTextLabel.text= [[array_Food objectAtIndex:indexPath.row] objectForKey:@"Type"];
-    //cell.imageView.image
+    cell.textLabel.text=[[webGetter.webData objectAtIndex:indexPath.row] objectForKey:@"name"];
+
     return cell;
 }
 
@@ -101,7 +115,7 @@
         [mutableDictionary_SelectedFood removeObjectForKey:indexPath];
     } else {
         cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [mutableDictionary_SelectedFood setObject:[ myRecipe.dictionary_nmlData objectAtIndex:indexPath.row] forKey:indexPath];
+        [mutableDictionary_SelectedFood setObject:[ webGetter.webData objectAtIndex:indexPath.row] forKey:indexPath];
     }
     
     //如果無資料 則不需跳下一頁

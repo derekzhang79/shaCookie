@@ -8,12 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreMotion/CoreMotion.h>
-#import "RecipeInfo.h"
 #import "ASIHTTPRequest.h"
+#import "WebJsonDataGetter.h"
 
-@interface materialSideViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource,RecipeInFoDelegate>{
-    RecipeInfo *materials;
+@interface materialSideViewController : UITableViewController<UITableViewDelegate,UITableViewDataSource,WebJsonDataGetFinishDelegater>{
     ASIHTTPRequest *asiRequest;
+    WebJsonDataGetter *webGetter;
 }
 
 @property (strong,nonatomic)NSDictionary *dictionary_MaterialMenu;

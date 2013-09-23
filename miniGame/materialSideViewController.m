@@ -9,6 +9,8 @@
 #import "materialSideViewController.h"
 #import "GetJsonURLString.h"
 #import "MFSideMenu.h"
+#import "WebJsonDataGetter.h"
+#import "menuViewController.h"
 
 
 
@@ -20,13 +22,15 @@
 
  -(void)viewDidLoad{
     [super viewDidLoad];
-    materials=[[RecipeInfo alloc]initWithURLString:GetJsonURLString_Vegetables];
-    [materials setDelegate:self];
+    webGetter=[[WebJsonDataGetter alloc]initWithURLString:GetJsonURLString_MaterialType];
+    [webGetter setDelegate:self];
 }
  
 
--(void)doThingAfterRecipeInfoIsOkFromDelegate{
-    self.array_MaterialMenu=[[NSArray alloc]initWithArray:materials.dictionary_nmlData];
+
+
+-(void)doThingAfterWebJsonIsOKFromDelegate{
+    self.array_MaterialMenu=[[NSArray alloc]initWithArray:webGetter.webData];
     [self.tableView reloadData];
 }
 
@@ -51,7 +55,23 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
     
-    cell.textLabel.text = [[self.array_MaterialMenu objectAtIndex:indexPath.row]objectForKey:@"vegName"];
+    //cell.textLabel.text = [[self.array_MaterialMenu objectAtIndex:indexPath.row]objectForKey:@"category"];
+    switch (indexPath.row) {
+        case 0:
+            cell.textLabel.text=@"青菜類";
+            break;
+        case 1:
+            cell.textLabel.text=@"肉類";
+            break;
+        case 2:
+            cell.textLabel.text=@"海鮮類";
+            break;
+        case 3:
+            cell.textLabel.text=@"調味料";
+            
+        default:
+            break;
+    }
     return cell;
 }
 
@@ -60,14 +80,45 @@
 #pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    //    DemoViewController *demoController = [[DemoViewController alloc] initWithNibName:@"DemoViewController" bundle:nil];
-    //    demoController.title = [NSString stringWithFormat:@"Demo #%d-%d", indexPath.section, indexPath.row];
-    //
-    //    UITabBarController *tabBarController = self.menuContainerViewController.centerViewController;
-    //    UINavigationController *navigationController = (UINavigationController *)tabBarController.selectedViewController;
-    //    NSArray *controllers = [NSArray arrayWithObject:demoController];
-    //    navigationController.viewControllers = controllers;
-    //    [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
+    
+    NSString *materialType=[[self.array_MaterialMenu objectAtIndex:indexPath.row]objectForKey:@"category"];
+     menuViewController *menuView=[[menuViewController alloc]initWithNibName:@"menuViewController" bundle:nil ];
+    
+    [menuView materialSearch:materialType];
+    menuView.title=[self getMenuTitle:materialType];
+    
+    UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
+    [navigationController setNavigationBarHidden:TRUE animated:TRUE];
+    
+    NSArray *controllers = [NSArray arrayWithObject:menuView];
+    navigationController.viewControllers = controllers;
+    [self.menuContainerViewController setMenuState:MFSideMenuStateClosed];
 }
+
+-(NSString *)getMenuTitle:(NSString*)materialTypeCase{
+    NSString *materialType=nil;
+    switch ([materialType intValue]) {
+        case 1:
+            materialType=@"蔬菜類";
+            break;
+            
+        case 2:
+            materialType= @"肉類";
+            break;
+            
+        case 3:
+            materialType= @"海鮮類";
+            break;
+            
+        case 4:
+            materialType= @"調味料";
+            break;
+            
+        default:
+            break;
+    }
+    return materialType;
+}
+
 
 @end
