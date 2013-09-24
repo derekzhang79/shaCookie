@@ -25,6 +25,9 @@
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     [tabBarController setViewControllers:[NSArray arrayWithObjects:[self refrigeratorView],[self recipesView],[self friendsView],nil]];
     self.window.rootViewController = tabBarController;
+//
+//    procedureWithLeavesView *produce=[[procedureWithLeavesView alloc]init];
+//    self.window.rootViewController=produce;
     [self.window makeKeyAndVisible];
     return YES;
 }
