@@ -118,7 +118,6 @@
     //Cookview.dictionary_Cook=[webGetter.webData objectAtIndex:index];
     //[self.navigationController pushViewController:procedure animated:YES];//navigation連結頁面'
     procedureWithMPFlipViewController *pro=[[procedureWithMPFlipViewController alloc]initWithNibName:@"procedureWithMPFlipViewController" bundle:nil];
-    [self.navigationController setNavigationBarHidden:FALSE animated:TRUE];
     [self.navigationController pushViewController:pro animated:TRUE];
 }
 @end
