@@ -9,6 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface MaterialCell : UICollectionViewCell
-@property (nonatomic, strong) IBOutlet UILabel *label_Title;
+
 @property (strong, nonatomic) IBOutlet UIImageView *image_Material;
+@property (strong, nonatomic) IBOutlet UILabel *label_Title;
+//@property (strong, nonatomic) IBOutlet UIImageView *image_Material;
 @end
