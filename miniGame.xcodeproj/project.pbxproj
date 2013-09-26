@@ -90,6 +90,9 @@
 		49A090DD17E22F7900B19E8C /* back-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A090D917E22F7900B19E8C /* back-arrow@2x.png */; };
 		49A090DE17E22F7900B19E8C /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A090DA17E22F7900B19E8C /* menu-icon.png */; };
 		49A090DF17E22F7900B19E8C /* menu-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A090DB17E22F7900B19E8C /* menu-icon@2x.png */; };
+		49E86D4D17F47530002CF0CF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E86D4C17F47530002CF0CF /* MediaPlayer.framework */; };
+		49E86D5C17F494C3002CF0CF /* LBYouTubeExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E86D5917F494C3002CF0CF /* LBYouTubeExtractor.m */; };
+		49E86D5D17F494C3002CF0CF /* LBYouTubePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E86D5B17F494C3002CF0CF /* LBYouTubePlayerViewController.m */; };
 		49FD44AC17EC3A6E00F472B5 /* recipesSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FD44AA17EC3A6E00F472B5 /* recipesSideViewController.m */; };
 		49FD44AD17EC3A6E00F472B5 /* recipesSideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49FD44AB17EC3A6E00F472B5 /* recipesSideViewController.xib */; };
 		49FD44B017EC3E1600F472B5 /* profileSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FD44AE17EC3E1600F472B5 /* profileSideMenuViewController.m */; };
@@ -223,6 +226,12 @@
 		49CFC51117E22B310001E0D6 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		49CFC51317E22B3F0001E0D6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		49CFC51517E22B4A0001E0D6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		49E86D4C17F47530002CF0CF /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		49E86D5717F494C3002CF0CF /* LBYouTube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTube.h; sourceTree = "<group>"; };
+		49E86D5817F494C3002CF0CF /* LBYouTubeExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTubeExtractor.h; sourceTree = "<group>"; };
+		49E86D5917F494C3002CF0CF /* LBYouTubeExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBYouTubeExtractor.m; sourceTree = "<group>"; };
+		49E86D5A17F494C3002CF0CF /* LBYouTubePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTubePlayerViewController.h; sourceTree = "<group>"; };
+		49E86D5B17F494C3002CF0CF /* LBYouTubePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBYouTubePlayerViewController.m; sourceTree = "<group>"; };
 		49FD44A917EC3A6E00F472B5 /* recipesSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recipesSideViewController.h; sourceTree = "<group>"; };
 		49FD44AA17EC3A6E00F472B5 /* recipesSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = recipesSideViewController.m; sourceTree = "<group>"; };
 		49FD44AB17EC3A6E00F472B5 /* recipesSideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = recipesSideViewController.xib; sourceTree = "<group>"; };
@@ -239,6 +248,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49E86D4D17F47530002CF0CF /* MediaPlayer.framework in Frameworks */,
 				49FD44B917EC5E4800F472B5 /* MessageUI.framework in Frameworks */,
 				4948AA9617EA1C9800C28270 /* FacebookSDK.framework in Frameworks */,
 				4927D8AB17E3959C000DDEBF /* Security.framework in Frameworks */,
@@ -317,6 +327,7 @@
 		02A91714170207BC00F2E55F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				49E86D4C17F47530002CF0CF /* MediaPlayer.framework */,
 				49FD44B817EC5E4800F472B5 /* MessageUI.framework */,
 				4948AA9517EA1C9800C28270 /* FacebookSDK.framework */,
 				4927D8AA17E3959C000DDEBF /* Security.framework */,
@@ -668,6 +679,7 @@
 		4984C51C17DF17D300EDE6B1 /* logical */ = {
 			isa = PBXGroup;
 			children = (
+				49E86D5617F494C3002CF0CF /* LBYouTubeView */,
 				4963CE2D17F318FF002DFE70 /* notInUse */,
 				497562F017F1D1F50053248F /* Container */,
 				4940D55B17E33EDC00939995 /* GetJsonURLString.h */,
@@ -694,6 +706,19 @@
 				49FD44AF17EC3E1600F472B5 /* profileSideMenuViewController.h */,
 			);
 			name = profileSideMenuView;
+			sourceTree = "<group>";
+		};
+		49E86D5617F494C3002CF0CF /* LBYouTubeView */ = {
+			isa = PBXGroup;
+			children = (
+				49E86D5717F494C3002CF0CF /* LBYouTube.h */,
+				49E86D5817F494C3002CF0CF /* LBYouTubeExtractor.h */,
+				49E86D5917F494C3002CF0CF /* LBYouTubeExtractor.m */,
+				49E86D5A17F494C3002CF0CF /* LBYouTubePlayerViewController.h */,
+				49E86D5B17F494C3002CF0CF /* LBYouTubePlayerViewController.m */,
+			);
+			name = LBYouTubeView;
+			path = "../../ios_exemple/LBYouTubeView-master/LBYouTubeView";
 			sourceTree = "<group>";
 		};
 		49F546D117E5DCA200166D62 /* recipesWithICarouselView */ = {
@@ -849,6 +874,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				497562FC17F1D1F50053248F /* MPFlipTransition.m in Sources */,
+				49E86D5D17F494C3002CF0CF /* LBYouTubePlayerViewController.m in Sources */,
 				02A91722170207BC00F2E55F /* main.m in Sources */,
 				02A91726170207BC00F2E55F /* AppDelegate.m in Sources */,
 				4975630317F1D4C10053248F /* procedureStepViewController.m in Sources */,
@@ -866,6 +892,7 @@
 				02A67C9B174BE29600BCD095 /* foodDetailViewController.m in Sources */,
 				023842BF17588CC800831605 /* UploadRecipe.m in Sources */,
 				497562FE17F1D1F60053248F /* MPTransition.m in Sources */,
+				49E86D5C17F494C3002CF0CF /* LBYouTubeExtractor.m in Sources */,
 				491AE841175FAF3D00E4121C /* entryViewController.m in Sources */,
 				491AE849175FB7FB00E4121C /* materialViewController.m in Sources */,
 				497562FB17F1D1F50053248F /* MPAnimation.m in Sources */,

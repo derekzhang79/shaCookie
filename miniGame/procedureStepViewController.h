@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LBYouTube.h"
 
-@interface procedureStepViewController : UIViewController
+@interface procedureStepViewController : UIViewController<LBYouTubePlayerControllerDelegate>
 
 - (IBAction)button_back:(id)sender ;
+- (IBAction)button_VideoTeaching:(id)sender;
+
+
+
+
 // Empty view that holds the image and description
 @property (weak, nonatomic) IBOutlet UIView *contentArea;
 
@@ -24,8 +30,7 @@
 @property (assign, nonatomic) NSUInteger movieIndex;
 
 @property (assign, nonatomic, getter = isRotating) BOOL rotating;
-
-
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (strong,nonatomic)LBYouTubePlayerViewController *videoPlayerController;
 
 @end

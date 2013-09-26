@@ -237,4 +237,14 @@
 - (IBAction)button_back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (IBAction)button_VideoTeaching:(id)sender {
+    UIWindow *frontWindow = [[[UIApplication sharedApplication] windows]lastObject];
+    self.videoPlayerController = [[LBYouTubePlayerViewController alloc] initWithYouTubeURL:[NSURL URLWithString:@"http://www.youtube.com/watch?v=WMVtriQkPxg&feature=share&list=PLDgLLnSBXR_Pdc7DYHHINPs81LFtvudGs"] quality:LBYouTubeVideoQualityLarge];
+    self.videoPlayerController.delegate = self;
+    self.videoPlayerController.view.frame =frontWindow.bounds;
+    self.videoPlayerController.view.center = frontWindow.center;
+    [self presentViewController:self.videoPlayerController animated:YES completion:nil];
+    
+}
 @end
