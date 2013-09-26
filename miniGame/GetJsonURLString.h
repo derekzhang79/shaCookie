@@ -15,7 +15,7 @@
 
 #define GetJsonURLString_Recipe @"http://54.244.225.229/shacookie/useThis/getRecipeInfo.php?type=%@"
 #define GetJsonURLString_RecipeType @"http://54.244.225.229/shacookie/useThis/getRecipeTypeForSide.php"
-
+#define GetJsonURLString_RecipeStep @"http://54.244.225.229/shacookie/useThis/getRecipeProcedure.php?recipeId=%@"
 #define GetJsonURLString_Material @"http://54.244.225.229/shacookie/useThis/getMaterial.php?category=%@"
 #define GetJsonURLString_MaterialType @"http://54.244.225.229/shacookie/useThis/getMaterialTypeForSide.php"
 
