@@ -427,6 +427,30 @@
 			name = FriendView;
 			sourceTree = "<group>";
 		};
+		4963CE2D17F318FF002DFE70 /* notInUse */ = {
+			isa = PBXGroup;
+			children = (
+				4984C50C17DF14DE00EDE6B1 /* RecipeInfo */,
+				4984C51917DF174300EDE6B1 /* UploadRecipe */,
+				4984C51517DF16D500EDE6B1 /* PlsitRead */,
+				4984C51417DF16B600EDE6B1 /* Recipes */,
+			);
+			name = notInUse;
+			sourceTree = "<group>";
+		};
+		4963CE2E17F319C2002DFE70 /* notInUse */ = {
+			isa = PBXGroup;
+			children = (
+				4927D89C17E34AAB000DDEBF /* moveFinishView */,
+				4927D89617E33FCF000DDEBF /* matchMaterialView */,
+				4984C51A17DF175400EDE6B1 /* entryView */,
+				4984C51017DF160800EDE6B1 /* materialView */,
+				4984C51817DF173000EDE6B1 /* foodDetailView */,
+				4934431F17E0D95300237BAF /* FriendView */,
+			);
+			name = notInUse;
+			sourceTree = "<group>";
+		};
 		497562E717F1CF950053248F /* procedureWithMPFlipView */ = {
 			isa = PBXGroup;
 			children = (
@@ -626,21 +650,16 @@
 		4984C51B17DF177400EDE6B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				4963CE2E17F319C2002DFE70 /* notInUse */,
 				4975630517F1DB850053248F /* procedureView */,
 				49FD44B117EC57D100F472B5 /* aboutUsView */,
 				02C8795417EA3B9300E1F738 /* recipesSideView */,
 				02C8794F17EA1B8300E1F738 /* materialSideView */,
 				49F546D117E5DCA200166D62 /* recipesWithICarouselView */,
 				490322B817E476050008F1F4 /* loginwithFBView */,
-				4927D89C17E34AAB000DDEBF /* moveFinishView */,
-				4927D89617E33FCF000DDEBF /* matchMaterialView */,
 				49A090D717E22E6800B19E8C /* profileSideMenuView */,
-				4934431F17E0D95300237BAF /* FriendView */,
-				4984C51A17DF175400EDE6B1 /* entryView */,
-				4984C51817DF173000EDE6B1 /* foodDetailView */,
 				4984C51717DF16FF00EDE6B1 /* menuView */,
 				4984C51617DF16E800EDE6B1 /* refView */,
-				4984C51017DF160800EDE6B1 /* materialView */,
 				4984C50B17DF14BD00EDE6B1 /* JsonView */,
 			);
 			name = Views;
@@ -649,15 +668,12 @@
 		4984C51C17DF17D300EDE6B1 /* logical */ = {
 			isa = PBXGroup;
 			children = (
+				4963CE2D17F318FF002DFE70 /* notInUse */,
 				497562F017F1D1F50053248F /* Container */,
 				4940D55B17E33EDC00939995 /* GetJsonURLString.h */,
-				4984C51917DF174300EDE6B1 /* UploadRecipe */,
-				4984C51517DF16D500EDE6B1 /* PlsitRead */,
-				4984C51417DF16B600EDE6B1 /* Recipes */,
 				4984C51217DF166F00EDE6B1 /* CVCell */,
 				4984C50E17DF156800EDE6B1 /* WebJsonDataGetter */,
 				4984C50D17DF153B00EDE6B1 /* Person */,
-				4984C50C17DF14DE00EDE6B1 /* RecipeInfo */,
 			);
 			name = logical;
 			sourceTree = "<group>";

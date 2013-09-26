@@ -9,7 +9,7 @@
 #import "procedureStepViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
-#define FRAME_MARGIN 10
+#define FRAME_MARGIN 20
 
 
 @interface procedureStepViewController ()
@@ -39,7 +39,19 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
 	//[self.view setBackgroundColor:[UIColor colorWithWhite:0 alpha:0]];
-	
+    
+    
+    if ([self movieIndex] == 3) {
+        UIButton *button_Back = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        [button_Back addTarget:self
+                        action:@selector(button_back:)
+              forControlEvents:UIControlEventTouchDown];
+        [button_Back setTitle:@"Back" forState:UIControlStateNormal];
+        button_Back.frame = CGRectMake(0.0, 0.0, 50.0, 50.0);
+        [self.view addSubview:button_Back];
+    }
+    
+
 	[self.imageView setImage:[UIImage imageNamed:@"gamebaby"]];
 	switch ([self movieIndex]) {
 		case 1:
@@ -222,4 +234,7 @@
 }
 
 
+- (IBAction)button_back:(id)sender {
+    [self.navigationController popViewControllerAnimated:YES];
+}
 @end

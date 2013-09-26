@@ -11,13 +11,12 @@
 #import <CoreLocation/CoreLocation.h>
 #import "RecipeInfo.h"
 #import "ASIHTTPRequest.h"
-#import "Person.h"
-@interface JsonViewController : UIViewController<UITableViewDataSource,WebPersonLoadLocationFinishDelegater,WebJsonDataGetFinishDelegater,CLLocationManagerDelegate>{
+#import "WebJsonDataGetter.h"
+@interface JsonViewController : UIViewController<UITableViewDataSource,WebJsonDataGetFinishDelegater,CLLocationManagerDelegate>{
     CLLocation *location;
     CLLocationManager*      locationManager;
     NSArray *Array_locaions;
     ASIHTTPRequest *asiRequest;
-    Person *aPerson;
     WebJsonDataGetter *webGetter;
 }
 @property (strong, nonatomic) IBOutlet UITableView *tableView_Json;
