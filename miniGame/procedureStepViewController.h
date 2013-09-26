@@ -10,9 +10,7 @@
 
 @interface procedureStepViewController : UIViewController
 
-
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
-
+- (IBAction)button_back:(id)sender ;
 // Empty view that holds the image and description
 @property (weak, nonatomic) IBOutlet UIView *contentArea;
 
@@ -27,5 +25,7 @@
 
 @property (assign, nonatomic, getter = isRotating) BOOL rotating;
 
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end

@@ -10,7 +10,6 @@
 #import "GetJsonURLString.h"
 #import "KoaPullToRefresh.h"
 #import "ViewController.h"
-#import "WebJsonDataGetter.h"
 
 @interface JsonViewController ()
 
@@ -22,8 +21,6 @@
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
         
-        aPerson=[[Person alloc] init];
-        [aPerson setDelegate:self];
         webGetter=[[WebJsonDataGetter alloc] init];
         
         locationManager = [[CLLocationManager alloc] init];
@@ -33,20 +30,6 @@
         [locationManager startUpdatingLocation];
     }
     return self;
-}
-
-- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
-    Array_locaions=locations;
-    [locationManager stopUpdatingLocation];
-}
-
--(void)doThingAfterWebPersonLoadLocationIsOKFromDelegate{
-    NSLog(@"doThingAfterWebPersonLoadLocationIsOKFromDelegate : %f,%f",aPerson.coord.latitude,aPerson.coord.longitude);
-    
-}
--(void)doThingAfterWebJsonIsOKFromDelegate{
-    self.array_nearUsers=webGetter.webData;
-    [self.tableView_Json reloadData];
 }
 
 - (void)viewDidLoad
@@ -97,6 +80,16 @@
 
     [self.tableView_Json performSelector:@selector(reloadData) withObject:nil afterDelay:2];
     [self.tableView_Json.pullToRefreshView performSelector:@selector(stopAnimating) withObject:nil afterDelay:2];
+}
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations{
+    Array_locaions=locations;
+    [locationManager stopUpdatingLocation];
+}
+
+-(void)doThingAfterWebJsonIsOKFromDelegate{
+    self.array_nearUsers=webGetter.webData;
+    [self.tableView_Json reloadData];
 }
 
 #pragma mark - UITableViewDataSource

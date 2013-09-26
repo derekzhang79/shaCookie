@@ -11,7 +11,6 @@
 #import <QuartzCore/QuartzCore.h>
 
 #define CONTENT_IDENTIFIER @"procedureStepViewController"
-#define FRAME_MARGIN	60
 #define MOVIE_MIN		1
 #define MOVIE_MAX		3
 @interface procedureWithMPFlipViewController ()
