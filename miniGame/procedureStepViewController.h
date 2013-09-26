@@ -10,12 +10,19 @@
 
 @interface procedureStepViewController : UIViewController
 
+-(void)getRecipeStep:(NSArray *)recipeStep;
 - (IBAction)button_back:(id)sender ;
+// Empty view that holds the image and description
+@property (strong ,nonatomic)NSArray *array_Recipe;
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 // Empty view that holds the image and description
 @property (weak, nonatomic) IBOutlet UIView *contentArea;
 
 // White border for movie image (to give it a Polaroid look)
 @property (weak, nonatomic) IBOutlet UIView *imageFrame;
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @property (weak, nonatomic) IBOutlet UITextView *descriptionField;
@@ -25,7 +32,7 @@
 
 @property (assign, nonatomic, getter = isRotating) BOOL rotating;
 
+@property (nonatomic, strong) NSArray *array_Items;
 
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 @end
