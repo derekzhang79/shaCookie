@@ -44,7 +44,7 @@
     {
         cell.textLabel.text=@"無選取資料";
     }else{
-        cell.textLabel.text=[[self.dictionary_SelectedFood objectForKey:[arr objectAtIndex:indexPath.row]] objectForKey:@"Name"];
+        cell.textLabel.text=[[self.dictionary_SelectedFood objectForKey:[arr objectAtIndex:indexPath.row]] objectForKey:@"name"];
         
     }
     return cell;

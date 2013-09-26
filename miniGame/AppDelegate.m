@@ -15,6 +15,8 @@
 #import "recipesWithICarouselViewController.h"
 #import "materialSideViewController.h"
 #import "recipesSideViewController.h"
+#import "entryViewController.h"
+#import "materialSideWithCollectionViewController.h"
 
 @implementation AppDelegate
 
@@ -22,9 +24,14 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     
+
+    
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
     [tabBarController setViewControllers:[NSArray arrayWithObjects:[self refrigeratorView],[self recipesView],[self friendsView],nil]];
+    
+
     self.window.rootViewController = tabBarController;
+
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -125,9 +132,9 @@
 }
 
 -(MFSideMenuContainerViewController *)refrigeratorView{
-    menuViewController *main=[[menuViewController alloc]initWithNibName:@"menuViewController" bundle:nil];
+    materialSideWithCollectionViewController *main=[[materialSideWithCollectionViewController alloc]initWithNibName:@"materialSideWithCollectionViewController" bundle:nil];
     UINavigationController *mainView=[[UINavigationController alloc]initWithRootViewController:main];
-    [mainView setNavigationBarHidden:TRUE animated:TRUE];
+    //[mainView setNavigationBarHidden:TRUE animated:TRUE];
     materialSideViewController *leftSideView= [[materialSideViewController alloc ]init];
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:mainView leftMenuViewController:leftSideView rightMenuViewController:nil];
     [main setTitle:@"refrigerator"];

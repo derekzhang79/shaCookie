@@ -11,6 +11,7 @@
 #import "MFSideMenu.h"
 #import "WebJsonDataGetter.h"
 #import "menuViewController.h"
+#import "materialSideWithCollectionViewController.h"
 
 
 
@@ -82,13 +83,13 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSString *materialType=[[self.array_MaterialMenu objectAtIndex:indexPath.row]objectForKey:@"category"];
-     menuViewController *menuView=[[menuViewController alloc]initWithNibName:@"menuViewController" bundle:nil ];
+     materialSideWithCollectionViewController *menuView=[[materialSideWithCollectionViewController alloc]initWithNibName:@"materialSideWithCollectionViewController" bundle:nil ];
     
     [menuView materialSearch:materialType];
     menuView.title=[self getMenuTitle:materialType];
     
     UINavigationController *navigationController = self.menuContainerViewController.centerViewController;
-    [navigationController setNavigationBarHidden:TRUE animated:TRUE];
+   // [navigationController setNavigationBarHidden:TRUE animated:TRUE];
     
     NSArray *controllers = [NSArray arrayWithObject:menuView];
     navigationController.viewControllers = controllers;
