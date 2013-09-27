@@ -48,7 +48,7 @@
     
     // Configure layout
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
-    [flowLayout setItemSize:CGSizeMake(150, 150)];
+    [flowLayout setItemSize:CGSizeMake(125, 150)];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
     [self.collection_MaterialSide setCollectionViewLayout:flowLayout];
     
