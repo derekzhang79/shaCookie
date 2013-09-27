@@ -122,15 +122,8 @@
 #pragma mark - select collectionView
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell=[collectionView cellForItemAtIndexPath:indexPath];
-    cell.acces
-    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        [mutableDictionary_SelectedFood removeObjectForKey:indexPath];
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [mutableDictionary_SelectedFood setObject:[ webGetter.webData objectAtIndex:indexPath.row] forKey:indexPath];
-    }
+    //UICollectionViewCell *cell=[collectionView cellForItemAtIndexPath:indexPath];
+
     
    
     // materialViewController*Cookview=[[materialViewController alloc]initWithNibName:@"materialViewController" bundle:nil ];

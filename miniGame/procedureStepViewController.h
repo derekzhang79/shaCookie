@@ -10,7 +10,7 @@
 #import "LBYouTube.h"
 
 
-@interface procedureStepViewController : UIViewController<LBYouTubePlayerControllerDelegate>
+@interface procedureStepViewController : UIViewController<LBYouTubePlayerControllerDelegate,UITableViewDataSource,UITableViewDelegate>
 
 
 -(void)getRecipeStep:(NSArray *)recipeStep;
@@ -19,7 +19,7 @@
 
 
 
-
+@property (nonatomic, retain) UITableView *tableView;
 // Empty view that holds the image and description
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
@@ -30,7 +30,6 @@
 @property (weak, nonatomic) IBOutlet UIView *imageFrame;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
-
 @property (weak, nonatomic) IBOutlet UITextView *descriptionField;
 
 // Index of the movie (1 - 3)
@@ -42,6 +41,7 @@
 
 @property (nonatomic, strong) NSArray *array_Items;
 @property (nonatomic) NSInteger step;
+@property (nonatomic ,strong)NSString* step_url;
 
 @end
 

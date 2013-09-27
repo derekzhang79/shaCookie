@@ -25,6 +25,7 @@
 @synthesize descriptionField = _descriptionField;
 @synthesize movieIndex = _movieIndex;
 @synthesize rotating = _rotating;
+@synthesize tableView = _tableView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -53,6 +54,7 @@
     }
     
     self.descriptionField.editable = NO;
+    //self.descriptionField.userInteractionEnabled=NO;
 	[self.imageView setImage:[UIImage imageNamed:@"gamebaby"]];
     self.titleLabel.text = [[self.array_Items objectAtIndex:0]objectForKey:@"name"];;
     self.descriptionField.text = [[[[self.array_Items objectAtIndex:1]objectForKey:@"step"] objectAtIndex:[self movieIndex]-1]objectForKey:@"step"];
@@ -60,6 +62,24 @@
 	
 	[self.imageFrame.layer setShadowOpacity:0.5];
 	[self.imageFrame.layer setShadowOffset:CGSizeMake(0, 1)];
+    self.imageView.userInteractionEnabled=YES;
+    
+    
+
+    
+    //listen tap event
+    UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapRecognized:)];
+    doubleTap.numberOfTapsRequired = 2;
+    [self.descriptionField addGestureRecognizer:doubleTap];
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
+    UIWindow *frontWindow = [[[UIApplication sharedApplication] windows]lastObject];
+    //@"http://www.youtube.com/watch?v=1fTIhC1WSew&list=FLEYfH4kbq85W_CiOTuSjf8w&feature=mh_lolz"
+    self.videoPlayerController = [[LBYouTubePlayerViewController alloc] initWithYouTubeURL:[NSURL URLWithString:self.step_url] quality:LBYouTubeVideoQualityLarge];
+    self.videoPlayerController.view.frame =frontWindow.bounds;
+    self.videoPlayerController.view.center = frontWindow.center;
+    [self presentViewController:self.videoPlayerController animated:YES completion:nil];
 }
 
 - (void)didReceiveMemoryWarning
@@ -103,25 +123,25 @@
 - (void)viewWillAppear:(BOOL)animated
 {
 	[super viewWillAppear:animated];
-	NSLog(@"viewWillAppear");
+	//NSLog(@"viewWillAppear");
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
 	[super viewDidAppear:animated];
-	NSLog(@"viewDidAppear");
+	//NSLog(@"viewDidAppear");
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
 	[super viewWillDisappear:animated];
-	NSLog(@"viewWillDisappear");
+	//NSLog(@"viewWillDisappear");
 }
 
 - (void)viewDidDisappear:(BOOL)animated
 {
 	[super viewDidDisappear:animated];
-	NSLog(@"viewDidDisappear");
+	//NSLog(@"viewDidDisappear");
 }
 
 - (void)viewWillLayoutSubviews
@@ -170,7 +190,7 @@
 	if (![self isRotating])
 		[self setShadowPathsWithAnimationDuration:0];
 	
-	NSLog(@"viewWillLayoutSubviews");
+	//NSLog(@"viewWillLayoutSubviews");
 }
 
 - (void)setShadowPathsWithAnimationDuration:(NSTimeInterval)duration
@@ -197,29 +217,30 @@
 - (void)viewDidLayoutSubviews
 {
 	[super viewDidLayoutSubviews];
-	NSLog(@"viewDidLayoutSubviews");
+	//NSLog(@"viewDidLayoutSubviews");
 }
 
 - (void)willMoveToParentViewController:(UIViewController *)parent
 {
 	[super willMoveToParentViewController:parent];
-	if (parent)
-		NSLog(@"willMoveToParentViewController");
-	else
-		NSLog(@"willRemoveFromParentViewController");
+//	if (parent)
+//		NSLog(@"willMoveToParentViewController");
+//	else
+//		NSLog(@"willRemoveFromParentViewController");
 }
 
 - (void)didMoveToParentViewController:(UIViewController *)parent
 {
 	[super didMoveToParentViewController:parent];
-	if (parent)
-		NSLog(@"didMoveToParentViewController");
-	else
-		NSLog(@"didRemoveFromParentViewController");
+//	if (parent)
+//		NSLog(@"didMoveToParentViewController");
+//	else
+//		NSLog(@"didRemoveFromParentViewController");
 }
 -(void)getRecipeStep:(NSArray *)recipeStep{
     self.array_Items=recipeStep;
-    self.step=[[[recipeStep objectAtIndex:1]objectForKey:@"step"]count];;
+    self.step=[[[recipeStep objectAtIndex:1]objectForKey:@"step"]count];
+    self.step_url=[[[[self.array_Items objectAtIndex:1]objectForKey:@"step"] objectAtIndex:0]objectForKey:@"stepMovie"];
 }
 
 - (IBAction)button_back:(id)sender {
@@ -228,8 +249,8 @@
 
 - (IBAction)button_VideoTeaching:(id)sender {
     UIWindow *frontWindow = [[[UIApplication sharedApplication] windows]lastObject];
-    self.videoPlayerController = [[LBYouTubePlayerViewController alloc] initWithYouTubeURL:[NSURL URLWithString:@"http://www.youtube.com/watch?v=1fTIhC1WSew&list=FLEYfH4kbq85W_CiOTuSjf8w&feature=mh_lolz"] quality:LBYouTubeVideoQualityLarge];
-    //self.videoPlayerController.delegate = self;
+    //@"http://www.youtube.com/watch?v=1fTIhC1WSew&list=FLEYfH4kbq85W_CiOTuSjf8w&feature=mh_lolz"
+    self.videoPlayerController = [[LBYouTubePlayerViewController alloc] initWithYouTubeURL:[NSURL URLWithString:self.step_url] quality:LBYouTubeVideoQualityLarge];
     self.videoPlayerController.view.frame =frontWindow.bounds;
     self.videoPlayerController.view.center = frontWindow.center;
     [self presentViewController:self.videoPlayerController animated:YES completion:nil];
@@ -245,6 +266,54 @@
 
 -(void)youTubeExtractor:(LBYouTubeExtractor *)extractor failedExtractingYouTubeURLWithError:(NSError *)error {
    
+}
+
+#pragma mark -
+#pragma mark UITapGestureRecognizer method
+
+- (void)singleTapRecognized:(UIGestureRecognizer *)gestureRecognizer {
+    [_tableView setHidden:TRUE];
+}
+
+- (void)doubleTapRecognized:(UIGestureRecognizer *)gestureRecognizer {
+    UITableView *tableView = [[UITableView alloc] initWithFrame:self.descriptionField.frame style:UITableViewStylePlain];
+    _tableView = tableView;
+    [_tableView setDelegate:self];
+    [_tableView setDataSource:self];
+    [self.view addSubview:_tableView];
+    
+    //listen tap event
+    UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapRecognized:)];
+    singleTap.numberOfTapsRequired = 1;
+    [_tableView addGestureRecognizer:singleTap];
+}
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *MyCellIdentifier = @"MyCellIdentifier";
+    
+    UITableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:MyCellIdentifier];
+    NSString *name=[[[[self.array_Items objectAtIndex:1]objectForKey:@"material"]objectAtIndex:indexPath.row]objectForKey:@"name"];
+    NSString *quantity=[[[[self.array_Items objectAtIndex:1]objectForKey:@"material"]objectAtIndex:indexPath.row]objectForKey:@"quantity"];
+    NSString *type=[[[[self.array_Items objectAtIndex:1]objectForKey:@"material"]objectAtIndex:indexPath.row]objectForKey:@"type"];
+    
+    if(cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:MyCellIdentifier];
+    }
+    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
+    cell.textLabel.text=name;
+    cell.detailTextLabel.text=[NSString stringWithFormat:@"%@ %@",quantity,type];
+    return cell;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [[[self.array_Items objectAtIndex:1]objectForKey:@"material"]count];
 }
 
 @end
