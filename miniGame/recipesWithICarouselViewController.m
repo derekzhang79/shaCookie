@@ -10,6 +10,7 @@
 #import "GetJsonURLString.h"
 #import "CVCell.h"
 #import "procedureWithMPFlipViewController.h"
+#import "AsyncImageView.h"
 
 @interface recipesWithICarouselViewController ()
 
@@ -69,19 +70,35 @@
 -(NSUInteger)numberOfItemsInCarousel:(iCarousel *)carousel{
     return [self.array_Items count];
 }
+#define IMAGE_VIEW_TAG 99
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
     CVCell *cell = [[CVCell alloc]initWithFrame:CGRectMake(0, 0, 300.0f, 300.0f)];
     
-    NSURL *url = [NSURL URLWithString:[[webGetter.webData objectAtIndex:index]objectForKey:@"image_url"]];
-    NSData *data = [NSData dataWithContentsOfURL:url];
-    cell.image_recipe.image=[[UIImage alloc]initWithData:data];
+    //add AsyncImageView to cell
+    AsyncImageView *imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(15.0f, 11.0f, 271.0f, 234.0f)];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.clipsToBounds = YES;
+    imageView.tag = IMAGE_VIEW_TAG;
+    [cell addSubview:imageView];
+    
+    //get image view
+	imageView = (AsyncImageView *)[cell viewWithTag:IMAGE_VIEW_TAG];
+	
+    //cancel loading previous image for cell
+    [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:imageView];
+    
+    //load the image
+    NSString *str=[NSString stringWithFormat:GetRecipesImage,[[self.array_Items objectAtIndex:index]objectForKey:@"image_url"]];
+    imageView.imageURL = [NSURL URLWithString:str];
+    
     if (!cell.image_recipe.image) {
         cell.image_recipe.image=[UIImage imageNamed:@"gamebaby.png"];
     }
     cell.titleLabel.text=[[webGetter.webData objectAtIndex:index]objectForKey:@"name"];
     view=(UIView *)cell;
+
     return view;
 }
 

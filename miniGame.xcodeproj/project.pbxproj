@@ -104,6 +104,8 @@
 		49E388C117F5A2CD0012C8A9 /* newsTimeLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E388BF17F5A2CD0012C8A9 /* newsTimeLineViewController.xib */; };
 		49E388D017F5A4570012C8A9 /* SampleTimelineViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E388CD17F5A4570012C8A9 /* SampleTimelineViewCell.m */; };
 		49E388D117F5A4570012C8A9 /* SampleTimelineViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E388CE17F5A4570012C8A9 /* SampleTimelineViewCell.xib */; };
+		49E388D617F5B4A80012C8A9 /* asyncImageCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E388D417F5B4A80012C8A9 /* asyncImageCellViewController.m */; };
+		49E388D717F5B4A80012C8A9 /* asyncImageCellViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E388D517F5B4A80012C8A9 /* asyncImageCellViewController.xib */; };
 		49E86D4D17F47530002CF0CF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E86D4C17F47530002CF0CF /* MediaPlayer.framework */; };
 		49E86D5C17F494C3002CF0CF /* LBYouTubeExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E86D5917F494C3002CF0CF /* LBYouTubeExtractor.m */; };
 		49E86D5D17F494C3002CF0CF /* LBYouTubePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E86D5B17F494C3002CF0CF /* LBYouTubePlayerViewController.m */; };
@@ -267,6 +269,9 @@
 		49E388CD17F5A4570012C8A9 /* SampleTimelineViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleTimelineViewCell.m; sourceTree = "<group>"; };
 		49E388CE17F5A4570012C8A9 /* SampleTimelineViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleTimelineViewCell.xib; sourceTree = "<group>"; };
 		49E388CF17F5A4570012C8A9 /* SampleTimelineViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleTimelineViewCell.h; sourceTree = "<group>"; };
+		49E388D317F5B4A80012C8A9 /* asyncImageCellViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = asyncImageCellViewController.h; sourceTree = "<group>"; };
+		49E388D417F5B4A80012C8A9 /* asyncImageCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = asyncImageCellViewController.m; sourceTree = "<group>"; };
+		49E388D517F5B4A80012C8A9 /* asyncImageCellViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = asyncImageCellViewController.xib; sourceTree = "<group>"; };
 		49E86D4C17F47530002CF0CF /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		49E86D5717F494C3002CF0CF /* LBYouTube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTube.h; sourceTree = "<group>"; };
 		49E86D5817F494C3002CF0CF /* LBYouTubeExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTubeExtractor.h; sourceTree = "<group>"; };
@@ -745,6 +750,7 @@
 		4984C51C17DF17D300EDE6B1 /* logical */ = {
 			isa = PBXGroup;
 			children = (
+				49E388D217F5B4700012C8A9 /* AsyncImageCell */,
 				49E388C217F5A30F0012C8A9 /* TimeLineCell */,
 				49E388A617F5A25C0012C8A9 /* TimelineView */,
 				49E86D5617F494C3002CF0CF /* LBYouTubeView */,
@@ -817,6 +823,16 @@
 				49E388CF17F5A4570012C8A9 /* SampleTimelineViewCell.h */,
 			);
 			name = TimeLineCell;
+			sourceTree = "<group>";
+		};
+		49E388D217F5B4700012C8A9 /* AsyncImageCell */ = {
+			isa = PBXGroup;
+			children = (
+				49E388D317F5B4A80012C8A9 /* asyncImageCellViewController.h */,
+				49E388D417F5B4A80012C8A9 /* asyncImageCellViewController.m */,
+				49E388D517F5B4A80012C8A9 /* asyncImageCellViewController.xib */,
+			);
+			name = AsyncImageCell;
 			sourceTree = "<group>";
 		};
 		49E86D5617F494C3002CF0CF /* LBYouTubeView */ = {
@@ -946,6 +962,7 @@
 				490322C917E5BBBB0008F1F4 /* recipesWithICarouselViewController.xib in Resources */,
 				497562EF17F1D0570053248F /* procedureWithMPFlipViewController.xib in Resources */,
 				49FD44AD17EC3A6E00F472B5 /* recipesSideViewController.xib in Resources */,
+				49E388D717F5B4A80012C8A9 /* asyncImageCellViewController.xib in Resources */,
 				49FD44B717EC57F900F472B5 /* aboutUsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1026,6 +1043,7 @@
 				490322C817E5BBBB0008F1F4 /* recipesWithICarouselViewController.m in Sources */,
 				02C8795217EA1BDD00E1F738 /* materialSideViewController.m in Sources */,
 				49FD44AC17EC3A6E00F472B5 /* recipesSideViewController.m in Sources */,
+				49E388D617F5B4A80012C8A9 /* asyncImageCellViewController.m in Sources */,
 				49FD44B017EC3E1600F472B5 /* profileSideMenuViewController.m in Sources */,
 				497562EE17F1D0570053248F /* procedureWithMPFlipViewController.m in Sources */,
 				49E388B817F5A25C0012C8A9 /* TimelineView+Mutation.m in Sources */,

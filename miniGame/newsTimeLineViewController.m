@@ -52,8 +52,8 @@
     
     NSInteger num = 10000;
     NSInteger lastPos = 0;
-    NSInteger minSep = 96;
-    NSInteger maxSep = 384;
+    //NSInteger minSep = 96;
+    //NSInteger maxSep = 384;
     NSInteger lastColorInt = 0;
     
     data = [[NSMutableArray alloc] initWithCapacity:num];

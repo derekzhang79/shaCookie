@@ -10,6 +10,7 @@
 #define miniGame_GetJsonURLString_h
 
 
+#define GetRecipesImage @"http://54.244.225.229/shacookie/image/%@"
 
 #define GetJsonURLString_Device @"http://54.244.225.229/shacookie/useThis/getDeviceLocation.php?deviceId=%@"
 
