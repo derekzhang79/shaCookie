@@ -12,5 +12,4 @@
 
 @property (strong, nonatomic) IBOutlet UIImageView *image_Material;
 @property (strong, nonatomic) IBOutlet UILabel *label_Title;
-//@property (strong, nonatomic) IBOutlet UIImageView *image_Material;
 @end

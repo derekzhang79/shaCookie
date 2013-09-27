@@ -122,7 +122,18 @@
 #pragma mark - select collectionView
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-   // materialViewController*Cookview=[[materialViewController alloc]initWithNibName:@"materialViewController" bundle:nil ];
+    UICollectionViewCell *cell=[collectionView cellForItemAtIndexPath:indexPath];
+    cell.acces
+    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        [mutableDictionary_SelectedFood removeObjectForKey:indexPath];
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+        [mutableDictionary_SelectedFood setObject:[ webGetter.webData objectAtIndex:indexPath.row] forKey:indexPath];
+    }
+    
+   
+    // materialViewController*Cookview=[[materialViewController alloc]initWithNibName:@"materialViewController" bundle:nil ];
     //Cookview.rec=[[Recipes alloc] initWithIndex:indexPath.section];
     //Cookview.dictionary_Cook=[myRecipe.dictionary_nmlData objectAtIndex:indexPath.section];
     //[Cookview setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
