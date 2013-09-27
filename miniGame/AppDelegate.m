@@ -135,6 +135,8 @@
 
 -(MFSideMenuContainerViewController *)refrigeratorView{
     materialSideWithCollectionViewController *main=[[materialSideWithCollectionViewController alloc]initWithNibName:@"materialSideWithCollectionViewController" bundle:nil];
+    [main materialSearch:@"1"];
+    
     UINavigationController *mainView=[[UINavigationController alloc]initWithRootViewController:main];
     //[mainView setNavigationBarHidden:TRUE animated:TRUE];
     materialSideViewController *leftSideView= [[materialSideViewController alloc ]init];
