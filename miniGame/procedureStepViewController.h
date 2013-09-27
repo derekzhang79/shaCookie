@@ -11,6 +11,8 @@
 
 @interface procedureStepViewController : UIViewController<LBYouTubePlayerControllerDelegate>
 
+
+-(void)getRecipeStep:(NSArray *)recipeStep;
 - (IBAction)button_back:(id)sender ;
 - (IBAction)button_VideoTeaching:(id)sender;
 
@@ -18,10 +20,16 @@
 
 
 // Empty view that holds the image and description
+@property (strong ,nonatomic)NSArray *array_Recipe;
+
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
+// Empty view that holds the image and description
 @property (weak, nonatomic) IBOutlet UIView *contentArea;
 
 // White border for movie image (to give it a Polaroid look)
 @property (weak, nonatomic) IBOutlet UIView *imageFrame;
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @property (weak, nonatomic) IBOutlet UITextView *descriptionField;
@@ -33,4 +41,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong,nonatomic)LBYouTubePlayerViewController *videoPlayerController;
 
+@property (nonatomic, strong) NSArray *array_Items;
+
 @end
+

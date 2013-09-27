@@ -32,7 +32,7 @@
 {
     [super viewDidLoad];
     self.searchBar_back.alpha=0.0;
-    
+    mutableDictionary_SelectedFood=[[NSMutableDictionary alloc] init];
     
     //PlsitRead *readPlist=[[PlsitRead alloc] initWithFileName:@"foodData.plist"];
     //array_Food=[readPlist readFromFile];
@@ -79,6 +79,7 @@
 -(NSInteger)numberOfSectionInTableView:(UITableView *)tableView{
     return 1;
 }
+
 -(void)doThingAfterWebJsonIsOKFromDelegate{
     self.array_Material=[[NSArray alloc]initWithArray:webGetter.webData];
     [self.tableView_Food reloadData];

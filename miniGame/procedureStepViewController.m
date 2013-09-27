@@ -5,7 +5,7 @@
 //  Created by BirdChiu on 13/9/24.
 //
 //
-
+#import "procedureWithMPFlipViewController.h"
 #import "procedureStepViewController.h"
 #import <QuartzCore/QuartzCore.h>
 
@@ -29,6 +29,8 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        
+        
         // Custom initialization
     }
     return self;
@@ -51,9 +53,29 @@
         [self.view addSubview:button_Back];
     }
     
+    self.descriptionField.editable = NO;
+    
+    //NSArray *material=[[self.array_Recipe objectAtIndex:1]objectAtIndex:0];
+    
+    
+    NSString *recipeName=[[self.array_Recipe objectAtIndex:0] objectForKey:@"name"];
+    NSArray *procedure=[[self.array_Recipe objectAtIndex:1]objectAtIndex:1];
+    //NSString *costingTime=[[procedure objectAtIndex:[self movieIndex]-1]objectForKey:@"costing_time"];
+    NSString *step=[[procedure objectAtIndex:[self movieIndex]-1]objectForKey:@"step"];
+    
+    self.navigationController.title=recipeName;
+    self.descriptionField.text=step;
+    
+    [self.navigationController setTitle:recipeName];
 
 	[self.imageView setImage:[UIImage imageNamed:@"gamebaby"]];
-	switch ([self movieIndex]) {
+    
+    [self.titleLabel setText:recipeName];
+    self.descriptionField.text=step;
+    
+    NSLog(@"123 %@",self.array_Items);
+	/*
+    switch ([self movieIndex]) {
 		case 1:
 			self.titleLabel.text = @"The Matrix (1999)";
 			self.descriptionField.text = @"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.  Neo and the rebel leaders estimate that they have 72 hours until 250,000 probes discover Zion and destroy it and its inhabitants. During this, Neo must decide how he can save Trinity from a dark fate in his dreams.  Neo and the rebel leaders estimate that they have 72 hours until 250,000 probes discover Zion and destroy it and its inhabitants. During this, Neo must decide how he can save Trinity from a dark fate in his dreams.";
@@ -72,7 +94,7 @@
 		default:
 			break;
 	}
-	
+	*/
 	[self.imageFrame.layer setShadowOpacity:0.5];
 	[self.imageFrame.layer setShadowOffset:CGSizeMake(0, 1)];
 }
@@ -232,7 +254,10 @@
 	else
 		NSLog(@"didRemoveFromParentViewController");
 }
-
+-(void)getRecipeStep:(NSArray *)recipeStep{
+    self.array_Recipe=recipeStep;
+    NSLog(@"567 %@",self.array_Recipe);
+}
 
 - (IBAction)button_back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
