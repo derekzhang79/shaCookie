@@ -8,8 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import "LBYouTube.h"
+#import "WebJsonDataGetter.h"
 
-@interface procedureStepViewController : UIViewController<LBYouTubePlayerControllerDelegate>
+
+@interface procedureStepViewController : UIViewController<LBYouTubePlayerControllerDelegate,WebJsonDataGetFinishDelegater>{
+    WebJsonDataGetter *webGetter;
+}
 
 
 -(void)getRecipeStep:(NSArray *)recipeStep;

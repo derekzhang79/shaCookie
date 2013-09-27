@@ -8,6 +8,7 @@
 #import "procedureWithMPFlipViewController.h"
 #import "procedureStepViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "GetJsonURLString.h"
 
 #define FRAME_MARGIN 20
 
@@ -29,7 +30,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
+        webGetter =[[WebJsonDataGetter alloc]initWithURLString:[NSString stringWithFormat:GetJsonURLString_RecipeStep,@"1"]];
+        [webGetter setDelegate:self];
+        NSLog(@"111 %@",self.array_Items);
         
         // Custom initialization
     }
@@ -54,45 +57,10 @@
     }
     
     self.descriptionField.editable = NO;
-    
-    //NSArray *material=[[self.array_Recipe objectAtIndex:1]objectAtIndex:0];
-    
-    
-    NSString *recipeName=[[self.array_Recipe objectAtIndex:0] objectForKey:@"name"];
-    NSArray *procedure=[[self.array_Recipe objectAtIndex:1]objectAtIndex:1];
-    //NSString *costingTime=[[procedure objectAtIndex:[self movieIndex]-1]objectForKey:@"costing_time"];
-    NSString *step=[[procedure objectAtIndex:[self movieIndex]-1]objectForKey:@"step"];
-    
-    self.navigationController.title=recipeName;
-    self.descriptionField.text=step;
-    
-    [self.navigationController setTitle:recipeName];
-
 	[self.imageView setImage:[UIImage imageNamed:@"gamebaby"]];
-    
-    [self.titleLabel setText:recipeName];
-    self.descriptionField.text=step;
-    
-	
-    switch ([self movieIndex]) {
-		case 1:
-			self.titleLabel.text = @"The Matrix (1999)";
-			self.descriptionField.text = @"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.  Neo and the rebel leaders estimate that they have 72 hours until 250,000 probes discover Zion and destroy it and its inhabitants. During this, Neo must decide how he can save Trinity from a dark fate in his dreams.  Neo and the rebel leaders estimate that they have 72 hours until 250,000 probes discover Zion and destroy it and its inhabitants. During this, Neo must decide how he can save Trinity from a dark fate in his dreams.";
-			break;
-			
-		case 2:
-			self.titleLabel.text = @"The Matrix Reloaded (2003)";
-			self.descriptionField.text = @"Neo and the rebel leaders estimate that they have 72 hours until 250,000 probes discover Zion and destroy it and its inhabitants. During this, Neo must decide how he can save Trinity from a dark fate in his dreams.  Neo and the rebel leaders estimate that they have 72 hours until 250,000 probes discover Zion and destroy it and its inhabitants. During this, Neo must decide how he can save Trinity from a dark fate in his dreams.";
-			break;
-			
-		case 3:
-			self.titleLabel.text = @"The Matrix Revolutions (2003)";
-			self.descriptionField.text = @"The human city of Zion defends itself against the massive invasion of the machines as Neo fights to end the war at another front while also opposing the rogue Agent Smith.  Neo and the rebel leaders estimate that they have 72 hours until 250,000 probes discover Zion and destroy it and its inhabitants. During this, Neo must decide how he can save Trinity from a dark fate in his dreams.";
-			break;
-			
-		default:
-			break;
-	}
+    self.titleLabel.text = nil;
+    self.descriptionField.text =nil;
+
 	
 	[self.imageFrame.layer setShadowOpacity:0.5];
 	[self.imageFrame.layer setShadowOffset:CGSizeMake(0, 1)];
@@ -269,6 +237,13 @@
     self.videoPlayerController.view.frame =frontWindow.bounds;
     self.videoPlayerController.view.center = frontWindow.center;
     [self presentViewController:self.videoPlayerController animated:YES completion:nil];
+    
+}
+
+-(void)doThingAfterWebJsonIsOKFromDelegate{
+    self.array_Items=webGetter.webData;
+    self.titleLabel.text = [[self.array_Items objectAtIndex:0]objectForKey:@"name"];;
+    self.descriptionField.text = [[[[self.array_Items objectAtIndex:1]objectForKey:@"step"] objectAtIndex:[self movieIndex]-1]objectForKey:@"step"];;
     
 }
 @end
