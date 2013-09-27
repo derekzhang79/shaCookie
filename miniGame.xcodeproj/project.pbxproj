@@ -94,6 +94,16 @@
 		49A090DD17E22F7900B19E8C /* back-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A090D917E22F7900B19E8C /* back-arrow@2x.png */; };
 		49A090DE17E22F7900B19E8C /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A090DA17E22F7900B19E8C /* menu-icon.png */; };
 		49A090DF17E22F7900B19E8C /* menu-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A090DB17E22F7900B19E8C /* menu-icon@2x.png */; };
+		49E388B617F5A25C0012C8A9 /* TimelineView+Discovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E388A817F5A25C0012C8A9 /* TimelineView+Discovery.m */; };
+		49E388B717F5A25C0012C8A9 /* TimelineView+Gestures.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E388AA17F5A25C0012C8A9 /* TimelineView+Gestures.m */; };
+		49E388B817F5A25C0012C8A9 /* TimelineView+Mutation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E388AC17F5A25C0012C8A9 /* TimelineView+Mutation.m */; };
+		49E388B917F5A25C0012C8A9 /* TimelineView+Tiling.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E388AE17F5A25C0012C8A9 /* TimelineView+Tiling.m */; };
+		49E388BA17F5A25C0012C8A9 /* TimelineView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E388B017F5A25C0012C8A9 /* TimelineView.m */; };
+		49E388BB17F5A25C0012C8A9 /* TimelineViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E388B317F5A25C0012C8A9 /* TimelineViewCell.m */; };
+		49E388C017F5A2CD0012C8A9 /* newsTimeLineViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E388BE17F5A2CD0012C8A9 /* newsTimeLineViewController.m */; };
+		49E388C117F5A2CD0012C8A9 /* newsTimeLineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E388BF17F5A2CD0012C8A9 /* newsTimeLineViewController.xib */; };
+		49E388D017F5A4570012C8A9 /* SampleTimelineViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E388CD17F5A4570012C8A9 /* SampleTimelineViewCell.m */; };
+		49E388D117F5A4570012C8A9 /* SampleTimelineViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E388CE17F5A4570012C8A9 /* SampleTimelineViewCell.xib */; };
 		49E86D4D17F47530002CF0CF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E86D4C17F47530002CF0CF /* MediaPlayer.framework */; };
 		49E86D5C17F494C3002CF0CF /* LBYouTubeExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E86D5917F494C3002CF0CF /* LBYouTubeExtractor.m */; };
 		49E86D5D17F494C3002CF0CF /* LBYouTubePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E86D5B17F494C3002CF0CF /* LBYouTubePlayerViewController.m */; };
@@ -236,6 +246,27 @@
 		49CFC51117E22B310001E0D6 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		49CFC51317E22B3F0001E0D6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		49CFC51517E22B4A0001E0D6 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		49E388A717F5A25C0012C8A9 /* TimelineView+Discovery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimelineView+Discovery.h"; sourceTree = "<group>"; };
+		49E388A817F5A25C0012C8A9 /* TimelineView+Discovery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TimelineView+Discovery.m"; sourceTree = "<group>"; };
+		49E388A917F5A25C0012C8A9 /* TimelineView+Gestures.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimelineView+Gestures.h"; sourceTree = "<group>"; };
+		49E388AA17F5A25C0012C8A9 /* TimelineView+Gestures.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TimelineView+Gestures.m"; sourceTree = "<group>"; };
+		49E388AB17F5A25C0012C8A9 /* TimelineView+Mutation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimelineView+Mutation.h"; sourceTree = "<group>"; };
+		49E388AC17F5A25C0012C8A9 /* TimelineView+Mutation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TimelineView+Mutation.m"; sourceTree = "<group>"; };
+		49E388AD17F5A25C0012C8A9 /* TimelineView+Tiling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TimelineView+Tiling.h"; sourceTree = "<group>"; };
+		49E388AE17F5A25C0012C8A9 /* TimelineView+Tiling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "TimelineView+Tiling.m"; sourceTree = "<group>"; };
+		49E388AF17F5A25C0012C8A9 /* TimelineView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineView.h; sourceTree = "<group>"; };
+		49E388B017F5A25C0012C8A9 /* TimelineView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineView.m; sourceTree = "<group>"; };
+		49E388B117F5A25C0012C8A9 /* TimelineView_Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineView_Private.h; sourceTree = "<group>"; };
+		49E388B217F5A25C0012C8A9 /* TimelineViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewCell.h; sourceTree = "<group>"; };
+		49E388B317F5A25C0012C8A9 /* TimelineViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimelineViewCell.m; sourceTree = "<group>"; };
+		49E388B417F5A25C0012C8A9 /* TimelineViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewDataSource.h; sourceTree = "<group>"; };
+		49E388B517F5A25C0012C8A9 /* TimelineViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TimelineViewDelegate.h; sourceTree = "<group>"; };
+		49E388BD17F5A2CD0012C8A9 /* newsTimeLineViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = newsTimeLineViewController.h; sourceTree = "<group>"; };
+		49E388BE17F5A2CD0012C8A9 /* newsTimeLineViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = newsTimeLineViewController.m; sourceTree = "<group>"; };
+		49E388BF17F5A2CD0012C8A9 /* newsTimeLineViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = newsTimeLineViewController.xib; sourceTree = "<group>"; };
+		49E388CD17F5A4570012C8A9 /* SampleTimelineViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SampleTimelineViewCell.m; sourceTree = "<group>"; };
+		49E388CE17F5A4570012C8A9 /* SampleTimelineViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SampleTimelineViewCell.xib; sourceTree = "<group>"; };
+		49E388CF17F5A4570012C8A9 /* SampleTimelineViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SampleTimelineViewCell.h; sourceTree = "<group>"; };
 		49E86D4C17F47530002CF0CF /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		49E86D5717F494C3002CF0CF /* LBYouTube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTube.h; sourceTree = "<group>"; };
 		49E86D5817F494C3002CF0CF /* LBYouTubeExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTubeExtractor.h; sourceTree = "<group>"; };
@@ -691,11 +722,11 @@
 		4984C51B17DF177400EDE6B1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				49E388BC17F5A2A30012C8A9 /* newsTimeLineView */,
 				4963CE2E17F319C2002DFE70 /* notInUse */,
 				4975630517F1DB850053248F /* procedureView */,
 				4984C51817DF173000EDE6B1 /* foodDetailView */,
 				02A8DD5817F1DE8300E6B5D9 /* materialSideWithCollection */,
-				495BFACA17F072F0001B99B5 /* procedureWithLeavesView */,
 				49FD44B117EC57D100F472B5 /* aboutUsView */,
 				02C8795417EA3B9300E1F738 /* recipesSideView */,
 				02C8794F17EA1B8300E1F738 /* materialSideView */,
@@ -714,12 +745,12 @@
 		4984C51C17DF17D300EDE6B1 /* logical */ = {
 			isa = PBXGroup;
 			children = (
+				49E388C217F5A30F0012C8A9 /* TimeLineCell */,
+				49E388A617F5A25C0012C8A9 /* TimelineView */,
 				49E86D5617F494C3002CF0CF /* LBYouTubeView */,
 				4963CE2D17F318FF002DFE70 /* notInUse */,
 				497562F017F1D1F50053248F /* Container */,
 				02A8DD5917F1FF6900E6B5D9 /* MaterialCell */,
-				4971E17E17F08DB000CD4E1C /* Utilities */,
-				495BFAE617F08537001B99B5 /* Leaves */,
 				4940D55B17E33EDC00939995 /* GetJsonURLString.h */,
 				4984C51217DF166F00EDE6B1 /* CVCell */,
 				4984C50E17DF156800EDE6B1 /* WebJsonDataGetter */,
@@ -744,6 +775,48 @@
 				49FD44AF17EC3E1600F472B5 /* profileSideMenuViewController.h */,
 			);
 			name = profileSideMenuView;
+			sourceTree = "<group>";
+		};
+		49E388A617F5A25C0012C8A9 /* TimelineView */ = {
+			isa = PBXGroup;
+			children = (
+				49E388A717F5A25C0012C8A9 /* TimelineView+Discovery.h */,
+				49E388A817F5A25C0012C8A9 /* TimelineView+Discovery.m */,
+				49E388A917F5A25C0012C8A9 /* TimelineView+Gestures.h */,
+				49E388AA17F5A25C0012C8A9 /* TimelineView+Gestures.m */,
+				49E388AB17F5A25C0012C8A9 /* TimelineView+Mutation.h */,
+				49E388AC17F5A25C0012C8A9 /* TimelineView+Mutation.m */,
+				49E388AD17F5A25C0012C8A9 /* TimelineView+Tiling.h */,
+				49E388AE17F5A25C0012C8A9 /* TimelineView+Tiling.m */,
+				49E388AF17F5A25C0012C8A9 /* TimelineView.h */,
+				49E388B017F5A25C0012C8A9 /* TimelineView.m */,
+				49E388B117F5A25C0012C8A9 /* TimelineView_Private.h */,
+				49E388B217F5A25C0012C8A9 /* TimelineViewCell.h */,
+				49E388B317F5A25C0012C8A9 /* TimelineViewCell.m */,
+				49E388B417F5A25C0012C8A9 /* TimelineViewDataSource.h */,
+				49E388B517F5A25C0012C8A9 /* TimelineViewDelegate.h */,
+			);
+			path = TimelineView;
+			sourceTree = "<group>";
+		};
+		49E388BC17F5A2A30012C8A9 /* newsTimeLineView */ = {
+			isa = PBXGroup;
+			children = (
+				49E388BD17F5A2CD0012C8A9 /* newsTimeLineViewController.h */,
+				49E388BE17F5A2CD0012C8A9 /* newsTimeLineViewController.m */,
+				49E388BF17F5A2CD0012C8A9 /* newsTimeLineViewController.xib */,
+			);
+			name = newsTimeLineView;
+			sourceTree = "<group>";
+		};
+		49E388C217F5A30F0012C8A9 /* TimeLineCell */ = {
+			isa = PBXGroup;
+			children = (
+				49E388CD17F5A4570012C8A9 /* SampleTimelineViewCell.m */,
+				49E388CE17F5A4570012C8A9 /* SampleTimelineViewCell.xib */,
+				49E388CF17F5A4570012C8A9 /* SampleTimelineViewCell.h */,
+			);
+			name = TimeLineCell;
 			sourceTree = "<group>";
 		};
 		49E86D5617F494C3002CF0CF /* LBYouTubeView */ = {
@@ -831,6 +904,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				49E388C117F5A2CD0012C8A9 /* newsTimeLineViewController.xib in Resources */,
 				02A91720170207BC00F2E55F /* InfoPlist.strings in Resources */,
 				02A91728170207BC00F2E55F /* Default.png in Resources */,
 				02A9172C170207BC00F2E55F /* Default-568h@2x.png in Resources */,
@@ -857,6 +931,7 @@
 				49A090DC17E22F7900B19E8C /* back-arrow.png in Resources */,
 				49A090DD17E22F7900B19E8C /* back-arrow@2x.png in Resources */,
 				49A090DE17E22F7900B19E8C /* menu-icon.png in Resources */,
+				49E388D117F5A4570012C8A9 /* SampleTimelineViewCell.xib in Resources */,
 				49A090DF17E22F7900B19E8C /* menu-icon@2x.png in Resources */,
 				02A8DD5717F1DE5E00E6B5D9 /* materialSideWithCollectionViewController.xib in Resources */,
 				4927D89B17E33FEE000DDEBF /* matchMaterialViewController.xib in Resources */,
@@ -914,9 +989,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				497562FC17F1D1F50053248F /* MPFlipTransition.m in Sources */,
+				49E388C017F5A2CD0012C8A9 /* newsTimeLineViewController.m in Sources */,
 				49E86D5D17F494C3002CF0CF /* LBYouTubePlayerViewController.m in Sources */,
 				02A91722170207BC00F2E55F /* main.m in Sources */,
 				02A91726170207BC00F2E55F /* AppDelegate.m in Sources */,
+				49E388B917F5A25C0012C8A9 /* TimelineView+Tiling.m in Sources */,
 				4975630317F1D4C10053248F /* procedureStepViewController.m in Sources */,
 				02A9172F170207BC00F2E55F /* ViewController.m in Sources */,
 				02A68AFB17034A8300B34828 /* JsonViewController.m in Sources */,
@@ -926,26 +1003,32 @@
 				02A68B3417035F9F00B34828 /* WebJsonDataGetter.m in Sources */,
 				02A67C72174BDA1800BCD095 /* CVCell.m in Sources */,
 				02A67C85174BDECA00BCD095 /* Recipes.m in Sources */,
+				49E388BA17F5A25C0012C8A9 /* TimelineView.m in Sources */,
 				02A67C88174BDF0500BCD095 /* PlsitRead.m in Sources */,
 				02A8DD5617F1DE5E00E6B5D9 /* materialSideWithCollectionViewController.m in Sources */,
 				02A67C8C174BE06000BCD095 /* refViewController.m in Sources */,
 				02A67C96174BE21100BCD095 /* menuViewController.m in Sources */,
+				49E388B717F5A25C0012C8A9 /* TimelineView+Gestures.m in Sources */,
 				02A67C9B174BE29600BCD095 /* foodDetailViewController.m in Sources */,
 				023842BF17588CC800831605 /* UploadRecipe.m in Sources */,
 				497562FE17F1D1F60053248F /* MPTransition.m in Sources */,
+				49E388BB17F5A25C0012C8A9 /* TimelineViewCell.m in Sources */,
 				49E86D5C17F494C3002CF0CF /* LBYouTubeExtractor.m in Sources */,
 				491AE841175FAF3D00E4121C /* entryViewController.m in Sources */,
 				491AE849175FB7FB00E4121C /* materialViewController.m in Sources */,
 				497562FB17F1D1F50053248F /* MPAnimation.m in Sources */,
 				4927D89A17E33FEE000DDEBF /* matchMaterialViewController.m in Sources */,
+				49E388B617F5A25C0012C8A9 /* TimelineView+Discovery.m in Sources */,
 				4927D8A017E34AC0000DDEBF /* moveFinishViewController.m in Sources */,
 				499C632917E43EFB00513989 /* loginWithFBViewController.m in Sources */,
+				49E388D017F5A4570012C8A9 /* SampleTimelineViewCell.m in Sources */,
 				02A8DD6217F2027D00E6B5D9 /* MaterialCell.m in Sources */,
 				490322C817E5BBBB0008F1F4 /* recipesWithICarouselViewController.m in Sources */,
 				02C8795217EA1BDD00E1F738 /* materialSideViewController.m in Sources */,
 				49FD44AC17EC3A6E00F472B5 /* recipesSideViewController.m in Sources */,
 				49FD44B017EC3E1600F472B5 /* profileSideMenuViewController.m in Sources */,
 				497562EE17F1D0570053248F /* procedureWithMPFlipViewController.m in Sources */,
+				49E388B817F5A25C0012C8A9 /* TimelineView+Mutation.m in Sources */,
 				49FD44B617EC57F900F472B5 /* aboutUsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

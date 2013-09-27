@@ -229,10 +229,21 @@
 - (IBAction)button_VideoTeaching:(id)sender {
     UIWindow *frontWindow = [[[UIApplication sharedApplication] windows]lastObject];
     self.videoPlayerController = [[LBYouTubePlayerViewController alloc] initWithYouTubeURL:[NSURL URLWithString:@"http://www.youtube.com/watch?v=1fTIhC1WSew&list=FLEYfH4kbq85W_CiOTuSjf8w&feature=mh_lolz"] quality:LBYouTubeVideoQualityLarge];
-    self.videoPlayerController.delegate = self;
+    //self.videoPlayerController.delegate = self;
     self.videoPlayerController.view.frame =frontWindow.bounds;
     self.videoPlayerController.view.center = frontWindow.center;
     [self presentViewController:self.videoPlayerController animated:YES completion:nil];
     
 }
+
+#pragma mark -
+#pragma mark LBYouTubeExtractorDelegate
+
+-(void)youTubeExtractor:(LBYouTubeExtractor *)extractor didSuccessfullyExtractYouTubeURL:(NSURL *)videoURL {
+}
+
+-(void)youTubeExtractor:(LBYouTubeExtractor *)extractor failedExtractingYouTubeURLWithError:(NSError *)error {
+   
+}
+
 @end
