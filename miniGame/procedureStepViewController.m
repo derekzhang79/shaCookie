@@ -30,10 +30,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        webGetter =[[WebJsonDataGetter alloc]initWithURLString:[NSString stringWithFormat:GetJsonURLString_RecipeStep,@"1"]];
-        [webGetter setDelegate:self];
-        NSLog(@"111 %@",self.array_Items);
-        
         // Custom initialization
     }
     return self;
@@ -46,7 +42,7 @@
 	//[self.view setBackgroundColor:[UIColor colorWithWhite:0 alpha:0]];
     
     
-    if ([self movieIndex] == 3) {
+    if ([self movieIndex] == self.step) {
         UIButton *button_Back = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [button_Back addTarget:self
                         action:@selector(button_back:)
@@ -58,8 +54,8 @@
     
     self.descriptionField.editable = NO;
 	[self.imageView setImage:[UIImage imageNamed:@"gamebaby"]];
-    self.titleLabel.text = nil;
-    self.descriptionField.text =nil;
+    self.titleLabel.text = [[self.array_Items objectAtIndex:0]objectForKey:@"name"];;
+    self.descriptionField.text = [[[[self.array_Items objectAtIndex:1]objectForKey:@"step"] objectAtIndex:[self movieIndex]-1]objectForKey:@"step"];
 
 	
 	[self.imageFrame.layer setShadowOpacity:0.5];
@@ -222,8 +218,8 @@
 		NSLog(@"didRemoveFromParentViewController");
 }
 -(void)getRecipeStep:(NSArray *)recipeStep{
-    self.array_Recipe=recipeStep;
-    NSLog(@"567 %@",self.array_Recipe);
+    self.array_Items=recipeStep;
+    self.step=[[[recipeStep objectAtIndex:1]objectForKey:@"step"]count];;
 }
 
 - (IBAction)button_back:(id)sender {
@@ -237,13 +233,6 @@
     self.videoPlayerController.view.frame =frontWindow.bounds;
     self.videoPlayerController.view.center = frontWindow.center;
     [self presentViewController:self.videoPlayerController animated:YES completion:nil];
-    
-}
-
--(void)doThingAfterWebJsonIsOKFromDelegate{
-    self.array_Items=webGetter.webData;
-    self.titleLabel.text = [[self.array_Items objectAtIndex:0]objectForKey:@"name"];;
-    self.descriptionField.text = [[[[self.array_Items objectAtIndex:1]objectForKey:@"step"] objectAtIndex:[self movieIndex]-1]objectForKey:@"step"];;
     
 }
 @end

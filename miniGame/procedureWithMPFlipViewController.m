@@ -33,6 +33,9 @@
     if (self) {
 
         // Custom initialization
+        webGetter =[[WebJsonDataGetter alloc]initWithURLString:[NSString stringWithFormat:GetJsonURLString_RecipeStep,@"1"]];
+        [webGetter setDelegate:self];
+        
         
     }
     return self;
@@ -42,7 +45,6 @@
 {
     // Do any additional setup after loading the view, typically from a nib.
     [super viewDidLoad];
-    
     self.previousIndex = MOVIE_MIN;
 	
 	// Configure the page view controller and add it as a child view controller.
@@ -116,8 +118,8 @@
 
 - (procedureStepViewController *)contentViewWithIndex:(int)index
 {
-
     procedureStepViewController *page = [[procedureStepViewController alloc]initWithNibName:@"procedureStepViewController" bundle:nil];
+    [page getRecipeStep:self.array_Items];
 	page.movieIndex = index;
 	page.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	return page;
@@ -157,7 +159,8 @@
 {
 	int index = self.previousIndex;
 	index++;
-	if (index > MOVIE_MAX)
+	//if (index > MOVIE_MAX)
+    if (index > self.step)
 		return nil; // reached end, don't wrap
 	self.tentativeIndex = index;
 	return [self contentViewWithIndex:index];
@@ -168,6 +171,12 @@
 - (void)flipViewControllerDidFinishAnimatingNotification:(NSNotification *)notification
 {
 	NSLog(@"Notification received: %@", notification);
+}
+
+-(void)doThingAfterWebJsonIsOKFromDelegate{
+    self.array_Items=webGetter.webData;
+    self.step=[[[self.array_Items objectAtIndex:1]objectForKey:@"step"]count];
+    [self viewDidLoad];
 }
 
 @end

@@ -8,12 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "LBYouTube.h"
-#import "WebJsonDataGetter.h"
 
 
-@interface procedureStepViewController : UIViewController<LBYouTubePlayerControllerDelegate,WebJsonDataGetFinishDelegater>{
-    WebJsonDataGetter *webGetter;
-}
+@interface procedureStepViewController : UIViewController<LBYouTubePlayerControllerDelegate>
 
 
 -(void)getRecipeStep:(NSArray *)recipeStep;
@@ -24,8 +21,6 @@
 
 
 // Empty view that holds the image and description
-@property (strong ,nonatomic)NSArray *array_Recipe;
-
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 
 // Empty view that holds the image and description
@@ -46,6 +41,7 @@
 @property (strong,nonatomic)LBYouTubePlayerViewController *videoPlayerController;
 
 @property (nonatomic, strong) NSArray *array_Items;
+@property (nonatomic) NSInteger step;
 
 @end
 
