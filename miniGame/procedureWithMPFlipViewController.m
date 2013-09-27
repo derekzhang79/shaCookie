@@ -44,6 +44,7 @@
     webGetter =[[WebJsonDataGetter alloc]initWithURLString:[NSString stringWithFormat:GetJsonURLString_RecipeStep,@"1"]];
     [webGetter setDelegate:self];
      NSLog(@"888 %@",self.array_Items);
+     [self set];
 	
 	
 }
@@ -86,18 +87,18 @@
 - (procedureStepViewController *)contentViewWithIndex:(int)index
 {
    
-    page = [[procedureStepViewController alloc]initWithNibName:@"procedureStepViewController" bundle:nil];
-    [page getRecipeStep:self.array_Items];
+    procedureStepViewController *page = [[procedureStepViewController alloc]initWithNibName:@"procedureStepViewController" bundle:nil];
+    //[page getRecipeStep:self.array_Items];
     
     
-    NSArray *arr=[[[[self.array_Items objectAtIndex:1]objectAtIndex:0]objectAtIndex:1]objectAtIndex:0];
-    NSInteger moveIndex=[[[arr objectAtIndex:[arr count]-1]objectForKey:@"procedure"]integerValue];
+   // NSArray *arr=[[[[self.array_Items objectAtIndex:1]objectAtIndex:0]objectAtIndex:1]objectAtIndex:0];
+    //NSInteger moveIndex=[[[arr objectAtIndex:[arr count]-1]objectForKey:@"procedure"]integerValue];
 	page.movieIndex = index;
     /*
     NSLog(@"135 %@",self.array_Items);
     NSLog(@"789 %@",arr);
      */
-    NSLog(@"MAXXXXXXX::::::: %d",moveIndex);
+    //NSLog(@"MAXXXXXXX::::::: %d",moveIndex);
      
 	page.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
 	return page;
@@ -158,7 +159,7 @@
     NSArray *arr=[[self.array_Items objectAtIndex:0] objectForKey:@"name"];
     NSLog(@"135 %@",self.array_Items);
     NSLog(@"789 %@",arr);
-    [self set];
+   
     
 }
 -(void)set{

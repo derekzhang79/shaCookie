@@ -38,7 +38,7 @@
 @property (assign, nonatomic) NSUInteger movieIndex;
 
 @property (assign, nonatomic, getter = isRotating) BOOL rotating;
-@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+//@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong,nonatomic)LBYouTubePlayerViewController *videoPlayerController;
 
 @property (nonatomic, strong) NSArray *array_Items;

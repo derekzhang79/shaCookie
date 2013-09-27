@@ -73,8 +73,7 @@
     [self.titleLabel setText:recipeName];
     self.descriptionField.text=step;
     
-    NSLog(@"123 %@",self.array_Items);
-	/*
+	
     switch ([self movieIndex]) {
 		case 1:
 			self.titleLabel.text = @"The Matrix (1999)";
@@ -94,7 +93,7 @@
 		default:
 			break;
 	}
-	*/
+	
 	[self.imageFrame.layer setShadowOpacity:0.5];
 	[self.imageFrame.layer setShadowOffset:CGSizeMake(0, 1)];
 }
@@ -265,7 +264,7 @@
 
 - (IBAction)button_VideoTeaching:(id)sender {
     UIWindow *frontWindow = [[[UIApplication sharedApplication] windows]lastObject];
-    self.videoPlayerController = [[LBYouTubePlayerViewController alloc] initWithYouTubeURL:[NSURL URLWithString:@"http://www.youtube.com/watch?v=WMVtriQkPxg&feature=share&list=PLDgLLnSBXR_Pdc7DYHHINPs81LFtvudGs"] quality:LBYouTubeVideoQualityLarge];
+    self.videoPlayerController = [[LBYouTubePlayerViewController alloc] initWithYouTubeURL:[NSURL URLWithString:@"http://www.youtube.com/watch?v=1fTIhC1WSew&list=FLEYfH4kbq85W_CiOTuSjf8w&feature=mh_lolz"] quality:LBYouTubeVideoQualityLarge];
     self.videoPlayerController.delegate = self;
     self.videoPlayerController.view.frame =frontWindow.bounds;
     self.videoPlayerController.view.center = frontWindow.center;

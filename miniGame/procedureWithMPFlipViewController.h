@@ -13,7 +13,6 @@
 @interface procedureWithMPFlipViewController : UIViewController<MPFlipViewControllerDelegate, MPFlipViewControllerDataSource,WebJsonDataGetFinishDelegater>{
     WebJsonDataGetter *webGetter;
     NSString *recipe_Name;
-    procedureStepViewController *page;
 }
 @property (strong, nonatomic) MPFlipViewController *flipViewController;
 @property (weak, nonatomic) IBOutlet UIView *corkboard;

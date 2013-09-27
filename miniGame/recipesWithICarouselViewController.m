@@ -120,7 +120,7 @@
     //[self.navigationController pushViewController:procedure animated:YES];//navigation連結頁面'
     procedureWithMPFlipViewController *pro=[[procedureWithMPFlipViewController alloc]initWithNibName:@"procedureWithMPFlipViewController" bundle:nil];
 
-    [self.navigationController setNavigationBarHidden:false animated:TRUE];
+    //[self.navigationController setNavigationBarHidden:false animated:TRUE];
     [self.navigationController pushViewController:pro animated:TRUE];
 }
 @end
