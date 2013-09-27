@@ -41,7 +41,8 @@
 
 
 -(void)doThingAfterWebJsonIsOKFromDelegate{
-    self.array_Items = [[NSArray alloc] initWithArray: webGetter.webData];
+    self.array_Items = webGetter.webData;
+    NSLog(@"999 %@",self.array_Items);
     [self.carousel reloadData];
 }
 
@@ -118,6 +119,8 @@
     //Cookview.dictionary_Cook=[webGetter.webData objectAtIndex:index];
     //[self.navigationController pushViewController:procedure animated:YES];//navigation連結頁面'
     procedureWithMPFlipViewController *pro=[[procedureWithMPFlipViewController alloc]initWithNibName:@"procedureWithMPFlipViewController" bundle:nil];
+
+    [self.navigationController setNavigationBarHidden:false animated:TRUE];
     [self.navigationController pushViewController:pro animated:TRUE];
 }
 @end
