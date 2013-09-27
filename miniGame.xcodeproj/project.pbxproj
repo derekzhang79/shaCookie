@@ -684,7 +684,6 @@
 				4975630517F1DB850053248F /* procedureView */,
 				4984C51817DF173000EDE6B1 /* foodDetailView */,
 				02A8DD5817F1DE8300E6B5D9 /* materialSideWithCollection */,
-				495BFACA17F072F0001B99B5 /* procedureWithLeavesView */,
 				49FD44B117EC57D100F472B5 /* aboutUsView */,
 				02C8795417EA3B9300E1F738 /* recipesSideView */,
 				02C8794F17EA1B8300E1F738 /* materialSideView */,
@@ -706,8 +705,6 @@
 				4963CE2D17F318FF002DFE70 /* notInUse */,
 				497562F017F1D1F50053248F /* Container */,
 				02A8DD5917F1FF6900E6B5D9 /* MaterialCell */,
-				4971E17E17F08DB000CD4E1C /* Utilities */,
-				495BFAE617F08537001B99B5 /* Leaves */,
 				4940D55B17E33EDC00939995 /* GetJsonURLString.h */,
 				4984C51217DF166F00EDE6B1 /* CVCell */,
 				4984C50E17DF156800EDE6B1 /* WebJsonDataGetter */,
@@ -1014,6 +1011,7 @@
 				GCC_PREFIX_HEADER = "miniGame/miniGame-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "miniGame/miniGame-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = ShaCookie;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				WRAPPER_EXTENSION = app;
@@ -1033,6 +1031,7 @@
 				GCC_PREFIX_HEADER = "miniGame/miniGame-Prefix.pch";
 				HEADER_SEARCH_PATHS = /usr/include/libxml2;
 				INFOPLIST_FILE = "miniGame/miniGame-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				PRODUCT_NAME = ShaCookie;
 				USER_HEADER_SEARCH_PATHS = "$(SRCROOT)/**";
 				WRAPPER_EXTENSION = app;

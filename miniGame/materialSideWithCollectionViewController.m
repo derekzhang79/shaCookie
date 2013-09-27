@@ -42,22 +42,22 @@
     // Create data for collection views
     // NSLog(@"count %d",[self.dataArray count]);
     /* uncomment this block to use subclassed cells*/
-    [self.collection_MaterialSide registerClass:[MaterialCell class] forCellWithReuseIdentifier:@"maCell"];
-    
+    [self.collection_Material registerClass:[MaterialCell class] forCellWithReuseIdentifier:@"maCell"];
+    self.collection_Material.allowsMultipleSelection = YES;
     /* end of subclass-based cells block */
     
     // Configure layout
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setItemSize:CGSizeMake(125, 150)];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [self.collection_MaterialSide setCollectionViewLayout:flowLayout];
+    [self.collection_Material setCollectionViewLayout:flowLayout];
     
     [self setupMenuBarButtonItems];
 }
 
 -(void)doThingAfterWebJsonIsOKFromDelegate{
     self.array_Collection=[[NSArray alloc]initWithArray:webGetter.webData];
-    [self.collection_MaterialSide reloadData];
+    [self.collection_Material reloadData];
 }
 
 -(void)materialSearch:(NSString*)materialTypeCase{
@@ -74,7 +74,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    self.collection_MaterialSide=nil;
+    self.collection_Material=nil;
     self.array_Collection=nil;
     // Dispose of any resources that can be recreated.
 }
@@ -122,15 +122,13 @@
 #pragma mark - select collectionView
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    UICollectionViewCell *cell=[collectionView cellForItemAtIndexPath:indexPath];
-    cell.acces
-    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        [mutableDictionary_SelectedFood removeObjectForKey:indexPath];
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [mutableDictionary_SelectedFood setObject:[ webGetter.webData objectAtIndex:indexPath.row] forKey:indexPath];
+    
+    
+     UICollectionViewCell *cell=[collectionView cellForItemAtIndexPath:indexPath];
+    if(cell.selectedBackgroundView.backgroundColor ==[UIColor colorWithRed:0 green:0 blue:1 alpha:0.5]){
+        
     }
+ 
     
    
     // materialViewController*Cookview=[[materialViewController alloc]initWithNibName:@"materialViewController" bundle:nil ];
