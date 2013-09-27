@@ -9,7 +9,7 @@
 #import "loginWithFBViewController.h"
 #import "MFSideMenu.h"
 #import "aboutUsViewController.h"
-
+#import "newsTimeLineViewController.h"
 
 
 @implementation profileSideMenuViewController
@@ -64,6 +64,9 @@
     switch (indexPath.row) {
         case 0:
             controller=(UIViewController *)[[loginWithFBViewController alloc]initWithNibName:@"loginWithFBViewController" bundle:nil];
+            break;
+        case 1:
+            controller=(UIViewController *)[[newsTimeLineViewController alloc]initWithNibName:@"newsTimeLineViewController" bundle:nil];
             break;
         case 2:
             controller=(UIViewController *)[[JsonViewController alloc]initWithNibName:@"JsonViewController" bundle:nil];

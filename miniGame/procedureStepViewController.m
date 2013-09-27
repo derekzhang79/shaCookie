@@ -8,6 +8,7 @@
 #import "procedureWithMPFlipViewController.h"
 #import "procedureStepViewController.h"
 #import <QuartzCore/QuartzCore.h>
+#import "GetJsonURLString.h"
 
 #define FRAME_MARGIN 20
 
@@ -29,8 +30,6 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        
-        
         // Custom initialization
     }
     return self;
@@ -43,7 +42,7 @@
 	//[self.view setBackgroundColor:[UIColor colorWithWhite:0 alpha:0]];
     
     
-    if ([self movieIndex] == 3) {
+    if ([self movieIndex] == self.step) {
         UIButton *button_Back = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         [button_Back addTarget:self
                         action:@selector(button_back:)
@@ -54,47 +53,11 @@
     }
     
     self.descriptionField.editable = NO;
-    
-    //NSArray *material=[[self.array_Recipe objectAtIndex:1]objectAtIndex:0];
-    
-    
-    NSString *recipeName=[[self.array_Recipe objectAtIndex:0] objectForKey:@"name"];
-    NSArray *procedure=[[self.array_Recipe objectAtIndex:1]objectAtIndex:1];
-    //NSString *costingTime=[[procedure objectAtIndex:[self movieIndex]-1]objectForKey:@"costing_time"];
-    NSString *step=[[procedure objectAtIndex:[self movieIndex]-1]objectForKey:@"step"];
-    
-    self.navigationController.title=recipeName;
-    self.descriptionField.text=step;
-    
-    [self.navigationController setTitle:recipeName];
-
 	[self.imageView setImage:[UIImage imageNamed:@"gamebaby"]];
-    
-    [self.titleLabel setText:recipeName];
-    self.descriptionField.text=step;
-    
-    NSLog(@"123 %@",self.array_Items);
-	/*
-    switch ([self movieIndex]) {
-		case 1:
-			self.titleLabel.text = @"The Matrix (1999)";
-			self.descriptionField.text = @"A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.  Neo and the rebel leaders estimate that they have 72 hours until 250,000 probes discover Zion and destroy it and its inhabitants. During this, Neo must decide how he can save Trinity from a dark fate in his dreams.  Neo and the rebel leaders estimate that they have 72 hours until 250,000 probes discover Zion and destroy it and its inhabitants. During this, Neo must decide how he can save Trinity from a dark fate in his dreams.";
-			break;
-			
-		case 2:
-			self.titleLabel.text = @"The Matrix Reloaded (2003)";
-			self.descriptionField.text = @"Neo and the rebel leaders estimate that they have 72 hours until 250,000 probes discover Zion and destroy it and its inhabitants. During this, Neo must decide how he can save Trinity from a dark fate in his dreams.  Neo and the rebel leaders estimate that they have 72 hours until 250,000 probes discover Zion and destroy it and its inhabitants. During this, Neo must decide how he can save Trinity from a dark fate in his dreams.";
-			break;
-			
-		case 3:
-			self.titleLabel.text = @"The Matrix Revolutions (2003)";
-			self.descriptionField.text = @"The human city of Zion defends itself against the massive invasion of the machines as Neo fights to end the war at another front while also opposing the rogue Agent Smith.  Neo and the rebel leaders estimate that they have 72 hours until 250,000 probes discover Zion and destroy it and its inhabitants. During this, Neo must decide how he can save Trinity from a dark fate in his dreams.";
-			break;
-			
-		default:
-			break;
-	}
-	*/
+    self.titleLabel.text = [[self.array_Items objectAtIndex:0]objectForKey:@"name"];;
+    self.descriptionField.text = [[[[self.array_Items objectAtIndex:1]objectForKey:@"step"] objectAtIndex:[self movieIndex]-1]objectForKey:@"step"];
+
+	
 	[self.imageFrame.layer setShadowOpacity:0.5];
 	[self.imageFrame.layer setShadowOffset:CGSizeMake(0, 1)];
 }
@@ -255,11 +218,33 @@
 		NSLog(@"didRemoveFromParentViewController");
 }
 -(void)getRecipeStep:(NSArray *)recipeStep{
-    self.array_Recipe=recipeStep;
-    NSLog(@"567 %@",self.array_Recipe);
+    self.array_Items=recipeStep;
+    self.step=[[[recipeStep objectAtIndex:1]objectForKey:@"step"]count];;
 }
 
 - (IBAction)button_back:(id)sender {
     [self.navigationController popViewControllerAnimated:YES];
 }
+
+- (IBAction)button_VideoTeaching:(id)sender {
+    UIWindow *frontWindow = [[[UIApplication sharedApplication] windows]lastObject];
+    self.videoPlayerController = [[LBYouTubePlayerViewController alloc] initWithYouTubeURL:[NSURL URLWithString:@"http://www.youtube.com/watch?v=1fTIhC1WSew&list=FLEYfH4kbq85W_CiOTuSjf8w&feature=mh_lolz"] quality:LBYouTubeVideoQualityLarge];
+    //self.videoPlayerController.delegate = self;
+    self.videoPlayerController.view.frame =frontWindow.bounds;
+    self.videoPlayerController.view.center = frontWindow.center;
+    [self presentViewController:self.videoPlayerController animated:YES completion:nil];
+    
+}
+
+#pragma mark -
+#pragma mark LBYouTubeExtractorDelegate
+
+-(void)youTubeExtractor:(LBYouTubeExtractor *)extractor didSuccessfullyExtractYouTubeURL:(NSURL *)videoURL {
+    
+}
+
+-(void)youTubeExtractor:(LBYouTubeExtractor *)extractor failedExtractingYouTubeURLWithError:(NSError *)error {
+   
+}
+
 @end
