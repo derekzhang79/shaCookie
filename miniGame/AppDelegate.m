@@ -31,7 +31,9 @@
     
 
     self.window.rootViewController = tabBarController;
-
+//
+//    procedureWithLeavesView *produce=[[procedureWithLeavesView alloc]init];
+//    self.window.rootViewController=produce;
     [self.window makeKeyAndVisible];
     return YES;
 }

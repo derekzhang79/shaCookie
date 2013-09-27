@@ -9,7 +9,7 @@
 #import "recipesWithICarouselViewController.h"
 #import "GetJsonURLString.h"
 #import "CVCell.h"
-#import "procedureWithLeavesView.h"
+#import "procedureWithMPFlipViewController.h"
 
 @interface recipesWithICarouselViewController ()
 
@@ -41,7 +41,8 @@
 
 
 -(void)doThingAfterWebJsonIsOKFromDelegate{
-    self.array_Items = [[NSArray alloc] initWithArray: webGetter.webData];
+    self.array_Items = webGetter.webData;
+    NSLog(@"999 %@",self.array_Items);
     [self.carousel reloadData];
 }
 
@@ -111,12 +112,15 @@
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
 {
-    NSNumber *item = (self.array_Items)[index];
-    NSLog(@"Tapped view number: %@", item);
+    //NSNumber *item = (self.array_Items)[index];
+    //NSLog(@"Tapped view number: %@", item);
     //materialViewController*Cookview=[[materialViewController alloc]initWithNibName:@"materialViewController" bundle:nil ];
     //Cookview.rec=[[Recipes alloc] initWithIndex:indexPath.section];
     //Cookview.dictionary_Cook=[webGetter.webData objectAtIndex:index];
-    procedureWithLeavesView *procedure = [[procedureWithLeavesView alloc]init];
-    [self.navigationController pushViewController:procedure animated:YES];//navigation連結頁面
+    //[self.navigationController pushViewController:procedure animated:YES];//navigation連結頁面'
+    procedureWithMPFlipViewController *pro=[[procedureWithMPFlipViewController alloc]initWithNibName:@"procedureWithMPFlipViewController" bundle:nil];
+
+    [self.navigationController setNavigationBarHidden:false animated:TRUE];
+    [self.navigationController pushViewController:pro animated:TRUE];
 }
 @end
