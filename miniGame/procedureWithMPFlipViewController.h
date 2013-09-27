@@ -18,8 +18,11 @@
 @property (assign, nonatomic) int previousIndex;
 @property (assign, nonatomic) int tentativeIndex;
 @property (assign, nonatomic) BOOL observerAdded;
+@property (nonatomic,strong) NSString *recipeId;
 @property (nonatomic, strong) NSArray *array_Items;
 @property (nonatomic) NSInteger step;
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil recipeId:(NSString*)recipeId;
 
 
 @end

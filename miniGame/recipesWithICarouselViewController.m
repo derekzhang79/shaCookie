@@ -43,7 +43,6 @@
 
 -(void)doThingAfterWebJsonIsOKFromDelegate{
     self.array_Items = webGetter.webData;
-    NSLog(@"999 %@",self.array_Items);
     [self.carousel reloadData];
 }
 
@@ -96,7 +95,7 @@
     if (!cell.image_recipe.image) {
         cell.image_recipe.image=[UIImage imageNamed:@"gamebaby.png"];
     }
-    cell.titleLabel.text=[[webGetter.webData objectAtIndex:index]objectForKey:@"name"];
+    cell.titleLabel.text=[[self.array_Items objectAtIndex:index]objectForKey:@"name"];
     view=(UIView *)cell;
 
     return view;
@@ -129,15 +128,9 @@
 
 - (void)carousel:(iCarousel *)carousel didSelectItemAtIndex:(NSInteger)index
 {
-    //NSNumber *item = (self.array_Items)[index];
-    //NSLog(@"Tapped view number: %@", item);
-    //materialViewController*Cookview=[[materialViewController alloc]initWithNibName:@"materialViewController" bundle:nil ];
-    //Cookview.rec=[[Recipes alloc] initWithIndex:indexPath.section];
-    //Cookview.dictionary_Cook=[webGetter.webData objectAtIndex:index];
-    //[self.navigationController pushViewController:procedure animated:YES];//navigation連結頁面'
-    procedureWithMPFlipViewController *pro=[[procedureWithMPFlipViewController alloc]initWithNibName:@"procedureWithMPFlipViewController" bundle:nil];
+    NSString *recipeId=[[self.array_Items objectAtIndex:index]objectForKey:@"id"];
+    procedureWithMPFlipViewController *pro=[[procedureWithMPFlipViewController alloc]initWithNibName:@"procedureWithMPFlipViewController" bundle:nil recipeId:recipeId];
 
-    //[self.navigationController setNavigationBarHidden:false animated:TRUE];
     [self.navigationController pushViewController:pro animated:TRUE];
 }
 @end

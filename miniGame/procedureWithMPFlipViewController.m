@@ -27,16 +27,13 @@
 @synthesize previousIndex = _previousIndex;
 @synthesize tentativeIndex = _tentativeIndex;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil recipeId:(NSString*)recipeId
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-
+        
         // Custom initialization
-        webGetter =[[WebJsonDataGetter alloc]initWithURLString:[NSString stringWithFormat:GetJsonURLString_RecipeStep,@"1"]];
-        [webGetter setDelegate:self];
-        
-        
+        webGetter =[[WebJsonDataGetter alloc]initWithURLString:[NSString stringWithFormat:GetJsonURLString_RecipeStep,recipeId]];
     }
     return self;
 }
@@ -45,6 +42,9 @@
 {
     // Do any additional setup after loading the view, typically from a nib.
     [super viewDidLoad];
+
+    [webGetter setDelegate:self];
+    
     self.previousIndex = MOVIE_MIN;
 	
 	// Configure the page view controller and add it as a child view controller.
