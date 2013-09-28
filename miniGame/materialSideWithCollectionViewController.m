@@ -124,25 +124,23 @@
 {
     
     
-     UICollectionViewCell *cell=[collectionView cellForItemAtIndexPath:indexPath];
-    if(cell.selectedBackgroundView.backgroundColor ==[UIColor colorWithRed:0 green:0 blue:1 alpha:0.5]){
-        
-    }
- 
-    
-   
-    // materialViewController*Cookview=[[materialViewController alloc]initWithNibName:@"materialViewController" bundle:nil ];
-    //Cookview.rec=[[Recipes alloc] initWithIndex:indexPath.section];
-    //Cookview.dictionary_Cook=[myRecipe.dictionary_nmlData objectAtIndex:indexPath.section];
-    //[Cookview setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-    
-   // [self.navigationController pushViewController:Cookview animated:YES];//navigation連結頁面
+    UICollectionViewCell *cell=[collectionView cellForItemAtIndexPath:indexPath];
+    MaterialCell *cell2=(MaterialCell*)cell;
+    cell2.image_Material.alpha=0.5f;
+    cell2.label_Title.alpha=0.5f;
+    [mutableDictionary_Material setObject:[ webGetter.webData objectAtIndex:indexPath.row] forKey:indexPath];
+
     
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"deselect");
+    //NSLog(@"deselect");
+    UICollectionViewCell *cell=[collectionView cellForItemAtIndexPath:indexPath];
+    MaterialCell *cell2=(MaterialCell*)cell;
+    cell2.image_Material.alpha=1.0f;
+    cell2.label_Title.alpha=1.0f;
+    [mutableDictionary_Material removeObjectForKey:indexPath];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath{

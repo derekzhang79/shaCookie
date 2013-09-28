@@ -53,6 +53,8 @@
 		02A99DAE174F492700F576E2 /* gamepan.png in Resources */ = {isa = PBXBuildFile; fileRef = 02A99DAD174F492700F576E2 /* gamepan.png */; };
 		02A99DB0174F496C00F576E2 /* gamebaby.png in Resources */ = {isa = PBXBuildFile; fileRef = 02A99DAF174F496C00F576E2 /* gamebaby.png */; };
 		02A99DB6174F5D2E00F576E2 /* 001.png in Resources */ = {isa = PBXBuildFile; fileRef = 02A99DB5174F5D2E00F576E2 /* 001.png */; };
+		02A9B11517F5FDE200535CC7 /* LBYouTubeExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A9B11217F5FDE200535CC7 /* LBYouTubeExtractor.m */; };
+		02A9B11617F5FDE200535CC7 /* LBYouTubePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A9B11417F5FDE200535CC7 /* LBYouTubePlayerViewController.m */; };
 		02AE7873174F211500DDCBDA /* 蒜香烤土司.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02AE7871174F211500DDCBDA /* 蒜香烤土司.jpg */; };
 		02AE7874174F211500DDCBDA /* 銀杏百合蝦球.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02AE7872174F211500DDCBDA /* 銀杏百合蝦球.jpg */; };
 		02C8795217EA1BDD00E1F738 /* materialSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C8795117EA1BDD00E1F738 /* materialSideViewController.m */; };
@@ -107,8 +109,6 @@
 		49E388D617F5B4A80012C8A9 /* asyncImageCellViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E388D417F5B4A80012C8A9 /* asyncImageCellViewController.m */; };
 		49E388D717F5B4A80012C8A9 /* asyncImageCellViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E388D517F5B4A80012C8A9 /* asyncImageCellViewController.xib */; };
 		49E86D4D17F47530002CF0CF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E86D4C17F47530002CF0CF /* MediaPlayer.framework */; };
-		49E86D5C17F494C3002CF0CF /* LBYouTubeExtractor.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E86D5917F494C3002CF0CF /* LBYouTubeExtractor.m */; };
-		49E86D5D17F494C3002CF0CF /* LBYouTubePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E86D5B17F494C3002CF0CF /* LBYouTubePlayerViewController.m */; };
 		49FD44AC17EC3A6E00F472B5 /* recipesSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FD44AA17EC3A6E00F472B5 /* recipesSideViewController.m */; };
 		49FD44AD17EC3A6E00F472B5 /* recipesSideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49FD44AB17EC3A6E00F472B5 /* recipesSideViewController.xib */; };
 		49FD44B017EC3E1600F472B5 /* profileSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FD44AE17EC3E1600F472B5 /* profileSideMenuViewController.m */; };
@@ -186,6 +186,11 @@
 		02A99DAD174F492700F576E2 /* gamepan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamepan.png; sourceTree = "<group>"; };
 		02A99DAF174F496C00F576E2 /* gamebaby.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gamebaby.png; sourceTree = "<group>"; };
 		02A99DB5174F5D2E00F576E2 /* 001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 001.png; sourceTree = "<group>"; };
+		02A9B11017F5FDE200535CC7 /* LBYouTube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTube.h; sourceTree = "<group>"; };
+		02A9B11117F5FDE200535CC7 /* LBYouTubeExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTubeExtractor.h; sourceTree = "<group>"; };
+		02A9B11217F5FDE200535CC7 /* LBYouTubeExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBYouTubeExtractor.m; sourceTree = "<group>"; };
+		02A9B11317F5FDE200535CC7 /* LBYouTubePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTubePlayerViewController.h; sourceTree = "<group>"; };
+		02A9B11417F5FDE200535CC7 /* LBYouTubePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBYouTubePlayerViewController.m; sourceTree = "<group>"; };
 		02AE7871174F211500DDCBDA /* 蒜香烤土司.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "蒜香烤土司.jpg"; sourceTree = "<group>"; };
 		02AE7872174F211500DDCBDA /* 銀杏百合蝦球.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "銀杏百合蝦球.jpg"; sourceTree = "<group>"; };
 		02C8795017EA1BDD00E1F738 /* materialSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = materialSideViewController.h; sourceTree = "<group>"; };
@@ -273,11 +278,6 @@
 		49E388D417F5B4A80012C8A9 /* asyncImageCellViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = asyncImageCellViewController.m; sourceTree = "<group>"; };
 		49E388D517F5B4A80012C8A9 /* asyncImageCellViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = asyncImageCellViewController.xib; sourceTree = "<group>"; };
 		49E86D4C17F47530002CF0CF /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		49E86D5717F494C3002CF0CF /* LBYouTube.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTube.h; sourceTree = "<group>"; };
-		49E86D5817F494C3002CF0CF /* LBYouTubeExtractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTubeExtractor.h; sourceTree = "<group>"; };
-		49E86D5917F494C3002CF0CF /* LBYouTubeExtractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBYouTubeExtractor.m; sourceTree = "<group>"; };
-		49E86D5A17F494C3002CF0CF /* LBYouTubePlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LBYouTubePlayerViewController.h; sourceTree = "<group>"; };
-		49E86D5B17F494C3002CF0CF /* LBYouTubePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBYouTubePlayerViewController.m; sourceTree = "<group>"; };
 		49FD44A917EC3A6E00F472B5 /* recipesSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recipesSideViewController.h; sourceTree = "<group>"; };
 		49FD44AA17EC3A6E00F472B5 /* recipesSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = recipesSideViewController.m; sourceTree = "<group>"; };
 		49FD44AB17EC3A6E00F472B5 /* recipesSideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = recipesSideViewController.xib; sourceTree = "<group>"; };
@@ -443,6 +443,18 @@
 				02A9172B170207BC00F2E55F /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		02A9B10F17F5FDD600535CC7 /* LBYouTubeView */ = {
+			isa = PBXGroup;
+			children = (
+				02A9B11017F5FDE200535CC7 /* LBYouTube.h */,
+				02A9B11117F5FDE200535CC7 /* LBYouTubeExtractor.h */,
+				02A9B11217F5FDE200535CC7 /* LBYouTubeExtractor.m */,
+				02A9B11317F5FDE200535CC7 /* LBYouTubePlayerViewController.h */,
+				02A9B11417F5FDE200535CC7 /* LBYouTubePlayerViewController.m */,
+			);
+			name = LBYouTubeView;
 			sourceTree = "<group>";
 		};
 		02C8794F17EA1B8300E1F738 /* materialSideView */ = {
@@ -750,10 +762,10 @@
 		4984C51C17DF17D300EDE6B1 /* logical */ = {
 			isa = PBXGroup;
 			children = (
+				02A9B10F17F5FDD600535CC7 /* LBYouTubeView */,
 				49E388D217F5B4700012C8A9 /* AsyncImageCell */,
 				49E388C217F5A30F0012C8A9 /* TimeLineCell */,
 				49E388A617F5A25C0012C8A9 /* TimelineView */,
-				49E86D5617F494C3002CF0CF /* LBYouTubeView */,
 				4963CE2D17F318FF002DFE70 /* notInUse */,
 				497562F017F1D1F50053248F /* Container */,
 				02A8DD5917F1FF6900E6B5D9 /* MaterialCell */,
@@ -833,19 +845,6 @@
 				49E388D517F5B4A80012C8A9 /* asyncImageCellViewController.xib */,
 			);
 			name = AsyncImageCell;
-			sourceTree = "<group>";
-		};
-		49E86D5617F494C3002CF0CF /* LBYouTubeView */ = {
-			isa = PBXGroup;
-			children = (
-				49E86D5717F494C3002CF0CF /* LBYouTube.h */,
-				49E86D5817F494C3002CF0CF /* LBYouTubeExtractor.h */,
-				49E86D5917F494C3002CF0CF /* LBYouTubeExtractor.m */,
-				49E86D5A17F494C3002CF0CF /* LBYouTubePlayerViewController.h */,
-				49E86D5B17F494C3002CF0CF /* LBYouTubePlayerViewController.m */,
-			);
-			name = LBYouTubeView;
-			path = "../../ios_exemple/LBYouTubeView-master/LBYouTubeView";
 			sourceTree = "<group>";
 		};
 		49F546D117E5DCA200166D62 /* recipesWithICarouselView */ = {
@@ -1007,9 +1006,9 @@
 			files = (
 				497562FC17F1D1F50053248F /* MPFlipTransition.m in Sources */,
 				49E388C017F5A2CD0012C8A9 /* newsTimeLineViewController.m in Sources */,
-				49E86D5D17F494C3002CF0CF /* LBYouTubePlayerViewController.m in Sources */,
 				02A91722170207BC00F2E55F /* main.m in Sources */,
 				02A91726170207BC00F2E55F /* AppDelegate.m in Sources */,
+				02A9B11617F5FDE200535CC7 /* LBYouTubePlayerViewController.m in Sources */,
 				49E388B917F5A25C0012C8A9 /* TimelineView+Tiling.m in Sources */,
 				4975630317F1D4C10053248F /* procedureStepViewController.m in Sources */,
 				02A9172F170207BC00F2E55F /* ViewController.m in Sources */,
@@ -1030,7 +1029,6 @@
 				023842BF17588CC800831605 /* UploadRecipe.m in Sources */,
 				497562FE17F1D1F60053248F /* MPTransition.m in Sources */,
 				49E388BB17F5A25C0012C8A9 /* TimelineViewCell.m in Sources */,
-				49E86D5C17F494C3002CF0CF /* LBYouTubeExtractor.m in Sources */,
 				491AE841175FAF3D00E4121C /* entryViewController.m in Sources */,
 				491AE849175FB7FB00E4121C /* materialViewController.m in Sources */,
 				497562FB17F1D1F50053248F /* MPAnimation.m in Sources */,
@@ -1041,6 +1039,7 @@
 				49E388D017F5A4570012C8A9 /* SampleTimelineViewCell.m in Sources */,
 				02A8DD6217F2027D00E6B5D9 /* MaterialCell.m in Sources */,
 				490322C817E5BBBB0008F1F4 /* recipesWithICarouselViewController.m in Sources */,
+				02A9B11517F5FDE200535CC7 /* LBYouTubeExtractor.m in Sources */,
 				02C8795217EA1BDD00E1F738 /* materialSideViewController.m in Sources */,
 				49FD44AC17EC3A6E00F472B5 /* recipesSideViewController.m in Sources */,
 				49E388D617F5B4A80012C8A9 /* asyncImageCellViewController.m in Sources */,
