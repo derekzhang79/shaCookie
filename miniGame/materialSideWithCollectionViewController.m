@@ -16,6 +16,8 @@
 #import "WebJsonDataGetter.h"
 #import "MaterialCell.h"
 #import "MFSideMenu.h"
+#import "recipesWithICarouselViewController.h"
+
 
 @interface materialSideWithCollectionViewController ()
 
@@ -129,6 +131,20 @@
     cell2.image_Material.alpha=0.5f;
     cell2.label_Title.alpha=0.5f;
     [mutableDictionary_Material setObject:[ webGetter.webData objectAtIndex:indexPath.row] forKey:indexPath];
+    
+    if(mutableDictionary_Material.count ==3){
+        
+        recipesWithICarouselViewController *recView=[[recipesWithICarouselViewController alloc] initWithNibName:@"recipesWithICarouselViewController" bundle:nil ];
+        
+        
+        [self presentViewController:recView animated:YES completion:nil];
+        
+        /*
+                UINavigationController *refrigeratorView=[[UINavigationController alloc]initWithRootViewController:recView];
+        [refrigeratorView setNavigationBarHidden:TRUE animated:TRUE];
+        recipesSideViewController *leftSideView= [[recipesSideViewController alloc ]init];
+        */
+    }
 
     
 }
