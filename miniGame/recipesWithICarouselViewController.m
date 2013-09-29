@@ -92,9 +92,9 @@
     NSString *str=[NSString stringWithFormat:GetRecipesImage,[[self.array_Items objectAtIndex:index]objectForKey:@"image_url"]];
     imageView.imageURL = [NSURL URLWithString:str];
     
-    if (!cell.image_recipe.image) {
-        cell.image_recipe.image=[UIImage imageNamed:@"gamebaby.png"];
-    }
+//    if (!cell.image_recipe.image) {
+//        cell.image_recipe.image=[UIImage imageNamed:@"gamebaby.png"];
+//    }
     cell.titleLabel.text=[[self.array_Items objectAtIndex:index]objectForKey:@"name"];
     view=(UIView *)cell;
 
@@ -109,7 +109,7 @@
         case iCarouselOptionWrap:
         {
             //normally you would hard-code this to YES or NO
-            return true;
+            return NO;
         }
         case iCarouselOptionSpacing:
         {
