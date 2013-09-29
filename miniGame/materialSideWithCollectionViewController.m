@@ -16,6 +16,8 @@
 #import "WebJsonDataGetter.h"
 #import "MaterialCell.h"
 #import "MFSideMenu.h"
+#import "recipesWithICarouselViewController.h"
+
 
 @interface materialSideWithCollectionViewController ()
 
@@ -42,22 +44,22 @@
     // Create data for collection views
     // NSLog(@"count %d",[self.dataArray count]);
     /* uncomment this block to use subclassed cells*/
-    [self.collection_MaterialSide registerClass:[MaterialCell class] forCellWithReuseIdentifier:@"maCell"];
-    
+    [self.collection_Material registerClass:[MaterialCell class] forCellWithReuseIdentifier:@"maCell"];
+    self.collection_Material.allowsMultipleSelection = YES;
     /* end of subclass-based cells block */
     
     // Configure layout
     UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
     [flowLayout setItemSize:CGSizeMake(125, 150)];
     [flowLayout setScrollDirection:UICollectionViewScrollDirectionVertical];
-    [self.collection_MaterialSide setCollectionViewLayout:flowLayout];
+    [self.collection_Material setCollectionViewLayout:flowLayout];
     
     [self setupMenuBarButtonItems];
 }
 
 -(void)doThingAfterWebJsonIsOKFromDelegate{
     self.array_Collection=[[NSArray alloc]initWithArray:webGetter.webData];
-    [self.collection_MaterialSide reloadData];
+    [self.collection_Material reloadData];
 }
 
 -(void)materialSearch:(NSString*)materialTypeCase{
@@ -74,7 +76,7 @@
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
-    self.collection_MaterialSide=nil;
+    self.collection_Material=nil;
     self.array_Collection=nil;
     // Dispose of any resources that can be recreated.
 }
@@ -122,29 +124,39 @@
 #pragma mark - select collectionView
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    
+    
     UICollectionViewCell *cell=[collectionView cellForItemAtIndexPath:indexPath];
-    cell.acces
-    if (cell.accessoryType == UITableViewCellAccessoryCheckmark) {
-        cell.accessoryType = UITableViewCellAccessoryNone;
-        [mutableDictionary_SelectedFood removeObjectForKey:indexPath];
-    } else {
-        cell.accessoryType = UITableViewCellAccessoryCheckmark;
-        [mutableDictionary_SelectedFood setObject:[ webGetter.webData objectAtIndex:indexPath.row] forKey:indexPath];
+    MaterialCell *cell2=(MaterialCell*)cell;
+    cell2.image_Material.alpha=0.5f;
+    cell2.label_Title.alpha=0.5f;
+    [mutableDictionary_Material setObject:[ webGetter.webData objectAtIndex:indexPath.row] forKey:indexPath];
+    
+    if(mutableDictionary_Material.count ==3){
+        
+        recipesWithICarouselViewController *recView=[[recipesWithICarouselViewController alloc] initWithNibName:@"recipesWithICarouselViewController" bundle:nil ];
+        
+        
+        [self presentViewController:recView animated:YES completion:nil];
+        
+        /*
+                UINavigationController *refrigeratorView=[[UINavigationController alloc]initWithRootViewController:recView];
+        [refrigeratorView setNavigationBarHidden:TRUE animated:TRUE];
+        recipesSideViewController *leftSideView= [[recipesSideViewController alloc ]init];
+        */
     }
-    
-   
-    // materialViewController*Cookview=[[materialViewController alloc]initWithNibName:@"materialViewController" bundle:nil ];
-    //Cookview.rec=[[Recipes alloc] initWithIndex:indexPath.section];
-    //Cookview.dictionary_Cook=[myRecipe.dictionary_nmlData objectAtIndex:indexPath.section];
-    //[Cookview setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
-    
-   // [self.navigationController pushViewController:Cookview animated:YES];//navigation連結頁面
+
     
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSLog(@"deselect");
+    //NSLog(@"deselect");
+    UICollectionViewCell *cell=[collectionView cellForItemAtIndexPath:indexPath];
+    MaterialCell *cell2=(MaterialCell*)cell;
+    cell2.image_Material.alpha=1.0f;
+    cell2.label_Title.alpha=1.0f;
+    [mutableDictionary_Material removeObjectForKey:indexPath];
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
