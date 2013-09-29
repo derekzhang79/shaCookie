@@ -118,7 +118,7 @@
 
 -(MFSideMenuContainerViewController *)recipesView{
     recipesWithICarouselViewController *refrigerator= [[recipesWithICarouselViewController alloc ]initWithNibName:@"recipesWithICarouselViewController" bundle:nil];
-    [refrigerator recipesSearch:@"2"];
+    [refrigerator recipesSearch:@"2" materialNames:nil];
 
     UINavigationController *refrigeratorView=[[UINavigationController alloc]initWithRootViewController:refrigerator];
     [refrigeratorView setNavigationBarHidden:TRUE animated:TRUE];

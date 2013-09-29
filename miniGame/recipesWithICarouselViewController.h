@@ -13,7 +13,8 @@
 @interface recipesWithICarouselViewController : UIViewController<WebJsonDataGetFinishDelegater,iCarouselDataSource, iCarouselDelegate>{
     WebJsonDataGetter *webGetter;
 }
--(void)recipesSearch:(NSString*)recipeType;
+-(void)recipesSearch:(NSString*)recipeType materialNames:(NSMutableArray *)materialNames;
+
 @property (nonatomic, strong) IBOutlet iCarousel *carousel;
 @property (nonatomic, strong) NSArray *array_Items;
 

@@ -11,14 +11,16 @@
 #import "ASIHTTPRequest.h"
 
 @interface materialSideWithCollectionViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,WebJsonDataGetFinishDelegater,UICollectionViewDelegateFlowLayout>{
-    NSMutableDictionary *mutableDictionary_Material;
+    NSMutableDictionary *dictionary_MaterialName;
+    NSMutableArray *array_Material;
     WebJsonDataGetter * webGetter;
     ASIHTTPRequest *asiRequest;
     
 }
 -(void)materialSearch:(NSString*)recipeType;
+
 @property (strong, nonatomic) IBOutlet UICollectionView *collection_Material;
-@property (strong,nonatomic)NSDictionary *dictionary_Material;
 @property(strong,nonatomic)NSArray * array_Collection;
+@property(strong,nonatomic)NSArray * array_MaterialName;
 
 @end

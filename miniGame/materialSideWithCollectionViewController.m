@@ -38,9 +38,10 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
-    
-    mutableDictionary_Material=[[NSMutableDictionary alloc] init];
-    self.array_Collection=[[NSArray alloc]initWithArray:webGetter.webData];
+    array_Material=[[NSMutableArray alloc]init];
+    self.array_MaterialName=[[NSArray alloc] init];
+    self.array_Collection=[[NSArray alloc]init];
+    dictionary_MaterialName=[[NSMutableDictionary alloc]init];
     // Create data for collection views
     // NSLog(@"count %d",[self.dataArray count]);
     /* uncomment this block to use subclassed cells*/
@@ -68,6 +69,7 @@
     [webGetter requestWithURLString:[NSString stringWithUTF8String:[str UTF8String]]];
     [webGetter setDelegate:self];
 }
+
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
@@ -130,20 +132,19 @@
     MaterialCell *cell2=(MaterialCell*)cell;
     cell2.image_Material.alpha=0.5f;
     cell2.label_Title.alpha=0.5f;
-    [mutableDictionary_Material setObject:[ webGetter.webData objectAtIndex:indexPath.row] forKey:indexPath];
     
-    if(mutableDictionary_Material.count ==3){
+//    NSMutableArray *arr=[[NSArray alloc]init];
+    [array_Material addObject:[[self.array_Collection objectAtIndex:indexPath.row] objectForKey:@"name"]];
+
+    if (array_Material.count==3) {
+         NSLog(@"%@",array_Material);
+        recipesWithICarouselViewController *recipeView=[[recipesWithICarouselViewController alloc]initWithNibName:@"recipesWithICarouselViewController" bundle:nil ];
+        [recipeView recipesSearch:nil materialNames:array_Material];
+        [self.navigationController pushViewController:recipeView animated:TRUE];
+        self.collection_Material.allowsMultipleSelection = NO;
+
         
-        recipesWithICarouselViewController *recView=[[recipesWithICarouselViewController alloc] initWithNibName:@"recipesWithICarouselViewController" bundle:nil ];
         
-        
-        [self presentViewController:recView animated:YES completion:nil];
-        
-        /*
-                UINavigationController *refrigeratorView=[[UINavigationController alloc]initWithRootViewController:recView];
-        [refrigeratorView setNavigationBarHidden:TRUE animated:TRUE];
-        recipesSideViewController *leftSideView= [[recipesSideViewController alloc ]init];
-        */
     }
 
     
@@ -156,7 +157,11 @@
     MaterialCell *cell2=(MaterialCell*)cell;
     cell2.image_Material.alpha=1.0f;
     cell2.label_Title.alpha=1.0f;
-    [mutableDictionary_Material removeObjectForKey:indexPath];
+    
+    NSString *name =[[self.array_Collection objectAtIndex:indexPath.row] objectForKey:@"name"];
+//    [array_Material indexOfObject:name] => 找出name在array中的位置
+    [array_Material removeObjectAtIndex:[array_Material indexOfObject:name]];
+    
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didHighlightItemAtIndexPath:(NSIndexPath *)indexPath{
