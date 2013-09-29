@@ -87,12 +87,10 @@
     //抓陣列的值
     CVCell *cell = (CVCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
     cell.image_recipe.image=[UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[[myRecipe.dictionary_nmlData objectAtIndex:indexPath.section]objectForKey:@"name"]]];
-    //cell.image_recipe.image=[UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[[array_Refrigerator objectAtIndex:indexPath.section] objectForKey:@"菜名"]]];
     if (!cell.image_recipe.image) {
         cell.image_recipe.image=[UIImage imageNamed:@"Cell 0.jpg"];
     }
     cell.titleLabel.text=[[myRecipe.dictionary_nmlData objectAtIndex:indexPath.section]objectForKey:@"name"];
-    //cell.titleLabel.text=[[array_Refrigerator objectAtIndex:indexPath.section] objectForKey:@"菜名"];
     return cell;
     
 }

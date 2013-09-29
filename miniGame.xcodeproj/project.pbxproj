@@ -63,8 +63,6 @@
 		490322C917E5BBBB0008F1F4 /* recipesWithICarouselViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 490322C717E5BBBB0008F1F4 /* recipesWithICarouselViewController.xib */; };
 		491AE83C175FAD4800E4121C /* homepage1.png in Resources */ = {isa = PBXBuildFile; fileRef = 491AE83A175FAD4800E4121C /* homepage1.png */; };
 		491AE83D175FAD4800E4121C /* homepage2-1.png in Resources */ = {isa = PBXBuildFile; fileRef = 491AE83B175FAD4800E4121C /* homepage2-1.png */; };
-		491AE841175FAF3D00E4121C /* entryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 491AE83F175FAF3C00E4121C /* entryViewController.m */; };
-		491AE842175FAF3D00E4121C /* entryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491AE840175FAF3D00E4121C /* entryViewController.xib */; };
 		491AE849175FB7FB00E4121C /* materialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 491AE847175FB7F900E4121C /* materialViewController.m */; };
 		491AE84A175FB7FB00E4121C /* materialViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 491AE848175FB7FA00E4121C /* materialViewController.xib */; };
 		4927D89A17E33FEE000DDEBF /* matchMaterialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4927D89817E33FEE000DDEBF /* matchMaterialViewController.m */; };
@@ -202,9 +200,6 @@
 		490322C717E5BBBB0008F1F4 /* recipesWithICarouselViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = recipesWithICarouselViewController.xib; sourceTree = "<group>"; };
 		491AE83A175FAD4800E4121C /* homepage1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = homepage1.png; sourceTree = "<group>"; };
 		491AE83B175FAD4800E4121C /* homepage2-1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "homepage2-1.png"; sourceTree = "<group>"; };
-		491AE83E175FAF3C00E4121C /* entryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = entryViewController.h; sourceTree = "<group>"; };
-		491AE83F175FAF3C00E4121C /* entryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = entryViewController.m; sourceTree = "<group>"; };
-		491AE840175FAF3D00E4121C /* entryViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = entryViewController.xib; sourceTree = "<group>"; };
 		491AE846175FB7F900E4121C /* materialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = materialViewController.h; sourceTree = "<group>"; };
 		491AE847175FB7F900E4121C /* materialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = materialViewController.m; sourceTree = "<group>"; };
 		491AE848175FB7FA00E4121C /* materialViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = materialViewController.xib; sourceTree = "<group>"; };
@@ -530,6 +525,8 @@
 		4963CE2E17F319C2002DFE70 /* notInUse */ = {
 			isa = PBXGroup;
 			children = (
+				4984C51617DF16E800EDE6B1 /* refView */,
+				4934431F17E0D95300237BAF /* FriendView */,
 				4927D89C17E34AAB000DDEBF /* moveFinishView */,
 				4927D89617E33FCF000DDEBF /* matchMaterialView */,
 				4984C51A17DF175400EDE6B1 /* entryView */,
@@ -729,12 +726,10 @@
 		4984C51A17DF175400EDE6B1 /* entryView */ = {
 			isa = PBXGroup;
 			children = (
-				491AE83E175FAF3C00E4121C /* entryViewController.h */,
-				491AE83F175FAF3C00E4121C /* entryViewController.m */,
-				491AE840175FAF3D00E4121C /* entryViewController.xib */,
 			);
 			name = entryView;
-			sourceTree = "<group>";
+			path = /Users/birdchiu/Desktop/shaCookie/miniGame;
+			sourceTree = "<absolute>";
 		};
 		4984C51B17DF177400EDE6B1 /* Views */ = {
 			isa = PBXGroup;
@@ -750,10 +745,7 @@
 				49F546D117E5DCA200166D62 /* recipesWithICarouselView */,
 				490322B817E476050008F1F4 /* loginwithFBView */,
 				49A090D717E22E6800B19E8C /* profileSideMenuView */,
-				4934431F17E0D95300237BAF /* FriendView */,
-				4984C51A17DF175400EDE6B1 /* entryView */,
 				4984C51717DF16FF00EDE6B1 /* menuView */,
-				4984C51617DF16E800EDE6B1 /* refView */,
 				4984C50B17DF14BD00EDE6B1 /* JsonView */,
 			);
 			name = Views;
@@ -941,7 +933,6 @@
 				023842C017588CC800831605 /* UploadRecipe.xib in Resources */,
 				491AE83C175FAD4800E4121C /* homepage1.png in Resources */,
 				491AE83D175FAD4800E4121C /* homepage2-1.png in Resources */,
-				491AE842175FAF3D00E4121C /* entryViewController.xib in Resources */,
 				491AE84A175FB7FB00E4121C /* materialViewController.xib in Resources */,
 				49A090DC17E22F7900B19E8C /* back-arrow.png in Resources */,
 				49A090DD17E22F7900B19E8C /* back-arrow@2x.png in Resources */,
@@ -1029,7 +1020,6 @@
 				023842BF17588CC800831605 /* UploadRecipe.m in Sources */,
 				497562FE17F1D1F60053248F /* MPTransition.m in Sources */,
 				49E388BB17F5A25C0012C8A9 /* TimelineViewCell.m in Sources */,
-				491AE841175FAF3D00E4121C /* entryViewController.m in Sources */,
 				491AE849175FB7FB00E4121C /* materialViewController.m in Sources */,
 				497562FB17F1D1F50053248F /* MPAnimation.m in Sources */,
 				4927D89A17E33FEE000DDEBF /* matchMaterialViewController.m in Sources */,

@@ -11,6 +11,8 @@
 #import "CVCell.h"
 #import "procedureWithMPFlipViewController.h"
 #import "AsyncImageView.h"
+#import "KoaPullToRefresh.h"
+
 
 @interface recipesWithICarouselViewController ()
 
@@ -30,7 +32,8 @@
 
 -(void)recipesSearch:(NSString*)recipeType{
     webGetter = [[WebJsonDataGetter alloc]init];
-    NSString *str=[NSString stringWithFormat:GetJsonURLString_Recipe,recipeType];
+    self.recipeType=recipeType;
+    NSString *str=[NSString stringWithFormat:GetJsonURLString_Recipe,self.recipeType];
     [webGetter requestWithURLString:[NSString stringWithUTF8String:[str UTF8String]]];
     [webGetter setDelegate:self];
 }
@@ -44,6 +47,7 @@
 -(void)doThingAfterWebJsonIsOKFromDelegate{
     self.array_Items = webGetter.webData;
     [self.carousel reloadData];
+    NSLog(@"reload data");
 }
 
 
@@ -100,6 +104,30 @@
 
     return view;
 }
+
+
+-(NSUInteger)numberOfPlaceholdersInCarousel:(iCarousel *)carousel{
+    return 2;
+}
+
+- (UIView *)carousel:(iCarousel *)carousel placeholderViewAtIndex:(NSUInteger)index reusingView:(UIView *)view{
+    return nil;
+}
+
+-(void)carouselDidEndDecelerating:(iCarousel *)carousel{
+    NSString *itemBeforeIndex=[carousel.indexesForVisibleItems objectAtIndex:0];
+    NSString *itemAfterIndex=[carousel.indexesForVisibleItems objectAtIndex:3];
+    
+    if ( itemBeforeIndex != nil && [itemBeforeIndex integerValue] < 0) {
+        [self recipesSearch:self.recipeType];
+    }
+    
+    if ( itemAfterIndex != nil && [itemAfterIndex integerValue] > [self.array_Items count]-1) {
+        [self recipesSearch:self.recipeType];
+
+    }
+}
+
 
 - (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
 {
