@@ -17,7 +17,7 @@
     
 }
 -(void)materialSearch:(NSString*)recipeType;
-@property (strong, nonatomic) IBOutlet UICollectionView *collection_MaterialSide;
+@property (strong, nonatomic) IBOutlet UICollectionView *collection_Material;
 @property (strong,nonatomic)NSDictionary *dictionary_Material;
 @property(strong,nonatomic)NSArray * array_Collection;
 
