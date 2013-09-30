@@ -5,9 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3742"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="materialSideWithCollectionViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="materialWithCollectionViewController">
             <connections>
-                <outlet property="collection_Material" destination="2pX-Go-26k" id="fcF-js-Ik6"/>
+                <outlet property="collection_Material" destination="2pX-Go-26k" id="VPD-82-cm3"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>

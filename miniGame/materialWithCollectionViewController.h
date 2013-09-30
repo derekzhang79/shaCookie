@@ -10,7 +10,7 @@
 #import "WebJsonDataGetter.h"
 #import "ASIHTTPRequest.h"
 
-@interface materialSideWithCollectionViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,WebJsonDataGetFinishDelegater,UICollectionViewDelegateFlowLayout>{
+@interface materialWithCollectionViewController : UIViewController<UICollectionViewDelegate,UICollectionViewDataSource,WebJsonDataGetFinishDelegater,UICollectionViewDelegateFlowLayout>{
     NSMutableDictionary *dictionary_MaterialName;
     NSMutableArray *array_Material;
     WebJsonDataGetter * webGetter;

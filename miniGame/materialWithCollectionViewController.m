@@ -1,14 +1,14 @@
 
 
 //
-//  materialSideWithCollectionViewController.m
+//  materialWithCollectionViewController.m
 //  miniGame
 //
 //  Created by 趴特萬 on 13/9/24.
 //
 //
 
-#import "materialSideWithCollectionViewController.h"
+#import "materialWithCollectionViewController.h"
 #import "matchMaterialViewController.h"
 #import "moveFinishViewController.h"
 #import "GetJsonURLString.h"
@@ -19,11 +19,11 @@
 #import "recipesWithICarouselViewController.h"
 
 
-@interface materialSideWithCollectionViewController ()
+@interface materialWithCollectionViewController ()
 
 @end
 
-@implementation materialSideWithCollectionViewController
+@implementation materialWithCollectionViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {

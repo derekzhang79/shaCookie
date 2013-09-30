@@ -37,7 +37,7 @@
     };
     if(recipeType == nil && materialNames!=nil){
 
-            NSString *stringName=[materialNames componentsJoinedByString:@","];
+            NSString *stringName=[materialNames componentsJoinedByString:@"','"];
         NSString *arr=[NSString stringWithFormat:@"'%@'",stringName];
             NSLog(@"you are %@", arr);
             NSString *str=[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName];
