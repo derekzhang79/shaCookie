@@ -113,7 +113,8 @@
 {
     NSString *type=[[self.array_RecipesMenu objectAtIndex:indexPath.row]objectForKey:@"type"];
     recipesWithICarouselViewController *recipeView=[[recipesWithICarouselViewController alloc]initWithNibName:@"recipesWithICarouselViewController" bundle:nil ];
-    [recipeView recipesSearch:type];
+    [recipeView recipesSearch:type materialNames:nil];
+    
     
     recipeView.title=[self getRecipeTitle:type];
 
@@ -129,13 +130,13 @@
     NSString *type=nil;
     switch ([recipesType intValue]) {
         case 1:
-            type= @"種類一";
+            type= @"熱炒類";
             break;
         case 2:
-            type= @"種類二";
+            type= @"乾煎美食";
             break;
         case 3:
-            type= @"種類三";
+            type= @"甜點類";
             break;
         default:
             break;

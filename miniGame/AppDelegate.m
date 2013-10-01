@@ -16,7 +16,7 @@
 #import "materialSideViewController.h"
 #import "recipesSideViewController.h"
 #import "entryViewController.h"
-#import "materialSideWithCollectionViewController.h"
+#import "materialWithCollectionViewController.h"
 
 @implementation AppDelegate
 
@@ -118,7 +118,7 @@
 
 -(MFSideMenuContainerViewController *)recipesView{
     recipesWithICarouselViewController *refrigerator= [[recipesWithICarouselViewController alloc ]initWithNibName:@"recipesWithICarouselViewController" bundle:nil];
-    [refrigerator recipesSearch:@"2"];
+    [refrigerator recipesSearch:@"2" materialNames:nil];
 
     UINavigationController *refrigeratorView=[[UINavigationController alloc]initWithRootViewController:refrigerator];
     [refrigeratorView setNavigationBarHidden:TRUE animated:TRUE];
@@ -134,7 +134,7 @@
 }
 
 -(MFSideMenuContainerViewController *)refrigeratorView{
-    materialSideWithCollectionViewController *main=[[materialSideWithCollectionViewController alloc]initWithNibName:@"materialSideWithCollectionViewController" bundle:nil];
+    materialWithCollectionViewController *main=[[materialWithCollectionViewController alloc]initWithNibName:@"materialWithCollectionViewController" bundle:nil];
     [main materialSearch:@"1"];
     
     UINavigationController *mainView=[[UINavigationController alloc]initWithRootViewController:main];

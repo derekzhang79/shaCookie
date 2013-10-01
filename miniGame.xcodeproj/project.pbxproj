@@ -34,8 +34,8 @@
 		02A68B3417035F9F00B34828 /* WebJsonDataGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A68B3317035F9F00B34828 /* WebJsonDataGetter.m */; };
 		02A68B6817037BEE00B34828 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A68B6717037BEE00B34828 /* libxml2.dylib */; };
 		02A68B6A17037BFC00B34828 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A68B6917037BFC00B34828 /* libz.dylib */; };
-		02A8DD5617F1DE5E00E6B5D9 /* materialSideWithCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A8DD5417F1DE5E00E6B5D9 /* materialSideWithCollectionViewController.m */; };
-		02A8DD5717F1DE5E00E6B5D9 /* materialSideWithCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A8DD5517F1DE5E00E6B5D9 /* materialSideWithCollectionViewController.xib */; };
+		02A8DD5617F1DE5E00E6B5D9 /* materialWithCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A8DD5417F1DE5E00E6B5D9 /* materialWithCollectionViewController.m */; };
+		02A8DD5717F1DE5E00E6B5D9 /* materialWithCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A8DD5517F1DE5E00E6B5D9 /* materialWithCollectionViewController.xib */; };
 		02A8DD6217F2027D00E6B5D9 /* MaterialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A8DD6017F2027D00E6B5D9 /* MaterialCell.m */; };
 		02A8DD6317F2027D00E6B5D9 /* MaterialCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A8DD6117F2027D00E6B5D9 /* MaterialCell.xib */; };
 		02A91716170207BC00F2E55F /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A91715170207BC00F2E55F /* UIKit.framework */; };
@@ -159,9 +159,9 @@
 		02A68B3317035F9F00B34828 /* WebJsonDataGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebJsonDataGetter.m; sourceTree = "<group>"; };
 		02A68B6717037BEE00B34828 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		02A68B6917037BFC00B34828 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		02A8DD5317F1DE5E00E6B5D9 /* materialSideWithCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = materialSideWithCollectionViewController.h; sourceTree = "<group>"; };
-		02A8DD5417F1DE5E00E6B5D9 /* materialSideWithCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = materialSideWithCollectionViewController.m; sourceTree = "<group>"; };
-		02A8DD5517F1DE5E00E6B5D9 /* materialSideWithCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = materialSideWithCollectionViewController.xib; sourceTree = "<group>"; };
+		02A8DD5317F1DE5E00E6B5D9 /* materialWithCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = materialWithCollectionViewController.h; sourceTree = "<group>"; };
+		02A8DD5417F1DE5E00E6B5D9 /* materialWithCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = materialWithCollectionViewController.m; sourceTree = "<group>"; };
+		02A8DD5517F1DE5E00E6B5D9 /* materialWithCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = materialWithCollectionViewController.xib; sourceTree = "<group>"; };
 		02A8DD5F17F2027D00E6B5D9 /* MaterialCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MaterialCell.h; sourceTree = "<group>"; };
 		02A8DD6017F2027D00E6B5D9 /* MaterialCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MaterialCell.m; sourceTree = "<group>"; };
 		02A8DD6117F2027D00E6B5D9 /* MaterialCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MaterialCell.xib; sourceTree = "<group>"; };
@@ -351,14 +351,14 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
-		02A8DD5817F1DE8300E6B5D9 /* materialSideWithCollection */ = {
+		02A8DD5817F1DE8300E6B5D9 /* materialWithCollectionViewController */ = {
 			isa = PBXGroup;
 			children = (
-				02A8DD5317F1DE5E00E6B5D9 /* materialSideWithCollectionViewController.h */,
-				02A8DD5417F1DE5E00E6B5D9 /* materialSideWithCollectionViewController.m */,
-				02A8DD5517F1DE5E00E6B5D9 /* materialSideWithCollectionViewController.xib */,
+				02A8DD5317F1DE5E00E6B5D9 /* materialWithCollectionViewController.h */,
+				02A8DD5417F1DE5E00E6B5D9 /* materialWithCollectionViewController.m */,
+				02A8DD5517F1DE5E00E6B5D9 /* materialWithCollectionViewController.xib */,
 			);
-			name = materialSideWithCollection;
+			name = materialWithCollectionViewController;
 			sourceTree = "<group>";
 		};
 		02A8DD5917F1FF6900E6B5D9 /* MaterialCell */ = {
@@ -743,7 +743,7 @@
 				4963CE2E17F319C2002DFE70 /* notInUse */,
 				4975630517F1DB850053248F /* procedureView */,
 				4984C51817DF173000EDE6B1 /* foodDetailView */,
-				02A8DD5817F1DE8300E6B5D9 /* materialSideWithCollection */,
+				02A8DD5817F1DE8300E6B5D9 /* materialWithCollectionViewController */,
 				49FD44B117EC57D100F472B5 /* aboutUsView */,
 				02C8795417EA3B9300E1F738 /* recipesSideView */,
 				02C8794F17EA1B8300E1F738 /* materialSideView */,
@@ -948,7 +948,7 @@
 				49A090DE17E22F7900B19E8C /* menu-icon.png in Resources */,
 				49E388D117F5A4570012C8A9 /* SampleTimelineViewCell.xib in Resources */,
 				49A090DF17E22F7900B19E8C /* menu-icon@2x.png in Resources */,
-				02A8DD5717F1DE5E00E6B5D9 /* materialSideWithCollectionViewController.xib in Resources */,
+				02A8DD5717F1DE5E00E6B5D9 /* materialWithCollectionViewController.xib in Resources */,
 				4927D89B17E33FEE000DDEBF /* matchMaterialViewController.xib in Resources */,
 				4927D8A117E34AC0000DDEBF /* moveFinishViewController.xib in Resources */,
 				4975630417F1D4C10053248F /* procedureStepViewController.xib in Resources */,
@@ -1021,7 +1021,7 @@
 				02A67C85174BDECA00BCD095 /* Recipes.m in Sources */,
 				49E388BA17F5A25C0012C8A9 /* TimelineView.m in Sources */,
 				02A67C88174BDF0500BCD095 /* PlsitRead.m in Sources */,
-				02A8DD5617F1DE5E00E6B5D9 /* materialSideWithCollectionViewController.m in Sources */,
+				02A8DD5617F1DE5E00E6B5D9 /* materialWithCollectionViewController.m in Sources */,
 				02A67C8C174BE06000BCD095 /* refViewController.m in Sources */,
 				02A67C96174BE21100BCD095 /* menuViewController.m in Sources */,
 				49E388B717F5A25C0012C8A9 /* TimelineView+Gestures.m in Sources */,
