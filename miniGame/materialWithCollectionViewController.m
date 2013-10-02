@@ -127,7 +127,6 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    
     UICollectionViewCell *cell=[collectionView cellForItemAtIndexPath:indexPath];
     MaterialCell *cell2=(MaterialCell*)cell;
     cell2.image_Material.alpha=0.5f;
