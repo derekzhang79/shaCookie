@@ -11,20 +11,15 @@
 #import <CoreLocation/CoreLocation.h>
 #import "RecipeInfo.h"
 #import "ASIHTTPRequest.h"
-#import "Person.h"
 #import "WebJsonDataGetter.h"
-#import "ViewController.h"
-#import "MBProgressHUD.h"
-@interface JsonViewController : UIViewController<RecipeInFoDelegate,UITableViewDataSource,UITableViewDataSource,WebPersonLoadLocationFinishDelegater,WebJsonDataGetFinishDelegater,CLLocationManagerDelegate>{
+@interface JsonViewController : UIViewController<UITableViewDataSource,WebJsonDataGetFinishDelegater,CLLocationManagerDelegate>{
     CLLocation *location;
     CLLocationManager*      locationManager;
     NSArray *Array_locaions;
-    RecipeInfo *myRecipe;
     ASIHTTPRequest *asiRequest;
-    Person *aPerson;
     WebJsonDataGetter *webGetter;
 }
 @property (strong, nonatomic) IBOutlet UITableView *tableView_Json;
-- (IBAction)button_Back:(id)sender;
+@property (strong,nonatomic) NSArray *array_nearUsers;
 
 @end

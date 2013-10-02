@@ -15,7 +15,8 @@
 @interface WebJsonDataGetter : NSObject<ASIHTTPRequestDelegate,UIAlertViewDelegate>{
     ASIHTTPRequest  *webRequest;
 }
-@property(nonatomic,strong)id webData;
+@property(nonatomic,strong)NSArray *webData;
 @property(nonatomic,weak)id<WebJsonDataGetFinishDelegater>delegate;
 -(id)initWithURLString:(NSString*)url;
+-(void)requestWithURLString:(NSString *)url;
 @end

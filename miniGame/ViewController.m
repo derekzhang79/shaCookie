@@ -8,7 +8,6 @@
 
 #import "ViewController.h"
 #import "JsonViewController.h"
-#import "testViewController.h"
 #import <unistd.h>
 
 @interface ViewController ()
@@ -61,6 +60,8 @@
     [navBar setBackgroundImage:image forBarMetrics:UIBarMetricsDefault];
 //    [navBar setBackgroundImage:image];
 }
+
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -98,7 +99,7 @@
      
         JsonViewController *testView=[[JsonViewController alloc]initWithNibName:@"JsonViewController" bundle:nil];
         [self presentViewController:testView animated:YES completion:nil];
-/*
+        /*
         // The hud will dispable all input on the view (use the higest view possible in the view hierarchy)
         HUD = [[MBProgressHUD alloc] initWithView:self.navigationController.view];
         
@@ -135,7 +136,6 @@
 	
     // Regisete for HUD callbacks so we can remove it from the window at the right time
     HUD.delegate = self;
-	
     HUD.labelText = @"Loading";
 	
     // Show the HUD while the provided method executes in a new thread
