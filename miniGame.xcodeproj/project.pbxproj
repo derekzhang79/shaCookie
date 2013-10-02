@@ -114,6 +114,7 @@
 		49FD44B617EC57F900F472B5 /* aboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FD44B417EC57F900F472B5 /* aboutUsViewController.m */; };
 		49FD44B717EC57F900F472B5 /* aboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49FD44B517EC57F900F472B5 /* aboutUsViewController.xib */; };
 		49FD44B917EC5E4800F472B5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FD44B817EC5E4800F472B5 /* MessageUI.framework */; };
+		BB2C2D4417FC83200081E38A /* UILabel+AutoFrame .m in Sources */ = {isa = PBXBuildFile; fileRef = BB2C2D4217FC83200081E38A /* UILabel+AutoFrame .m */; };
 		BBA4F5EA17F99F30007F4018 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBA4F5E917F99F30007F4018 /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
@@ -287,6 +288,8 @@
 		49FD44B417EC57F900F472B5 /* aboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aboutUsViewController.m; sourceTree = "<group>"; };
 		49FD44B517EC57F900F472B5 /* aboutUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = aboutUsViewController.xib; sourceTree = "<group>"; };
 		49FD44B817EC5E4800F472B5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		BB2C2D4217FC83200081E38A /* UILabel+AutoFrame .m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+AutoFrame .m"; path = "../../Downloads/UILabel+AutoFrame .m"; sourceTree = "<group>"; };
+		BB2C2D4317FC83200081E38A /* UILabel+AutoFrame .h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+AutoFrame .h"; path = "../../Downloads/UILabel+AutoFrame .h"; sourceTree = "<group>"; };
 		BBA4F5E917F99F30007F4018 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../Documents/ios_framework/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -764,6 +767,7 @@
 		4984C51C17DF17D300EDE6B1 /* logical */ = {
 			isa = PBXGroup;
 			children = (
+				BB2C2D4517FC832F0081E38A /* AutoFrame */,
 				02A9B10F17F5FDD600535CC7 /* LBYouTubeView */,
 				49E388D217F5B4700012C8A9 /* AsyncImageCell */,
 				49E388C217F5A30F0012C8A9 /* TimeLineCell */,
@@ -867,6 +871,15 @@
 				49FD44B517EC57F900F472B5 /* aboutUsViewController.xib */,
 			);
 			name = aboutUsView;
+			sourceTree = "<group>";
+		};
+		BB2C2D4517FC832F0081E38A /* AutoFrame */ = {
+			isa = PBXGroup;
+			children = (
+				BB2C2D4217FC83200081E38A /* UILabel+AutoFrame .m */,
+				BB2C2D4317FC83200081E38A /* UILabel+AutoFrame .h */,
+			);
+			name = AutoFrame;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1049,6 +1062,7 @@
 				497562EE17F1D0570053248F /* procedureWithMPFlipViewController.m in Sources */,
 				49E388B817F5A25C0012C8A9 /* TimelineView+Mutation.m in Sources */,
 				49FD44B617EC57F900F472B5 /* aboutUsViewController.m in Sources */,
+				BB2C2D4417FC83200081E38A /* UILabel+AutoFrame .m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

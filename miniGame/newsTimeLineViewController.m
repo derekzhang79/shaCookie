@@ -28,68 +28,47 @@
     return (arc4random() % to) + from;
 }
 
-
-- (UIColor *)colorByColorInt:(NSInteger)colorInt
-{
-    UIColor *color;
-    switch (colorInt) {
-        case 1: color = [UIColor redColor]; break;
-        case 2: color = [UIColor blackColor]; break;
-        case 3: color = [UIColor yellowColor]; break;
-        case 4: color = [UIColor orangeColor]; break;
-        case 5: color = [UIColor greenColor]; break;
-        case 6: color = [UIColor purpleColor]; break;
-        case 7: color = [UIColor brownColor]; break;
-        case 8: color = [UIColor blueColor]; break;
-        case 9: color = [UIColor magentaColor]; break;
-    }
-    
-    return color;
-}
-
 #pragma mark UIViewController
 #pragma mark -
+
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil timeLine:(NSArray*)timeLine{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.array_Items = timeLine;
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    NSInteger num = 10000;
+//    webGetter =[[WebJsonDataGetter alloc]initWithURLString:GetJsonURLString_Content];
+//    [webGetter setDelegate:self];
+    
+    
+    NSInteger num = [self.array_Items count];
+    NSLog(@"num = %d",num);
     NSInteger lastPos = 0;
-    //NSInteger minSep = 96;
-    //NSInteger maxSep = 384;
-    NSInteger lastColorInt = 0;
     
     data = [[NSMutableArray alloc] initWithCapacity:num];
-    self.array_Items=[[NSArray alloc]init];
-    
-    webGetter =[[WebJsonDataGetter alloc]initWithURLString:GetJsonURLString_Content];
-    [webGetter setDelegate:self];
-
-
     
     // Make a bunch of random data
     for(NSInteger i = 0; i < num; ++i) {
-        UIColor *color;
-        NSInteger colorInt = 0;
-        lastPos = lastPos+ 200;// + [self randFrom:minSep to:maxSep];
-        
-        // Make sure same color doesn't appear twice in a row
-        do {
-            colorInt = [self randFrom:1 to:9];
-        } while (colorInt == lastColorInt);
-        
-        lastColorInt = colorInt;
-        color = [self colorByColorInt:colorInt];
-      //CGRectMake(0, _timelineView.bounds.origin.y, _timelineView.bounds.size.width, 300.0f);
-
+        UIColor *color= [UIColor blueColor];
+        //lastPos = lastPos;// + [self randFrom:minSep to:maxSep];
+        //CGRectMake(0, _timelineView.bounds.origin.y, _timelineView.bounds.size.width, 300.0f);
+        if (i!=0){
+            NSLog(@"123");
+            lastPos = lastPos+210;
+        }
         [data addObject:@{
                           
                           @"rect":NSStringFromCGRect(CGRectMake(0.f, (CGFloat)lastPos, _timelineView.bounds.size.width, 200.0f)),
                           @"color":color,
                           @"num":@(i)}
-                                        ];
-       
+         ];
+        
     }
     [_timelineView registerNib:[UINib nibWithNibName:@"SampleTimelineViewCell" bundle:nil]
     forCellWithReuseIdentifier:@"SampleTimelineViewCell"];
@@ -110,13 +89,12 @@
         }
     };
 }
--(void)doThingAfterWebJsonIsOKFromDelegate{
-    
-    self.array_Items=[[NSArray alloc]initWithArray:webGetter.webData ];
-    
 
-    [self.timelineView reloadData];
-}
+//-(void)doThingAfterWebJsonIsOKFromDelegate{
+//    
+//    self.array_Items=[[NSArray alloc]initWithArray:webGetter.webData ];
+//    [self.timelineView reloadData];
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -163,15 +141,24 @@
 {
     SampleTimelineViewCell *cell = (SampleTimelineViewCell*)[timelineView dequeueReusableCellWithReuseIdentifier:@"SampleTimelineViewCell" forIndex:index];
     NSDictionary *info = [data objectAtIndex:index];
+    NSString *urlString = [[NSString alloc] init] ;
+    
     
     cell.color = info[@"color"];
     cell.label.text = [NSString stringWithFormat:@"%@", info[@"num"]];
-    //self.contentNumber=[[[self.array_Items objectAtIndex:inde]objectForKey:@"displayName"]count];
-    cell.friendName.text =[[webGetter.webData objectAtIndex:index] objectForKey:@"displayName"];
-    cell.recipeName.text =[[webGetter.webData objectAtIndex:index]objectForKey:@"recipeName"];
-   cell.shareContent.text =[[webGetter.webData objectAtIndex:index] objectForKey:@"content"];
-   // cell.latestTime.text=[[webGetter.webData objectAtIndex:index]objectForKey:@"lat"];
-    NSLog(@"%@",[[webGetter.webData objectAtIndex:index] objectForKey:@"recipeName"]);
+    cell.friendName.text =[[self.array_Items objectAtIndex:index] objectForKey:@"display_name"];
+    cell.recipeName.text =[[self.array_Items objectAtIndex:index]objectForKey:@"name"];
+    cell.shareContent.text =[[self.array_Items objectAtIndex:index] objectForKey:@"content"];
+    cell.latestTime.text=[[self.array_Items objectAtIndex:index] objectForKey:@"latest_online"];
+    NSString *imageUrl=[[self.array_Items objectAtIndex:index]objectForKey:@"image_url"];
+    urlString=@"http://54.244.225.229/shacookie/image/" ;
+    urlString=[NSString stringWithFormat:@"%@%@",urlString,imageUrl];
+    NSURL *url=[NSURL URLWithString:urlString];
+    NSData *imageData=[[NSData alloc] initWithContentsOfURL:url];
+
+    cell.recipeImage.image=[UIImage imageWithData:imageData];
+    
+
     return cell;
 }
 

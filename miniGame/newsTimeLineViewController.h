@@ -21,6 +21,9 @@
 @property (nonatomic, strong) NSArray *array_Items;
 @property (weak, nonatomic) IBOutlet TimelineView *timelineView;
 @property (nonatomic) NSInteger contentNumber;
+
+
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil timeLine:(NSArray*)timeLine;
 @end
 
 

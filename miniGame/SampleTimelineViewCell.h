@@ -12,6 +12,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *recipeName;
 @property (strong, nonatomic) IBOutlet UILabel *latestTime;
 @property (strong, nonatomic) IBOutlet UILabel *friendName;
-@property (strong, nonatomic) IBOutlet UITextView *shareContent;
+@property (strong, nonatomic) IBOutlet UILabel *shareContent;
+@property (strong, nonatomic) IBOutlet UIImageView *recipeImage;
 @property (strong, nonatomic) UIColor *color;
 @end
