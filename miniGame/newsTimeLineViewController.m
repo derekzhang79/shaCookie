@@ -8,6 +8,7 @@
 
 #import "newsTimeLineViewController.h"
 #import "SampleTimelineViewCell.h"
+#import "GetJsonURLString.h"
 
 @interface newsTimeLineViewController ()
 
@@ -20,10 +21,13 @@
 #pragma mark Helper Functions
 #pragma mark -
 
+
+
 - (NSInteger)randFrom:(NSInteger)from to:(NSInteger)to
 {
     return (arc4random() % to) + from;
 }
+
 
 - (UIColor *)colorByColorInt:(NSInteger)colorInt
 {
@@ -57,6 +61,12 @@
     NSInteger lastColorInt = 0;
     
     data = [[NSMutableArray alloc] initWithCapacity:num];
+    self.array_Items=[[NSArray alloc]init];
+    
+    webGetter =[[WebJsonDataGetter alloc]initWithURLString:GetJsonURLString_Content];
+    [webGetter setDelegate:self];
+
+
     
     // Make a bunch of random data
     for(NSInteger i = 0; i < num; ++i) {
@@ -74,11 +84,13 @@
       //CGRectMake(0, _timelineView.bounds.origin.y, _timelineView.bounds.size.width, 300.0f);
 
         [data addObject:@{
+                          
                           @"rect":NSStringFromCGRect(CGRectMake(0.f, (CGFloat)lastPos, _timelineView.bounds.size.width, 200.0f)),
                           @"color":color,
-                          @"num":@(i)}];
+                          @"num":@(i)}
+                                        ];
+       
     }
-    
     [_timelineView registerNib:[UINib nibWithNibName:@"SampleTimelineViewCell" bundle:nil]
     forCellWithReuseIdentifier:@"SampleTimelineViewCell"];
     
@@ -97,6 +109,32 @@
             cell.transform = CGAffineTransformIdentity;
         }
     };
+}
+-(void)doThingAfterWebJsonIsOKFromDelegate{
+    
+    self.array_Items=[[NSArray alloc]initWithArray:webGetter.webData ];
+    
+
+    [self.timelineView reloadData];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    self.timelineView=nil;
+    self.array_Items=nil;
+    // Dispose of any resources that can be recreated.
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil Id:(NSString*)Id
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+        // Custom initialization
+        
+    }
+    return self;
 }
 
 #pragma mark TimelineViewDataSource
@@ -128,7 +166,12 @@
     
     cell.color = info[@"color"];
     cell.label.text = [NSString stringWithFormat:@"%@", info[@"num"]];
-    
+    //self.contentNumber=[[[self.array_Items objectAtIndex:inde]objectForKey:@"displayName"]count];
+    cell.friendName.text =[[webGetter.webData objectAtIndex:index] objectForKey:@"displayName"];
+    cell.recipeName.text =[[webGetter.webData objectAtIndex:index]objectForKey:@"recipeName"];
+   cell.shareContent.text =[[webGetter.webData objectAtIndex:index] objectForKey:@"content"];
+   // cell.latestTime.text=[[webGetter.webData objectAtIndex:index]objectForKey:@"lat"];
+    NSLog(@"%@",[[webGetter.webData objectAtIndex:index] objectForKey:@"recipeName"]);
     return cell;
 }
 
@@ -193,12 +236,7 @@
 }
 
 */
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
- 
+
 
 
 @end

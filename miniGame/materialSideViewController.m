@@ -32,6 +32,7 @@
 
 -(void)doThingAfterWebJsonIsOKFromDelegate{
     self.array_MaterialMenu=[[NSArray alloc]initWithArray:webGetter.webData];
+   
     [self.tableView reloadData];
 }
 
