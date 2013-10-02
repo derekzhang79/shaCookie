@@ -80,6 +80,7 @@
     return 1;
 }
 
+
 -(void)doThingAfterWebJsonIsOKFromDelegate{
     self.array_Material=[[NSArray alloc]initWithArray:webGetter.webData];
     [self.tableView_Food reloadData];
