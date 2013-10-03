@@ -12,6 +12,7 @@
 		023842BF17588CC800831605 /* UploadRecipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 023842BD17588CC700831605 /* UploadRecipe.m */; };
 		023842C017588CC800831605 /* UploadRecipe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 023842BE17588CC700831605 /* UploadRecipe.xib */; };
 		02608CFD17FDE00600F0082E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02608CFC17FDE00600F0082E /* FacebookSDK.framework */; };
+		02608D0017FDEAB900F0082E /* UILabel+AutoFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 02608CFE17FDEAB900F0082E /* UILabel+AutoFrame.m */; };
 		02612DE8173CB23600C04A37 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02612DE7173CB23600C04A37 /* QuartzCore.framework */; };
 		02A4E79E174C023A00EA8FEB /* foodData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02A4E79D174C023A00EA8FEB /* foodData.plist */; };
 		02A67C72174BDA1800BCD095 /* CVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A67C70174BDA1800BCD095 /* CVCell.m */; };
@@ -117,7 +118,6 @@
 		49FD44B617EC57F900F472B5 /* aboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FD44B417EC57F900F472B5 /* aboutUsViewController.m */; };
 		49FD44B717EC57F900F472B5 /* aboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49FD44B517EC57F900F472B5 /* aboutUsViewController.xib */; };
 		49FD44B917EC5E4800F472B5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FD44B817EC5E4800F472B5 /* MessageUI.framework */; };
-		BB2C2D4417FC83200081E38A /* UILabel+AutoFrame .m in Sources */ = {isa = PBXBuildFile; fileRef = BB2C2D4217FC83200081E38A /* UILabel+AutoFrame .m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,6 +128,8 @@
 		023842BD17588CC700831605 /* UploadRecipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadRecipe.m; sourceTree = "<group>"; };
 		023842BE17588CC700831605 /* UploadRecipe.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadRecipe.xib; sourceTree = "<group>"; };
 		02608CFC17FDE00600F0082E /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
+		02608CFE17FDEAB900F0082E /* UILabel+AutoFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UILabel+AutoFrame.m"; sourceTree = "<group>"; };
+		02608CFF17FDEAB900F0082E /* UILabel+AutoFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UILabel+AutoFrame.h"; sourceTree = "<group>"; };
 		02612DE7173CB23600C04A37 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		02A4E79D174C023A00EA8FEB /* foodData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = foodData.plist; sourceTree = "<group>"; };
 		02A4E79F174C03CA00EA8FEB /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -293,8 +295,6 @@
 		49FD44B417EC57F900F472B5 /* aboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aboutUsViewController.m; sourceTree = "<group>"; };
 		49FD44B517EC57F900F472B5 /* aboutUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = aboutUsViewController.xib; sourceTree = "<group>"; };
 		49FD44B817EC5E4800F472B5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
-		BB2C2D4217FC83200081E38A /* UILabel+AutoFrame .m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+AutoFrame .m"; path = "../../Downloads/UILabel+AutoFrame .m"; sourceTree = "<group>"; };
-		BB2C2D4317FC83200081E38A /* UILabel+AutoFrame .h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+AutoFrame .h"; path = "../../Downloads/UILabel+AutoFrame .h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -890,8 +890,8 @@
 		BB2C2D4517FC832F0081E38A /* AutoFrame */ = {
 			isa = PBXGroup;
 			children = (
-				BB2C2D4217FC83200081E38A /* UILabel+AutoFrame .m */,
-				BB2C2D4317FC83200081E38A /* UILabel+AutoFrame .h */,
+				02608CFE17FDEAB900F0082E /* UILabel+AutoFrame.m */,
+				02608CFF17FDEAB900F0082E /* UILabel+AutoFrame.h */,
 			);
 			name = AutoFrame;
 			sourceTree = "<group>";
@@ -1070,6 +1070,7 @@
 				49E388B617F5A25C0012C8A9 /* TimelineView+Discovery.m in Sources */,
 				4927D8A017E34AC0000DDEBF /* moveFinishViewController.m in Sources */,
 				499C632917E43EFB00513989 /* loginWithFBViewController.m in Sources */,
+				02608D0017FDEAB900F0082E /* UILabel+AutoFrame.m in Sources */,
 				49E388D017F5A4570012C8A9 /* SampleTimelineViewCell.m in Sources */,
 				02A8DD6217F2027D00E6B5D9 /* MaterialCell.m in Sources */,
 				490322C817E5BBBB0008F1F4 /* recipesWithICarouselViewController.m in Sources */,
@@ -1081,7 +1082,6 @@
 				497562EE17F1D0570053248F /* procedureWithMPFlipViewController.m in Sources */,
 				49E388B817F5A25C0012C8A9 /* TimelineView+Mutation.m in Sources */,
 				49FD44B617EC57F900F472B5 /* aboutUsViewController.m in Sources */,
-				BB2C2D4417FC83200081E38A /* UILabel+AutoFrame .m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

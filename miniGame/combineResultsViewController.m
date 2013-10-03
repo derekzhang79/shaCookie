@@ -27,9 +27,26 @@
 {
     [super viewDidLoad];
     
-    self.randomMaterial=[[NSArray alloc]init];
-    NSLog(@"fuck you %@",self.randomMaterial);
+    NSArray * arrayRandom=[[NSArray alloc]init];
+    if(self.randomMaterial.count ==0){
+        arrayRandom= nil;
+    }else{
+        arrayRandom= [self.randomMaterial objectAtIndex:arc4random()%self.randomMaterial.count];
+        NSLog(@"fuck:%@",[self.randomMaterial objectAtIndex:arc4random()%self.randomMaterial.count]);
+        
+    }
+    
     // Do any additional setup after loading the view from its nib.
+}
+- (id) randomObject{
+    
+    if(self.randomMaterial.count ==0){
+        return nil;
+    }else{
+        return [self.randomMaterial objectAtIndex:arc4random()%self.randomMaterial.count];
+        NSLog(@"fuck:%@",[self.randomMaterial objectAtIndex:arc4random()%self.randomMaterial.count]);
+    }
+    
 }
 
 - (void)didReceiveMemoryWarning

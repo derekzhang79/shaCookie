@@ -139,6 +139,8 @@
        
         combineResultsViewController *recipeView=[[combineResultsViewController alloc]initWithNibName:@"combineResultsViewController" bundle:nil ];
         recipeView.randomMaterial=array_Material;
+        
+        //NSLog(@" test:%@",recipeView.randomMaterial);
         //[recipeView recipesSearch:nil materialNames:array_Material];
         [self.navigationController pushViewController:recipeView animated:TRUE];
         self.collection_Material.allowsMultipleSelection = NO;
