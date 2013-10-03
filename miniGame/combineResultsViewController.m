@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
     
+    self.randomMaterial=[[NSArray alloc]init];
+    NSLog(@"fuck you %@",self.randomMaterial);
     // Do any additional setup after loading the view from its nib.
 }
 

@@ -138,6 +138,7 @@
     if (array_Material.count==3) {
        
         combineResultsViewController *recipeView=[[combineResultsViewController alloc]initWithNibName:@"combineResultsViewController" bundle:nil ];
+        recipeView.randomMaterial=array_Material;
         //[recipeView recipesSearch:nil materialNames:array_Material];
         [self.navigationController pushViewController:recipeView animated:TRUE];
         self.collection_Material.allowsMultipleSelection = NO;

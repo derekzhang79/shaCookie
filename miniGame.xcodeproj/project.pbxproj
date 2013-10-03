@@ -11,6 +11,7 @@
 		020C700117FC7FD900623DF6 /* combineResultsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 020C6FFF17FC7FD900623DF6 /* combineResultsViewController.xib */; };
 		023842BF17588CC800831605 /* UploadRecipe.m in Sources */ = {isa = PBXBuildFile; fileRef = 023842BD17588CC700831605 /* UploadRecipe.m */; };
 		023842C017588CC800831605 /* UploadRecipe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 023842BE17588CC700831605 /* UploadRecipe.xib */; };
+		02608CFD17FDE00600F0082E /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02608CFC17FDE00600F0082E /* FacebookSDK.framework */; };
 		02612DE8173CB23600C04A37 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02612DE7173CB23600C04A37 /* QuartzCore.framework */; };
 		02A4E79E174C023A00EA8FEB /* foodData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02A4E79D174C023A00EA8FEB /* foodData.plist */; };
 		02A67C72174BDA1800BCD095 /* CVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A67C70174BDA1800BCD095 /* CVCell.m */; };
@@ -117,7 +118,6 @@
 		49FD44B717EC57F900F472B5 /* aboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49FD44B517EC57F900F472B5 /* aboutUsViewController.xib */; };
 		49FD44B917EC5E4800F472B5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FD44B817EC5E4800F472B5 /* MessageUI.framework */; };
 		BB2C2D4417FC83200081E38A /* UILabel+AutoFrame .m in Sources */ = {isa = PBXBuildFile; fileRef = BB2C2D4217FC83200081E38A /* UILabel+AutoFrame .m */; };
-		BBA4F5EA17F99F30007F4018 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBA4F5E917F99F30007F4018 /* FacebookSDK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -127,6 +127,7 @@
 		023842BC17588CC700831605 /* UploadRecipe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UploadRecipe.h; sourceTree = "<group>"; };
 		023842BD17588CC700831605 /* UploadRecipe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UploadRecipe.m; sourceTree = "<group>"; };
 		023842BE17588CC700831605 /* UploadRecipe.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = UploadRecipe.xib; sourceTree = "<group>"; };
+		02608CFC17FDE00600F0082E /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		02612DE7173CB23600C04A37 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		02A4E79D174C023A00EA8FEB /* foodData.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = foodData.plist; sourceTree = "<group>"; };
 		02A4E79F174C03CA00EA8FEB /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
@@ -226,7 +227,6 @@
 		4927D8A817E39596000DDEBF /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		4927D8AA17E3959C000DDEBF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		4940D55B17E33EDC00939995 /* GetJsonURLString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GetJsonURLString.h; sourceTree = "<group>"; };
-		4948AA9517EA1C9800C28270 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/ios_framework/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		497562EB17F1D0570053248F /* procedureWithMPFlipViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = procedureWithMPFlipViewController.h; sourceTree = "<group>"; };
 		497562EC17F1D0570053248F /* procedureWithMPFlipViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = procedureWithMPFlipViewController.m; sourceTree = "<group>"; };
 		497562ED17F1D0570053248F /* procedureWithMPFlipViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = procedureWithMPFlipViewController.xib; sourceTree = "<group>"; };
@@ -295,7 +295,6 @@
 		49FD44B817EC5E4800F472B5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		BB2C2D4217FC83200081E38A /* UILabel+AutoFrame .m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UILabel+AutoFrame .m"; path = "../../Downloads/UILabel+AutoFrame .m"; sourceTree = "<group>"; };
 		BB2C2D4317FC83200081E38A /* UILabel+AutoFrame .h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UILabel+AutoFrame .h"; path = "../../Downloads/UILabel+AutoFrame .h"; sourceTree = "<group>"; };
-		BBA4F5E917F99F30007F4018 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../Documents/ios_framework/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -303,7 +302,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBA4F5EA17F99F30007F4018 /* FacebookSDK.framework in Frameworks */,
+				02608CFD17FDE00600F0082E /* FacebookSDK.framework in Frameworks */,
 				49E86D4D17F47530002CF0CF /* MediaPlayer.framework in Frameworks */,
 				49FD44B917EC5E4800F472B5 /* MessageUI.framework in Frameworks */,
 				4927D8AB17E3959C000DDEBF /* Security.framework in Frameworks */,
@@ -412,10 +411,9 @@
 		02A91714170207BC00F2E55F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				BBA4F5E917F99F30007F4018 /* FacebookSDK.framework */,
+				02608CFC17FDE00600F0082E /* FacebookSDK.framework */,
 				49E86D4C17F47530002CF0CF /* MediaPlayer.framework */,
 				49FD44B817EC5E4800F472B5 /* MessageUI.framework */,
-				4948AA9517EA1C9800C28270 /* FacebookSDK.framework */,
 				4927D8AA17E3959C000DDEBF /* Security.framework */,
 				4927D8A817E39596000DDEBF /* Social.framework */,
 				4927D8A617E3958D000DDEBF /* libsqlite3.dylib */,
@@ -934,6 +932,9 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				he,
+				English,
+				Base,
 			);
 			mainGroup = 02A91709170207BC00F2E55F;
 			productRefGroup = 02A91713170207BC00F2E55F /* Products */;
@@ -1168,9 +1169,10 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/../../Documents/ios_framework/FacebookSDK\\\"",
-					"\\\"$(SRCROOT)/../Documents/ios_framework/FacebookSDK\\\"",
+					"\\\\\\\"$(SRCROOT)/../../Documents/ios_framework/FacebookSDK\\\\\\\"",
+					"\\\\\\\"$(SRCROOT)/../Documents/ios_framework/FacebookSDK\\\\\\\"",
 					/Users/chenweiwu/Documents/ios_framework/FacebookSDK,
+					/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "miniGame/miniGame-Prefix.pch";
@@ -1189,9 +1191,10 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\"$(SRCROOT)/../../Documents/ios_framework/FacebookSDK\\\"",
-					"\\\"$(SRCROOT)/../Documents/ios_framework/FacebookSDK\\\"",
+					"\\\\\\\"$(SRCROOT)/../../Documents/ios_framework/FacebookSDK\\\\\\\"",
+					"\\\\\\\"$(SRCROOT)/../Documents/ios_framework/FacebookSDK\\\\\\\"",
 					/Users/chenweiwu/Documents/ios_framework/FacebookSDK,
+					/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "miniGame/miniGame-Prefix.pch";

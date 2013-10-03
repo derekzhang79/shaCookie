@@ -14,6 +14,6 @@
     
    
 }
-
+@property(nonatomic,strong)NSArray *randomMaterial;
 
 @end
