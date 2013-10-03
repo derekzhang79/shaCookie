@@ -16,7 +16,7 @@
 #import "WebJsonDataGetter.h"
 #import "MaterialCell.h"
 #import "MFSideMenu.h"
-#import "recipesWithICarouselViewController.h"
+#import "combineResultsViewController.h"
 
 
 @interface materialWithCollectionViewController ()
@@ -136,9 +136,9 @@
     [array_Material addObject:[[self.array_Collection objectAtIndex:indexPath.row] objectForKey:@"name"]];
 
     if (array_Material.count==3) {
-         NSLog(@"%@",array_Material);
-        recipesWithICarouselViewController *recipeView=[[recipesWithICarouselViewController alloc]initWithNibName:@"recipesWithICarouselViewController" bundle:nil ];
-        [recipeView recipesSearch:nil materialNames:array_Material];
+       
+        combineResultsViewController *recipeView=[[combineResultsViewController alloc]initWithNibName:@"combineResultsViewController" bundle:nil ];
+        //[recipeView recipesSearch:nil materialNames:array_Material];
         [self.navigationController pushViewController:recipeView animated:TRUE];
         self.collection_Material.allowsMultipleSelection = NO;
 

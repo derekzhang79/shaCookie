@@ -18,6 +18,7 @@
 }
 -(void)requestWithURLString:(NSString *)url{
     webRequest=[ASIHTTPRequest requestWithURL:[NSURL URLWithString:url]];
+    //NSLog()
     [webRequest setDelegate:self];
     [webRequest startAsynchronous];
 }
