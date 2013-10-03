@@ -37,9 +37,16 @@
         [webGetter setDelegate:self];
     };
     if(recipeType == nil && materialNames!=nil){
+<<<<<<< HEAD
         
             NSString *stringName=[materialNames componentsJoinedByString:@","];
         //NSString *arr=[NSString stringWithFormat:@"'%@'",stringName];
+=======
+
+            NSString *stringName=[materialNames componentsJoinedByString:@"','"];
+            NSString *arr=[NSString stringWithFormat:@"'%@'",stringName];
+            NSLog(@"you are %@", arr);
+>>>>>>> devlop
             NSString *str=[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName];
         
        

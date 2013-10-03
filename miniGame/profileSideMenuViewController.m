@@ -10,14 +10,21 @@
 #import "MFSideMenu.h"
 #import "aboutUsViewController.h"
 #import "newsTimeLineViewController.h"
-
+#import "GetJsonURLString.h"
 
 @implementation profileSideMenuViewController
 
 -(void)viewDidLoad{
     self.array_PofileCategory=[[NSArray alloc]initWithObjects:@"profile",@"news",@"find friends",@"setting",@"about us", nil];
+    webGetter =[[WebJsonDataGetter alloc]initWithURLString:GetJsonURLString_Content];
+    [webGetter setDelegate:self];
+    
 }
+-(void)doThingAfterWebJsonIsOKFromDelegate{
 
+    self.array_Items=[[NSArray alloc]initWithArray:webGetter.webData ];
+    
+}
 #pragma mark -
 #pragma mark - UITableViewDataSource
 
@@ -66,7 +73,7 @@
             controller=(UIViewController *)[[loginWithFBViewController alloc]initWithNibName:@"loginWithFBViewController" bundle:nil];
             break;
         case 1:
-            controller=(UIViewController *)[[newsTimeLineViewController alloc]initWithNibName:@"newsTimeLineViewController" bundle:nil];
+            controller=(UIViewController *)[[newsTimeLineViewController alloc]initWithNibName:@"newsTimeLineViewController" bundle:nil timeLine:self.array_Items];
             break;
         case 2:
             controller=(UIViewController *)[[JsonViewController alloc]initWithNibName:@"JsonViewController" bundle:nil];
