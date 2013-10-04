@@ -44,7 +44,7 @@
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
             </subviews>
-            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.023529414087533951" green="0.011764707043766975" blue="0.0039215688593685627" alpha="1" colorSpace="deviceRGB"/>
             <connections>
                 <outlet property="friendName" destination="RNB-g0-ey0" id="zMs-q6-zi1"/>
                 <outlet property="latestTime" destination="b4P-qV-Bap" id="pUc-vn-b55"/>

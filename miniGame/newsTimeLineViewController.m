@@ -107,10 +107,14 @@
 - (TimelineViewCell *)timelineView:(TimelineView *)timelineView cellForIndex:(NSInteger)index
 {
     SampleTimelineViewCell *cell = (SampleTimelineViewCell*)[timelineView dequeueReusableCellWithReuseIdentifier:@"SampleTimelineViewCell" forIndex:index];
-    NSDictionary *info = [data objectAtIndex:index];
     
-    cell.color = info[@"color"];
-    cell.label.text = [NSString stringWithFormat:@"%@", info[@"num"]];
+    cell.alpha=0.5;
+    cell.backgroundColor=[UIColor whiteColor];
+    cell.friendName.textColor=[UIColor blackColor];
+    cell.recipeName.textColor=[UIColor blackColor];
+    cell.latestTime.textColor=[UIColor blackColor];
+    cell.shareContent.textColor=[UIColor blackColor];
+    
     [cell.friendName setTextWithAutoFrame:[[self.array_Items objectAtIndex:index] objectForKey:@"display_name"]];
     [cell.recipeName setTextWithAutoFrame:[[self.array_Items objectAtIndex:index]objectForKey:@"name"]];
     [cell.latestTime setTextWithAutoFrame:[[self.array_Items objectAtIndex:index] objectForKey:@"latest_online"]];
