@@ -6,9 +6,11 @@
 //
 //
 
+#import "UILabel+AutoFrame.h"
 #import "newsTimeLineViewController.h"
 #import "SampleTimelineViewCell.h"
 #import "GetJsonURLString.h"
+#import "AsyncImageView.h"
 
 @interface newsTimeLineViewController ()
 
@@ -17,16 +19,6 @@
 @implementation newsTimeLineViewController
 @synthesize timelineView = _timelineView;
 
-
-#pragma mark Helper Functions
-#pragma mark -
-
-
-
-- (NSInteger)randFrom:(NSInteger)from to:(NSInteger)to
-{
-    return (arc4random() % to) + from;
-}
 
 #pragma mark UIViewController
 #pragma mark -
@@ -43,12 +35,7 @@
 {
     [super viewDidLoad];
     
-//    webGetter =[[WebJsonDataGetter alloc]initWithURLString:GetJsonURLString_Content];
-//    [webGetter setDelegate:self];
-    
-    
     NSInteger num = [self.array_Items count];
-    NSLog(@"num = %d",num);
     NSInteger lastPos = 0;
     
     data = [[NSMutableArray alloc] initWithCapacity:num];
@@ -56,10 +43,7 @@
     // Make a bunch of random data
     for(NSInteger i = 0; i < num; ++i) {
         UIColor *color= [UIColor blueColor];
-        //lastPos = lastPos;// + [self randFrom:minSep to:maxSep];
-        //CGRectMake(0, _timelineView.bounds.origin.y, _timelineView.bounds.size.width, 300.0f);
         if (i!=0){
-            NSLog(@"123");
             lastPos = lastPos+210;
         }
         [data addObject:@{
@@ -70,37 +54,19 @@
          ];
         
     }
+    
     [_timelineView registerNib:[UINib nibWithNibName:@"SampleTimelineViewCell" bundle:nil]
     forCellWithReuseIdentifier:@"SampleTimelineViewCell"];
     
-    _timelineView.allowsMultipleSelection = YES;
-    
-    // Change delete/insert animation to shrink effect
-    _timelineView.animationBlock = ^(NSMapTable *moved, NSSet *deleted, NSSet *inserted) {
-        for(TimelineViewCell *cell in moved) {
-            cell.frame = [[moved objectForKey:cell] CGRectValue];
-        }
-        for(TimelineViewCell *cell in deleted) {
-            cell.transform = CGAffineTransformScale(cell.transform, 0, 0);
-        }
-        for(TimelineViewCell *cell in inserted) {
-            cell.transform = CGAffineTransformScale(cell.transform, 0, 0);
-            cell.transform = CGAffineTransformIdentity;
-        }
-    };
+    _timelineView.allowsMultipleSelection = NO;
 }
-
-//-(void)doThingAfterWebJsonIsOKFromDelegate{
-//    
-//    self.array_Items=[[NSArray alloc]initWithArray:webGetter.webData ];
-//    [self.timelineView reloadData];
-//}
 
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     self.timelineView=nil;
     self.array_Items=nil;
+    self.Content=nil;
     // Dispose of any resources that can be recreated.
 }
 
@@ -136,43 +102,52 @@
 {
     return CGRectFromString([[data objectAtIndex:index] objectForKey:@"rect"]);
 }
+#define IMAGE_VIEW_TAG 99
 
 - (TimelineViewCell *)timelineView:(TimelineView *)timelineView cellForIndex:(NSInteger)index
 {
     SampleTimelineViewCell *cell = (SampleTimelineViewCell*)[timelineView dequeueReusableCellWithReuseIdentifier:@"SampleTimelineViewCell" forIndex:index];
     NSDictionary *info = [data objectAtIndex:index];
-    NSString *urlString = [[NSString alloc] init] ;
-    
     
     cell.color = info[@"color"];
     cell.label.text = [NSString stringWithFormat:@"%@", info[@"num"]];
-    cell.friendName.text =[[self.array_Items objectAtIndex:index] objectForKey:@"display_name"];
-    cell.recipeName.text =[[self.array_Items objectAtIndex:index]objectForKey:@"name"];
-    cell.shareContent.text =[[self.array_Items objectAtIndex:index] objectForKey:@"content"];
-    cell.latestTime.text=[[self.array_Items objectAtIndex:index] objectForKey:@"latest_online"];
-    NSString *imageUrl=[[self.array_Items objectAtIndex:index]objectForKey:@"image_url"];
-    urlString=@"http://54.244.225.229/shacookie/image/" ;
-    urlString=[NSString stringWithFormat:@"%@%@",urlString,imageUrl];
-    NSURL *url=[NSURL URLWithString:urlString];
-    NSData *imageData=[[NSData alloc] initWithContentsOfURL:url];
+    [cell.friendName setTextWithAutoFrame:[[self.array_Items objectAtIndex:index] objectForKey:@"display_name"]];
+    [cell.recipeName setTextWithAutoFrame:[[self.array_Items objectAtIndex:index]objectForKey:@"name"]];
+    [cell.latestTime setTextWithAutoFrame:[[self.array_Items objectAtIndex:index] objectForKey:@"latest_online"]];
+    [cell.shareContent setTextWithAutoFrame:[[self.array_Items objectAtIndex:index] objectForKey:@"content"]];
 
-    cell.recipeImage.image=[UIImage imageWithData:imageData];
     
-
+    //add AsyncImageView to cell
+    AsyncImageView *imageView = [[AsyncImageView alloc] initWithFrame:cell.recipeImage.frame];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.clipsToBounds = YES;
+    imageView.tag = IMAGE_VIEW_TAG;
+    [cell addSubview:imageView];
+    
+    //get image view
+	imageView = (AsyncImageView *)[cell viewWithTag:IMAGE_VIEW_TAG];
+	
+    //cancel loading previous image for cell
+    [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:imageView];
+    
+    //load the image
+    NSString *str=[NSString stringWithFormat:@"http://54.244.225.229/shacookie/image/%@",[[self.array_Items objectAtIndex:index]objectForKey:@"image_url"]];
+    imageView.imageURL = [NSURL URLWithString:str];
+    
     return cell;
 }
 
 - (BOOL)timelineView:(TimelineView *)timelineView canMoveItemAtIndex:(NSInteger)index
 {
-    return YES;
+    return NO;
 }
 
 - (void)timelineView:(TimelineView *)timelineView moveItemAtIndex:(NSInteger)sourceIndex toIndex:(NSInteger)destinationIndex withFrame:(CGRect)frame
 {
-    NSDictionary *info = [data objectAtIndex:sourceIndex];
-    
-    [data removeObjectAtIndex:sourceIndex];
-    [data insertObject:@{@"rect": NSStringFromCGRect(frame), @"color": info[@"color"], @"num": info[@"num"]} atIndex:destinationIndex];
+//    NSDictionary *info = [data objectAtIndex:sourceIndex];
+//    
+//    [data removeObjectAtIndex:sourceIndex];
+//    [data insertObject:@{@"rect": NSStringFromCGRect(frame), @"color": info[@"color"], @"num": info[@"num"]} atIndex:destinationIndex];
 }
 
 #pragma mark Buttons

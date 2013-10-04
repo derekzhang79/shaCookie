@@ -111,9 +111,7 @@
         cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIndentifier];
         
     }
-    //NSLog(@"%@",self.array_nearUsers);
-    NSLog(@"%@",[self.array_nearUsers objectAtIndex:indexPath.row]);
-    NSLog(@"%@",[[self.array_nearUsers objectAtIndex:indexPath.row]objectForKey:@"display_name"]);
+
     NSString *main_text=[NSString stringWithFormat:@"%@ --> %@",[[self.array_nearUsers objectAtIndex:indexPath.row]objectForKey:@"display_name"],[[self.array_nearUsers objectAtIndex:indexPath.row]objectForKey:@"latest_online"]];
     cell.textLabel.text=main_text;
     

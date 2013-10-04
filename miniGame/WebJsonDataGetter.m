@@ -7,7 +7,6 @@
 //
 
 #import "WebJsonDataGetter.h"
-#import "JSONKit.h"
 @implementation WebJsonDataGetter
 -(id)init{
     self=[super init];
@@ -31,8 +30,8 @@
 }
 
 -(void)requestFinished:(ASIHTTPRequest *)request{
-    NSString *jsonStr=[[NSString alloc]initWithData:request.responseData encoding:NSUTF8StringEncoding];
-    self.webData=[jsonStr objectFromJSONString];
+    NSError* error;
+    self.webData= [NSJSONSerialization JSONObjectWithData:request.responseData options:kNilOptions error:&error];
     [self.delegate  doThingAfterWebJsonIsOKFromDelegate];
 
 }
@@ -41,7 +40,7 @@
     NSLog(@"Failure");
 
     //要教他們
-    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Error" message:@"BeSure" delegate:nil cancelButtonTitle:@"canel" otherButtonTitles:@"one",@"two", nil];
+    UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"跳我就是沒網路！！！" message:@"BeSure" delegate:nil cancelButtonTitle:@"canel" otherButtonTitles:@"one",@"two", nil];
     [alert setDelegate:self];
     [alert show];
    ;

@@ -25,7 +25,6 @@
         labelOriginFrame.size.height=labelsize.height;
         [self setFrame:labelOriginFrame];
                 [self setText:str];
-        NSLog(@"%f %f",self.frame.size.width,self.frame.size.height);
     }
 
     return self;
