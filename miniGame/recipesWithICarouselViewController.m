@@ -12,6 +12,7 @@
 #import "procedureWithMPFlipViewController.h"
 #import "AsyncImageView.h"
 #import "KoaPullToRefresh.h"
+#import "UILabel+AutoFrame.h"
 
 
 @interface recipesWithICarouselViewController ()
@@ -38,17 +39,13 @@
         [webGetter setDelegate:self];
     };
     if(recipeType == nil && materialNames!=nil){
-        
-        NSString *stringName=[materialNames componentsJoinedByString:@"','"];
-        NSString *arr=[NSString stringWithFormat:@"'%@'",stringName];
-        NSLog(@"you are %@", arr);
+        NSString *stringName=[materialNames componentsJoinedByString:@","];
         NSString *str=[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName];
         [webGetter requestWithURLString:[NSString stringWithUTF8String:[str UTF8String]]];
         [webGetter setDelegate:self];
     }
+
 }
-
-
 
 -(void)didReceiveMemoryWarning{
     self.array_Items = nil;
@@ -89,7 +86,7 @@
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
-    CVCell *cell = [[CVCell alloc]initWithFrame:CGRectMake(0, 0, 300.0f, 300.0f)];
+    CVCell *cell = [[CVCell alloc]initWithFrame:CGRectMake(0, 0, 300.0f, 317.0f)];
     
     //add AsyncImageView to cell
     AsyncImageView *imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(15.0f, 11.0f, 271.0f, 234.0f)];
@@ -108,10 +105,13 @@
     NSString *str=[NSString stringWithFormat:GetRecipesImage,[[self.array_Items objectAtIndex:index]objectForKey:@"image_url"]];
     imageView.imageURL = [NSURL URLWithString:str];
     
-//    if (!cell.image_recipe.image) {
-//        cell.image_recipe.image=[UIImage imageNamed:@"gamebaby.png"];
-//    }
-    cell.titleLabel.text=[[self.array_Items objectAtIndex:index]objectForKey:@"name"];
+
+    NSString *rank=[[self.array_Items objectAtIndex:index]objectForKey:@"rank_avg"];
+    [cell.titleLabel setText:[[self.array_Items objectAtIndex:index]objectForKey:@"name"]];
+    [cell.likeLabel setTextWithAutoFrame:[NSString stringWithFormat:@"like : %@",[[self.array_Items objectAtIndex:index]objectForKey:@"like_sum"]]];
+    [cell.shareLabel setTextWithAutoFrame:[NSString stringWithFormat:@"share : %@",[[self.array_Items objectAtIndex:index]objectForKey:@"share_sum"]]];
+    [cell.rankLabel setTextWithAutoFrame:[NSString stringWithFormat:@"rank : %d",[rank integerValue]]];
+
     view=(UIView *)cell;
 
     return view;

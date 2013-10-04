@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <MapKit/MapKit.h>
 #import <CoreLocation/CoreLocation.h>
-#import "RecipeInfo.h"
 #import "ASIHTTPRequest.h"
 #import "WebJsonDataGetter.h"
 @interface JsonViewController : UIViewController<UITableViewDataSource,WebJsonDataGetFinishDelegater,CLLocationManagerDelegate>{

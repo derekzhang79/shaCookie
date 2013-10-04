@@ -43,5 +43,8 @@
 @property (nonatomic) NSInteger step;
 @property (nonatomic ,strong)NSString* step_url;
 
+
+
+
 @end
 

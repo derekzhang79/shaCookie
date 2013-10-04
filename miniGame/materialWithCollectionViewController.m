@@ -16,8 +16,7 @@
 #import "WebJsonDataGetter.h"
 #import "MaterialCell.h"
 #import "MFSideMenu.h"
-#import "recipesWithICarouselViewController.h"
-
+#import "combineResultsViewController.h"
 
 @interface materialWithCollectionViewController ()
 
@@ -38,6 +37,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.collection_Material.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back.png"]];
+
     array_Material=[[NSMutableArray alloc]init];
     self.array_MaterialName=[[NSArray alloc] init];
     self.array_Collection=[[NSArray alloc]init];
@@ -136,9 +138,18 @@
     [array_Material addObject:[[self.array_Collection objectAtIndex:indexPath.row] objectForKey:@"name"]];
 
     if (array_Material.count==3) {
+<<<<<<< HEAD:miniGame/materialWithCollectionViewController.m
          NSLog(@"%@",array_Material);
         recipesWithICarouselViewController *recipeView=[[recipesWithICarouselViewController alloc]initWithNibName:@"recipesWithICarouselViewController" bundle:nil ];
         [recipeView recipesSearch:nil materialNames:array_Material];
+=======
+       
+        combineResultsViewController *recipeView=[[combineResultsViewController alloc]initWithNibName:@"combineResultsViewController" bundle:nil ];
+        recipeView.getMaterial=array_Material;
+        
+        //NSLog(@" test:%@",recipeView.randomMaterial);
+        //[recipeView recipesSearch:nil materialNames:array_Material];
+>>>>>>> devlop:miniGame/materialWithCollectionViewController.m
         [self.navigationController pushViewController:recipeView animated:TRUE];
         self.collection_Material.allowsMultipleSelection = NO;
 

@@ -27,6 +27,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.textView_Us.editable=NO;
+    self.textView_Us.selectable = NO;
+    self.textView_Us.alpha = 1;
     self.textView_Us.text=@"hi,we are shaCookie.";
     self.textView_Us.autoresizingMask = UIViewAutoresizingFlexibleHeight;
     

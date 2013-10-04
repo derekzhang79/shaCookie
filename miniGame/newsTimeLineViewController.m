@@ -6,8 +6,11 @@
 //
 //
 
+#import "UILabel+AutoFrame.h"
 #import "newsTimeLineViewController.h"
 #import "SampleTimelineViewCell.h"
+#import "GetJsonURLString.h"
+#import "AsyncImageView.h"
 
 @interface newsTimeLineViewController ()
 
@@ -17,86 +20,65 @@
 @synthesize timelineView = _timelineView;
 
 
-#pragma mark Helper Functions
-#pragma mark -
-
-- (NSInteger)randFrom:(NSInteger)from to:(NSInteger)to
-{
-    return (arc4random() % to) + from;
-}
-
-- (UIColor *)colorByColorInt:(NSInteger)colorInt
-{
-    UIColor *color;
-    switch (colorInt) {
-        case 1: color = [UIColor redColor]; break;
-        case 2: color = [UIColor blackColor]; break;
-        case 3: color = [UIColor yellowColor]; break;
-        case 4: color = [UIColor orangeColor]; break;
-        case 5: color = [UIColor greenColor]; break;
-        case 6: color = [UIColor purpleColor]; break;
-        case 7: color = [UIColor brownColor]; break;
-        case 8: color = [UIColor blueColor]; break;
-        case 9: color = [UIColor magentaColor]; break;
-    }
-    
-    return color;
-}
-
 #pragma mark UIViewController
 #pragma mark -
+
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil timeLine:(NSArray*)timeLine{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        self.array_Items = timeLine;
+    }
+    return self;
+}
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    NSInteger num = 10000;
+    NSInteger num = [self.array_Items count];
     NSInteger lastPos = 0;
-    //NSInteger minSep = 96;
-    //NSInteger maxSep = 384;
-    NSInteger lastColorInt = 0;
     
     data = [[NSMutableArray alloc] initWithCapacity:num];
     
     // Make a bunch of random data
     for(NSInteger i = 0; i < num; ++i) {
-        UIColor *color;
-        NSInteger colorInt = 0;
-        lastPos = lastPos+ 200;// + [self randFrom:minSep to:maxSep];
-        
-        // Make sure same color doesn't appear twice in a row
-        do {
-            colorInt = [self randFrom:1 to:9];
-        } while (colorInt == lastColorInt);
-        
-        lastColorInt = colorInt;
-        color = [self colorByColorInt:colorInt];
-      //CGRectMake(0, _timelineView.bounds.origin.y, _timelineView.bounds.size.width, 300.0f);
-
+        UIColor *color= [UIColor blueColor];
+        if (i!=0){
+            lastPos = lastPos+210;
+        }
         [data addObject:@{
+                          
                           @"rect":NSStringFromCGRect(CGRectMake(0.f, (CGFloat)lastPos, _timelineView.bounds.size.width, 200.0f)),
                           @"color":color,
-                          @"num":@(i)}];
+                          @"num":@(i)}
+         ];
+        
     }
     
     [_timelineView registerNib:[UINib nibWithNibName:@"SampleTimelineViewCell" bundle:nil]
     forCellWithReuseIdentifier:@"SampleTimelineViewCell"];
     
-    _timelineView.allowsMultipleSelection = YES;
-    
-    // Change delete/insert animation to shrink effect
-    _timelineView.animationBlock = ^(NSMapTable *moved, NSSet *deleted, NSSet *inserted) {
-        for(TimelineViewCell *cell in moved) {
-            cell.frame = [[moved objectForKey:cell] CGRectValue];
-        }
-        for(TimelineViewCell *cell in deleted) {
-            cell.transform = CGAffineTransformScale(cell.transform, 0, 0);
-        }
-        for(TimelineViewCell *cell in inserted) {
-            cell.transform = CGAffineTransformScale(cell.transform, 0, 0);
-            cell.transform = CGAffineTransformIdentity;
-        }
-    };
+    _timelineView.allowsMultipleSelection = NO;
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [super didReceiveMemoryWarning];
+    self.timelineView=nil;
+    self.array_Items=nil;
+    self.Content=nil;
+    // Dispose of any resources that can be recreated.
+}
+
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil Id:(NSString*)Id
+{
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        
+        // Custom initialization
+        
+    }
+    return self;
 }
 
 #pragma mark TimelineViewDataSource
@@ -120,29 +102,56 @@
 {
     return CGRectFromString([[data objectAtIndex:index] objectForKey:@"rect"]);
 }
+#define IMAGE_VIEW_TAG 99
 
 - (TimelineViewCell *)timelineView:(TimelineView *)timelineView cellForIndex:(NSInteger)index
 {
     SampleTimelineViewCell *cell = (SampleTimelineViewCell*)[timelineView dequeueReusableCellWithReuseIdentifier:@"SampleTimelineViewCell" forIndex:index];
-    NSDictionary *info = [data objectAtIndex:index];
     
-    cell.color = info[@"color"];
-    cell.label.text = [NSString stringWithFormat:@"%@", info[@"num"]];
+    cell.alpha=0.5;
+    cell.backgroundColor=[UIColor whiteColor];
+    cell.friendName.textColor=[UIColor blackColor];
+    cell.recipeName.textColor=[UIColor blackColor];
+    cell.latestTime.textColor=[UIColor blackColor];
+    cell.shareContent.textColor=[UIColor blackColor];
+    
+    [cell.friendName setTextWithAutoFrame:[[self.array_Items objectAtIndex:index] objectForKey:@"display_name"]];
+    [cell.recipeName setTextWithAutoFrame:[[self.array_Items objectAtIndex:index]objectForKey:@"name"]];
+    [cell.latestTime setTextWithAutoFrame:[[self.array_Items objectAtIndex:index] objectForKey:@"latest_online"]];
+    [cell.shareContent setTextWithAutoFrame:[[self.array_Items objectAtIndex:index] objectForKey:@"content"]];
+
+    
+    //add AsyncImageView to cell
+    AsyncImageView *imageView = [[AsyncImageView alloc] initWithFrame:cell.recipeImage.frame];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.clipsToBounds = YES;
+    imageView.tag = IMAGE_VIEW_TAG;
+    [cell addSubview:imageView];
+    
+    //get image view
+	imageView = (AsyncImageView *)[cell viewWithTag:IMAGE_VIEW_TAG];
+	
+    //cancel loading previous image for cell
+    [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:imageView];
+    
+    //load the image
+    NSString *str=[NSString stringWithFormat:@"http://54.244.225.229/shacookie/image/%@",[[self.array_Items objectAtIndex:index]objectForKey:@"image_url"]];
+    imageView.imageURL = [NSURL URLWithString:str];
     
     return cell;
 }
 
 - (BOOL)timelineView:(TimelineView *)timelineView canMoveItemAtIndex:(NSInteger)index
 {
-    return YES;
+    return NO;
 }
 
 - (void)timelineView:(TimelineView *)timelineView moveItemAtIndex:(NSInteger)sourceIndex toIndex:(NSInteger)destinationIndex withFrame:(CGRect)frame
 {
-    NSDictionary *info = [data objectAtIndex:sourceIndex];
-    
-    [data removeObjectAtIndex:sourceIndex];
-    [data insertObject:@{@"rect": NSStringFromCGRect(frame), @"color": info[@"color"], @"num": info[@"num"]} atIndex:destinationIndex];
+//    NSDictionary *info = [data objectAtIndex:sourceIndex];
+//    
+//    [data removeObjectAtIndex:sourceIndex];
+//    [data insertObject:@{@"rect": NSStringFromCGRect(frame), @"color": info[@"color"], @"num": info[@"num"]} atIndex:destinationIndex];
 }
 
 #pragma mark Buttons
@@ -193,12 +202,7 @@
 }
 
 */
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
- 
+
 
 
 @end

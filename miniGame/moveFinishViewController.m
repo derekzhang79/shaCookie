@@ -34,7 +34,6 @@
     
     // Create data for collection views
     self.dataArray = [[NSArray alloc] initWithArray:origin_Refrigerator];
-    NSLog(@"count %d",[self.dataArray count]);
     /* uncomment this block to use subclassed cells*/
     [self.collectionView registerClass:[CVCell class] forCellWithReuseIdentifier:@"cvCell"];
     /* end of subclass-based cells block */
