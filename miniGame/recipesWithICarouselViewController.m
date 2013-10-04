@@ -30,17 +30,21 @@
 
 -(void)recipesSearch:(NSString*)recipeType materialNames:(NSMutableArray *)materialNames{
     webGetter = [[WebJsonDataGetter alloc]init];
+    
     if(recipeType!=nil && materialNames == nil){
         NSString *stringRecipe=[NSString stringWithFormat:GetJsonURLString_Recipe,recipeType];
         [webGetter requestWithURLString:[NSString stringWithUTF8String:[stringRecipe UTF8String]]];
+        //NSLog(@"%@",[NSString stringWithUTF8String:[stringRecipe UTF8String]]);
         [webGetter setDelegate:self];
     };
     if(recipeType == nil && materialNames!=nil){
+        
+            NSString *stringName=[materialNames componentsJoinedByString:@","];
+        //NSString *arr=[NSString stringWithFormat:@"'%@'",stringName];
 
-            NSString *stringName=[materialNames componentsJoinedByString:@"','"];
-            NSString *arr=[NSString stringWithFormat:@"'%@'",stringName];
-            NSLog(@"you are %@", arr);
             NSString *str=[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName];
+        
+       
             [webGetter requestWithURLString:[NSString stringWithUTF8String:[str UTF8String]]];
             [webGetter setDelegate:self];
         
@@ -58,6 +62,7 @@
 
 -(void)doThingAfterWebJsonIsOKFromDelegate{
     self.array_Items = webGetter.webData;
+
     [self.carousel reloadData];
 }
 
