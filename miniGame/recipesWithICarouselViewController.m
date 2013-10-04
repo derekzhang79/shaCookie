@@ -34,6 +34,7 @@
     if(recipeType!=nil && materialNames == nil){
         NSString *stringRecipe=[NSString stringWithFormat:GetJsonURLString_Recipe,recipeType];
         [webGetter requestWithURLString:[NSString stringWithUTF8String:[stringRecipe UTF8String]]];
+        //NSLog(@"%@",[NSString stringWithUTF8String:[stringRecipe UTF8String]]);
         [webGetter setDelegate:self];
     };
     if(recipeType == nil && materialNames!=nil){

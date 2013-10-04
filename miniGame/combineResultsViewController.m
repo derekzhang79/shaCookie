@@ -7,6 +7,9 @@
 //
 
 #import "combineResultsViewController.h"
+#import "procedureWithMPFlipViewController.h"
+#import "GetJsonURLString.h"
+#import "JSONKit.h"
 
 @interface combineResultsViewController ()
 
@@ -27,26 +30,68 @@
 {
     [super viewDidLoad];
     
-    NSArray * arrayRandom=[[NSArray alloc]init];
-    if(self.randomMaterial.count ==0){
-        arrayRandom= nil;
-    }else{
-        arrayRandom= [self.randomMaterial objectAtIndex:arc4random()%self.randomMaterial.count];
-        NSLog(@"fuck:%@",[self.randomMaterial objectAtIndex:arc4random()%self.randomMaterial.count]);
-        
-    }
+
+    self.arrayMaterial=[[NSArray alloc]init];
+    NSString *stringName=[self.getMaterial componentsJoinedByString:@","];
+    [[stringName JSONString] UTF8String];
+    webGetter = [[WebJsonDataGetter alloc]init];
+    NSString *str=[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName];
+    NSLog(@"%@",[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName]);
+    [webGetter requestWithURLString:[NSString stringWithUTF8String:[str UTF8String]]];
+        [webGetter setDelegate:self];
+
+
+//    下面註解晚點用
+//    if(self.getMaterial.count ==0){
+//        self.arrayMaterial= nil;
+//    }else{
+//        self.arrayMaterial= [self.getMaterial objectAtIndex:arc4random()%self.getMaterial.count];
+//        //NSLog(@"fuck:%@",[self.getMaterial objectAtIndex:arc4random()%self.getMaterial.count]);
+//        
+//    }
+//    
+//    UIAlertView* mes=[[UIAlertView alloc] initWithTitle:@"搖一搖！！！"
+//                                                message:@"請搖一搖幫您隨機配菜" delegate:self cancelButtonTitle:@"開始搖！" otherButtonTitles: nil];
+//    
+//    [mes show];
+//    [mes release];
+    
     
     // Do any additional setup after loading the view from its nib.
 }
-- (id) randomObject{
+-(void)doThingAfterWebJsonIsOKFromDelegate{
+    self.getRecipes=[[NSArray alloc]initWithArray:webGetter.webData];
+    NSLog(@"fuck %@",self.getRecipes);
+
     
-    if(self.randomMaterial.count ==0){
-        return nil;
-    }else{
-        return [self.randomMaterial objectAtIndex:arc4random()%self.randomMaterial.count];
-        NSLog(@"fuck:%@",[self.randomMaterial objectAtIndex:arc4random()%self.randomMaterial.count]);
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    
+    switch (buttonIndex) {
+        case 0:
+            NSLog(@"cancel");
+            
+            if (motionManager.gyroAvailable) {
+                motionManager.gyroUpdateInterval = 1.0f/3.0f;
+                [motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMGyroData* gyroData, NSError *error){
+                    
+                    
+                    
+                    if ((gyroData.rotationRate.z>=13 || gyroData.rotationRate.z<=-13))
+                    {
+                        
+                    }
+                    
+                }];
+                
+            } else {
+                NSLog(@"陀螺儀未感測");
+            }
+            break;
+        default:
+            break;
     }
-    
 }
 
 - (void)didReceiveMemoryWarning

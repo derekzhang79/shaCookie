@@ -18,7 +18,6 @@
 }
 -(void)requestWithURLString:(NSString *)url{
     webRequest=[ASIHTTPRequest requestWithURL:[NSURL URLWithString:url]];
-    //NSLog()
     [webRequest setDelegate:self];
     [webRequest startAsynchronous];
 }
@@ -40,10 +39,12 @@
 
 -(void)requestFailed:(ASIHTTPRequest *)request{
     NSLog(@"Failure");
+
     //要教他們
     UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"Error" message:@"BeSure" delegate:nil cancelButtonTitle:@"canel" otherButtonTitles:@"one",@"two", nil];
     [alert setDelegate:self];
     [alert show];
+   ;
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{

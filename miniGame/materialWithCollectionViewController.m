@@ -38,6 +38,9 @@
 {
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
+    
+    self.collection_Material.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back.png"]];
+    
     array_Material=[[NSMutableArray alloc]init];
     self.array_MaterialName=[[NSArray alloc] init];
     self.array_Collection=[[NSArray alloc]init];
@@ -138,7 +141,7 @@
     if (array_Material.count==3) {
        
         combineResultsViewController *recipeView=[[combineResultsViewController alloc]initWithNibName:@"combineResultsViewController" bundle:nil ];
-        recipeView.randomMaterial=array_Material;
+        recipeView.getMaterial=array_Material;
         
         //NSLog(@" test:%@",recipeView.randomMaterial);
         //[recipeView recipesSearch:nil materialNames:array_Material];
