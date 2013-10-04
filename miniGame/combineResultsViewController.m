@@ -32,6 +32,7 @@
     
 
     self.arrayMaterial=[[NSArray alloc]init];
+    self.randomRecipes=[[NSArray alloc]init];
     NSString *stringName=[self.getMaterial componentsJoinedByString:@","];
     [[stringName JSONString] UTF8String];
     webGetter = [[WebJsonDataGetter alloc]init];
@@ -42,11 +43,10 @@
 
 
 //    下面註解晚點用
-//    if(self.getMaterial.count ==0){
-//        self.arrayMaterial= nil;
+//    if(self.getRecipes.count ==0){
+//        self.randomRecipes= nil;
 //    }else{
-//        self.arrayMaterial= [self.getMaterial objectAtIndex:arc4random()%self.getMaterial.count];
-//        //NSLog(@"fuck:%@",[self.getMaterial objectAtIndex:arc4random()%self.getMaterial.count]);
+//        self.randomRecipes= [self.getRecipes objectAtIndex:arc4random()%self.getRecipes.count];
 //        
 //    }
 //    
