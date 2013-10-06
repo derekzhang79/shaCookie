@@ -7,7 +7,6 @@
 //
 #import "materialViewController.h"
 #import "Recipes.h"
-#import "RecipeInfo.h"
 #import "ASIHTTPRequest.h"
 #import "GetJsonURLString.h"
 @interface materialViewController ()
@@ -29,8 +28,8 @@ BOOL isRunning = NO;
 {
     [super viewDidLoad];
     //TODO: 討論資料形態
-    myRecipe=[[RecipeInfo alloc]initWithURLString:GetJsonURLString_Recipe];
-    [myRecipe setDelegate:self];
+    webGetter=[[WebJsonDataGetter alloc]initWithURLString:GetJsonURLString_Recipe];
+    [webGetter setDelegate:self];
     
     _lastTime = CountDownTime;
     //寫死的Recipes *re=[[Recipes alloc] initWithIndex:0];
@@ -91,7 +90,6 @@ BOOL isRunning = NO;
         cell.textLabel.text=[self.dictionary_Cook objectForKey:@"Food"];
     }else if(tableView.tag==1){
         cell.textLabel.text=[self.dictionary_Cook objectForKey:@"Step"];
-        NSLog(@"%@",[self.dictionary_Cook objectForKey:@"Step"]);
     }//tag0代表的是用料但是用料裡面還是dic格式所以需要objectForKey來辨別食材跟用量而tag1的表單代表的是做法為string格式所以不需要辨識
     return cell;
 }

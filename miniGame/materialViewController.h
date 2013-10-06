@@ -7,11 +7,10 @@
 //
 #import <UIKit/UIKit.h>
 #import "Recipes.h"
-#import "RecipeInfo.h"
 #import "ASIHTTPRequest.h"
-
-@interface materialViewController : UIViewController<RecipeInFoDelegate>{
-    RecipeInfo *myRecipe;
+#import "WebJsonDataGetter.h"
+@interface materialViewController : UIViewController<WebJsonDataGetFinishDelegater>{
+    WebJsonDataGetter *webGetter;
     ASIHTTPRequest *asiRequest;
 }
 @property (strong, nonatomic) IBOutlet UILabel *label_Name;

@@ -18,7 +18,6 @@
 #import "MFSideMenu.h"
 #import "combineResultsViewController.h"
 
-
 @interface materialWithCollectionViewController ()
 
 @end

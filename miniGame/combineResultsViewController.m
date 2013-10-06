@@ -9,7 +9,6 @@
 #import "combineResultsViewController.h"
 #import "procedureWithMPFlipViewController.h"
 #import "GetJsonURLString.h"
-#import "JSONKit.h"
 
 @interface combineResultsViewController ()
 
@@ -34,7 +33,6 @@
     self.arrayMaterial=[[NSArray alloc]init];
     self.randomRecipes=[[NSArray alloc]init];
     NSString *stringName=[self.getMaterial componentsJoinedByString:@","];
-    [[stringName JSONString] UTF8String];
     webGetter = [[WebJsonDataGetter alloc]init];
     NSString *str=[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName];
     NSLog(@"%@",[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName]);
@@ -61,7 +59,6 @@
 }
 -(void)doThingAfterWebJsonIsOKFromDelegate{
     self.getRecipes=[[NSArray alloc]initWithArray:webGetter.webData];
-    NSLog(@"fuck %@",self.getRecipes);
 
     
 }

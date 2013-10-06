@@ -11,6 +11,8 @@
 #import "CVCell.h"
 #import "procedureWithMPFlipViewController.h"
 #import "AsyncImageView.h"
+#import "UILabel+AutoFrame.h"
+
 
 @interface recipesWithICarouselViewController ()
 
@@ -62,7 +64,6 @@
 
 -(void)doThingAfterWebJsonIsOKFromDelegate{
     self.array_Items = webGetter.webData;
-
     [self.carousel reloadData];
 }
 
@@ -93,7 +94,7 @@
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
-    CVCell *cell = [[CVCell alloc]initWithFrame:CGRectMake(0, 0, 300.0f, 300.0f)];
+    CVCell *cell = [[CVCell alloc]initWithFrame:CGRectMake(0, 0, 300.0f, 317.0f)];
     
     //add AsyncImageView to cell
     AsyncImageView *imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(15.0f, 11.0f, 271.0f, 234.0f)];
@@ -112,10 +113,13 @@
     NSString *str=[NSString stringWithFormat:GetRecipesImage,[[self.array_Items objectAtIndex:index]objectForKey:@"image_url"]];
     imageView.imageURL = [NSURL URLWithString:str];
     
-//    if (!cell.image_recipe.image) {
-//        cell.image_recipe.image=[UIImage imageNamed:@"gamebaby.png"];
-//    }
-    cell.titleLabel.text=[[self.array_Items objectAtIndex:index]objectForKey:@"name"];
+
+    NSString *rank=[[self.array_Items objectAtIndex:index]objectForKey:@"rank_avg"];
+    [cell.titleLabel setText:[[self.array_Items objectAtIndex:index]objectForKey:@"name"]];
+    [cell.likeLabel setTextWithAutoFrame:[NSString stringWithFormat:@"like : %@",[[self.array_Items objectAtIndex:index]objectForKey:@"like_sum"]]];
+    [cell.shareLabel setTextWithAutoFrame:[NSString stringWithFormat:@"share : %@",[[self.array_Items objectAtIndex:index]objectForKey:@"share_sum"]]];
+    [cell.rankLabel setTextWithAutoFrame:[NSString stringWithFormat:@"rank : %d",[rank integerValue]]];
+
     view=(UIView *)cell;
 
     return view;

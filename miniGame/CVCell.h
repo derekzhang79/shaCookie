@@ -11,6 +11,10 @@
 @interface CVCell : UICollectionViewCell
 
 @property (nonatomic, strong) IBOutlet UILabel *titleLabel;
+@property (strong, nonatomic) IBOutlet UILabel *likeLabel;
+@property (strong, nonatomic) IBOutlet UILabel *shareLabel;
+@property (strong, nonatomic) IBOutlet UILabel *rankLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *image_recipe;
+
 
 @end

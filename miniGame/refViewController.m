@@ -9,7 +9,6 @@
 #import "refViewController.h"
 #import "CVCell.h"
 #import "ASIHTTPRequest.h"
-#import "RecipeInfo.h"
 #import "materialViewController.h"
 #import "GetJsonURLString.h"
 
@@ -30,12 +29,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    myRecipe=[[RecipeInfo alloc]initWithURLString:GetJsonURLString_Recipe];
-    [myRecipe setDelegate:self];
+    webGetter=[[WebJsonDataGetter alloc]initWithURLString:GetJsonURLString_Recipe];
+    [webGetter setDelegate:self];
     
     // Create data for collection views
-    self.dataArray = [[NSArray alloc] initWithArray:myRecipe.dictionary_nmlData];
-    // NSLog(@"count %d",[self.dataArray count]);
+    self.dataArray = [[NSArray alloc] init];
     /* uncomment this block to use subclassed cells*/
     [self.collectionView registerClass:[CVCell class] forCellWithReuseIdentifier:@"cvCell"];
     /* end of subclass-based cells block */
@@ -63,7 +61,7 @@
 }
 
 -(void)doThingAfterRecipeInfoIsOkFromDelegate{
-    self.dataArray = [[NSArray alloc] initWithArray:myRecipe.dictionary_nmlData];
+    self.dataArray = [[NSArray alloc] initWithArray:webGetter.webData];
     [self.collectionView reloadData];
 }
 
@@ -86,12 +84,12 @@
     static NSString *cellIdentifier = @"cvCell";
     //抓陣列的值
     CVCell *cell = (CVCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    cell.image_recipe.image=[UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[[myRecipe.dictionary_nmlData objectAtIndex:indexPath.section]objectForKey:@"name"]]];
+    cell.image_recipe.image=[UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[[self.dataArray objectAtIndex:indexPath.section]objectForKey:@"name"]]];
     //cell.image_recipe.image=[UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[[array_Refrigerator objectAtIndex:indexPath.section] objectForKey:@"菜名"]]];
     if (!cell.image_recipe.image) {
         cell.image_recipe.image=[UIImage imageNamed:@"Cell 0.jpg"];
     }
-    cell.titleLabel.text=[[myRecipe.dictionary_nmlData objectAtIndex:indexPath.section]objectForKey:@"name"];
+    cell.titleLabel.text=[[self.dataArray objectAtIndex:indexPath.section]objectForKey:@"name"];
     //cell.titleLabel.text=[[array_Refrigerator objectAtIndex:indexPath.section] objectForKey:@"菜名"];
     return cell;
     
@@ -102,8 +100,7 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     materialViewController*Cookview=[[materialViewController alloc]initWithNibName:@"materialViewController" bundle:nil ];
-    //Cookview.rec=[[Recipes alloc] initWithIndex:indexPath.section];
-    Cookview.dictionary_Cook=[myRecipe.dictionary_nmlData objectAtIndex:indexPath.section];
+    Cookview.dictionary_Cook=[self.dataArray objectAtIndex:indexPath.section];
     [Cookview setModalTransitionStyle:UIModalTransitionStyleCoverVertical];
     
     [self.navigationController pushViewController:Cookview animated:YES];//navigation連結頁面
