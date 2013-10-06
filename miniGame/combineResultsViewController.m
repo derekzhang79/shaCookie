@@ -35,7 +35,7 @@
     NSString *stringName=[self.getMaterial componentsJoinedByString:@","];
     webGetter = [[WebJsonDataGetter alloc]init];
     NSString *str=[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName];
-    NSLog(@"%@",[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName]);
+    //NSLog(@"%@",[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName]);
     [webGetter requestWithURLString:[NSString stringWithUTF8String:[str UTF8String]]];
         [webGetter setDelegate:self];
 

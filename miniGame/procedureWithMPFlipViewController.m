@@ -76,6 +76,7 @@
 	[self addObserver];
     
     // Do any additional setup after loading the view from its nib.
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back.png"]];
 
 	
 	
@@ -176,6 +177,8 @@
 -(void)doThingAfterWebJsonIsOKFromDelegate{
     self.array_Items=webGetter.webData;
     self.step=[[[self.array_Items objectAtIndex:1]objectForKey:@"step"]count];
+    //NSLog(@"step: %d",self.step);
+
     [self viewDidLoad];
 }
 

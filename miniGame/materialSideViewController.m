@@ -25,6 +25,14 @@
     [super viewDidLoad];
     webGetter=[[WebJsonDataGetter alloc]initWithURLString:GetJsonURLString_MaterialType];
     [webGetter setDelegate:self];
+     
+     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"left.png"]];
+     [tempImageView setFrame:self.tableView.frame];
+     
+     self.tableView.backgroundView = tempImageView;
+     [tempImageView release];
+     
+     //self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"left.png"]];
 }
  
 
