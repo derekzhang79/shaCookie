@@ -56,7 +56,6 @@
 -(void)doThingAfterWebJsonIsOKFromDelegate{
     self.array_Items = webGetter.webData;
     [self.carousel reloadData];
-    NSLog(@"reload data");
 }
 
 

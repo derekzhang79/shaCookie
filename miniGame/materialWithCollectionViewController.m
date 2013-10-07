@@ -16,6 +16,7 @@
 #import "WebJsonDataGetter.h"
 #import "MaterialCell.h"
 #import "MFSideMenu.h"
+#import "UILabel+AutoFrame.h"
 #import "combineResultsViewController.h"
 
 @interface materialWithCollectionViewController ()
@@ -118,8 +119,10 @@
     if (!cell.image_Material.image) {
         cell.image_Material.image=[UIImage imageNamed:@"gamebaby"];
     }
-    cell.label_Title.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"name"];
+    [cell.label_Title setTextWithAutoFrame:[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"name"]];
+    cell.label_Title.backgroundColor=[UIColor clearColor];
     //cell.titleLabel.text=[[array_Refrigerator objectAtIndex:indexPath.section] objectForKey:@"菜名"];
+    cell.backgroundColor = [UIColor clearColor];
     return cell;
     
 }
@@ -138,18 +141,12 @@
     [array_Material addObject:[[self.array_Collection objectAtIndex:indexPath.row] objectForKey:@"name"]];
 
     if (array_Material.count==3) {
-<<<<<<< HEAD:miniGame/materialWithCollectionViewController.m
-         NSLog(@"%@",array_Material);
-        recipesWithICarouselViewController *recipeView=[[recipesWithICarouselViewController alloc]initWithNibName:@"recipesWithICarouselViewController" bundle:nil ];
-        [recipeView recipesSearch:nil materialNames:array_Material];
-=======
-       
+
         combineResultsViewController *recipeView=[[combineResultsViewController alloc]initWithNibName:@"combineResultsViewController" bundle:nil ];
         recipeView.getMaterial=array_Material;
         
         //NSLog(@" test:%@",recipeView.randomMaterial);
         //[recipeView recipesSearch:nil materialNames:array_Material];
->>>>>>> devlop:miniGame/materialWithCollectionViewController.m
         [self.navigationController pushViewController:recipeView animated:TRUE];
         self.collection_Material.allowsMultipleSelection = NO;
 

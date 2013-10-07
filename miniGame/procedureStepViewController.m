@@ -9,6 +9,8 @@
 #import "procedureStepViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "GetJsonURLString.h"
+#import "AsyncImageView.h"
+
 
 #define FRAME_MARGIN 20
 
@@ -35,7 +37,7 @@
     }
     return self;
 }
-
+#define IMAGE_VIEW_TAG 99
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -55,20 +57,38 @@
     }
     
     self.descriptionField.editable = NO;
-    //self.descriptionField.userInteractionEnabled=NO;
-	[self.imageView setImage:[UIImage imageNamed:@"gamebaby"]];
     self.titleLabel.text = [[self.array_Items objectAtIndex:0]objectForKey:@"name"];
+    
+    //add AsyncImageView to cell
+    AsyncImageView *image = [[AsyncImageView alloc] initWithFrame:CGRectMake(self.imageView.frame.origin.x, self.titleLabel.frame.origin.y+self.titleLabel.frame.size.height,self.imageView.frame.size.width, self.imageView.frame.size.height)];
+        image.contentMode = UIViewContentModeScaleAspectFill;
+    image.clipsToBounds = YES;
+    image.tag = IMAGE_VIEW_TAG;
+    [self.imageFrame addSubview:image];
+    
+    //get image view
+	//image = (AsyncImageView *)[self.imageView viewWithTag:IMAGE_VIEW_TAG];
+	
+    //cancel loading previous image for cell
+    [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:image];
+    
+    //load the image
     NSString *str=[NSString stringWithFormat:GetRecipesImage,[[[[self.array_Items objectAtIndex:1]objectForKey:@"step"]objectAtIndex:[self movieIndex]-1]objectForKey:@"image_url"]];
-    NSLog(@"URL: %@",str);
-    //[self.imageView setImage:[UIImage imageNamed:@"%@",str]];
-    NSURL *url=[[NSURL alloc]initWithString:str];
-    NSData *image=[[NSData alloc]initWithContentsOfURL:url];
-    self.imageView.image=[UIImage imageWithData:image];
+    //NSLog(@"imgae: %@",str);
+    image.imageURL = [NSURL URLWithString:str];
+
+    
+    
+//    NSString *str=[NSString stringWithFormat:GetRecipesImage,[[[[self.array_Items objectAtIndex:1]objectForKey:@"step"]objectAtIndex:[self movieIndex]-1]objectForKey:@"image_url"]];
+//    NSLog(@"URL: %@",str);
+//    NSURL *url=[[NSURL alloc]initWithString:str];
+//    NSData *image=[[NSData alloc]initWithContentsOfURL:url];
+//    self.imageView.image=[UIImage imageWithData:image];
     
 
 
     self.descriptionField.text = [[[[self.array_Items objectAtIndex:1]objectForKey:@"step"] objectAtIndex:[self movieIndex]-1]objectForKey:@"step"];
-
+    self.descriptionField.backgroundColor=[UIColor clearColor];
 	
 	[self.imageFrame.layer setShadowOpacity:0.5];
 	[self.imageFrame.layer setShadowOffset:CGSizeMake(0, 1)];
