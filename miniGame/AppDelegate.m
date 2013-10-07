@@ -134,7 +134,7 @@
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:refrigeratorView leftMenuViewController:leftSideView rightMenuViewController:nil];
     [refrigerator setTitle:@"Recipes"];
     
-    container.tabBarItem.image=[UIImage imageNamed:@"knife"];
+    container.tabBarItem.image=[UIImage imageNamed:@"recipe"];
 
     [container setTitle:@"Recipes"];
     return container;

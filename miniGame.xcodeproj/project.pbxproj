@@ -86,8 +86,11 @@
 		4975630417F1D4C10053248F /* procedureStepViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4975630217F1D4C10053248F /* procedureStepViewController.xib */; };
 		497CAAA61802801200894C15 /* under.png in Resources */ = {isa = PBXBuildFile; fileRef = 497CAAA51802801200894C15 /* under.png */; };
 		497CAAAC1802816C00894C15 /* knife.png in Resources */ = {isa = PBXBuildFile; fileRef = 497CAAA91802816C00894C15 /* knife.png */; };
-		497CAABF180287BA00894C15 /* good.png in Resources */ = {isa = PBXBuildFile; fileRef = 497CAABD180287BA00894C15 /* good.png */; };
-		497CAAC0180287BA00894C15 /* recipe.png in Resources */ = {isa = PBXBuildFile; fileRef = 497CAABE180287BA00894C15 /* recipe.png */; };
+		497CAAC81802951A00894C15 /* recipe.png in Resources */ = {isa = PBXBuildFile; fileRef = 497CAAC61802951A00894C15 /* recipe.png */; };
+		497CAACA18029A1200894C15 /* good.png in Resources */ = {isa = PBXBuildFile; fileRef = 497CAAC918029A1200894C15 /* good.png */; };
+		497CAACE18029D7E00894C15 /* like.png in Resources */ = {isa = PBXBuildFile; fileRef = 497CAACB18029D7E00894C15 /* like.png */; };
+		497CAACF18029D7E00894C15 /* rank.png in Resources */ = {isa = PBXBuildFile; fileRef = 497CAACC18029D7E00894C15 /* rank.png */; };
+		497CAAD018029D7E00894C15 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 497CAACD18029D7E00894C15 /* share.png */; };
 		499C632917E43EFB00513989 /* loginWithFBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 499C632717E43EFB00513989 /* loginWithFBViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		499C632A17E43EFB00513989 /* loginWithFBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 499C632817E43EFB00513989 /* loginWithFBViewController.xib */; };
 		499C634417E449EC00513989 /* 37x-Checkmark.png in Resources */ = {isa = PBXBuildFile; fileRef = 499C633D17E449EB00513989 /* 37x-Checkmark.png */; };
@@ -240,8 +243,11 @@
 		4975630217F1D4C10053248F /* procedureStepViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = procedureStepViewController.xib; sourceTree = "<group>"; };
 		497CAAA51802801200894C15 /* under.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = under.png; sourceTree = "<group>"; };
 		497CAAA91802816C00894C15 /* knife.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = knife.png; sourceTree = "<group>"; };
-		497CAABD180287BA00894C15 /* good.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = good.png; sourceTree = "<group>"; };
-		497CAABE180287BA00894C15 /* recipe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recipe.png; sourceTree = "<group>"; };
+		497CAAC61802951A00894C15 /* recipe.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = recipe.png; sourceTree = "<group>"; };
+		497CAAC918029A1200894C15 /* good.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = good.png; sourceTree = "<group>"; };
+		497CAACB18029D7E00894C15 /* like.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = like.png; sourceTree = "<group>"; };
+		497CAACC18029D7E00894C15 /* rank.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = rank.png; sourceTree = "<group>"; };
+		497CAACD18029D7E00894C15 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		499C632617E43EFB00513989 /* loginWithFBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = loginWithFBViewController.h; sourceTree = "<group>"; };
 		499C632717E43EFB00513989 /* loginWithFBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = loginWithFBViewController.m; sourceTree = "<group>"; };
 		499C632817E43EFB00513989 /* loginWithFBViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = loginWithFBViewController.xib; sourceTree = "<group>"; };
@@ -604,8 +610,11 @@
 		4984C50A17DF140400EDE6B1 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				497CAABD180287BA00894C15 /* good.png */,
-				497CAABE180287BA00894C15 /* recipe.png */,
+				497CAACB18029D7E00894C15 /* like.png */,
+				497CAACC18029D7E00894C15 /* rank.png */,
+				497CAACD18029D7E00894C15 /* share.png */,
+				497CAAC918029A1200894C15 /* good.png */,
+				497CAAC61802951A00894C15 /* recipe.png */,
 				497CAAA91802816C00894C15 /* knife.png */,
 				497CAAA51802801200894C15 /* under.png */,
 				02B69EE31801ECBD00A43E20 /* left.png */,
@@ -947,7 +956,6 @@
 				02A67C8D174BE06000BCD095 /* refViewController.xib in Resources */,
 				02A67C97174BE21100BCD095 /* menuViewController.xib in Resources */,
 				02A67C9C174BE29600BCD095 /* foodDetailViewController.xib in Resources */,
-				497CAABF180287BA00894C15 /* good.png in Resources */,
 				02A67CA8174BE3DE00BCD095 /* Property List.plist in Resources */,
 				02A8DD6317F2027D00E6B5D9 /* MaterialCell.xib in Resources */,
 				02A4E79E174C023A00EA8FEB /* foodData.plist in Resources */,
@@ -960,18 +968,22 @@
 				491AE83D175FAD4800E4121C /* homepage2-1.png in Resources */,
 				491AE84A175FB7FB00E4121C /* materialViewController.xib in Resources */,
 				49A090DC17E22F7900B19E8C /* back-arrow.png in Resources */,
+				497CAACF18029D7E00894C15 /* rank.png in Resources */,
 				49A090DD17E22F7900B19E8C /* back-arrow@2x.png in Resources */,
+				497CAACA18029A1200894C15 /* good.png in Resources */,
 				49A090DE17E22F7900B19E8C /* menu-icon.png in Resources */,
 				49E388D117F5A4570012C8A9 /* SampleTimelineViewCell.xib in Resources */,
+				497CAACE18029D7E00894C15 /* like.png in Resources */,
 				02B69EE71801ECBD00A43E20 /* navbackgound.png in Resources */,
 				02B69EE81801ECBD00A43E20 /* back.png in Resources */,
 				49A090DF17E22F7900B19E8C /* menu-icon@2x.png in Resources */,
 				02A8DD5717F1DE5E00E6B5D9 /* materialWithCollectionViewController.xib in Resources */,
 				4927D89B17E33FEE000DDEBF /* matchMaterialViewController.xib in Resources */,
 				4927D8A117E34AC0000DDEBF /* moveFinishViewController.xib in Resources */,
-				497CAAC0180287BA00894C15 /* recipe.png in Resources */,
+				497CAAC81802951A00894C15 /* recipe.png in Resources */,
 				4975630417F1D4C10053248F /* procedureStepViewController.xib in Resources */,
 				499C632A17E43EFB00513989 /* loginWithFBViewController.xib in Resources */,
+				497CAAD018029D7E00894C15 /* share.png in Resources */,
 				499C634417E449EC00513989 /* 37x-Checkmark.png in Resources */,
 				499C634517E449EC00513989 /* icon.png in Resources */,
 				499C634617E449EC00513989 /* icon@2x.png in Resources */,

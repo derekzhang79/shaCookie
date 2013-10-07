@@ -17,4 +17,9 @@
 @property (strong, nonatomic) IBOutlet UIImageView *image_recipe;
 
 
+@property (strong, nonatomic) IBOutlet UIImageView *likeImage;
+@property (strong, nonatomic) IBOutlet UIImageView *rankImage;
+@property (strong, nonatomic) IBOutlet UIImageView *shareImage;
+
+
 @end

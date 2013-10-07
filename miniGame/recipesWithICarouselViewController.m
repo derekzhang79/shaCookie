@@ -102,17 +102,21 @@
     
     //load the image
     NSString *str=[NSString stringWithFormat:GetRecipesImage,[[self.array_Items objectAtIndex:index]objectForKey:@"image_url"]];
-    //NSLog(@"imgae: %@",str);
     imageView.imageURL = [NSURL URLWithString:str];
     
 
     NSString *rank=[[self.array_Items objectAtIndex:index]objectForKey:@"rank_avg"];
     [cell.titleLabel setText:[[self.array_Items objectAtIndex:index]objectForKey:@"name"]];
-    [cell.likeLabel setTextWithAutoFrame:[NSString stringWithFormat:@"like : %@",[[self.array_Items objectAtIndex:index]objectForKey:@"like_sum"]]];
-    [cell.shareLabel setTextWithAutoFrame:[NSString stringWithFormat:@"share : %@",[[self.array_Items objectAtIndex:index]objectForKey:@"share_sum"]]];
-    [cell.rankLabel setTextWithAutoFrame:[NSString stringWithFormat:@"rank : %d",[rank integerValue]]];
+    [cell.likeLabel setTextWithAutoFrame:[NSString stringWithFormat:@"%@",[[self.array_Items objectAtIndex:index]objectForKey:@"like_sum"]]];
+    [cell.shareLabel setTextWithAutoFrame:[NSString stringWithFormat:@"%@",[[self.array_Items objectAtIndex:index]objectForKey:@"share_sum"]]];
+    [cell.rankLabel setTextWithAutoFrame:[NSString stringWithFormat:@"%d",[rank integerValue]]];
+    
+    cell.rankImage.image=[UIImage imageNamed:@"rank"];
+    cell.shareImage.image=[UIImage imageNamed:@"share"];
+    cell.likeImage.image=[UIImage imageNamed:@"like"];
 
     view=(UIView *)cell;
+    
 
     return view;
 }
