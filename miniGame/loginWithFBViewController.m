@@ -32,12 +32,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back.png"]];
     [self initLocationManager];
     [self updateView];
     [self openActiveSessionWithReadPermissionsOfFaceBook];
     
+    
         
 }
+
+
 
 - (void)viewDidAppear:(BOOL)animated {
 }
@@ -54,6 +58,8 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation

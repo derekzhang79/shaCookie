@@ -19,6 +19,8 @@
     webGetter =[[WebJsonDataGetter alloc]initWithURLString:GetJsonURLString_Content];
     [webGetter setDelegate:self];
     
+     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"left.png"]];
+    
 }
 -(void)doThingAfterWebJsonIsOKFromDelegate{
 

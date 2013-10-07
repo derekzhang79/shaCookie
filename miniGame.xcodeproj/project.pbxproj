@@ -36,7 +36,6 @@
 		02A68B3417035F9F00B34828 /* WebJsonDataGetter.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A68B3317035F9F00B34828 /* WebJsonDataGetter.m */; };
 		02A68B6817037BEE00B34828 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A68B6717037BEE00B34828 /* libxml2.dylib */; };
 		02A68B6A17037BFC00B34828 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 02A68B6917037BFC00B34828 /* libz.dylib */; };
-		02A700C217FEAECA00C188AA /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 02A700C117FEAECA00C188AA /* back.png */; };
 		02A8DD5617F1DE5E00E6B5D9 /* materialWithCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A8DD5417F1DE5E00E6B5D9 /* materialWithCollectionViewController.m */; };
 		02A8DD5717F1DE5E00E6B5D9 /* materialWithCollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A8DD5517F1DE5E00E6B5D9 /* materialWithCollectionViewController.xib */; };
 		02A8DD6217F2027D00E6B5D9 /* MaterialCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A8DD6017F2027D00E6B5D9 /* MaterialCell.m */; };
@@ -60,7 +59,10 @@
 		02A9B11617F5FDE200535CC7 /* LBYouTubePlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A9B11417F5FDE200535CC7 /* LBYouTubePlayerViewController.m */; };
 		02AE7873174F211500DDCBDA /* 蒜香烤土司.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02AE7871174F211500DDCBDA /* 蒜香烤土司.jpg */; };
 		02AE7874174F211500DDCBDA /* 銀杏百合蝦球.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 02AE7872174F211500DDCBDA /* 銀杏百合蝦球.jpg */; };
-		02C8795217EA1BDD00E1F738 /* materialSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C8795117EA1BDD00E1F738 /* materialSideViewController.m */; };
+		02B69EE61801ECBD00A43E20 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 02B69EE31801ECBD00A43E20 /* left.png */; };
+		02B69EE71801ECBD00A43E20 /* navbackgound.png in Resources */ = {isa = PBXBuildFile; fileRef = 02B69EE41801ECBD00A43E20 /* navbackgound.png */; };
+		02B69EE81801ECBD00A43E20 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 02B69EE51801ECBD00A43E20 /* back.png */; };
+		02C8795217EA1BDD00E1F738 /* materialSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C8795117EA1BDD00E1F738 /* materialSideViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		2BEDE413FCB64F2EB044019A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A691AA26FB84D70BFC64D3E /* libPods.a */; };
 		490322C817E5BBBB0008F1F4 /* recipesWithICarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490322C617E5BBBB0008F1F4 /* recipesWithICarouselViewController.m */; };
 		490322C917E5BBBB0008F1F4 /* recipesWithICarouselViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 490322C717E5BBBB0008F1F4 /* recipesWithICarouselViewController.xib */; };
@@ -169,7 +171,6 @@
 		02A68B3317035F9F00B34828 /* WebJsonDataGetter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WebJsonDataGetter.m; sourceTree = "<group>"; };
 		02A68B6717037BEE00B34828 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
 		02A68B6917037BFC00B34828 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
-		02A700C117FEAECA00C188AA /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		02A8DD5317F1DE5E00E6B5D9 /* materialWithCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = materialWithCollectionViewController.h; sourceTree = "<group>"; };
 		02A8DD5417F1DE5E00E6B5D9 /* materialWithCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = materialWithCollectionViewController.m; sourceTree = "<group>"; };
 		02A8DD5517F1DE5E00E6B5D9 /* materialWithCollectionViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = materialWithCollectionViewController.xib; sourceTree = "<group>"; };
@@ -204,6 +205,9 @@
 		02A9B11417F5FDE200535CC7 /* LBYouTubePlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LBYouTubePlayerViewController.m; sourceTree = "<group>"; };
 		02AE7871174F211500DDCBDA /* 蒜香烤土司.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "蒜香烤土司.jpg"; sourceTree = "<group>"; };
 		02AE7872174F211500DDCBDA /* 銀杏百合蝦球.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "銀杏百合蝦球.jpg"; sourceTree = "<group>"; };
+		02B69EE31801ECBD00A43E20 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
+		02B69EE41801ECBD00A43E20 /* navbackgound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbackgound.png; sourceTree = "<group>"; };
+		02B69EE51801ECBD00A43E20 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		02C8795017EA1BDD00E1F738 /* materialSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = materialSideViewController.h; sourceTree = "<group>"; };
 		02C8795117EA1BDD00E1F738 /* materialSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = materialSideViewController.m; sourceTree = "<group>"; };
 		15404D105D6D4CF9B5351AEF /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
@@ -613,8 +617,10 @@
 		4984C50A17DF140400EDE6B1 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				02B69EE31801ECBD00A43E20 /* left.png */,
+				02B69EE41801ECBD00A43E20 /* navbackgound.png */,
+				02B69EE51801ECBD00A43E20 /* back.png */,
 				499C633D17E449EB00513989 /* 37x-Checkmark.png */,
-				02A700C117FEAECA00C188AA /* back.png */,
 				49F1F4C517FEC64B00E7A0AA /* background-big.png */,
 				49F1F4C617FEC64B00E7A0AA /* backgrond.png */,
 				49F1F4C717FEC64B00E7A0AA /* 564.png */,
@@ -970,7 +976,6 @@
 				020C700117FC7FD900623DF6 /* combineResultsViewController.xib in Resources */,
 				02AE7873174F211500DDCBDA /* 蒜香烤土司.jpg in Resources */,
 				02AE7874174F211500DDCBDA /* 銀杏百合蝦球.jpg in Resources */,
-				02A700C217FEAECA00C188AA /* back.png in Resources */,
 				02A99DAB174F450600F576E2 /* game.png in Resources */,
 				02A99DAE174F492700F576E2 /* gamepan.png in Resources */,
 				02A99DB0174F496C00F576E2 /* gamebaby.png in Resources */,
@@ -985,6 +990,8 @@
 				49F1F4C917FEC64B00E7A0AA /* background-big.png in Resources */,
 				49A090DE17E22F7900B19E8C /* menu-icon.png in Resources */,
 				49E388D117F5A4570012C8A9 /* SampleTimelineViewCell.xib in Resources */,
+				02B69EE71801ECBD00A43E20 /* navbackgound.png in Resources */,
+				02B69EE81801ECBD00A43E20 /* back.png in Resources */,
 				49A090DF17E22F7900B19E8C /* menu-icon@2x.png in Resources */,
 				02A8DD5717F1DE5E00E6B5D9 /* materialWithCollectionViewController.xib in Resources */,
 				49F1F4CC17FEC64B00E7A0AA /* 123.png in Resources */,
@@ -1000,6 +1007,7 @@
 				490322C917E5BBBB0008F1F4 /* recipesWithICarouselViewController.xib in Resources */,
 				49F1F4CA17FEC64B00E7A0AA /* backgrond.png in Resources */,
 				497562EF17F1D0570053248F /* procedureWithMPFlipViewController.xib in Resources */,
+				02B69EE61801ECBD00A43E20 /* left.png in Resources */,
 				49FD44AD17EC3A6E00F472B5 /* recipesSideViewController.xib in Resources */,
 				49E388D717F5B4A80012C8A9 /* asyncImageCellViewController.xib in Resources */,
 				49FD44B717EC57F900F472B5 /* aboutUsViewController.xib in Resources */,

@@ -59,6 +59,7 @@
     [self.tableView_Json setShowsVerticalScrollIndicator:NO];
     [self.tableView_Json.pullToRefreshView startAnimating];
     
+     self.tableView_Json.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back.png"]];
 }
 - (void)viewDidAppear:(BOOL)animated
 {
