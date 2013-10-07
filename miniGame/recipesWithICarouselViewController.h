@@ -17,5 +17,6 @@
 
 @property (nonatomic, strong) IBOutlet iCarousel *carousel;
 @property (nonatomic, strong) NSArray *array_Items;
+@property (nonatomic,strong) NSString* recipeType;
 
 @end

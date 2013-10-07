@@ -16,7 +16,9 @@
 #import "WebJsonDataGetter.h"
 #import "MaterialCell.h"
 #import "MFSideMenu.h"
+#import "UILabel+AutoFrame.h"
 #import "combineResultsViewController.h"
+#import "AsyncImageView.h"
 
 @interface materialWithCollectionViewController ()
 
@@ -39,13 +41,12 @@
     // Do any additional setup after loading the view from its nib.
     
     self.collection_Material.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back.png"]];
-    
+
     array_Material=[[NSMutableArray alloc]init];
     self.array_MaterialName=[[NSArray alloc] init];
     self.array_Collection=[[NSArray alloc]init];
     dictionary_MaterialName=[[NSMutableDictionary alloc]init];
     // Create data for collection views
-    // NSLog(@"count %d",[self.dataArray count]);
     /* uncomment this block to use subclassed cells*/
     [self.collection_Material registerClass:[MaterialCell class] forCellWithReuseIdentifier:@"maCell"];
     self.collection_Material.allowsMultipleSelection = YES;
@@ -97,6 +98,7 @@
     //return 1;
     
 }
+#define IMAGE_VIEW_TAG 99
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -105,28 +107,28 @@
     static NSString *cellIdentifier = @"maCell";
     //抓陣列的值
     MaterialCell *cell = (MaterialCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
-    //NSString *str=[NSString stringWithFormat:@"http://54.244.225.229/shacookie/image/material/%@",[[array_Material objectAtIndex:indexPath.row]objectForKey:@"image_url"]];
+    
+    //add AsyncImageView to cell
+    AsyncImageView *imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 110.0f, 87.0f)];
+    imageView.contentMode = UIViewContentModeScaleAspectFill;
+    imageView.clipsToBounds = YES;
+    imageView.tag = IMAGE_VIEW_TAG;
+    [cell addSubview:imageView];
+    
+    //get image view
+	imageView = (AsyncImageView *)[cell viewWithTag:IMAGE_VIEW_TAG];
+	
+    //cancel loading previous image for cell
+    [[AsyncImageLoader sharedLoader] cancelLoadingImagesForTarget:imageView];
+    
+    //load the image
     NSString *str=[NSString stringWithFormat:@"http://54.244.225.229/shacookie/image/material/%@",[[self.array_Collection objectAtIndex:indexPath.row]objectForKey:@"image_url"]];
-    NSLog(@"showme: %@",str);
-    //NSLog(@"showme: %@",self.array_Collection);
+    NSLog(@"%@",[[self.array_Collection objectAtIndex:indexPath.row]objectForKey:@"image_url"]);
+    imageView.imageURL = [NSURL URLWithString:str];
     
-//    NSString *str=[NSString stringWithFormat:@"http://54.244.225.229/shacookie/image/material/%@",[[array_Material objectAtIndex:indexPath.row]objectForKey:@"material_name"]];
-    NSURL *url=[[NSURL alloc]initWithString:str];
-    NSData *image=[[NSData alloc]initWithContentsOfURL:url];
-    cell.image_Material.image = [UIImage imageWithData:image];
-    
-    
-    //cell.image_material.image=[UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[[webGetter.webData objectAtIndex:indexPath.section]objectForKey:@"name"]]];
- 
-//    if (!cell.image_Material.image) {
-//        cell.image_Material.image=[UIImage imageNamed:@"gamebaby"];
-//    }
-    
-    
-    cell.label_Title.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"name"];
-    
-    //cell.titleLabel.text=[[array_Refrigerator objectAtIndex:indexPath.section] objectForKey:@"菜名"];
-
+    [cell.label_Title setTextWithAutoFrame:[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"name"]];
+    [cell.label_Title setBackgroundColor:[UIColor clearColor]];
+    [cell setBackgroundColor:[UIColor clearColor]];
     return cell;
     
 }
@@ -141,16 +143,13 @@
     cell2.image_Material.alpha=0.5f;
     cell2.label_Title.alpha=0.5f;
     
-//    NSMutableArray *arr=[[NSArray alloc]init];
     [array_Material addObject:[[self.array_Collection objectAtIndex:indexPath.row] objectForKey:@"name"]];
 
     if (array_Material.count==3) {
-       
+
         combineResultsViewController *recipeView=[[combineResultsViewController alloc]initWithNibName:@"combineResultsViewController" bundle:nil ];
         recipeView.getMaterial=array_Material;
         
-        //NSLog(@" test:%@",recipeView.randomMaterial);
-        //[recipeView recipesSearch:nil materialNames:array_Material];
         [self.navigationController pushViewController:recipeView animated:TRUE];
         self.collection_Material.allowsMultipleSelection = NO;
 
@@ -163,14 +162,12 @@
 
 - (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    //NSLog(@"deselect");
     UICollectionViewCell *cell=[collectionView cellForItemAtIndexPath:indexPath];
     MaterialCell *cell2=(MaterialCell*)cell;
     cell2.image_Material.alpha=1.0f;
     cell2.label_Title.alpha=1.0f;
     
     NSString *name =[[self.array_Collection objectAtIndex:indexPath.row] objectForKey:@"name"];
-//    [array_Material indexOfObject:name] => 找出name在array中的位置
     [array_Material removeObjectAtIndex:[array_Material indexOfObject:name]];
     
 }
@@ -194,7 +191,6 @@
 #pragma mark - UIBarButtonItems
 
 - (void)setupMenuBarButtonItems {
-    //self.navigationItem.rightBarButtonItem = [self rightMenuBarButtonItem];
     
     if(self.menuContainerViewController.menuState == MFSideMenuStateClosed &&
        ![[self.navigationController.viewControllers objectAtIndex:0] isEqual:self]) {
