@@ -51,12 +51,22 @@
         [button_Back setTitle:@"Back" forState:UIControlStateNormal];
         button_Back.frame = CGRectMake(0.0, 0.0, 50.0, 50.0);
         [self.view addSubview:button_Back];
+        
     }
     
     self.descriptionField.editable = NO;
     //self.descriptionField.userInteractionEnabled=NO;
 	[self.imageView setImage:[UIImage imageNamed:@"gamebaby"]];
-    self.titleLabel.text = [[self.array_Items objectAtIndex:0]objectForKey:@"name"];;
+    self.titleLabel.text = [[self.array_Items objectAtIndex:0]objectForKey:@"name"];
+    NSString *str=[NSString stringWithFormat:GetRecipesImage,[[[[self.array_Items objectAtIndex:1]objectForKey:@"step"]objectAtIndex:[self movieIndex]-1]objectForKey:@"image_url"]];
+    NSLog(@"URL: %@",str);
+    //[self.imageView setImage:[UIImage imageNamed:@"%@",str]];
+    NSURL *url=[[NSURL alloc]initWithString:str];
+    NSData *image=[[NSData alloc]initWithContentsOfURL:url];
+    self.imageView.image=[UIImage imageWithData:image];
+    
+
+
     self.descriptionField.text = [[[[self.array_Items objectAtIndex:1]objectForKey:@"step"] objectAtIndex:[self movieIndex]-1]objectForKey:@"step"];
 
 	
@@ -71,6 +81,7 @@
     UITapGestureRecognizer *doubleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(doubleTapRecognized:)];
     doubleTap.numberOfTapsRequired = 2;
     [self.descriptionField addGestureRecognizer:doubleTap];
+    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back.png"]];
 }
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{

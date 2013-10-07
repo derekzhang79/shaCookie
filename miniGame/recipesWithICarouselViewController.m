@@ -63,7 +63,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.carousel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back.png"]];
     self.carousel.type = iCarouselTypeCoverFlow;
     self.carousel.vertical = true;
     
@@ -103,6 +103,7 @@
     
     //load the image
     NSString *str=[NSString stringWithFormat:GetRecipesImage,[[self.array_Items objectAtIndex:index]objectForKey:@"image_url"]];
+    //NSLog(@"imgae: %@",str);
     imageView.imageURL = [NSURL URLWithString:str];
     
 

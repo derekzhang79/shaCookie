@@ -143,6 +143,8 @@
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:mainView leftMenuViewController:leftSideView rightMenuViewController:nil];
     [main setTitle:@"refrigerator"];
     [container setTitle:@"refrigerator"];
+      [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbackgound.png"] forBarMetrics:UIBarMetricsDefault];
+    
     return container;
 }
 @end
