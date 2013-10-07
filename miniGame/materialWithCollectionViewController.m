@@ -105,9 +105,12 @@
     static NSString *cellIdentifier = @"maCell";
     //抓陣列的值
     MaterialCell *cell = (MaterialCell *)[collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifier forIndexPath:indexPath];
+    //NSString *str=[NSString stringWithFormat:@"http://54.244.225.229/shacookie/image/material/%@",[[array_Material objectAtIndex:indexPath.row]objectForKey:@"image_url"]];
+    NSString *str=[NSString stringWithFormat:@"http://54.244.225.229/shacookie/image/material/%@",[[self.array_Collection objectAtIndex:indexPath.row]objectForKey:@"image_url"]];
+    NSLog(@"showme: %@",str);
+    //NSLog(@"showme: %@",self.array_Collection);
     
-    
-    NSString *str=[NSString stringWithFormat:@"www.google.com/icon.png"];
+//    NSString *str=[NSString stringWithFormat:@"http://54.244.225.229/shacookie/image/material/%@",[[array_Material objectAtIndex:indexPath.row]objectForKey:@"material_name"]];
     NSURL *url=[[NSURL alloc]initWithString:str];
     NSData *image=[[NSData alloc]initWithContentsOfURL:url];
     cell.image_Material.image = [UIImage imageWithData:image];
@@ -115,11 +118,15 @@
     
     //cell.image_material.image=[UIImage imageNamed:[NSString stringWithFormat:@"%@.jpg",[[webGetter.webData objectAtIndex:indexPath.section]objectForKey:@"name"]]];
  
-    if (!cell.image_Material.image) {
-        cell.image_Material.image=[UIImage imageNamed:@"gamebaby"];
-    }
+//    if (!cell.image_Material.image) {
+//        cell.image_Material.image=[UIImage imageNamed:@"gamebaby"];
+//    }
+    
+    
     cell.label_Title.text=[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"name"];
+    
     //cell.titleLabel.text=[[array_Refrigerator objectAtIndex:indexPath.section] objectForKey:@"菜名"];
+
     return cell;
     
 }
