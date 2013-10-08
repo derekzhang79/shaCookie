@@ -123,8 +123,7 @@
     
     //load the image
     NSString *str=[NSString stringWithFormat:@"http://54.244.225.229/shacookie/image/material/%@",[[self.array_Collection objectAtIndex:indexPath.row]objectForKey:@"image_url"]];
-    NSLog(@"%@",[[self.array_Collection objectAtIndex:indexPath.row]objectForKey:@"image_url"]);
-    imageView.imageURL = [NSURL URLWithString:str];
+        imageView.imageURL = [NSURL URLWithString:str];
     
     [cell.label_Title setTextWithAutoFrame:[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"name"]];
     [cell.label_Title setBackgroundColor:[UIColor clearColor]];
@@ -202,14 +201,14 @@
 
 - (UIBarButtonItem *)leftMenuBarButtonItem {
     return [[UIBarButtonItem alloc]
-            initWithImage:[UIImage imageNamed:@"menu-icon.png"] style:UIBarButtonItemStyleBordered
+            initWithImage:[UIImage imageNamed:@"pp.png"] style:UIBarButtonItemStyleBordered
             target:self
             action:@selector(leftSideMenuButtonPressed:)];
 }
 
 - (UIBarButtonItem *)rightMenuBarButtonItem {
     return [[UIBarButtonItem alloc]
-            initWithImage:[UIImage imageNamed:@"menu-icon.png"] style:UIBarButtonItemStyleBordered
+            initWithImage:[UIImage imageNamed:@"pp.png"] style:UIBarButtonItemStyleBordered
             target:self
             action:@selector(rightSideMenuButtonPressed:)];
 }

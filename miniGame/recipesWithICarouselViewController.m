@@ -8,7 +8,6 @@
 #import "materialViewController.h"
 #import "recipesWithICarouselViewController.h"
 #import "GetJsonURLString.h"
-#import "CVCell.h"
 #import "procedureWithMPFlipViewController.h"
 #import "AsyncImageView.h"
 #import "KoaPullToRefresh.h"
@@ -85,7 +84,7 @@
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
-    CVCell *cell = [[CVCell alloc]initWithFrame:CGRectMake(0, 0, 300.0f, 317.0f)];
+    cell = [[CVCell alloc]initWithFrame:CGRectMake(0, 0, 300.0f, 317.0f)];
     
     //add AsyncImageView to cell
     AsyncImageView *imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(15.0f, 11.0f, 271.0f, 234.0f)];
@@ -117,10 +116,22 @@
 
     view=(UIView *)cell;
     
+    UIButton *button_like = (UIButton*)[cell viewWithTag:10];
+    [button_like addTarget:self
+                    action:@selector(button_like:)
+          forControlEvents:UIControlEventTouchDown];
+    [cell addSubview:button_like];
+    
 
     return view;
 }
 
+
+
+-(IBAction)button_like:(id)sender{
+    NSLog(@"wedijeowiw");
+    [cell.likeLabel setText:[NSString stringWithFormat:@"%d",[cell.likeLabel.text integerValue]+1]];
+}
 
 -(NSUInteger)numberOfPlaceholdersInCarousel:(iCarousel *)carousel{
     return 2;
