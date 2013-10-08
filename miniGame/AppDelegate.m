@@ -122,7 +122,7 @@
 
 -(MFSideMenuContainerViewController *)recipesView{
     recipesWithICarouselViewController *refrigerator= [[recipesWithICarouselViewController alloc ]initWithNibName:@"recipesWithICarouselViewController" bundle:nil];
-    [refrigerator recipesSearch:@"2" materialNames:nil];
+    [refrigerator recipesSearch:@"1" materialNames:nil];
 
     UINavigationController *refrigeratorView=[[UINavigationController alloc]initWithRootViewController:refrigerator];
     [refrigeratorView setNavigationBarHidden:TRUE animated:TRUE];
@@ -145,7 +145,7 @@
     [main materialSearch:@"1"];
     
     UINavigationController *mainView=[[UINavigationController alloc]initWithRootViewController:main];
-    //[mainView setNavigationBarHidden:TRUE animated:TRUE];
+    [mainView setNavigationBarHidden:TRUE animated:TRUE];
     materialSideViewController *leftSideView= [[materialSideViewController alloc ]init];
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:mainView leftMenuViewController:leftSideView rightMenuViewController:nil];
     [main setTitle:@"refrigerator"];

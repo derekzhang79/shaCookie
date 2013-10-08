@@ -129,7 +129,7 @@
     
     [cell.label_Title setTextWithAutoFrame:[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"name"]];
     [cell.label_Title setBackgroundColor:[UIColor clearColor]];
-    [cell.label_Title setTextAlignment:UITextAlignmentCenter];
+    //[cell.label_Title setTextAlignment:UITextAlignmentCenter];
     [cell setBackgroundColor:[UIColor clearColor]];
     return cell;
     
@@ -148,7 +148,7 @@
     [array_Material addObject:[[self.array_Collection objectAtIndex:indexPath.row] objectForKey:@"id"]];
     NSLog(@"look : %@",array_Material);
     if (array_Material.count==2) {
-        NSArray * test=[NSArray arrayWithObjects:@"110",@"46",nil];
+        NSArray * test=[NSArray arrayWithObjects:@"110",@"62",nil];
         if([array_Material  isEqualToArray:test]){
             
         
@@ -164,6 +164,8 @@
                         [mes show];
                         [mes release];
             
+            cell2.image_Material.alpha=1.0f;
+            cell2.label_Title.alpha=1.0f;
 
         }
 

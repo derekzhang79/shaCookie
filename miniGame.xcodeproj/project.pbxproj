@@ -15,6 +15,8 @@
 		02612DE8173CB23600C04A37 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02612DE7173CB23600C04A37 /* QuartzCore.framework */; };
 		02A4E79E174C023A00EA8FEB /* foodData.plist in Resources */ = {isa = PBXBuildFile; fileRef = 02A4E79D174C023A00EA8FEB /* foodData.plist */; };
 		02A62D0718046F03003D8106 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 02A62D0618046F03003D8106 /* back.png */; };
+		02A62D0B180484C8003D8106 /* logout.png in Resources */ = {isa = PBXBuildFile; fileRef = 02A62D09180484C8003D8106 /* logout.png */; };
+		02A62D0D18048D89003D8106 /* login.png in Resources */ = {isa = PBXBuildFile; fileRef = 02A62D0C18048D89003D8106 /* login.png */; };
 		02A67C72174BDA1800BCD095 /* CVCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A67C70174BDA1800BCD095 /* CVCell.m */; };
 		02A67C73174BDA1800BCD095 /* CVCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 02A67C71174BDA1800BCD095 /* CVCell.xib */; };
 		02A67C85174BDECA00BCD095 /* Recipes.m in Sources */ = {isa = PBXBuildFile; fileRef = 02A67C84174BDECA00BCD095 /* Recipes.m */; };
@@ -138,6 +140,8 @@
 		02A4E7A1174C03D000EA8FEB /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		02A4E7A9174C08DD00EA8FEB /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		02A62D0618046F03003D8106 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		02A62D09180484C8003D8106 /* logout.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logout.png; sourceTree = "<group>"; };
+		02A62D0C18048D89003D8106 /* login.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = login.png; sourceTree = "<group>"; };
 		02A67C6F174BDA1800BCD095 /* CVCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CVCell.h; sourceTree = "<group>"; };
 		02A67C70174BDA1800BCD095 /* CVCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CVCell.m; sourceTree = "<group>"; };
 		02A67C71174BDA1800BCD095 /* CVCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CVCell.xib; sourceTree = "<group>"; };
@@ -612,6 +616,8 @@
 		4984C50A17DF140400EDE6B1 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				02A62D0C18048D89003D8106 /* login.png */,
+				02A62D09180484C8003D8106 /* logout.png */,
 				02A62D0618046F03003D8106 /* back.png */,
 				02E983531803C7BB005FF04C /* pp.png */,
 				499C633D17E449EB00513989 /* 37x-Checkmark.png */,
@@ -967,6 +973,7 @@
 				02A99DAE174F492700F576E2 /* gamepan.png in Resources */,
 				02A99DB0174F496C00F576E2 /* gamebaby.png in Resources */,
 				023842C017588CC800831605 /* UploadRecipe.xib in Resources */,
+				02A62D0B180484C8003D8106 /* logout.png in Resources */,
 				491AE83C175FAD4800E4121C /* homepage1.png in Resources */,
 				491AE83D175FAD4800E4121C /* homepage2-1.png in Resources */,
 				491AE84A175FB7FB00E4121C /* materialViewController.xib in Resources */,
@@ -996,6 +1003,7 @@
 				497562EF17F1D0570053248F /* procedureWithMPFlipViewController.xib in Resources */,
 				02B69EE61801ECBD00A43E20 /* left.png in Resources */,
 				49FD44AD17EC3A6E00F472B5 /* recipesSideViewController.xib in Resources */,
+				02A62D0D18048D89003D8106 /* login.png in Resources */,
 				49E388D717F5B4A80012C8A9 /* asyncImageCellViewController.xib in Resources */,
 				49FD44B717EC57F900F472B5 /* aboutUsViewController.xib in Resources */,
 			);
