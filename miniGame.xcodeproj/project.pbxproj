@@ -103,6 +103,7 @@
 		49A090DD17E22F7900B19E8C /* back-arrow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A090D917E22F7900B19E8C /* back-arrow@2x.png */; };
 		49A090DE17E22F7900B19E8C /* menu-icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A090DA17E22F7900B19E8C /* menu-icon.png */; };
 		49A090DF17E22F7900B19E8C /* menu-icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A090DB17E22F7900B19E8C /* menu-icon@2x.png */; };
+		49A439DB18049B3F002993BD /* about.png in Resources */ = {isa = PBXBuildFile; fileRef = 49A439DA18049B3F002993BD /* about.png */; };
 		49E388B617F5A25C0012C8A9 /* TimelineView+Discovery.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E388A817F5A25C0012C8A9 /* TimelineView+Discovery.m */; };
 		49E388B717F5A25C0012C8A9 /* TimelineView+Gestures.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E388AA17F5A25C0012C8A9 /* TimelineView+Gestures.m */; };
 		49E388B817F5A25C0012C8A9 /* TimelineView+Mutation.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E388AC17F5A25C0012C8A9 /* TimelineView+Mutation.m */; };
@@ -264,6 +265,7 @@
 		49A090D917E22F7900B19E8C /* back-arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "back-arrow@2x.png"; sourceTree = "<group>"; };
 		49A090DA17E22F7900B19E8C /* menu-icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon.png"; sourceTree = "<group>"; };
 		49A090DB17E22F7900B19E8C /* menu-icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "menu-icon@2x.png"; sourceTree = "<group>"; };
+		49A439DA18049B3F002993BD /* about.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = about.png; sourceTree = "<group>"; };
 		49CFC50F17E22AF30001E0D6 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
 		49CFC51117E22B310001E0D6 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
 		49CFC51317E22B3F0001E0D6 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
@@ -616,6 +618,7 @@
 		4984C50A17DF140400EDE6B1 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				49A439DA18049B3F002993BD /* about.png */,
 				02A62D0C18048D89003D8106 /* login.png */,
 				02A62D09180484C8003D8106 /* logout.png */,
 				02A62D0618046F03003D8106 /* back.png */,
@@ -986,6 +989,7 @@
 				49E388D117F5A4570012C8A9 /* SampleTimelineViewCell.xib in Resources */,
 				497CAACE18029D7E00894C15 /* like.png in Resources */,
 				02B69EE71801ECBD00A43E20 /* navbackgound.png in Resources */,
+				49A439DB18049B3F002993BD /* about.png in Resources */,
 				49A090DF17E22F7900B19E8C /* menu-icon@2x.png in Resources */,
 				02A8DD5717F1DE5E00E6B5D9 /* materialWithCollectionViewController.xib in Resources */,
 				4927D89B17E33FEE000DDEBF /* matchMaterialViewController.xib in Resources */,
