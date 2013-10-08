@@ -130,7 +130,7 @@
 
 -(IBAction)button_like:(id)sender{
     NSLog(@"wedijeowiw");
-    [cell.likeLabel setText:[NSString stringWithFormat:@"%d",[cell.likeLabel.text integerValue]+1]];
+    cell.likeLabel.text=[NSString stringWithFormat:@"%d",[cell.likeLabel.text intValue]+1];
 }
 
 -(NSUInteger)numberOfPlaceholdersInCarousel:(iCarousel *)carousel{
