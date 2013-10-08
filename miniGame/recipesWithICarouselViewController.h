@@ -17,7 +17,7 @@
     CVCell *cell;
 }
 -(void)recipesSearch:(NSString*)recipeType materialNames:(NSMutableArray *)materialNames;
-
+-(IBAction)button_like:(id)sender;
 @property (nonatomic, strong) IBOutlet iCarousel *carousel;
 @property (nonatomic, strong) NSArray *array_Items;
 @property (nonatomic,strong) NSString* recipeType;

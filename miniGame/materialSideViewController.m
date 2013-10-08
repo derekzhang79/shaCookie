@@ -66,10 +66,10 @@
     
     //cell.textLabel.text = [[self.array_MaterialMenu objectAtIndex:indexPath.row]objectForKey:@"category"];
     switch (indexPath.row) {
-        case 0:
-            cell.textLabel.text=@"青菜類";
-            break;
         case 1:
+            cell.textLabel.text=@"蔬菜類";
+            break;
+        case 0:
             cell.textLabel.text=@"肉類";
             break;
         case 2:
@@ -108,11 +108,11 @@
     NSString *materialType=nil;
     switch ([materialType intValue]) {
         case 1:
-            materialType=@"蔬菜類";
+            materialType=@"肉類";
             break;
             
         case 2:
-            materialType= @"肉類";
+            materialType= @"蔬菜類";
             break;
             
         case 3:

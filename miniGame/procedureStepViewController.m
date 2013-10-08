@@ -305,6 +305,8 @@
 
 - (void)singleTapRecognized:(UIGestureRecognizer *)gestureRecognizer {
     [_tableView setHidden:TRUE];
+    [_descriptionField setHidden:NO];
+    
 }
 
 - (void)doubleTapRecognized:(UIGestureRecognizer *)gestureRecognizer {
@@ -312,8 +314,10 @@
     _tableView = tableView;
     [_tableView setDelegate:self];
     [_tableView setDataSource:self];
+    [_tableView setBackgroundColor:[UIColor clearColor]];
     [self.view addSubview:_tableView];
     
+    [_descriptionField setHidden:YES];
     //listen tap event
     UITapGestureRecognizer *singleTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(singleTapRecognized:)];
     singleTap.numberOfTapsRequired = 1;
