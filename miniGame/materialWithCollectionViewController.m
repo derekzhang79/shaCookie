@@ -19,6 +19,8 @@
 #import "UILabel+AutoFrame.h"
 #import "combineResultsViewController.h"
 #import "AsyncImageView.h"
+#import "procedureWithMPFlipViewController.h"
+#import "procedureStepViewController.h"
 
 @interface materialWithCollectionViewController ()
 
@@ -142,19 +144,36 @@
     cell2.image_Material.alpha=0.5f;
     cell2.label_Title.alpha=0.5f;
     
-    [array_Material addObject:[[self.array_Collection objectAtIndex:indexPath.row] objectForKey:@"name"]];
-
-    if (array_Material.count==3) {
-
-        combineResultsViewController *recipeView=[[combineResultsViewController alloc]initWithNibName:@"combineResultsViewController" bundle:nil ];
-        recipeView.getMaterial=array_Material;
+    [array_Material addObject:[[self.array_Collection objectAtIndex:indexPath.row] objectForKey:@"id"]];
+    NSLog(@"look : %@",array_Material);
+    if (array_Material.count==2) {
+        NSArray * test=[NSArray arrayWithObjects:@"110",@"46",nil];
+        if([array_Material  isEqualToArray:test]){
+            
         
-        [self.navigationController pushViewController:recipeView animated:TRUE];
-        self.collection_Material.allowsMultipleSelection = NO;
+        NSString *recipeId=@"15";
+        procedureWithMPFlipViewController *pro=[[procedureWithMPFlipViewController alloc]initWithNibName:@"procedureWithMPFlipViewController" bundle:nil recipeId:recipeId];
+        
+        [self.navigationController pushViewController:pro animated:TRUE];
+        }else{
+            
+                        UIAlertView* mes=[[UIAlertView alloc] initWithTitle:@"配不到！！！"
+                                                                    message:@"配不到你所選食材的食譜喔～" delegate:self cancelButtonTitle:@"返回！" otherButtonTitles: nil];
+            
+                        [mes show];
+                        [mes release];
+            
 
-        
-        
+        }
+
+//        combineResultsViewController *recipeView=[[combineResultsViewController alloc]initWithNibName:@"combineResultsViewController" bundle:nil ];
+//        recipeView.getMaterial=array_Material;
+//        
+//        [self.navigationController pushViewController:recipeView animated:TRUE];
+//        self.collection_Material.allowsMultipleSelection = NO;
+
     }
+    
 
     
 }
