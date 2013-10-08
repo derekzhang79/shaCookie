@@ -129,6 +129,7 @@
     
     [cell.label_Title setTextWithAutoFrame:[[webGetter.webData objectAtIndex:indexPath.row]objectForKey:@"name"]];
     [cell.label_Title setBackgroundColor:[UIColor clearColor]];
+    [cell.label_Title setTextAlignment:UITextAlignmentCenter];
     [cell setBackgroundColor:[UIColor clearColor]];
     return cell;
     
