@@ -122,7 +122,8 @@
     
     NSString *detail_text=[NSString stringWithFormat:@"%@ --> type:%@",[NSString stringWithFormat:@"DISTANCE:%fKM",(CGFloat)meters/1000],[[self.array_nearUsers objectAtIndex:indexPath.row]objectForKey:@"type"]];
     cell.detailTextLabel.text=detail_text;
-    
+    cell.backgroundColor=[UIColor clearColor];
+
     return cell;
 }
 

@@ -33,7 +33,6 @@
         }
         
         self = [arrayOfViews objectAtIndex:0];
-        
     }
     
     return self;

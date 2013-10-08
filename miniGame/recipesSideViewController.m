@@ -63,7 +63,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
+    cell.backgroundColor=[UIColor clearColor];
     NSString *recipesType=[[self.array_RecipesMenu objectAtIndex:indexPath.row]objectForKey:@"type"];
     cell.textLabel.text=[self getRecipeTitle:recipesType];
     return cell;

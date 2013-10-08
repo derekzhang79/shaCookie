@@ -48,6 +48,8 @@
     }
     
     cell.textLabel.text = [self.array_PofileCategory objectAtIndex:indexPath.row];
+    cell.backgroundColor=[UIColor clearColor];
+
     return cell;
 }
 
@@ -66,6 +68,7 @@
     }else{
         NSLog(@"NOT YET, %d",indexPath.row);
     }
+    
 }
 
 -(UIViewController *)buildViewController:(NSIndexPath *)indexPath{

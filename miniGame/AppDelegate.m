@@ -27,9 +27,11 @@
 
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    [tabBarController setViewControllers:[NSArray arrayWithObjects:[self refrigeratorView],[self recipesView],[self friendsView],nil]];
+    [tabBarController setViewControllers:[NSArray arrayWithObjects:[self refrigeratorView],[self recipesView],
+                                          [self friendsView],nil]];
     
-
+    tabBarController.tabBar.backgroundImage=[UIImage imageNamed:@"under.png"];
+    
     self.window.rootViewController = tabBarController;
 //
 //    procedureWithLeavesView *produce=[[procedureWithLeavesView alloc]init];
@@ -112,6 +114,8 @@
     profileSideMenuViewController *leftSideView= [[profileSideMenuViewController alloc ]init];
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:profileView leftMenuViewController:leftSideView rightMenuViewController:nil];
     [profile setTitle:@"profile" ];
+    container.tabBarItem.image=[UIImage imageNamed:@"good"];
+
     [container setTitle:@"profile"];
     return container;
 }
@@ -129,6 +133,9 @@
     recipesSideViewController *leftSideView= [[recipesSideViewController alloc ]init];
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:refrigeratorView leftMenuViewController:leftSideView rightMenuViewController:nil];
     [refrigerator setTitle:@"Recipes"];
+    
+    container.tabBarItem.image=[UIImage imageNamed:@"recipe"];
+
     [container setTitle:@"Recipes"];
     return container;
 }
@@ -142,8 +149,10 @@
     materialSideViewController *leftSideView= [[materialSideViewController alloc ]init];
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:mainView leftMenuViewController:leftSideView rightMenuViewController:nil];
     [main setTitle:@"refrigerator"];
+    container.tabBarItem.image=[UIImage imageNamed:@"knife"];
     [container setTitle:@"refrigerator"];
       [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbackgound.png"] forBarMetrics:UIBarMetricsDefault];
+    
     
     return container;
 }
