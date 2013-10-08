@@ -35,9 +35,9 @@
     return self;
     
 }
-- (IBAction)btn_Like:(id)sender{
-   self.likeLabel.text=[NSString stringWithFormat:@"%d",[self.likeLabel.text intValue]+1];
-    
+-(IBAction)btn_Like:(id)sender{
+    self.likeLabel.text=[NSString stringWithFormat:@"%d",[self.likeLabel.text intValue]+1];
+
 }
 /*
  // Only override drawRect: if you perform custom drawing.

@@ -113,16 +113,16 @@
     [profileView setNavigationBarHidden:TRUE animated:TRUE];
     profileSideMenuViewController *leftSideView= [[profileSideMenuViewController alloc ]init];
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:profileView leftMenuViewController:leftSideView rightMenuViewController:nil];
-    [profile setTitle:@"profile" ];
+    [profile setTitle:@"個人" ];
     container.tabBarItem.image=[UIImage imageNamed:@"good"];
 
-    [container setTitle:@"profile"];
+    [container setTitle:@"個人"];
     return container;
 }
 
 -(MFSideMenuContainerViewController *)recipesView{
     recipesWithICarouselViewController *refrigerator= [[recipesWithICarouselViewController alloc ]initWithNibName:@"recipesWithICarouselViewController" bundle:nil];
-    [refrigerator recipesSearch:@"2" materialNames:nil];
+    [refrigerator recipesSearch:@"1" materialNames:nil];
 
     UINavigationController *refrigeratorView=[[UINavigationController alloc]initWithRootViewController:refrigerator];
     [refrigeratorView setNavigationBarHidden:TRUE animated:TRUE];
@@ -132,11 +132,11 @@
     // http://ios-imaxlive.blogspot.tw/2013/08/xcode-addsubview-exception-loaded-xxx.html
     recipesSideViewController *leftSideView= [[recipesSideViewController alloc ]init];
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:refrigeratorView leftMenuViewController:leftSideView rightMenuViewController:nil];
-    [refrigerator setTitle:@"Recipes"];
+    [refrigerator setTitle:@"食譜"];
     
     container.tabBarItem.image=[UIImage imageNamed:@"recipe"];
 
-    [container setTitle:@"Recipes"];
+    [container setTitle:@"食譜"];
     return container;
 }
 
@@ -145,12 +145,12 @@
     [main materialSearch:@"1"];
     
     UINavigationController *mainView=[[UINavigationController alloc]initWithRootViewController:main];
-    //[mainView setNavigationBarHidden:TRUE animated:TRUE];
+    [mainView setNavigationBarHidden:TRUE animated:TRUE];
     materialSideViewController *leftSideView= [[materialSideViewController alloc ]init];
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:mainView leftMenuViewController:leftSideView rightMenuViewController:nil];
-    [main setTitle:@"refrigerator"];
+    [main setTitle:@"冰箱"];
     container.tabBarItem.image=[UIImage imageNamed:@"knife"];
-    [container setTitle:@"refrigerator"];
+    [container setTitle:@"冰箱"];
       [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbackgound.png"] forBarMetrics:UIBarMetricsDefault];
     
     
