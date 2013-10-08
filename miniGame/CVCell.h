@@ -15,6 +15,9 @@
 @property (strong, nonatomic) IBOutlet UILabel *shareLabel;
 @property (strong, nonatomic) IBOutlet UILabel *rankLabel;
 @property (strong, nonatomic) IBOutlet UIImageView *image_recipe;
+- (IBAction)btn_Like:(id)sender;
+
+
 
 
 @property (strong, nonatomic) IBOutlet UIImageView *likeImage;
