@@ -59,6 +59,7 @@
     [self.tableView_Json setShowsVerticalScrollIndicator:NO];
     [self.tableView_Json.pullToRefreshView startAnimating];
     
+     self.tableView_Json.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back.png"]];
 }
 - (void)viewDidAppear:(BOOL)animated
 {
@@ -111,9 +112,7 @@
         cell=[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIndentifier];
         
     }
-    //NSLog(@"%@",self.array_nearUsers);
-    NSLog(@"%@",[self.array_nearUsers objectAtIndex:indexPath.row]);
-    NSLog(@"%@",[[self.array_nearUsers objectAtIndex:indexPath.row]objectForKey:@"display_name"]);
+
     NSString *main_text=[NSString stringWithFormat:@"%@ --> %@",[[self.array_nearUsers objectAtIndex:indexPath.row]objectForKey:@"display_name"],[[self.array_nearUsers objectAtIndex:indexPath.row]objectForKey:@"latest_online"]];
     cell.textLabel.text=main_text;
     
@@ -123,7 +122,8 @@
     
     NSString *detail_text=[NSString stringWithFormat:@"%@ --> type:%@",[NSString stringWithFormat:@"DISTANCE:%fKM",(CGFloat)meters/1000],[[self.array_nearUsers objectAtIndex:indexPath.row]objectForKey:@"type"]];
     cell.detailTextLabel.text=detail_text;
-    
+    cell.backgroundColor=[UIColor clearColor];
+
     return cell;
 }
 

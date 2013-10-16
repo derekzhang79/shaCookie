@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "ASIHTTPRequest.h"
-#import "RecipeInfo.h"
+#import "WebJsonDataGetter.h"
 
-@interface refViewController : UIViewController<RecipeInFoDelegate,UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>{
+@interface refViewController : UIViewController<WebJsonDataGetFinishDelegater,UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout>{
     NSArray *array_Refrigerator;
     NSArray *origin_Refrigerator;
-    RecipeInfo *myRecipe;
     ASIHTTPRequest *asiRequest;
+    WebJsonDataGetter *webGetter;
 }
 @property (nonatomic, strong) IBOutlet UICollectionView *collectionView;
 @property (nonatomic, strong) NSArray *dataArray;

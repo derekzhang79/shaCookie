@@ -8,7 +8,6 @@
 
 @interface SampleTimelineViewCell : TimelineViewCell
 
-@property (readonly, nonatomic) IBOutlet UILabel *label;
 @property (strong, nonatomic) IBOutlet UILabel *recipeName;
 @property (strong, nonatomic) IBOutlet UILabel *latestTime;
 @property (strong, nonatomic) IBOutlet UILabel *friendName;

@@ -16,7 +16,7 @@
 #import "materialSideViewController.h"
 #import "recipesSideViewController.h"
 #import "entryViewController.h"
-#import "materialSideWithCollectionViewController.h"
+#import "materialWithCollectionViewController.h"
 
 @implementation AppDelegate
 
@@ -27,9 +27,11 @@
 
     
     UITabBarController *tabBarController = [[UITabBarController alloc] init];
-    [tabBarController setViewControllers:[NSArray arrayWithObjects:[self refrigeratorView],[self recipesView],[self friendsView],nil]];
+    [tabBarController setViewControllers:[NSArray arrayWithObjects:[self refrigeratorView],[self recipesView],
+                                          [self friendsView],nil]];
     
-
+    tabBarController.tabBar.backgroundImage=[UIImage imageNamed:@"under.png"];
+    
     self.window.rootViewController = tabBarController;
 //
 //    procedureWithLeavesView *produce=[[procedureWithLeavesView alloc]init];
@@ -112,13 +114,15 @@
     profileSideMenuViewController *leftSideView= [[profileSideMenuViewController alloc ]init];
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:profileView leftMenuViewController:leftSideView rightMenuViewController:nil];
     [profile setTitle:@"profile" ];
+    container.tabBarItem.image=[UIImage imageNamed:@"good"];
+
     [container setTitle:@"profile"];
     return container;
 }
 
 -(MFSideMenuContainerViewController *)recipesView{
     recipesWithICarouselViewController *refrigerator= [[recipesWithICarouselViewController alloc ]initWithNibName:@"recipesWithICarouselViewController" bundle:nil];
-    [refrigerator recipesSearch:@"2"];
+    [refrigerator recipesSearch:@"2" materialNames:nil];
 
     UINavigationController *refrigeratorView=[[UINavigationController alloc]initWithRootViewController:refrigerator];
     [refrigeratorView setNavigationBarHidden:TRUE animated:TRUE];
@@ -129,12 +133,15 @@
     recipesSideViewController *leftSideView= [[recipesSideViewController alloc ]init];
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:refrigeratorView leftMenuViewController:leftSideView rightMenuViewController:nil];
     [refrigerator setTitle:@"Recipes"];
+    
+    container.tabBarItem.image=[UIImage imageNamed:@"recipe"];
+
     [container setTitle:@"Recipes"];
     return container;
 }
 
 -(MFSideMenuContainerViewController *)refrigeratorView{
-    materialSideWithCollectionViewController *main=[[materialSideWithCollectionViewController alloc]initWithNibName:@"materialSideWithCollectionViewController" bundle:nil];
+    materialWithCollectionViewController *main=[[materialWithCollectionViewController alloc]initWithNibName:@"materialWithCollectionViewController" bundle:nil];
     [main materialSearch:@"1"];
     
     UINavigationController *mainView=[[UINavigationController alloc]initWithRootViewController:main];
@@ -142,7 +149,11 @@
     materialSideViewController *leftSideView= [[materialSideViewController alloc ]init];
     MFSideMenuContainerViewController *container=[MFSideMenuContainerViewController containerWithCenterViewController:mainView leftMenuViewController:leftSideView rightMenuViewController:nil];
     [main setTitle:@"refrigerator"];
+    container.tabBarItem.image=[UIImage imageNamed:@"knife"];
     [container setTitle:@"refrigerator"];
+      [[UINavigationBar appearance] setBackgroundImage:[UIImage imageNamed:@"navbackgound.png"] forBarMetrics:UIBarMetricsDefault];
+    
+    
     return container;
 }
 @end

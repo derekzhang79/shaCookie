@@ -11,7 +11,7 @@
 #import "MFSideMenu.h"
 #import "WebJsonDataGetter.h"
 #import "menuViewController.h"
-#import "materialSideWithCollectionViewController.h"
+#import "materialWithCollectionViewController.h"
 
 
 
@@ -25,6 +25,14 @@
     [super viewDidLoad];
     webGetter=[[WebJsonDataGetter alloc]initWithURLString:GetJsonURLString_MaterialType];
     [webGetter setDelegate:self];
+     
+     UIImageView *tempImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"left.png"]];
+     [tempImageView setFrame:self.tableView.frame];
+     
+     self.tableView.backgroundView = tempImageView;
+     [tempImageView release];
+     
+     //self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"left.png"]];
 }
  
 
@@ -36,10 +44,6 @@
     [self.tableView reloadData];
 }
 
-
-- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    return [NSString stringWithFormat:@"食材"];
-}
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
@@ -55,6 +59,9 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        
+        cell.backgroundColor=[UIColor clearColor];
+
     }
     
     //cell.textLabel.text = [[self.array_MaterialMenu objectAtIndex:indexPath.row]objectForKey:@"category"];
@@ -84,7 +91,7 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSString *materialType=[[self.array_MaterialMenu objectAtIndex:indexPath.row]objectForKey:@"category"];
-     materialSideWithCollectionViewController *menuView=[[materialSideWithCollectionViewController alloc]initWithNibName:@"materialSideWithCollectionViewController" bundle:nil ];
+     materialWithCollectionViewController *menuView=[[materialWithCollectionViewController alloc]initWithNibName:@"materialWithCollectionViewController" bundle:nil ];
     
     [menuView materialSearch:materialType];
     menuView.title=[self getMenuTitle:materialType];

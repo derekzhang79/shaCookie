@@ -13,6 +13,8 @@
 @interface loginWithFBViewController : UIViewController<CLLocationManagerDelegate>{
     CLLocationManager *locationManager;
 }
+
+
 @property (strong, nonatomic) IBOutlet UILabel *label_WelcomeMessage;
 @property (strong, nonatomic) IBOutlet UIButton *buttonLoginLogout;
 @property (strong, nonatomic) IBOutlet UILabel *label_UserName;

@@ -8,10 +8,10 @@
 
 #import <UIKit/UIKit.h>
 #import "ASIHTTPRequest.h"
-#import "RecipeInfo.h"
-@interface UploadRecipe : UIViewController<RecipeInFoDelegate>
+#import "WebJsonDataGetter.h"
+@interface UploadRecipe : UIViewController<WebJsonDataGetFinishDelegater    >
 {
-    RecipeInfo *myRecipe;
+    WebJsonDataGetter *webGetter;
     ASIHTTPRequest *asiRequest;
 }
 @property (weak, nonatomic) IBOutlet UITextField *name;

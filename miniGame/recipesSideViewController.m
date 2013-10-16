@@ -24,7 +24,8 @@
     webGetter =[[WebJsonDataGetter alloc]init];
     [webGetter requestWithURLString:GetJsonURLString_RecipeType];
     [webGetter setDelegate:self];
-    
+  
+    self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"left.png"]];
 }
 
 -(void)doThingAfterWebJsonIsOKFromDelegate{
@@ -62,7 +63,7 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     }
-    
+    cell.backgroundColor=[UIColor clearColor];
     NSString *recipesType=[[self.array_RecipesMenu objectAtIndex:indexPath.row]objectForKey:@"type"];
     cell.textLabel.text=[self getRecipeTitle:recipesType];
     return cell;
@@ -113,7 +114,8 @@
 {
     NSString *type=[[self.array_RecipesMenu objectAtIndex:indexPath.row]objectForKey:@"type"];
     recipesWithICarouselViewController *recipeView=[[recipesWithICarouselViewController alloc]initWithNibName:@"recipesWithICarouselViewController" bundle:nil ];
-    [recipeView recipesSearch:type];
+    [recipeView recipesSearch:type materialNames:nil];
+    
     
     recipeView.title=[self getRecipeTitle:type];
 
@@ -129,13 +131,13 @@
     NSString *type=nil;
     switch ([recipesType intValue]) {
         case 1:
-            type= @"種類一";
+            type= @"熱炒類";
             break;
         case 2:
-            type= @"種類二";
+            type= @"乾煎美食";
             break;
         case 3:
-            type= @"種類三";
+            type= @"甜點類";
             break;
         default:
             break;

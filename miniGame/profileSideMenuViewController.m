@@ -19,6 +19,8 @@
     webGetter =[[WebJsonDataGetter alloc]initWithURLString:GetJsonURLString_Content];
     [webGetter setDelegate:self];
     
+     self.tableView.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"left.png"]];
+    
 }
 -(void)doThingAfterWebJsonIsOKFromDelegate{
 
@@ -46,6 +48,8 @@
     }
     
     cell.textLabel.text = [self.array_PofileCategory objectAtIndex:indexPath.row];
+    cell.backgroundColor=[UIColor clearColor];
+
     return cell;
 }
 
@@ -64,6 +68,7 @@
     }else{
         NSLog(@"NOT YET, %d",indexPath.row);
     }
+    
 }
 
 -(UIViewController *)buildViewController:(NSIndexPath *)indexPath{

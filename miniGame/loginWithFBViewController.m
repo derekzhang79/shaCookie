@@ -32,12 +32,16 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+     self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back.png"]];
     [self initLocationManager];
     [self updateView];
     [self openActiveSessionWithReadPermissionsOfFaceBook];
     
+    
         
 }
+
+
 
 - (void)viewDidAppear:(BOOL)animated {
 }
@@ -54,6 +58,8 @@
 - (void)viewDidUnload
 {
     [super viewDidUnload];
+    
+    
 }
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
@@ -93,7 +99,6 @@
     
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:urlString]];
     NSURLConnection *conn=[[NSURLConnection alloc]initWithRequest:request delegate:self startImmediately:YES];
-    NSLog(@"%@",conn);
     [locationManager stopUpdatingLocation];
 }
 
@@ -132,7 +137,6 @@
         // valid account UI is shown whenever the session is open
         [self.buttonLoginLogout setTitle:@"Log out" forState:UIControlStateNormal];
         [FBRequestConnection startWithGraphPath:@"me" parameters:@{@"fields":@"email,name,gender,picture"} HTTPMethod:@"GET" completionHandler:^(FBRequestConnection *connection,id result,NSError *error) {
-            NSLog(@"%@",result);
             [self.label_UserName setText:[result objectForKey:@"name"]];
             [self.label_UserMail setText:[result objectForKey:@"email"]];
             [self.label_UserGender setText:[result objectForKey:@"gender"]];

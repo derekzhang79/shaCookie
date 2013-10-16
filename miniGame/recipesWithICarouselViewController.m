@@ -8,9 +8,11 @@
 #import "materialViewController.h"
 #import "recipesWithICarouselViewController.h"
 #import "GetJsonURLString.h"
-#import "CVCell.h"
 #import "procedureWithMPFlipViewController.h"
 #import "AsyncImageView.h"
+#import "KoaPullToRefresh.h"
+#import "UILabel+AutoFrame.h"
+
 
 @interface recipesWithICarouselViewController ()
 
@@ -28,11 +30,20 @@
     return self;
 }
 
--(void)recipesSearch:(NSString*)recipeType{
+-(void)recipesSearch:(NSString*)recipeType materialNames:(NSMutableArray *)materialNames{
     webGetter = [[WebJsonDataGetter alloc]init];
-    NSString *str=[NSString stringWithFormat:GetJsonURLString_Recipe,recipeType];
-    [webGetter requestWithURLString:[NSString stringWithUTF8String:[str UTF8String]]];
-    [webGetter setDelegate:self];
+    if(recipeType!=nil && materialNames == nil){
+        NSString *stringRecipe=[NSString stringWithFormat:GetJsonURLString_Recipe,recipeType];
+        [webGetter requestWithURLString:[NSString stringWithUTF8String:[stringRecipe UTF8String]]];
+        [webGetter setDelegate:self];
+    };
+    if(recipeType == nil && materialNames!=nil){
+        NSString *stringName=[materialNames componentsJoinedByString:@","];
+        NSString *str=[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName];
+        [webGetter requestWithURLString:[NSString stringWithUTF8String:[str UTF8String]]];
+        [webGetter setDelegate:self];
+    }
+
 }
 
 -(void)didReceiveMemoryWarning{
@@ -50,7 +61,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
+    self.carousel.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"back.png"]];
     self.carousel.type = iCarouselTypeCoverFlow;
     self.carousel.vertical = true;
     
@@ -73,7 +84,7 @@
 
 - (UIView *)carousel:(iCarousel *)carousel viewForItemAtIndex:(NSUInteger)index reusingView:(UIView *)view
 {
-    CVCell *cell = [[CVCell alloc]initWithFrame:CGRectMake(0, 0, 300.0f, 300.0f)];
+    cell = [[CVCell alloc]initWithFrame:CGRectMake(0, 0, 300.0f, 317.0f)];
     
     //add AsyncImageView to cell
     AsyncImageView *imageView = [[AsyncImageView alloc] initWithFrame:CGRectMake(15.0f, 11.0f, 271.0f, 234.0f)];
@@ -92,14 +103,58 @@
     NSString *str=[NSString stringWithFormat:GetRecipesImage,[[self.array_Items objectAtIndex:index]objectForKey:@"image_url"]];
     imageView.imageURL = [NSURL URLWithString:str];
     
-//    if (!cell.image_recipe.image) {
-//        cell.image_recipe.image=[UIImage imageNamed:@"gamebaby.png"];
-//    }
-    cell.titleLabel.text=[[self.array_Items objectAtIndex:index]objectForKey:@"name"];
+
+    NSString *rank=[[self.array_Items objectAtIndex:index]objectForKey:@"rank_avg"];
+    [cell.titleLabel setText:[[self.array_Items objectAtIndex:index]objectForKey:@"name"]];
+    [cell.likeLabel setTextWithAutoFrame:[NSString stringWithFormat:@"%@",[[self.array_Items objectAtIndex:index]objectForKey:@"like_sum"]]];
+    [cell.shareLabel setTextWithAutoFrame:[NSString stringWithFormat:@"%@",[[self.array_Items objectAtIndex:index]objectForKey:@"share_sum"]]];
+    [cell.rankLabel setTextWithAutoFrame:[NSString stringWithFormat:@"%d",[rank integerValue]]];
+    
+    cell.rankImage.image=[UIImage imageNamed:@"rank"];
+    cell.shareImage.image=[UIImage imageNamed:@"share"];
+    cell.likeImage.image=[UIImage imageNamed:@"like"];
+
     view=(UIView *)cell;
+    
+    UIButton *button_like = (UIButton*)[cell viewWithTag:10];
+    [button_like addTarget:self
+                    action:@selector(button_like:)
+          forControlEvents:UIControlEventTouchDown];
+    [cell addSubview:button_like];
+    
 
     return view;
 }
+
+
+
+-(IBAction)button_like:(id)sender{
+    NSLog(@"wedijeowiw");
+    [cell.likeLabel setText:[NSString stringWithFormat:@"%d",[cell.likeLabel.text integerValue]+1]];
+}
+
+-(NSUInteger)numberOfPlaceholdersInCarousel:(iCarousel *)carousel{
+    return 2;
+}
+
+- (UIView *)carousel:(iCarousel *)carousel placeholderViewAtIndex:(NSUInteger)index reusingView:(UIView *)view{
+    return nil;
+}
+
+-(void)carouselDidEndDecelerating:(iCarousel *)carousel{
+    NSString *itemBeforeIndex=[carousel.indexesForVisibleItems objectAtIndex:0];
+    NSString *itemAfterIndex=[carousel.indexesForVisibleItems objectAtIndex:3];
+    
+    if ( itemBeforeIndex != nil && [itemBeforeIndex integerValue] < 0) {
+        [self recipesSearch:self.recipeType materialNames:nil];
+    }
+    
+    if ( itemAfterIndex != nil && [itemAfterIndex integerValue] > [self.array_Items count]-1) {
+        [self recipesSearch:self.recipeType materialNames:nil];
+
+    }
+}
+
 
 - (CGFloat)carousel:(iCarousel *)carousel valueForOption:(iCarouselOption)option withDefault:(CGFloat)value
 {

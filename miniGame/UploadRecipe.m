@@ -17,8 +17,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    myRecipe=[[RecipeInfo alloc]init];
-    [myRecipe setDelegate:self];
+    webGetter=[[WebJsonDataGetter alloc]init];
+    [webGetter setDelegate:self];
     
 }
 
