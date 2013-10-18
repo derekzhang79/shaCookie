@@ -144,7 +144,6 @@ NSString * const MMshowsSelectionIndicator = @"showsSelectionIndicator";
     selectedRow = [[_pickerViewArray objectAtIndex:0] integerValue];
   }
   
-  
   NSNumber *textAlignment = [[NSNumber alloc] init];
   textAlignment = options[MMtextAlignment];
   //Default value is NSTextAlignmentCenter
@@ -284,6 +283,7 @@ NSString * const MMshowsSelectionIndicator = @"showsSelectionIndicator";
   
   //Set selected row
   [_pickerView selectRow:selectedRow inComponent:0 animated:YES];
+    
 }
 
 #pragma mark - UIPickerViewDataSource

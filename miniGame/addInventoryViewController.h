@@ -7,12 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WebJsonDataGetter.h"
 
-@interface addInventoryViewController : UIViewController{
+@interface addInventoryViewController : UIViewController<WebJsonDataGetFinishDelegater>{
    IBOutlet UITextField *name;
    IBOutlet UITextField *quantity;
    IBOutlet UITextField *category;
    IBOutlet UITextField *type;
+    WebJsonDataGetter *webGetter;
     
 }
 @property (retain, nonatomic) IBOutlet UITextField *name;
