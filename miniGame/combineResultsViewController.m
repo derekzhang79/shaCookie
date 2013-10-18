@@ -38,15 +38,11 @@
     NSLog(@"%@",[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName]);
     [webGetter requestWithURLString:[NSString stringWithUTF8String:[str UTF8String]]];
         [webGetter setDelegate:self];
-   
+    
+    
 
-//    下面註解晚點用
-    if(self.getRecipes.count ==0){
-        self.randomRecipes= nil;
-    }else{
-        self.randomRecipes= [self.getRecipes objectAtIndex:arc4random()%self.getRecipes.count];
-        //NSLog(@"%@",self.randomRecipes);
-    }
+
+
     
     UIAlertView* mes=[[UIAlertView alloc] initWithTitle:@"搖一搖！！！"
                                                 message:@"請搖一搖幫您隨機配菜" delegate:self cancelButtonTitle:@"開始搖！" otherButtonTitles: nil];
@@ -59,12 +55,22 @@
 }
 -(void)doThingAfterWebJsonIsOKFromDelegate{
     self.getRecipes=[[NSArray alloc]initWithArray:webGetter.webData];
-    NSLog(@"test: %@",self.getRecipes);
     
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+   // NSLog(@"test: %@",self.getRecipes);
+    if(self.getRecipes.count ==0){
+        //NSLog(@"get:%@",self.getRecipes);
+        self.randomRecipes= nil;
+    }else{
+        self.randomRecipes= [[self.getRecipes objectAtIndex:arc4random()%self.getRecipes.count]objectForKey:@"id"];
+//NSLog(@"show:%@",[[self.getRecipes objectAtIndex:arc4random()%self.getRecipes.count]objectForKey:@"id"]);
+    }
     
+    
+    
+
     switch (buttonIndex) {
         case 0:
             NSLog(@"cancel");
@@ -77,7 +83,11 @@
                     
                     if ((gyroData.rotationRate.z>=13 || gyroData.rotationRate.z<=-13))
                     {
+                        NSString *recipeId=self.randomRecipes;
+                        NSLog(@"show:%@",recipeId);
+                        procedureWithMPFlipViewController *pro=[[procedureWithMPFlipViewController alloc]initWithNibName:@"procedureWithMPFlipViewController" bundle:nil recipeId:recipeId];
                         
+                        [self.navigationController pushViewController:pro animated:TRUE];
                     }
                     
                 }];
