@@ -35,31 +35,31 @@
     NSString *stringName=[self.getMaterial componentsJoinedByString:@","];
     webGetter = [[WebJsonDataGetter alloc]init];
     NSString *str=[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName];
-    //NSLog(@"%@",[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName]);
+    NSLog(@"%@",[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName]);
     [webGetter requestWithURLString:[NSString stringWithUTF8String:[str UTF8String]]];
         [webGetter setDelegate:self];
-
+   
 
 //    下面註解晚點用
-//    if(self.getRecipes.count ==0){
-//        self.randomRecipes= nil;
-//    }else{
-//        self.randomRecipes= [self.getRecipes objectAtIndex:arc4random()%self.getRecipes.count];
-//        
-//    }
-//    
-//    UIAlertView* mes=[[UIAlertView alloc] initWithTitle:@"搖一搖！！！"
-//                                                message:@"請搖一搖幫您隨機配菜" delegate:self cancelButtonTitle:@"開始搖！" otherButtonTitles: nil];
-//    
-//    [mes show];
-//    [mes release];
+    if(self.getRecipes.count ==0){
+        self.randomRecipes= nil;
+    }else{
+        self.randomRecipes= [self.getRecipes objectAtIndex:arc4random()%self.getRecipes.count];
+        //NSLog(@"%@",self.randomRecipes);
+    }
+    
+    UIAlertView* mes=[[UIAlertView alloc] initWithTitle:@"搖一搖！！！"
+                                                message:@"請搖一搖幫您隨機配菜" delegate:self cancelButtonTitle:@"開始搖！" otherButtonTitles: nil];
+    
+    [mes show];
+    [mes release];
     
     
     // Do any additional setup after loading the view from its nib.
 }
 -(void)doThingAfterWebJsonIsOKFromDelegate{
     self.getRecipes=[[NSArray alloc]initWithArray:webGetter.webData];
-
+    NSLog(@"test: %@",self.getRecipes);
     
 }
 
