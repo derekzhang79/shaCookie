@@ -31,7 +31,7 @@
     
 
     self.arrayMaterial=[[NSArray alloc]init];
-    self.randomRecipes=[[NSArray alloc]init];
+    self.randomRecipes=[[NSString alloc]init];
     NSString *stringName=[self.getMaterial componentsJoinedByString:@","];
     webGetter = [[WebJsonDataGetter alloc]init];
     NSString *str=[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName];
