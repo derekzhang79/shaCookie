@@ -69,8 +69,9 @@
     switch (buttonIndex) {
         case 0:
             if (motionManager.gyroAvailable) {
-            motionManager.gyroUpdateInterval = 1.0f/3.0f;
-            [motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMGyroData* gyroData, NSError *error){
+                NSLog(@"eeee");
+                motionManager.gyroUpdateInterval = 1.0f/3.0f;
+                [motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMGyroData* gyroData, NSError *error){
                     if ((gyroData.rotationRate.z>=13 || gyroData.rotationRate.z<=-13)){
                         NSString *recipeId=self.randomRecipes;
                         procedureWithMPFlipViewController *pro=[[procedureWithMPFlipViewController alloc]initWithNibName:@"procedureWithMPFlipViewController" bundle:nil recipeId:recipeId];
