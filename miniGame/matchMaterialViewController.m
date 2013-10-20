@@ -53,11 +53,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    /*NSArray *arr=[self.dictionary_SelectedFood allKeys];
-     for (int i=0; i<[arr count]; i++) {
-     
-     NSLog(@"%@",);
-     }*/
+ 
     // Do any additional setup after loading the view from its nib.
 }
 

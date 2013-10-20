@@ -21,7 +21,7 @@
 //@property(nonatomic,strong)NSString *stringRandom;
 @property(nonatomic,strong)NSArray *arrayMaterial;
 @property(nonatomic,strong)NSArray *getRecipes;
-@property(nonatomic,strong)NSArray *randomRecipes;
+@property(nonatomic,strong)NSString *randomRecipes;
 
 
 @end

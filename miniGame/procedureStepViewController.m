@@ -59,9 +59,10 @@
     self.descriptionField.editable = NO;
     self.titleLabel.text = [[self.array_Items objectAtIndex:0]objectForKey:@"name"];
     
+    
     //add AsyncImageView to cell
-    AsyncImageView *image = [[AsyncImageView alloc] initWithFrame:CGRectMake(self.imageView.frame.origin.x, self.titleLabel.frame.origin.y+self.titleLabel.frame.size.height,self.imageView.frame.size.width, self.imageView.frame.size.height)];
-        image.contentMode = UIViewContentModeScaleAspectFill;
+    AsyncImageView *image = [[AsyncImageView alloc] initWithFrame:CGRectMake(self.imageFrame.frame.origin.x, self.titleLabel.frame.size.height,self.imageView.frame.size.width-10, self.imageView.frame.size.height-20)];
+    image.contentMode = UIViewContentModeScaleAspectFill;
     image.clipsToBounds = YES;
     image.tag = IMAGE_VIEW_TAG;
     [self.imageFrame addSubview:image];

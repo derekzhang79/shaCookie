@@ -60,6 +60,7 @@
 		02B69EE71801ECBD00A43E20 /* navbackgound.png in Resources */ = {isa = PBXBuildFile; fileRef = 02B69EE41801ECBD00A43E20 /* navbackgound.png */; };
 		02B69EE81801ECBD00A43E20 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 02B69EE51801ECBD00A43E20 /* back.png */; };
 		02C8795217EA1BDD00E1F738 /* materialSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C8795117EA1BDD00E1F738 /* materialSideViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		02E983541803C7BB005FF04C /* pp.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E983531803C7BB005FF04C /* pp.png */; };
 		2BEDE413FCB64F2EB044019A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A691AA26FB84D70BFC64D3E /* libPods.a */; };
 		490322C817E5BBBB0008F1F4 /* recipesWithICarouselViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 490322C617E5BBBB0008F1F4 /* recipesWithICarouselViewController.m */; };
 		490322C917E5BBBB0008F1F4 /* recipesWithICarouselViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 490322C717E5BBBB0008F1F4 /* recipesWithICarouselViewController.xib */; };
@@ -206,6 +207,7 @@
 		02B69EE51801ECBD00A43E20 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
 		02C8795017EA1BDD00E1F738 /* materialSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = materialSideViewController.h; sourceTree = "<group>"; };
 		02C8795117EA1BDD00E1F738 /* materialSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = materialSideViewController.m; sourceTree = "<group>"; };
+		02E983531803C7BB005FF04C /* pp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pp.png; sourceTree = "<group>"; };
 		15404D105D6D4CF9B5351AEF /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
 		2A691AA26FB84D70BFC64D3E /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		490322C517E5BBBA0008F1F4 /* recipesWithICarouselViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recipesWithICarouselViewController.h; sourceTree = "<group>"; };
@@ -618,29 +620,30 @@
 		4984C50A17DF140400EDE6B1 /* images */ = {
 			isa = PBXGroup;
 			children = (
-				497CAACB18029D7E00894C15 /* like.png */,
-				497CAACC18029D7E00894C15 /* rank.png */,
-				497CAACD18029D7E00894C15 /* share.png */,
-				497CAAC918029A1200894C15 /* good.png */,
-				497CAAC61802951A00894C15 /* recipe.png */,
-				497CAAA91802816C00894C15 /* knife.png */,
-				497CAAA51802801200894C15 /* under.png */,
-				02B69EE31801ECBD00A43E20 /* left.png */,
-				02B69EE41801ECBD00A43E20 /* navbackgound.png */,
-				02B69EE51801ECBD00A43E20 /* back.png */,
+				02E983531803C7BB005FF04C /* pp.png */,
 				499C633D17E449EB00513989 /* 37x-Checkmark.png */,
-				499C633E17E449EB00513989 /* icon.png */,
-				499C633F17E449EC00513989 /* icon@2x.png */,
 				49A090D817E22F7900B19E8C /* back-arrow.png */,
 				49A090D917E22F7900B19E8C /* back-arrow@2x.png */,
-				49A090DA17E22F7900B19E8C /* menu-icon.png */,
-				49A090DB17E22F7900B19E8C /* menu-icon@2x.png */,
-				02A67CA7174BE3DE00BCD095 /* Property List.plist */,
-				491AE83A175FAD4800E4121C /* homepage1.png */,
-				491AE83B175FAD4800E4121C /* homepage2-1.png */,
+				02B69EE51801ECBD00A43E20 /* back.png */,
+				02A99DA8174F450600F576E2 /* game.png */,
 				02A99DAF174F496C00F576E2 /* gamebaby.png */,
 				02A99DAD174F492700F576E2 /* gamepan.png */,
-				02A99DA8174F450600F576E2 /* game.png */,
+				497CAAC918029A1200894C15 /* good.png */,
+				491AE83A175FAD4800E4121C /* homepage1.png */,
+				491AE83B175FAD4800E4121C /* homepage2-1.png */,
+				499C633E17E449EB00513989 /* icon.png */,
+				499C633F17E449EC00513989 /* icon@2x.png */,
+				497CAAA91802816C00894C15 /* knife.png */,
+				02B69EE31801ECBD00A43E20 /* left.png */,
+				497CAACB18029D7E00894C15 /* like.png */,
+				49A090DA17E22F7900B19E8C /* menu-icon.png */,
+				49A090DB17E22F7900B19E8C /* menu-icon@2x.png */,
+				02B69EE41801ECBD00A43E20 /* navbackgound.png */,
+				02A67CA7174BE3DE00BCD095 /* Property List.plist */,
+				497CAACC18029D7E00894C15 /* rank.png */,
+				497CAAC61802951A00894C15 /* recipe.png */,
+				497CAACD18029D7E00894C15 /* share.png */,
+				497CAAA51802801200894C15 /* under.png */,
 			);
 			name = images;
 			sourceTree = "<group>";
@@ -1000,6 +1003,7 @@
 				49A090DC17E22F7900B19E8C /* back-arrow.png in Resources */,
 				497CAACF18029D7E00894C15 /* rank.png in Resources */,
 				49A090DD17E22F7900B19E8C /* back-arrow@2x.png in Resources */,
+				02E983541803C7BB005FF04C /* pp.png in Resources */,
 				497CAACA18029A1200894C15 /* good.png in Resources */,
 				49A090DE17E22F7900B19E8C /* menu-icon.png in Resources */,
 				49E388D117F5A4570012C8A9 /* SampleTimelineViewCell.xib in Resources */,
