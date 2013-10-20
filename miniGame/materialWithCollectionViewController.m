@@ -142,7 +142,7 @@
     cell2.image_Material.alpha=0.5f;
     cell2.label_Title.alpha=0.5f;
     
-    [array_Material addObject:[[self.array_Collection objectAtIndex:indexPath.row] objectForKey:@"name"]];
+    [array_Material addObject:[[self.array_Collection objectAtIndex:indexPath.row] objectForKey:@"eng_name"]];
 
     if (array_Material.count==3) {
 
@@ -151,7 +151,7 @@
         
         [self.navigationController pushViewController:recipeView animated:TRUE];
         self.collection_Material.allowsMultipleSelection = NO;
-
+        
         
         
     }
