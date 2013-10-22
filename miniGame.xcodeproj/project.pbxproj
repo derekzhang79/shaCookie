@@ -59,6 +59,7 @@
 		02B69EE61801ECBD00A43E20 /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 02B69EE31801ECBD00A43E20 /* left.png */; };
 		02B69EE71801ECBD00A43E20 /* navbackgound.png in Resources */ = {isa = PBXBuildFile; fileRef = 02B69EE41801ECBD00A43E20 /* navbackgound.png */; };
 		02B69EE81801ECBD00A43E20 /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 02B69EE51801ECBD00A43E20 /* back.png */; };
+		02B927841816C5BD00B954D5 /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 02B927831816C5BD00B954D5 /* FacebookSDK.framework */; };
 		02C8795217EA1BDD00E1F738 /* materialSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 02C8795117EA1BDD00E1F738 /* materialSideViewController.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		02E983541803C7BB005FF04C /* pp.png in Resources */ = {isa = PBXBuildFile; fileRef = 02E983531803C7BB005FF04C /* pp.png */; };
 		2BEDE413FCB64F2EB044019A /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 2A691AA26FB84D70BFC64D3E /* libPods.a */; };
@@ -117,7 +118,6 @@
 		49E714331811A48D000FD778 /* addInventoryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49E714311811A48D000FD778 /* addInventoryViewController.xib */; };
 		49E714371811B567000FD778 /* MMPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 49E714361811B567000FD778 /* MMPickerView.m */; };
 		49E86D4D17F47530002CF0CF /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49E86D4C17F47530002CF0CF /* MediaPlayer.framework */; };
-		49F1F4C417FEBCF900E7A0AA /* FacebookSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49F1F4C317FEBCF900E7A0AA /* FacebookSDK.framework */; };
 		49FD44AC17EC3A6E00F472B5 /* recipesSideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FD44AA17EC3A6E00F472B5 /* recipesSideViewController.m */; };
 		49FD44AD17EC3A6E00F472B5 /* recipesSideViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49FD44AB17EC3A6E00F472B5 /* recipesSideViewController.xib */; };
 		49FD44B017EC3E1600F472B5 /* profileSideMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FD44AE17EC3E1600F472B5 /* profileSideMenuViewController.m */; };
@@ -207,6 +207,7 @@
 		02B69EE31801ECBD00A43E20 /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = left.png; sourceTree = "<group>"; };
 		02B69EE41801ECBD00A43E20 /* navbackgound.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = navbackgound.png; sourceTree = "<group>"; };
 		02B69EE51801ECBD00A43E20 /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		02B927831816C5BD00B954D5 /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../Documents/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		02C8795017EA1BDD00E1F738 /* materialSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = materialSideViewController.h; sourceTree = "<group>"; };
 		02C8795117EA1BDD00E1F738 /* materialSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = materialSideViewController.m; sourceTree = "<group>"; };
 		02E983531803C7BB005FF04C /* pp.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pp.png; sourceTree = "<group>"; };
@@ -299,7 +300,6 @@
 		49E714351811B567000FD778 /* MMPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MMPickerView.h; sourceTree = "<group>"; };
 		49E714361811B567000FD778 /* MMPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MMPickerView.m; sourceTree = "<group>"; };
 		49E86D4C17F47530002CF0CF /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
-		49F1F4C317FEBCF900E7A0AA /* FacebookSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = FacebookSDK.framework; path = ../../Documents/ios_framework/FacebookSDK/FacebookSDK.framework; sourceTree = "<group>"; };
 		49FD44A917EC3A6E00F472B5 /* recipesSideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = recipesSideViewController.h; sourceTree = "<group>"; };
 		49FD44AA17EC3A6E00F472B5 /* recipesSideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = recipesSideViewController.m; sourceTree = "<group>"; };
 		49FD44AB17EC3A6E00F472B5 /* recipesSideViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = recipesSideViewController.xib; sourceTree = "<group>"; };
@@ -319,7 +319,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				49F1F4C417FEBCF900E7A0AA /* FacebookSDK.framework in Frameworks */,
+				02B927841816C5BD00B954D5 /* FacebookSDK.framework in Frameworks */,
 				49E86D4D17F47530002CF0CF /* MediaPlayer.framework in Frameworks */,
 				49FD44B917EC5E4800F472B5 /* MessageUI.framework in Frameworks */,
 				4927D8AB17E3959C000DDEBF /* Security.framework in Frameworks */,
@@ -428,7 +428,7 @@
 		02A91714170207BC00F2E55F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				49F1F4C317FEBCF900E7A0AA /* FacebookSDK.framework */,
+				02B927831816C5BD00B954D5 /* FacebookSDK.framework */,
 				49E86D4C17F47530002CF0CF /* MediaPlayer.framework */,
 				49FD44B817EC5E4800F472B5 /* MessageUI.framework */,
 				4927D8AA17E3959C000DDEBF /* Security.framework */,
@@ -1219,11 +1219,12 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\\\\\\\\\\\\\"$(SRCROOT)/../../Documents/ios_framework/FacebookSDK\\\\\\\\\\\\\\\"",
-					"\\\\\\\\\\\\\\\"$(SRCROOT)/../Documents/ios_framework/FacebookSDK\\\\\\\\\\\\\\\"",
+					"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"$(SRCROOT)/../../Documents/ios_framework/FacebookSDK\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"",
+					"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"$(SRCROOT)/../Documents/ios_framework/FacebookSDK\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"",
 					/Users/chenweiwu/Documents/ios_framework/FacebookSDK,
 					/Documents/FacebookSDK,
 					/Users/birdchiu/Documents/ios_framework/FacebookSDK,
+					/Users/Keeliker/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "miniGame/miniGame-Prefix.pch";
@@ -1242,11 +1243,12 @@
 			buildSettings = {
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"\\\\\\\\\\\\\\\"$(SRCROOT)/../../Documents/ios_framework/FacebookSDK\\\\\\\\\\\\\\\"",
-					"\\\\\\\\\\\\\\\"$(SRCROOT)/../Documents/ios_framework/FacebookSDK\\\\\\\\\\\\\\\"",
+					"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"$(SRCROOT)/../../Documents/ios_framework/FacebookSDK\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"",
+					"\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"$(SRCROOT)/../Documents/ios_framework/FacebookSDK\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\"",
 					/Users/chenweiwu/Documents/ios_framework/FacebookSDK,
 					/Documents/FacebookSDK,
 					/Users/birdchiu/Documents/ios_framework/FacebookSDK,
+					/Users/Keeliker/Documents/FacebookSDK,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "miniGame/miniGame-Prefix.pch";
