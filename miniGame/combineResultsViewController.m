@@ -9,6 +9,8 @@
 #import "combineResultsViewController.h"
 #import "procedureWithMPFlipViewController.h"
 #import "GetJsonURLString.h"
+#import <CoreMotion/CoreMotion.h>
+
 
 @interface combineResultsViewController ()
 
@@ -31,57 +33,51 @@
     
 
     self.arrayMaterial=[[NSArray alloc]init];
-    self.randomRecipes=[[NSArray alloc]init];
+    self.randomRecipes=[[NSString alloc]init];
     NSString *stringName=[self.getMaterial componentsJoinedByString:@","];
-    webGetter = [[WebJsonDataGetter alloc]init];
     NSString *str=[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName];
-    //NSLog(@"%@",[NSString stringWithFormat:GetJsonURLString_RecipeByNames,stringName]);
+    webGetter = [[WebJsonDataGetter alloc]init];
     [webGetter requestWithURLString:[NSString stringWithUTF8String:[str UTF8String]]];
-        [webGetter setDelegate:self];
-
-
-//    下面註解晚點用
-//    if(self.getRecipes.count ==0){
-//        self.randomRecipes= nil;
-//    }else{
-//        self.randomRecipes= [self.getRecipes objectAtIndex:arc4random()%self.getRecipes.count];
-//        
-//    }
-//    
-//    UIAlertView* mes=[[UIAlertView alloc] initWithTitle:@"搖一搖！！！"
-//                                                message:@"請搖一搖幫您隨機配菜" delegate:self cancelButtonTitle:@"開始搖！" otherButtonTitles: nil];
-//    
-//    [mes show];
-//    [mes release];
+    [webGetter setDelegate:self];
+    
+    
+    UIAlertView* mes=[[UIAlertView alloc] initWithTitle:@"搖一搖！！！"
+                                                message:@"請搖一搖幫您隨機配菜" delegate:self cancelButtonTitle:@"開始搖！" otherButtonTitles: nil];
+    
+    [mes show];
+    [mes release];
     
     
     // Do any additional setup after loading the view from its nib.
 }
 -(void)doThingAfterWebJsonIsOKFromDelegate{
     self.getRecipes=[[NSArray alloc]initWithArray:webGetter.webData];
-
     
 }
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
+    if(self.getRecipes.count ==0){
+        self.randomRecipes= nil;
+    }else{
+        self.randomRecipes= [[self.getRecipes objectAtIndex:arc4random()%self.getRecipes.count]objectForKey:@"id"];
+    }
     
+    
+    CMMotionManager *motionManager = [[CMMotionManager alloc] init];
+
+
     switch (buttonIndex) {
         case 0:
-            NSLog(@"cancel");
-            
             if (motionManager.gyroAvailable) {
+                NSLog(@"eeee");
                 motionManager.gyroUpdateInterval = 1.0f/3.0f;
                 [motionManager startGyroUpdatesToQueue:[NSOperationQueue currentQueue] withHandler:^(CMGyroData* gyroData, NSError *error){
-                    
-                    
-                    
-                    if ((gyroData.rotationRate.z>=13 || gyroData.rotationRate.z<=-13))
-                    {
-                        
+                    if ((gyroData.rotationRate.z>=13 || gyroData.rotationRate.z<=-13)){
+                        NSString *recipeId=self.randomRecipes;
+                        procedureWithMPFlipViewController *pro=[[procedureWithMPFlipViewController alloc]initWithNibName:@"procedureWithMPFlipViewController" bundle:nil recipeId:recipeId];
+                        [self.navigationController pushViewController:pro animated:TRUE];
                     }
-                    
                 }];
-                
             } else {
                 NSLog(@"陀螺儀未感測");
             }
@@ -89,6 +85,7 @@
         default:
             break;
     }
+    motionManager=nil;
 }
 
 - (void)didReceiveMemoryWarning

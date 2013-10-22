@@ -11,11 +11,12 @@
 #import "aboutUsViewController.h"
 #import "newsTimeLineViewController.h"
 #import "GetJsonURLString.h"
+#import "addInventoryViewController.h"
 
 @implementation profileSideMenuViewController
 
 -(void)viewDidLoad{
-    self.array_PofileCategory=[[NSArray alloc]initWithObjects:@"profile",@"news",@"find friends",@"setting",@"about us", nil];
+    self.array_PofileCategory=[[NSArray alloc]initWithObjects:@"profile",@"news",@"find friends",@"managerment",@"about us", nil];
     webGetter =[[WebJsonDataGetter alloc]initWithURLString:GetJsonURLString_Content];
     [webGetter setDelegate:self];
     
@@ -82,6 +83,9 @@
             break;
         case 2:
             controller=(UIViewController *)[[JsonViewController alloc]initWithNibName:@"JsonViewController" bundle:nil];
+            break;
+        case 3:
+            controller=(UIViewController *)[[addInventoryViewController alloc]initWithNibName:@"addInventoryViewController" bundle:nil];
             break;
         case 4:
             controller=(UIViewController *)[[aboutUsViewController alloc]initWithNibName:@"aboutUsViewController" bundle:nil];

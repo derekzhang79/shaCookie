@@ -16,7 +16,8 @@
     return self;
 }
 -(void)requestWithURLString:(NSString *)url{
-    webRequest=[ASIHTTPRequest requestWithURL:[NSURL URLWithString:url]];
+    
+    webRequest=[ASIHTTPRequest requestWithURL:[NSURL URLWithString:[url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]]];
     [webRequest setDelegate:self];
     [webRequest startAsynchronous];
 }
@@ -37,8 +38,8 @@
 }
 
 -(void)requestFailed:(ASIHTTPRequest *)request{
-    NSLog(@"Failure");
-
+    NSLog(@"Failure, %@",request.error);
+    
     //要教他們
     UIAlertView *alert=[[UIAlertView alloc] initWithTitle:@"跳我就是沒網路！！！" message:@"BeSure" delegate:nil cancelButtonTitle:@"canel" otherButtonTitles:@"one",@"two", nil];
     [alert setDelegate:self];
