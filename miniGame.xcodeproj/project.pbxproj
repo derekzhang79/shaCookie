@@ -124,6 +124,8 @@
 		49FD44B617EC57F900F472B5 /* aboutUsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 49FD44B417EC57F900F472B5 /* aboutUsViewController.m */; };
 		49FD44B717EC57F900F472B5 /* aboutUsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 49FD44B517EC57F900F472B5 /* aboutUsViewController.xib */; };
 		49FD44B917EC5E4800F472B5 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 49FD44B817EC5E4800F472B5 /* MessageUI.framework */; };
+		BBC34874180EC72200FE0E1C /* ShareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BBC34872180EC72200FE0E1C /* ShareViewController.m */; };
+		BBC34875180EC72200FE0E1C /* ShareViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BBC34873180EC72200FE0E1C /* ShareViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -307,6 +309,9 @@
 		49FD44B417EC57F900F472B5 /* aboutUsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = aboutUsViewController.m; sourceTree = "<group>"; };
 		49FD44B517EC57F900F472B5 /* aboutUsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = aboutUsViewController.xib; sourceTree = "<group>"; };
 		49FD44B817EC5E4800F472B5 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		BBC34871180EC72200FE0E1C /* ShareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShareViewController.h; sourceTree = "<group>"; };
+		BBC34872180EC72200FE0E1C /* ShareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShareViewController.m; sourceTree = "<group>"; };
+		BBC34873180EC72200FE0E1C /* ShareViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ShareViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -766,6 +771,7 @@
 			isa = PBXGroup;
 			children = (
 				49E7142E1811A454000FD778 /* addInventory */,
+				BBC34876180EC72900FE0E1C /* ShareView */,
 				020C6FFC17FC7CEF00623DF6 /* combineResults */,
 				49E388BC17F5A2A30012C8A9 /* newsTimeLineView */,
 				4963CE2E17F319C2002DFE70 /* notInUse */,
@@ -922,6 +928,16 @@
 			name = AutoFrame;
 			sourceTree = "<group>";
 		};
+		BBC34876180EC72900FE0E1C /* ShareView */ = {
+			isa = PBXGroup;
+			children = (
+				BBC34871180EC72200FE0E1C /* ShareViewController.h */,
+				BBC34872180EC72200FE0E1C /* ShareViewController.m */,
+				BBC34873180EC72200FE0E1C /* ShareViewController.xib */,
+			);
+			name = ShareView;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -984,6 +1000,7 @@
 				02A91732170207BC00F2E55F /* ViewController.xib in Resources */,
 				02A68AFC17034A8300B34828 /* JsonViewController.xib in Resources */,
 				497CAAA61802801200894C15 /* under.png in Resources */,
+				BBC34875180EC72200FE0E1C /* ShareViewController.xib in Resources */,
 				02A67C73174BDA1800BCD095 /* CVCell.xib in Resources */,
 				02A67C8D174BE06000BCD095 /* refViewController.xib in Resources */,
 				02A67C97174BE21100BCD095 /* menuViewController.xib in Resources */,
@@ -1071,6 +1088,7 @@
 			files = (
 				497562FC17F1D1F50053248F /* MPFlipTransition.m in Sources */,
 				49E388C017F5A2CD0012C8A9 /* newsTimeLineViewController.m in Sources */,
+				BBC34874180EC72200FE0E1C /* ShareViewController.m in Sources */,
 				02A91722170207BC00F2E55F /* main.m in Sources */,
 				02A91726170207BC00F2E55F /* AppDelegate.m in Sources */,
 				02A9B11617F5FDE200535CC7 /* LBYouTubePlayerViewController.m in Sources */,
