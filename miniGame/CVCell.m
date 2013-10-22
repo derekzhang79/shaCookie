@@ -7,7 +7,8 @@
 //
 
 #import "CVCell.h"
-
+#import "ShareViewController.h"
+#import "ViewController.h"
 @implementation CVCell
 
 @synthesize titleLabel = _titleLabel;
@@ -39,13 +40,32 @@
    self.likeLabel.text=[NSString stringWithFormat:@"%d",[self.likeLabel.text intValue]+1];
     
 }
-/*
- // Only override drawRect: if you perform custom drawing.
- // An empty implementation adversely affects performance during animation.
- - (void)drawRect:(CGRect)rect
- {
- // Drawing code
- }
- */
+
+- (IBAction)btn_Share:(id)sender {
+    self.sv =[[ShareViewController alloc] init];
+    [self.window addSubview:self.sv.view];
+    //
+    //    UITextField *textField;
+    //    UITextField *textField2;
+    //
+    //    UIAlertView *prompt = [[UIAlertView alloc] initWithTitle:@"Username and password"
+    //                                                     message:@"nnn" // IMPORTANT
+    //                                                    delegate:nil
+    //                                           cancelButtonTitle:@"Cancel"
+    //                                           otherButtonTitles:@"Enter", nil];
+    //
+    //    textField = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 50.0, 260.0, 25.0)];
+    //    [textField setBackgroundColor:[UIColor whiteColor]];
+    //    [textField setPlaceholder:@"username"];
+    //    [prompt addSubview:textField];
+    //
+    //    textField2 = [[UITextField alloc] initWithFrame:CGRectMake(12.0, 85.0, 260.0, 25.0)];
+    //    [textField2 setBackgroundColor:[UIColor whiteColor]];
+    //    [textField2 setPlaceholder:@"password"];
+    //    [textField2 setSecureTextEntry:YES];
+    //    [prompt addSubview:textField2];
+}
+
+
 
 @end
