@@ -8,16 +8,21 @@
 
 #import "ShareViewController.h"
 #import "GetJsonURLString.h"
+#import "UILabel+AutoFrame.h"
 @interface ShareViewController ()
 
 @end
 
 @implementation ShareViewController
-
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
+@synthesize pushName = _pushName;
+- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil pushName:(NSString*)pushName
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        //[self.recipeName setText:@"eee"];
+        NSLog(@"999%@",pushName);
+        _pushName=pushName;
+        
         // Custom initialization
     }
     return self;
@@ -26,6 +31,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.view.frame=CGRectMake(20, 30, 300, 300);
+    [self.parentViewController.navigationController pushViewController:self animated:YES];
+    [self.recipeName setTextWithAutoFrame:_pushName];
+    //self.recipeName.text=@"",_recipeName;
     // Do any additional setup after loading the view from its nib.
 }
 
@@ -41,5 +50,9 @@
     
     NSString *result=[[NSString alloc] initWithData:dateUrl encoding:NSUTF8StringEncoding] ;
     NSLog(@"%@",result);
+}
+
+- (IBAction)exitOut:(id)sender {
+    [self.view removeFromSuperview];
 }
 @end

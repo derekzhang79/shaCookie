@@ -16,5 +16,8 @@
 - (IBAction)shareContent:(id)sender;
 @property (strong, nonatomic) IBOutlet UITextField *rank;
 @property (strong, nonatomic) IBOutlet UITextField *content;
+- (IBAction)exitOut:(id)sender;
+-(id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil pushName:(NSString*)pushName;
+@property(strong,nonatomic) NSString *pushName;
 
 @end
