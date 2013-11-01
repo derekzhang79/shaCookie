@@ -5,9 +5,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3746"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="materialWithCollectionViewController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="userMaterialViewController">
             <connections>
-                <outlet property="collection_Material" destination="2pX-Go-26k" id="VPD-82-cm3"/>
+                <outlet property="collection_Material" destination="mw1-d2-ay1" id="EKU-8h-Svq"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
         </placeholder>
@@ -16,14 +16,14 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lable2.png" translatesAutoresizingMaskIntoConstraints="NO" id="aJJ-jF-ari">
-                    <rect key="frame" x="0.0" y="0.0" width="320" height="577"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="lable1.png" translatesAutoresizingMaskIntoConstraints="NO" id="8Vk-wv-84V">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="2pX-Go-26k">
-                    <rect key="frame" x="0.0" y="29" width="320" height="539"/>
+                <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="mw1-d2-ay1">
+                    <rect key="frame" x="0.0" y="30" width="320" height="538"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Pkh-2A-UjS">
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="AlA-lu-Dg8">
                         <size key="itemSize" width="50" height="50"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -31,17 +31,17 @@
                     </collectionViewFlowLayout>
                     <cells/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="Jip-O7-JWB"/>
-                        <outlet property="delegate" destination="-1" id="unM-iy-MTE"/>
+                        <outlet property="dataSource" destination="-1" id="Qmq-zN-pFj"/>
+                        <outlet property="delegate" destination="-1" id="XCc-wV-CdA"/>
                     </connections>
                 </collectionView>
             </subviews>
-            <color key="backgroundColor" red="0.96862751245498657" green="0.92941182851791382" blue="0.71764707565307617" alpha="1" colorSpace="deviceRGB"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <simulatedStatusBarMetrics key="simulatedStatusBarMetrics"/>
             <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
         </view>
     </objects>
     <resources>
-        <image name="lable2.png" width="640" height="960"/>
+        <image name="lable1.png" width="640" height="960"/>
     </resources>
 </document>
