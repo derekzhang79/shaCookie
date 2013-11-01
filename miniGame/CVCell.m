@@ -42,7 +42,11 @@
 }
 
 - (IBAction)btn_Share:(id)sender {
-    self.sv =[[ShareViewController alloc] init];
+    self.sv =[[ShareViewController alloc] initWithNibName:@"ShareViewController" bundle:nil pushName:[_titleLabel text]];
+    NSLog(@"333%@",[_titleLabel text]);
+
+    
+    [self.sv.recipeName setText:[_titleLabel text]];
     [self.window addSubview:self.sv.view];
     //
     //    UITextField *textField;

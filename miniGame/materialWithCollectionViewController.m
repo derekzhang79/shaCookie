@@ -163,6 +163,7 @@
 {
     UICollectionViewCell *cell=[collectionView cellForItemAtIndexPath:indexPath];
     MaterialCell *cell2=(MaterialCell*)cell;
+    
     cell2.image_Material.alpha=1.0f;
     cell2.label_Title.alpha=1.0f;
     
