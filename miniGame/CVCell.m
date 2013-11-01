@@ -12,7 +12,7 @@
 @implementation CVCell
 
 @synthesize titleLabel = _titleLabel;
-
+@synthesize recipeId =_recipeId;
 - (id)initWithFrame:(CGRect)frame
 {
     self = [super initWithFrame:frame];
@@ -42,11 +42,9 @@
 }
 
 - (IBAction)btn_Share:(id)sender {
-    self.sv =[[ShareViewController alloc] initWithNibName:@"ShareViewController" bundle:nil pushName:[_titleLabel text]];
-    NSLog(@"333%@",[_titleLabel text]);
-
-    
-    [self.sv.recipeName setText:[_titleLabel text]];
+    //self.sv =[[ShareViewController alloc] initWithNibName:@"ShareViewController" bundle:nil pushName:[_titleLabel text]recipeId:[_recipeId text]];
+    NSLog(@"%@",recipeId);
+    //[self.sv.recipeName setText:[_titleLabel text]];
     [self.window addSubview:self.sv.view];
     //
     //    UITextField *textField;

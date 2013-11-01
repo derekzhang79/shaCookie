@@ -89,6 +89,7 @@
         cell.image_recipe.image=[UIImage imageNamed:@"Cell 0.jpg"];
     }
     cell.titleLabel.text=[[self.dataArray objectAtIndex:indexPath.section]objectForKey:@"name"];
+    cell.recipeId.text=[[self.dataArray objectAtIndex:indexPath.section]objectForKey:@"id"];
     return cell;
     
 }

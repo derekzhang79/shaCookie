@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShareViewController">
             <connections>
                 <outlet property="content" destination="WrZ-FR-95d" id="IgS-w4-6kr"/>
-                <outlet property="rank" destination="btz-hL-Cho" id="lMs-OK-ffG"/>
+                <outlet property="rank" destination="ndy-IH-cJc" id="MJy-r1-ZP4"/>
                 <outlet property="recipeName" destination="TVd-su-Snb" id="hc6-Dd-uQq"/>
                 <outlet property="view" destination="1" id="3"/>
             </connections>
@@ -37,12 +37,6 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="btz-hL-Cho">
-                    <rect key="frame" x="139" y="86" width="97" height="30"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
-                </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WrZ-FR-95d">
                     <rect key="frame" x="110" y="180" width="154" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -76,8 +70,8 @@
                         <action selector="exitOut:" destination="-1" eventType="touchUpInside" id="tpe-dk-Ytb"/>
                     </connections>
                 </button>
-                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ndy-IH-cJc">
-                    <rect key="frame" x="128" y="124" width="118" height="34"/>
+                <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="10" translatesAutoresizingMaskIntoConstraints="NO" id="ndy-IH-cJc">
+                    <rect key="frame" x="120" y="83" width="118" height="34"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 </slider>
             </subviews>

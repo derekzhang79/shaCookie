@@ -103,13 +103,16 @@
     NSString *str=[NSString stringWithFormat:GetRecipesImage,[[self.array_Items objectAtIndex:index]objectForKey:@"image_url"]];
     imageView.imageURL = [NSURL URLWithString:str];
     
-
     NSString *rank=[[self.array_Items objectAtIndex:index]objectForKey:@"rank_avg"];
+    NSString *id=[[self.array_Items objectAtIndex:index]objectForKey:@"id"];
+
     [cell.titleLabel setText:[[self.array_Items objectAtIndex:index]objectForKey:@"name"]];
     [cell.likeLabel setTextWithAutoFrame:[NSString stringWithFormat:@"%@",[[self.array_Items objectAtIndex:index]objectForKey:@"like_sum"]]];
     [cell.shareLabel setTextWithAutoFrame:[NSString stringWithFormat:@"%@",[[self.array_Items objectAtIndex:index]objectForKey:@"share_sum"]]];
     [cell.rankLabel setTextWithAutoFrame:[NSString stringWithFormat:@"%d",[rank integerValue]]];
-    
+    //[cell.recipeId setText:[[self.array_Items objectAtIndex:index]objectForKey:@"id"]];
+    [cell.recipeId setTextWithAutoFrame:[NSString stringWithFormat:@"%@",[[self.array_Items objectAtIndex:index]objectForKey:@"id"]]];
+    cell.recipeId.text=id;
     cell.rankImage.image=[UIImage imageNamed:@"rank"];
     cell.shareImage.image=[UIImage imageNamed:@"share"];
     cell.likeImage.image=[UIImage imageNamed:@"like"];
@@ -122,7 +125,6 @@
           forControlEvents:UIControlEventTouchDown];
     [cell addSubview:button_like];
     
-
     return view;
 }
 
@@ -185,7 +187,6 @@
 {
     NSString *recipeId=[[self.array_Items objectAtIndex:index]objectForKey:@"id"];
     procedureWithMPFlipViewController *pro=[[procedureWithMPFlipViewController alloc]initWithNibName:@"procedureWithMPFlipViewController" bundle:nil recipeId:recipeId];
-
     [self.navigationController pushViewController:pro animated:TRUE];
 }
 @end
